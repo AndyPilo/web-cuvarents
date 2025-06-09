@@ -1,247 +1,295 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="light"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="es" data-bs-theme="light">
 
- <!-- Meta tags -->
-<title>CuVaRents | Inicio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="Uixsoftware">
-<meta name="keywords" content="rentas en Cuba, alquileres en Cuba, apartamentos en Cuba, casas en Cuba, CuVaRents, Uixsoftware, alquiler de viviendas, La Habana, Santiago de Cuba, Matanzas, provincia, municipio, Cuba">
-<meta name="description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
-<meta property="og:description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
-<meta property="og:url" content="https://www.cuvarents.com/">
-<meta property="og:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CuVaRents | Alquileres en Cuba">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="CuVaRents | Alquileres en Cuba">
-<meta name="twitter:description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
-<meta name="twitter:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
-<meta name="contact" content="soporte@cuvarents.com">
-<meta name="copyright" content="Copyright (c) 2024. Uixsoftware. Todos los derechos reservados.">
-<meta name="DC.title" content="CuVaRents: Líderes en Alquileres en Cuba">
-<meta name="geo.placename" content="Cuba">
-<meta name="geo.region" content="CU">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
-
-  
-    <link rel="shortcut icon" href="https://www.uixsoftware.com/assets/img/logos/logo_uixsoftware.svg">
-  
-
-    <!-- Theme switcher (color modes) -->
-    <script src="uixsoftware/assets/js/theme-switcher.js"></script>
-
-    <!-- Preloaded local web font (Inter) -->
-    <link href="uixsoftware/assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin="">
-
-    <!-- Font icons -->
-    <link rel="stylesheet" href="uixsoftware/assets/css/finder-icons.min.css">
-    <link href="uixsoftware/assets/fonts/finder-icons.woff2" as="font" type="font/woff2" crossorigin="">
-
-    <!-- Vendor styles -->
-    <link rel="stylesheet" href="uixsoftware/assets/css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="uixsoftware/assets/css/glightbox.min.css">
-    <link rel="stylesheet" href="uixsoftware/assets/css/choices.min.css">
-    <link rel="stylesheet" href="uixsoftware/assets/css/nouislider.min.css">
-    <!-- Bootstrap + Theme styles -->
-    <link rel="preload" href="uixsoftware/assets/css/theme.min.css" as="style">
-
-    <link rel="stylesheet" href="uixsoftware/assets/css/theme.min.css" id="theme-styles">
-
-<style id="customizer-styles">:root,[data-bs-theme="light"]{}[data-bs-theme="dark"]{}.btn-primary{}.btn-success{}.btn-warning{}.btn-danger{}.btn-info{}.btn-outline-primary{}.btn-outline-success{}.btn-outline-warning{}.btn-outline-danger{}.btn-outline-info{}</style>
-  </head>
+  <!-- Meta tags -->
+  <title>CuVaRents | Rentas de casas en Cuba</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Uixsoftware">
+  <meta name="keywords" content="rentas en Cuba, alquileres en Cuba, apartamentos en Cuba, casas en Cuba, CuVaRents, Uixsoftware, alquiler de viviendas, La Habana, Santiago de Cuba, Matanzas, provincia, municipio, Cuba">
+  <meta name="description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
+  <meta property="og:description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
+  <meta property="og:url" content="https://www.cuvarents.com/">
+  <meta property="og:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CuVaRents | Alquileres en Cuba">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CuVaRents | Alquileres en Cuba">
+  <meta name="twitter:description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
+  <meta name="twitter:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
+  <meta name="contact" content="soporte@cuvarents.com">
+  <meta name="copyright" content="Copyright (c) 2024. Uixsoftware. Todos los derechos reservados.">
+  <meta name="DC.title" content="CuVaRents: Líderes en Alquileres en Cuba">
+  <meta name="geo.placename" content="Cuba">
+  <meta name="geo.region" content="CU">
 
 
-  <!-- Body -->
-  <body>
+
+
+  <link rel="shortcut icon" href="https://www.uixsoftware.com/assets/img/logos/logo_uixsoftware.svg">
+
+
+  <!-- Theme switcher (color modes) -->
+  <script src="uixsoftware/assets/js/theme-switcher.js"></script>
+
+  <!-- Preloaded local web font (Inter) -->
+  <link href="uixsoftware/assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin="">
+
+  <!-- Font icons -->
+  <link rel="stylesheet" href="uixsoftware/assets/css/finder-icons.min.css">
+  <link href="uixsoftware/assets/fonts/finder-icons.woff2" as="font" type="font/woff2" crossorigin="">
+
+  <!-- Vendor styles -->
+  <link rel="stylesheet" href="uixsoftware/assets/css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="uixsoftware/assets/css/glightbox.min.css">
+  <link rel="stylesheet" href="uixsoftware/assets/css/choices.min.css">
+  <link rel="stylesheet" href="uixsoftware/assets/css/nouislider.min.css">
+  <!-- Bootstrap + Theme styles -->
+  <link rel="preload" href="uixsoftware/assets/css/theme.min.css" as="style">
+
+  <link rel="stylesheet" href="uixsoftware/assets/css/theme.min.css" id="theme-styles">
+
+  <style id="customizer-styles">
+    :root,
+    [data-bs-theme="light"] {}
+
+    [data-bs-theme="dark"] {}
+
+    .btn-primary {}
+
+    .btn-success {}
+
+    .btn-warning {}
+
+    .btn-danger {}
+
+    .btn-info {}
+
+    .btn-outline-primary {}
+
+    .btn-outline-success {}
+
+    .btn-outline-warning {}
+
+    .btn-outline-danger {}
+
+    .btn-outline-info {}
+  </style>
+</head>
+
+
+<!-- Body -->
+
+<body>
 
   <?php include 'navbar.php'; ?>
 
 
-    <!-- Page content -->
-    <main class="">
+  <!-- Page content -->
+  <main class="">
 
-      <!-- Hero with search form -->
-      <section class="position-relative mt-md-5 d-none d-md-block">
-        <div class="container position-relative z-1 pt-5 pt-md-4 pt-xl-5">
-          <div class="row pt-lg-3 pt-xl-0 pt-xxl-4 pb-4 pb-md-5 pb-xl-0">
-            <div class="col-md-6 col-xxl-5 text-center text-md-start">
-              <h1 class="display-5 pb-sm-1 pb-lg-3 black-ops-one-regular" style="    font-size: 54px !important;">Una manera fácil de encontrar el hospedaje perfecto</h1>
-            </div>
+    <!-- Hero with search form -->
+    <section class="position-relative mt-md-5 d-none d-md-block">
+      <div class="container position-relative z-1 pt-5 pt-md-4 pt-xl-5">
+        <div class="row pt-lg-3 pt-xl-0 pt-xxl-4 pb-4 pb-md-5 pb-xl-0">
+          <div class="col-md-6 col-xxl-5 text-center text-md-start">
+            <h1 class="display-5 pb-sm-1 pb-lg-3 black-ops-one-regular" style="    font-size: 54px !important;">Renta de casas y hospedaje en Cuba</h1>
           </div>
-          <div class="d-none d-md-block d-lg-none" style="height: 70px"></div>
-          <div class="d-none d-lg-block d-xl-none" style="height: 130px"></div>
-          <div class="d-none d-xl-block" style="height: 390px"></div>
-
-          <!-- Search form -->
-          <div class="row pb-5 pb-md-0">
-            <div class="col-xl-10 col-xxl-9">
-            
-            </div>
-          </div>
-          <div class="d-none d-md-block d-lg-none" style="height: 60px"></div>
-          <div class="d-none d-lg-block d-xxl-none" style="height: 90px"></div>
-          <div class="d-none d-xxl-block" style="height: 130px"></div>
         </div>
+        <div class="d-none d-md-block d-lg-none" style="height: 70px"></div>
+        <div class="d-none d-lg-block d-xl-none" style="height: 130px"></div>
+        <div class="d-none d-xl-block" style="height: 390px"></div>
 
-        <!-- Background images -->
-        <span class="position-absolute top-0 start-0 w-100 h-100 bg-body-tertiary d-md-none"></span>
-        <div class="position-absolute top-0 start-0 w-100 h-100 overflow-hidden mt-xxl-4 d-none d-md-block">
-          <div class="position-absolute top-0 start-50 translate-middle-x d-flex gap-4" style="width: 1560px">
-            <div style="width: 768px">
-              <div class="d-xl-none" style="height: 295px"></div>
-              <div class="d-none d-xl-block d-xxl-none" style="height: 326px"></div>
-              <div class="d-none d-xxl-block" style="height: 366px"></div>
-              <div class="position-relative overflow-hidden">
-                <div class="position-absolute top-0 z-1 fw-bold" style="right: 0; margin: -75px 96px 0px 0; margin-top: 10px; font-size: 108px; color: var(--fn-body-bg)">Confort</div>
-                <div class="ratio bg-body-tertiary rounded overflow-hidden" style="--fn-aspect-ratio: calc(328 / 568 * 100%)">
-                  <img src="uixsoftware/assets/img/hero3.jpg" alt="Image">
-                </div>
-              </div>
-            </div>
+        <!-- Search form -->
+        <div class="row pb-5 pb-md-0">
+          <div class="col-xl-10 col-xxl-9">
 
-            <div style="width: 508px;">
-              <div style="height: 117px"></div>
-              <div class="position-relative overflow-hidden">
-                <div class="position-absolute top-0 z-1 fw-bold" style="left: 0; margin: -53px 0 0 -18px; font-size: 108px; color: var(--fn-body-bg)">Cuba</div>
-                <div class="ratio bg-body-tertiary rounded overflow-hidden" style="--fn-aspect-ratio: calc(446 / 438 * 100%)">
-                  <img src="uixsoftware/assets/img/hero2.jpg" alt="Image">
-                </div>
+          </div>
+        </div>
+        <div class="d-none d-md-block d-lg-none" style="height: 60px"></div>
+        <div class="d-none d-lg-block d-xxl-none" style="height: 90px"></div>
+        <div class="d-none d-xxl-block" style="height: 130px"></div>
+      </div>
+
+      <!-- Background images -->
+      <span class="position-absolute top-0 start-0 w-100 h-100 bg-body-tertiary d-md-none"></span>
+      <div class="position-absolute top-0 start-0 w-100 h-100 overflow-hidden mt-xxl-4 d-none d-md-block">
+        <div class="position-absolute top-0 start-50 translate-middle-x d-flex gap-4" style="width: 1560px">
+          <div style="width: 768px">
+            <div class="d-xl-none" style="height: 295px"></div>
+            <div class="d-none d-xl-block d-xxl-none" style="height: 326px"></div>
+            <div class="d-none d-xxl-block" style="height: 366px"></div>
+            <div class="position-relative overflow-hidden">
+              <div class="position-absolute top-0 z-1 fw-bold" style="right: 0; margin: -75px 96px 0px 0; margin-top: 10px; font-size: 108px; color: var(--fn-body-bg)">Confort</div>
+              <div class="ratio bg-body-tertiary rounded overflow-hidden" style="--fn-aspect-ratio: calc(328 / 568 * 100%)">
+                <img src="uixsoftware/assets/img/hero3.jpg" alt="Image">
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section class="bg-info d-block d-md-none" style="background-image: url('uixsoftware/assets/img/herox.jpg');background-size: cover;">
-        <div class="container pt-5">
-          <div class="text-center pt-5 pb-3" style="margin-top: -80px;">
+          <div style="width: 508px;">
+            <div style="height: 117px"></div>
+            <div class="position-relative overflow-hidden">
+              <div class="position-absolute top-0 z-1 fw-bold" style="left: 0; margin: -53px 0 0 -18px; font-size: 108px; color: var(--fn-body-bg)">Cuba</div>
+              <div class="ratio bg-body-tertiary rounded overflow-hidden" style="--fn-aspect-ratio: calc(446 / 438 * 100%)">
+                <img src="uixsoftware/assets/img/hero2.jpg" alt="Image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-info d-block d-md-none" style="background-image: url('uixsoftware/assets/img/herox.jpg');background-size: cover;">
+      <div class="container pt-5">
+        <div class="text-center pt-5 pb-3" style="margin-top: -80px;">
           <span class="display-4 mb-2 text-white black-ops-one-regular" style="text-shadow: 0 0 10px #393939;">CuVaRents</span>
           <br>
-            <span class="display-6 text-white  pb-2 black-ops-one-regular" style="text-shadow: 0 0 10px #393939;">Una manera fácil de encontrar el hospedaje perfecto</span>
-            <?php include 'inputsearch.php'; ?>
-          </div>
+          <span class="display-6 text-white  pb-2 black-ops-one-regular" style="text-shadow: 0 0 10px #393939;">Una manera fácil de encontrar el hospedaje perfecto</span>
+          <?php include 'inputsearch.php'; ?>
         </div>
-      </section>
-
-
-      <style>
-        .gradient-overlay {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
-    position: relative;
-}
-
-.gradient-overlay::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    border-radius: 12px;
-    height: 100%;
-    z-index: 1;
-    background: linear-gradient(to right, rgba(66, 66, 66, 0.75), rgba(0, 0, 0, 0));
-}
-
-.card-body {
-    position: relative;
-    z-index: 2;
-}
-
-      </style>
-
-
-<section>
-    <div class="container mt-4 pt-5">
-        <div class="row g-4">
-            <div class="col-12 col-md-6">
-                <a class="card txn gradient-overlay border-0" href="rents.php?category=Casas+de+lujo" style="border-radius:12px; background-image: url('uixsoftware/assets/img/1.jpg'); background-position-x: right; background-position-y: center;background-size: cover;">
-                    <div class="card-body p-3 p-md-5">
-                        <span class="h4 text-white">Casas de lujo</span>
-                        <br>
-                        <button class="btnx mt-2 p-0" style="width: 40px; height:40px;"><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M15 16l4 -4" /><path d="M15 8l4 4" /></svg></button>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <a class="card txn gradient-overlay border-0" href="rents.php?category=Casas+en+la+playa" style="border-radius:12px; background-image: url('uixsoftware/assets/img/2.jpg'); background-position-x: right; background-position-y: center;background-size: cover;">
-                    <div class="card-body p-3 p-md-5">
-                        <span class="h4 text-white">Casas en la playa</span>
-                        <br>
-                        <button class="btnx mt-2 p-0" style="width: 40px; height:40px;"><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M15 16l4 -4" /><path d="M15 8l4 4" /></svg></button>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <a class="card txn gradient-overlay border-0" href="rents.php?category=Casas+y+Apartamentos+por+largas+y+cortas+estancias" style="border-radius:12px; background-image: url('uixsoftware/assets/img/3.jpg'); background-position-x: right; background-position-y: center;background-size: cover;">
-                    <div class="card-body p-3 p-md-5">
-                        <span class="h4 text-white">Casas y Apartamentos por largas y cortas estancias</span>
-                        <br>
-                        <button class="btnx mt-2 p-0" style="width: 40px; height:40px;"><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M15 16l4 -4" /><path d="M15 8l4 4" /></svg></button>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <a class="card txn gradient-overlay border-0 h-100" href="rents.php?category=Casas+y+Alojamientos+vacacionales" style="border-radius:12px; background-image: url('uixsoftware/assets/img/4.jpg'); background-position-x: right; background-position-y: center;background-size: cover;">
-                    <div class="card-body p-3 p-md-5">
-                        <span class="h4 text-white">Casas y Alojamientos vacacionales</span>
-                        <br>
-                        <button class="btnx mt-2 p-0" style="width: 40px; height:40px;"><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M15 16l4 -4" /><path d="M15 8l4 4" /></svg></button>
-                    </div>
-                </a>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-
-
-
-
-      <section class="mt-6 pt-5 pb-5">
-        <div>
       </div>
-      </section>
-      <!-- Property listings -->
-      
-<?php 
-$categories = [
-  "Casas de lujo",
-  "Casas en la playa",
-  "Casas y Apartamentos por largas y cortas estancias",
-  "Casas y Alojamientos vacacionales"
-];
+    </section>
 
-foreach ($categories as $category) {
-  // Consulta para obtener las rentas de la categoría actual, excluyendo las ocultas y limitando a 4 resultados
-  $sql3 = "SELECT Rentals.*, GROUP_CONCAT(RentalImages.image_url) AS images 
+
+    <style>
+      .gradient-overlay {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+        position: relative;
+      }
+
+      .gradient-overlay::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 12px;
+        height: 100%;
+        z-index: 1;
+        background: linear-gradient(to right, rgba(66, 66, 66, 0.75), rgba(0, 0, 0, 0));
+      }
+
+      .card-body {
+        position: relative;
+        z-index: 2;
+      }
+    </style>
+
+
+    <section>
+      <div class="container mt-4 pt-5">
+        <div class="row g-4">
+          <div class="col-12 col-md-6">
+            <a class="card txn gradient-overlay border-0" href="rents.php?category=Casas+de+lujo" style="border-radius:12px; background-image: url('uixsoftware/assets/img/1.jpg'); background-position-x: right; background-position-y: center;background-size: cover;">
+              <div class="card-body p-3 p-md-5">
+                <span class="h4 text-white">Casas de lujo</span>
+                <br>
+                <button class="btnx mt-2 p-0" style="width: 40px; height:40px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M5 12l14 0" />
+                    <path d="M15 16l4 -4" />
+                    <path d="M15 8l4 4" />
+                  </svg></button>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <a class="card txn gradient-overlay border-0" href="rents.php?category=Casas+en+la+playa" style="border-radius:12px; background-image: url('uixsoftware/assets/img/2.jpg'); background-position-x: right; background-position-y: center;background-size: cover;">
+              <div class="card-body p-3 p-md-5">
+                <span class="h4 text-white">Casas en la playa</span>
+                <br>
+                <button class="btnx mt-2 p-0" style="width: 40px; height:40px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M5 12l14 0" />
+                    <path d="M15 16l4 -4" />
+                    <path d="M15 8l4 4" />
+                  </svg></button>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <a class="card txn gradient-overlay border-0" href="rents.php?category=Casas+y+Apartamentos+por+largas+y+cortas+estancias" style="border-radius:12px; background-image: url('uixsoftware/assets/img/3.jpg'); background-position-x: right; background-position-y: center;background-size: cover;">
+              <div class="card-body p-3 p-md-5">
+                <span class="h4 text-white">Casas y Apartamentos por largas y cortas estancias</span>
+                <br>
+                <button class="btnx mt-2 p-0" style="width: 40px; height:40px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M5 12l14 0" />
+                    <path d="M15 16l4 -4" />
+                    <path d="M15 8l4 4" />
+                  </svg></button>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <a class="card txn gradient-overlay border-0 h-100" href="rents.php?category=Casas+y+Alojamientos+vacacionales" style="border-radius:12px; background-image: url('uixsoftware/assets/img/4.jpg'); background-position-x: right; background-position-y: center;background-size: cover;">
+              <div class="card-body p-3 p-md-5">
+                <span class="h4 text-white">Casas y Alojamientos vacacionales</span>
+                <br>
+                <button class="btnx mt-2 p-0" style="width: 40px; height:40px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M5 12l14 0" />
+                    <path d="M15 16l4 -4" />
+                    <path d="M15 8l4 4" />
+                  </svg></button>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+    <section class="mt-6 pt-5 pb-5">
+      <div>
+      </div>
+    </section>
+    <!-- Property listings -->
+
+    <?php
+    $categories = [
+      "Casas de lujo",
+      "Casas en la playa",
+      "Casas y Apartamentos por largas y cortas estancias",
+      "Casas y Alojamientos vacacionales"
+    ];
+
+    foreach ($categories as $category) {
+      // Consulta para obtener las rentas de la categoría actual, excluyendo las ocultas y limitando a 4 resultados
+      $sql3 = "SELECT Rentals.*, GROUP_CONCAT(RentalImages.image_url) AS images 
           FROM Rentals
           LEFT JOIN RentalImages ON Rentals.rental_id = RentalImages.rental_id
           WHERE Rentals.is_hidden = FALSE AND Rentals.rental_category = ?
           GROUP BY Rentals.rental_id
           ORDER BY Rentals.is_promoted DESC, Rentals.rental_id DESC
           LIMIT 4";
-  
-  $stmt = $conn->prepare($sql3);
-  $stmt->bind_param("s", $category);
-  $stmt->execute();
-  $result = $stmt->get_result();
 
-  if ($result->num_rows > 0) {
-      echo "
+      $stmt = $conn->prepare($sql3);
+      $stmt->bind_param("s", $category);
+      $stmt->execute();
+      $result = $stmt->get_result();
+
+      if ($result->num_rows > 0) {
+        echo "
       <section class=\"container pb-5\">
           <h2 class=\"h4 pb-4\">$category</h2>
 
           <!-- Properties grid -->
           <div class=\"row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 g-md-3 g-lg-4\">";
 
-      while ($row = $result->fetch_assoc()) {
+        while ($row = $result->fetch_assoc()) {
           $rentalId = $row['rental_id'];
           $images = explode(',', $row['images']);
           $firstImage = !empty($images[0]) ? 'uploads/' . $images[0] : 'ruta/a/la/imagen/por/defecto.jpg';
@@ -268,30 +316,30 @@ foreach ($categories as $category) {
           $count = 0;
 
           while ($service = $resultServices->fetch_assoc()) {
-              if ($count < 5) {
-                  $servicesIcons .= $service['services_rent_icon_svg'];
-              }
-              $count++;
+            if ($count < 5) {
+              $servicesIcons .= $service['services_rent_icon_svg'];
+            }
+            $count++;
           }
 
           if ($totalServices > 5) {
-              $servicesIcons .= '<span class="fs-sm ms-2">+' . ($totalServices - 5) . '</span>';
+            $servicesIcons .= '<span class="fs-sm ms-2">+' . ($totalServices - 5) . '</span>';
           }
 
           // Generar las slides del Swiper
           $slides = "";
           $imageCount = 0;
           foreach ($images as $index => $image) {
-              if ($imageCount >= 4) break; // Limitar a 4 imágenes
-              $slideImage = !empty($image) ? 'uploads/' . $image : 'ruta/a/la/imagen/por/defecto.jpg';
-              $slides .= "
+            if ($imageCount >= 4) break; // Limitar a 4 imágenes
+            $slideImage = !empty($image) ? 'uploads/' . $image : 'ruta/a/la/imagen/por/defecto.jpg';
+            $slides .= "
               <div class=\"swiper-slide\" role=\"group\" aria-label=\"" . ($index + 1) . " / " . count($images) . "\" style=\"width: 304px;\">
                   <div class=\"ratio d-block\" style=\"--fn-aspect-ratio: calc(248 / 362 * 100%)\">
                       <img src=\"./dashboard/$slideImage\" alt=\"Image\">
                       <span class=\"position-absolute top-0 start-0 w-100 h-100 z-1\" style=\"background: linear-gradient(180deg, rgba(0,0,0, 0) 0%, rgba(0,0,0, .11) 100%)\"></span>
                   </div>
               </div>";
-              $imageCount++;
+            $imageCount++;
           }
 
           echo "
@@ -329,43 +377,45 @@ foreach ($categories as $category) {
                   </div>
               </article>
           </div>";
-      }
+        }
 
-      echo "
+        echo "
           </div>
           <div class=\"d-flex pt-5\">
               <a href=\"rents.php?category=" . urlencode($category) . "\" class=\"btn btn-outline-secondary\">Ver más alquileres de esta categoría</a>
           </div>
       </section>";
-  }
+      }
 
-  $stmt->close();
-}
-?>
-
-
-
-      
-
-
-      <?php include 'testimonialComponent.php'; ?>
-
-      
-    </main>
-
-
-    <?php include 'footer.php'; ?>
+      $stmt->close();
+    }
+    ?>
 
 
 
-    <!-- Vendor scripts -->
-    <script src="uixsoftware/assets/js/swiper-bundle.min.js"></script>
-    <script src="uixsoftware/assets/js/glightbox.min.js"></script>
-    <script src="uixsoftware/assets/js/choices.min.js"></script>
-    <script src="uixsoftware/assets/js/nouislider.min.js"></script>
 
-    <!-- Bootstrap + Theme scripts -->
-    <script src="uixsoftware/assets/js/theme.min.js"></script>
-  
 
-</body></html>
+
+    <?php include 'testimonialComponent.php'; ?>
+
+
+  </main>
+
+
+  <?php include 'footer.php'; ?>
+
+
+
+  <!-- Vendor scripts -->
+  <script src="uixsoftware/assets/js/swiper-bundle.min.js"></script>
+  <script src="uixsoftware/assets/js/glightbox.min.js"></script>
+  <script src="uixsoftware/assets/js/choices.min.js"></script>
+  <script src="uixsoftware/assets/js/nouislider.min.js"></script>
+
+  <!-- Bootstrap + Theme scripts -->
+  <script src="uixsoftware/assets/js/theme.min.js"></script>
+
+
+</body>
+
+</html>
