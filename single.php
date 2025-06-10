@@ -104,20 +104,20 @@
 
             // Obtener los detalles de la renta desde la base de datos
             $sql = "SELECT Rentals.*, GROUP_CONCAT(RentalImages.image_url) AS images FROM Rentals
-        LEFT JOIN RentalImages ON Rentals.rental_id = RentalImages.rental_id
-        WHERE Rentals.rental_id = $rentalId
-        GROUP BY Rentals.rental_id";
+                    LEFT JOIN RentalImages ON Rentals.rental_id = RentalImages.rental_id
+                    WHERE Rentals.rental_id = $rentalId
+                    GROUP BY Rentals.rental_id";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
                 $images = !empty($row['images']) ? explode(',', $row['images']) : [];
                 if (!empty($images[0])) {
-                    $firstImage = 'uploads/' . $images[0]; // ruta relativa
-                    $firstImageFull = 'dashboard/' . $firstImage; // para href y src
+                    $firstImage = 'uploads/' . $images[0];
+                    $firstImageFull = 'dashboard/' . $firstImage;
                 } else {
                     $firstImage = 'uixsoftware/assets/img/default-img.png';
-                    $firstImageFull = $firstImage; // ya está en public path
+                    $firstImageFull = $firstImage;
                 }
                 $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
                 $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
@@ -130,10 +130,9 @@
                 $rentalCapacity = intval($row['rental_capacity']);
                 $isPromoted = $row['is_promoted'];
 
-                // Obtener los servicios de la renta
                 $sqlServices = "SELECT services_rent_name, services_rent_icon_svg FROM services_rent
-                    JOIN RentalServices ON services_rent.services_rent_id = RentalServices.service_rent_id
-                    WHERE RentalServices.rental_id = $rentalId";
+        JOIN RentalServices ON services_rent.services_rent_id = RentalServices.service_rent_id
+        WHERE RentalServices.rental_id = $rentalId";
                 $resultServices = $conn->query($sqlServices);
 
                 $servicesIcons = "";
@@ -142,104 +141,95 @@
                 }
 
                 echo "
-    <!-- Breadcrumb -->
-    <nav class=\"pb-2 pb-md-3\" aria-label=\"breadcrumb\">
-        <ol class=\"breadcrumb\">
-            <li class=\"breadcrumb-item\"><a href=\"home-real-estate.html\">Inicio</a></li>
-            <li class=\"breadcrumb-item\"><a href=\"./rents\">Propiedad en alquiler</a></li>
-            <li class=\"breadcrumb-item active\" aria-current=\"page\">$rentalTitle</li>
-        </ol>
-    </nav>
+<!-- Breadcrumb -->
+<nav class=\"pb-2 pb-md-3\" aria-label=\"breadcrumb\">
+    <ol class=\"breadcrumb\">
+        <li class=\"breadcrumb-item\"><a href=\"home-real-estate.html\">Inicio</a></li>
+        <li class=\"breadcrumb-item\"><a href=\"./rents\">Propiedad en alquiler</a></li>
+        <li class=\"breadcrumb-item active\" aria-current=\"page\">$rentalTitle</li>
+    </ol>
+</nav>
 
-    <!-- Image gallery -->
-    <div class=\"row g-3 g-lg-4\">
-        <div class=\"col-md-8\">
-            <a class=\"hover-effect-scale hover-effect-opacity position-relative d-flex rounded overflow-hidden\" href=\"$firstImageFull\" data-glightbox=\"\" data-gallery=\"image-gallery\">
+<!-- Image gallery -->
+<div class=\"row g-3 g-lg-4\">
+    <div class=\"col-md-8\">
+        <a class=\"hover-effect-scale hover-effect-opacity position-relative d-flex rounded overflow-hidden\" href=\"$firstImageFull\" data-glightbox=\"\" data-gallery=\"image-gallery\">
+            <i class=\"fi-zoom-in hover-effect-target fs-3 text-white position-absolute top-50 start-50 translate-middle opacity-0 z-2\"></i>
+            <span class=\"hover-effect-target position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-25 opacity-0 z-1\"></span>
+            <div class=\"ratio hover-effect-target bg-body-tertiary rounded\" style=\"--fn-aspect-ratio: calc(450 / 856 * 100%)\">
+                <img src=\"$firstImageFull\" alt=\"Imagen 1 de $rentalTitle\">
+            </div>
+        </a>
+    </div>";
+
+                for ($i = 1; $i < count($images); $i++) {
+                    $image = 'uploads/' . $images[$i];
+                    $altText = "Imagen " . ($i + 1) . " de $rentalTitle";
+                    if ($i <= 3) {
+                        echo "
+        <div class=\"col-md-4 vstack gap-3 gap-lg-4\">
+            <a class=\"hover-effect-scale h-100 hover-effect-opacity position-relative d-flex rounded overflow-hidden\" href=\"dashboard/$image\" data-glightbox=\"\" data-gallery=\"image-gallery\">
                 <i class=\"fi-zoom-in hover-effect-target fs-3 text-white position-absolute top-50 start-50 translate-middle opacity-0 z-2\"></i>
                 <span class=\"hover-effect-target position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-25 opacity-0 z-1\"></span>
-                <div class=\"ratio hover-effect-target bg-body-tertiary rounded\" style=\"--fn-aspect-ratio: calc(450 / 856 * 100%)\">
-                    <img src=\"$firstImageFull\" alt=\"Image\">
+                <div class=\"ratio hover-effect-target bg-body-tertiary rounded\" style=\"--fn-aspect-ratio: calc(213 / 416 * 100%)\">
+                    <img src=\"dashboard/$image\" alt=\"$altText\">
                 </div>
             </a>
         </div>";
-
-                // Mostrar hasta 3 imágenes adicionales
-                for ($i = 1; $i < count($images); $i++) {
-                    $image = 'uploads/' . $images[$i];
-                    if ($i <= 3) {
-                        echo "
-            <div class=\"col-md-4 vstack gap-3 gap-lg-4\">
-                <a class=\"hover-effect-scale h-100 hover-effect-opacity position-relative d-flex rounded overflow-hidden\" href=\"dashboard/$image\" data-glightbox=\"\" data-gallery=\"image-gallery\">
-                    <i class=\"fi-zoom-in hover-effect-target fs-3 text-white position-absolute top-50 start-50 translate-middle opacity-0 z-2\"></i>
-                    <span class=\"hover-effect-target position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-25 opacity-0 z-1\"></span>
-                    <div class=\"ratio hover-effect-target bg-body-tertiary rounded\" style=\"--fn-aspect-ratio: calc(213 / 416 * 100%)\">
-                        <img src=\"dashboard/$image\" alt=\"Image\">
-                    </div>
-                </a>
-            </div>";
                     } else if ($i === 4) {
                         $remainingImages = count($images) - 4;
                         echo "
-            <div class=\"col-md-4 vstack gap-3 gap-lg-4\">
-                <a class=\"hover-effect-scale h-100 hover-effect-opacity position-relative d-flex rounded overflow-hidden\" href=\"dashboard/$image\" data-glightbox=\"\" data-gallery=\"image-gallery\">
-                    <i class=\"fi-zoom-in hover-effect-target fs-3 text-white position-absolute top-50 start-50 translate-middle opacity-0 z-2\"></i>
-                    <span class=\"hover-effect-target position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-25 opacity-0 z-1\"></span>
-                    <div class=\"ratio hover-effect-target bg-body-tertiary rounded\" style=\"--fn-aspect-ratio: calc(213 / 416 * 100%)\">
-                        <img src=\"dashboard/$image\" alt=\"Image\">
-                        <div class=\"position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-75 d-flex align-items-center justify-content-center\">
-                            <span class=\"text-white fs-3\">+$remainingImages</span>
-                        </div>
+        <div class=\"col-md-4 vstack gap-3 gap-lg-4\">
+            <a class=\"hover-effect-scale h-100 hover-effect-opacity position-relative d-flex rounded overflow-hidden\" href=\"dashboard/$image\" data-glightbox=\"\" data-gallery=\"image-gallery\">
+                <i class=\"fi-zoom-in hover-effect-target fs-3 text-white position-absolute top-50 start-50 translate-middle opacity-0 z-2\"></i>
+                <span class=\"hover-effect-target position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-25 opacity-0 z-1\"></span>
+                <div class=\"ratio hover-effect-target bg-body-tertiary rounded\" style=\"--fn-aspect-ratio: calc(213 / 416 * 100%)\">
+                    <img src=\"dashboard/$image\" alt=\"$altText\">
+                    <div class=\"position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-75 d-flex align-items-center justify-content-center\">
+                        <span class=\"text-white fs-3\">+$remainingImages</span>
                     </div>
-                </a>
-            </div>";
+                </div>
+            </a>
+        </div>";
                         break;
                     }
                 }
 
-                // Añadir enlaces ocultos para las imágenes adicionales
                 for ($i = 4; $i < count($images); $i++) {
                     $image = 'uploads/' . $images[$i];
-                    echo "<a class=\"d-none\" href=\"dashboard/$image\" data-glightbox=\"\" data-gallery=\"image-gallery\"></a>";
+                    echo "<a class=\"d-none\" href=\"dashboard/$image\" data-glightbox=\"\" data-gallery=\"image-gallery\" aria-label=\"Imagen adicional de $rentalTitle en $rentalMunicipio, $rentalProvincia\"></a>";
                 }
 
                 echo "
-    </div>
+</div>
 
-    <!-- Listing details -->
-    <div class=\"row pt-4 pb-2 pb-sm-3 pb-md-4 py-lg-5 mt-sm-2 mt-lg-0\">
-
-        <!-- Content sections -->
-        <div class=\"col-lg-8 col-xl-7 pb-3 pb-sm-0 mb-4 mb-sm-5 mb-lg-0\">
-
-            <!-- Badges + Sharing and wishlist buttons -->
-            <div class=\"d-flex align-items-center justify-content-between gap-4 mb-3\">
-                " . ($isPromoted ? "<span class=\"badge bg-warning\">VIP</span>" : "") . "
-            </div>
-
-            <!-- Price + Address + Facilities -->
-            <div class=\"h3 pb-1 mb-2\">\$$rentalPrice <span class=\"fs-sm text-muted\">($rentalPriceType)</span></div>
-            <p class=\"fs-sm pb-1 mb-2\">$rentalProvincia, $rentalMunicipio</p>
-            <p class=\"fs-sm pb-1 mb-2\"><strong>Tipo de renta:</strong> $typeTimeRent</p>
-
-            <!-- About -->
-            <h2 class=\"h5 pt-4 pt-sm-5 mt-3 mt-sm-0\">Acerca de</h2>
-            <p class=\"fs-sm\">$rentalDescription</p>
-
-            <!-- Habitaciones y Capacidad -->
-            <p class=\"fs-sm pb-1 mb-2\"><strong>Habitaciones:</strong> $rentalRooms</p>
-            <p class=\"fs-sm pb-1 mb-2\"><strong>Capacidad:</strong> $rentalCapacity personas</p>
-
-            <div class=\"row g-3\">
-                <h2 class=\"h5 pt-4 pt-sm-5 mt-3 mt-sm-0\">Comodidades</h2>
-                $servicesIcons
-            </div>
-
+<!-- Listing details -->
+<div class=\"row pt-4 pb-2 pb-sm-3 pb-md-4 py-lg-5 mt-sm-2 mt-lg-0\">
+    <div class=\"col-lg-8 col-xl-7 pb-3 pb-sm-0 mb-4 mb-sm-5 mb-lg-0\">
+        <div class=\"d-flex align-items-center justify-content-between gap-4 mb-3\">
+            " . ($isPromoted ? "<span class=\"badge bg-warning\">VIP</span>" : "") . "
         </div>
-    ";
+
+        <div class=\"h3 pb-1 mb-2\">\$$rentalPrice <span class=\"fs-sm text-muted\">($rentalPriceType)</span></div>
+        <p class=\"fs-sm pb-1 mb-2\">$rentalProvincia, $rentalMunicipio</p>
+        <p class=\"fs-sm pb-1 mb-2\"><strong>Tipo de renta:</strong> $typeTimeRent</p>
+
+        <h2 class=\"h5 pt-4 pt-sm-5 mt-3 mt-sm-0\">Acerca de</h2>
+        <p class=\"fs-sm\">$rentalDescription</p>
+
+        <p class=\"fs-sm pb-1 mb-2\"><strong>Habitaciones:</strong> $rentalRooms</p>
+        <p class=\"fs-sm pb-1 mb-2\"><strong>Capacidad:</strong> $rentalCapacity personas</p>
+
+        <div class=\"row g-3\">
+            <h2 class=\"h5 pt-4 pt-sm-5 mt-3 mt-sm-0\">Comodidades</h2>
+            $servicesIcons
+        </div>
+    </div>";
             } else {
                 echo "Renta no encontrada.";
             }
             ?>
+
 
 
 

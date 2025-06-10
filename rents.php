@@ -258,7 +258,7 @@
                             $slides .= "
     <div class=\"swiper-slide\">
         <div class=\"ratio d-block\" style=\"--fn-aspect-ratio: calc(248 / 362 * 100%)\">
-            <img src=\"uixsoftware/assets/img/default-img.png\" alt=\"Imagen por defecto\">
+            <img src=\"uixsoftware/assets/img/default-img.png\" alt=\"Imagen gris con una casita en medio que se muestra por defecto cuando una renta no tiene fotos\">
             <span class=\"position-absolute top-0 start-0 w-100 h-100 z-1\" style=\"background: linear-gradient(180deg, rgba(0,0,0, 0) 0%, rgba(0,0,0, .11) 100%)\"></span>
         </div>
     </div>";
@@ -269,7 +269,7 @@
                                 $slides .= "
         <div class=\"swiper-slide\" role=\"group\" aria-label=\"" . ($index + 1) . " / " . count($images) . "\" style=\"width: 304px;\">
             <div class=\"ratio d-block\" style=\"--fn-aspect-ratio: calc(248 / 362 * 100%)\">
-                <img src=\"./dashboard/$slideImage\" alt=\"Image\">
+                <img src=\"./dashboard/$slideImage\" alt=\"Imagen " . ($index + 1) . " de $rentalTitle\">
                 <span class=\"position-absolute top-0 start-0 w-100 h-100 z-1\" style=\"background: linear-gradient(180deg, rgba(0,0,0, 0) 0%, rgba(0,0,0, .11) 100%)\"></span>
             </div>
         </div>";

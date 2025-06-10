@@ -4,16 +4,16 @@ session_start();
 
 // Lógica para cerrar sesión
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {
-    session_destroy();
-    header("Location: ../auth/login.php"); // Redirige a la página de inicio de sesión después de cerrar la sesión
-    exit();
+  session_destroy();
+  header("Location: ../auth/login.php"); // Redirige a la página de inicio de sesión después de cerrar la sesión
+  exit();
 }
 
 // Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['account_id'])) {
-    // Si no hay sesión activa, redirige al login
-    header("Location: ../auth/login.php");
-    exit();
+  // Si no hay sesión activa, redirige al login
+  header("Location: ../auth/login.php");
+  exit();
 }
 
 $loggedIn = isset($_SESSION['account_id']);
@@ -33,8 +33,8 @@ $result = $conn->query($sql);
 
 $checkboxes = '';
 if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        $checkboxes .= '<div class="col-12 col-md-6 checkbox-wrapper-16">
+  while ($row = $result->fetch_assoc()) {
+    $checkboxes .= '<div class="col-12 col-md-6 checkbox-wrapper-16">
             <label class="checkbox-wrapper">
                 <input class="checkbox-input" type="checkbox" value="' . htmlspecialchars($row['services_rent_id'], ENT_QUOTES, 'UTF-8') . '" id="service_' . htmlspecialchars($row['services_rent_id'], ENT_QUOTES, 'UTF-8') . '" name="services[]">
                 <span class="checkbox-tile">
@@ -43,9 +43,9 @@ if ($result->num_rows > 0) {
                 </span>
             </label>
         </div>';
-    }
+  }
 } else {
-    $checkboxes .= '<p>No hay servicios disponibles.</p>';
+  $checkboxes .= '<p>No hay servicios disponibles.</p>';
 }
 ?>
 
@@ -56,18 +56,24 @@ if ($result->num_rows > 0) {
 <nav class="d-lg-none mb-5 px-0">
   <div class="d-flex justify-content-between">
 
-  <a class="navbar-brand " href="./">
-          <span class="me-0">
-            <img src="../uixsoftware/assets/img/logo.png" style="margin-top: -20px; margin-bottom: -20px;" width="80" alt="">
-          </span>
-          <span class="h4 mb-0 fw-bold">
-          CuvaRents</span>
-        </a>
-        
-<!-- Botón para abrir el Offcanvas en pantallas pequeñas -->
-<button class="btn btn-outline-secondary rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#accountSidebar" aria-controls="accountSidebar">
-<svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class=""><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 6h10" /><path d="M4 12h16" /><path d="M7 12h13" /><path d="M7 18h10" /></svg>
-</button>
+    <a class="navbar-brand " href="./">
+      <span class="me-0">
+        <img src="../uixsoftware/assets/img/logo.png" style="margin-top: -20px; margin-bottom: -20px;" width="80" alt="Logo blanco de Cuvarents">
+      </span>
+      <span class="h4 mb-0 fw-bold">
+        CuvaRents</span>
+    </a>
+
+    <!-- Botón para abrir el Offcanvas en pantallas pequeñas -->
+    <button class="btn btn-outline-secondary rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#accountSidebar" aria-controls="accountSidebar">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M7 6h10" />
+        <path d="M4 12h16" />
+        <path d="M7 12h13" />
+        <path d="M7 18h10" />
+      </svg>
+    </button>
 
   </div>
 </nav>
@@ -87,42 +93,89 @@ if ($result->num_rows > 0) {
       </div>
     </div>
 
-    
+
     <!-- Body (Navigation) -->
     <div class="offcanvas-body d-block pt-2 pt-lg-4 pb-lg-0">
       <nav class="list-group list-group-borderless">
         <a class="list-group-item list-group-item-action rounded-pill d-flex align-items-center" href="./">
-        <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-layout-board"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /><path d="M4 9h8" /><path d="M12 15h8" /><path d="M12 4v16" /></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-layout-board">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+            <path d="M4 9h8" />
+            <path d="M12 15h8" />
+            <path d="M12 4v16" />
+          </svg>
           Dashboard
         </a>
         <a class="list-group-item list-group-item-action rounded-pill d-flex align-items-center" href="rents.php">
-        <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-home-edit"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 21v-6a2 2 0 0 1 2 -2h2c.645 0 1.218 .305 1.584 .78" /><path d="M20 11l-8 -8l-9 9h2v7a2 2 0 0 0 2 2h4" /><path d="M18.42 15.61a2.1 2.1 0 0 1 2.97 2.97l-3.39 3.42h-3v-3l3.42 -3.39z" /></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-home-edit">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M9 21v-6a2 2 0 0 1 2 -2h2c.645 0 1.218 .305 1.584 .78" />
+            <path d="M20 11l-8 -8l-9 9h2v7a2 2 0 0 0 2 2h4" />
+            <path d="M18.42 15.61a2.1 2.1 0 0 1 2.97 2.97l-3.39 3.42h-3v-3l3.42 -3.39z" />
+          </svg>
           Gestionar rentas
         </a>
         <a class="list-group-item list-group-item-action rounded-pill d-flex align-items-center" href="reviews.php">
-        <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-message-circle-user"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M22 22a2 2 0 0 0 -2 -2h-2a2 2 0 0 0 -2 2" /><path d="M12.454 19.97a9.9 9.9 0 0 1 -4.754 -.97l-4.7 1l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c1.667 1.423 2.596 3.294 2.747 5.216" /></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-message-circle-user">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M19 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+            <path d="M22 22a2 2 0 0 0 -2 -2h-2a2 2 0 0 0 -2 2" />
+            <path d="M12.454 19.97a9.9 9.9 0 0 1 -4.754 -.97l-4.7 1l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c1.667 1.423 2.596 3.294 2.747 5.216" />
+          </svg>
           Recomendaciones
         </a>
         <a class="list-group-item list-group-item-action rounded-pill d-flex align-items-center" href="comodities.php">
-        <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-wifi"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 18l.01 0" /><path d="M9.172 15.172a4 4 0 0 1 5.656 0" /><path d="M6.343 12.343a8 8 0 0 1 11.314 0" /><path d="M3.515 9.515c4.686 -4.687 12.284 -4.687 17 0" /></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-wifi">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 18l.01 0" />
+            <path d="M9.172 15.172a4 4 0 0 1 5.656 0" />
+            <path d="M6.343 12.343a8 8 0 0 1 11.314 0" />
+            <path d="M3.515 9.515c4.686 -4.687 12.284 -4.687 17 0" />
+          </svg>
           Servicios de rentas
         </a>
         <a class="list-group-item list-group-item-action rounded-pill d-flex align-items-center" href="reservas.php">
-        <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-circle-dashed-check"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.56 3.69a9 9 0 0 0 -2.92 1.95" /><path d="M3.69 8.56a9 9 0 0 0 -.69 3.44" /><path d="M3.69 15.44a9 9 0 0 0 1.95 2.92" /><path d="M8.56 20.31a9 9 0 0 0 3.44 .69" /><path d="M15.44 20.31a9 9 0 0 0 2.92 -1.95" /><path d="M20.31 15.44a9 9 0 0 0 .69 -3.44" /><path d="M20.31 8.56a9 9 0 0 0 -1.95 -2.92" /><path d="M15.44 3.69a9 9 0 0 0 -3.44 -.69" /><path d="M9 12l2 2l4 -4" /></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-circle-dashed-check">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M8.56 3.69a9 9 0 0 0 -2.92 1.95" />
+            <path d="M3.69 8.56a9 9 0 0 0 -.69 3.44" />
+            <path d="M3.69 15.44a9 9 0 0 0 1.95 2.92" />
+            <path d="M8.56 20.31a9 9 0 0 0 3.44 .69" />
+            <path d="M15.44 20.31a9 9 0 0 0 2.92 -1.95" />
+            <path d="M20.31 15.44a9 9 0 0 0 .69 -3.44" />
+            <path d="M20.31 8.56a9 9 0 0 0 -1.95 -2.92" />
+            <path d="M15.44 3.69a9 9 0 0 0 -3.44 -.69" />
+            <path d="M9 12l2 2l4 -4" />
+          </svg>
           Sistema de Reservas
         </a>
         <a class="list-group-item list-group-item-action rounded-pill d-flex align-items-center" href="profile.php">
-        <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-settings-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.875 6.27a2.225 2.225 0 0 1 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z" /><path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-settings-2">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M19.875 6.27a2.225 2.225 0 0 1 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z" />
+            <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+          </svg>
           Configuraciones
         </a>
         <a class="list-group-item list-group-item-action rounded-pill d-flex align-items-center" href="../">
-        <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-logout-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2" /><path d="M15 12h-12l3 -3" /><path d="M6 15l-3 -3" /></svg>
-         Ir al sitio web
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-logout-2">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M10 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2" />
+            <path d="M15 12h-12l3 -3" />
+            <path d="M6 15l-3 -3" />
+          </svg>
+          Ir al sitio web
         </a>
       </nav>
       <nav class="pt-3 d-flex">
         <a class=" btn btn-danger rounded-pill d-flex align-items-center" href="?action=logout">
-        <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-logout-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2" /><path d="M15 12h-12l3 -3" /><path d="M6 15l-3 -3" /></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-logout-2">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M10 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2" />
+            <path d="M15 12h-12l3 -3" />
+            <path d="M6 15l-3 -3" />
+          </svg>
           Cerrar sesión
         </a>
       </nav>
@@ -138,8 +191,8 @@ if ($result->num_rows > 0) {
 
 
 
-    <!-- Modal -->
-    <div class="modal" id="addRentalModal">
+<!-- Modal -->
+<div class="modal" id="addRentalModal">
   <div class="modal-dialog modal-lg px-3">
     <div class="modal-content">
       <div class="modal-header">
@@ -157,15 +210,15 @@ if ($result->num_rows > 0) {
           </div>
 
           <div class="form-group">
-  <label for="rentalCategory">Categoría de renta</label>
-  <select class="form-select" id="rentalCategory" name="rentalCategory" required>
-    <option value="" selected>Seleccione</option>
-    <option value="Casas de lujo">Casas de lujo</option>
-    <option value="Casas en la playa">Casas en la playa</option>
-    <option value="Casas y Apartamentos por largas y cortas estancias">Casas y Apartamentos por largas y cortas estancias</option>
-    <option value="Casas y Alojamientos vacacionales">Casas y Alojamientos vacacionales</option>
-  </select>
-</div>
+            <label for="rentalCategory">Categoría de renta</label>
+            <select class="form-select" id="rentalCategory" name="rentalCategory" required>
+              <option value="" selected>Seleccione</option>
+              <option value="Casas de lujo">Casas de lujo</option>
+              <option value="Casas en la playa">Casas en la playa</option>
+              <option value="Casas y Apartamentos por largas y cortas estancias">Casas y Apartamentos por largas y cortas estancias</option>
+              <option value="Casas y Alojamientos vacacionales">Casas y Alojamientos vacacionales</option>
+            </select>
+          </div>
 
 
           <div class="form-row row">
@@ -216,31 +269,31 @@ if ($result->num_rows > 0) {
             </div>
 
             <div class="form-group col-12 col-md-6">
-   <label for="municipio1">Zonas</label>
-   <select class="form-select" name="municipio1" tabindex="-1">
-      <option value="" selected>Seleccione una zona</option>
-      <option value="Viniales">Viñales</option>
-      <option value="La Habana">La Habana</option>
-      <option value="Vedado">Vedado</option>
-      <option value="Playa">Playa</option>
-      <option value="Siboney">Siboney</option>
-      <option value="Miramar">Miramar</option>
-      <option value="Santa Fe">Santa Fe</option>
-      <option value="Centro Habana">Centro Habana</option>
-      <option value="Habana Vieja">Habana Vieja</option>
-      <option value="Guanabo">Guanabo</option>
-      <option value="Boca Ciega">Boca Ciega</option>
-      <option value="Brisas del Mar">Brisas del Mar</option>
-      <option value="Santa Maria">Santa María</option>
-      <option value="Varadero">Varadero</option>
-      <option value="Boca Camarioca">Boca Camarioca</option>
-      <option value="Cienaga de Zapata">Ciénaga de Zapata</option>
-      <option value="Santa Marta">Santa Marta</option>
-      <option value="Cienfuegos">Cienfuegos</option>
-      <option value="Trinidad">Trinidad</option>
-      <option value="Guarda la Vaca">Guarda la Vaca</option>
-   </select>
-</div>
+              <label for="municipio1">Zonas</label>
+              <select class="form-select" name="municipio1" tabindex="-1">
+                <option value="" selected>Seleccione una zona</option>
+                <option value="Viniales">Viñales</option>
+                <option value="La Habana">La Habana</option>
+                <option value="Vedado">Vedado</option>
+                <option value="Playa">Playa</option>
+                <option value="Siboney">Siboney</option>
+                <option value="Miramar">Miramar</option>
+                <option value="Santa Fe">Santa Fe</option>
+                <option value="Centro Habana">Centro Habana</option>
+                <option value="Habana Vieja">Habana Vieja</option>
+                <option value="Guanabo">Guanabo</option>
+                <option value="Boca Ciega">Boca Ciega</option>
+                <option value="Brisas del Mar">Brisas del Mar</option>
+                <option value="Santa Maria">Santa María</option>
+                <option value="Varadero">Varadero</option>
+                <option value="Boca Camarioca">Boca Camarioca</option>
+                <option value="Cienaga de Zapata">Ciénaga de Zapata</option>
+                <option value="Santa Marta">Santa Marta</option>
+                <option value="Cienfuegos">Cienfuegos</option>
+                <option value="Trinidad">Trinidad</option>
+                <option value="Guarda la Vaca">Guarda la Vaca</option>
+              </select>
+            </div>
 
 
 
@@ -286,124 +339,24 @@ if ($result->num_rows > 0) {
 
 
 <script>
-
-document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM completamente cargado');
 
     // Definir provinciasMunicipios en el ámbito global
     const provinciasMunicipios = {
-        'Pinar del Río': ['Viñales'],
-        'La Habana': ['Plaza de la Revolución', 'Centro Habana', 'Habana Vieja', 'Cerro', 'Cotorro', 'Diez de Octubre', 'Guanabacoa', 'Habana del Este', 'La Lisa', 'Marianao', 'Playa', 'Regla', 'San Miguel del Padrón'],
-        'Santiago de Cuba': ['Contramaestre', 'Guamá', 'II Frente', 'Mella', 'Palma Soriano', 'San Luis', 'Santiago de Cuba', 'Songo-La Maya', 'Tercer Frente'],
-        'Matanzas': ['Calimete', 'Cárdenas', 'Ciénaga de Zapata', 'Colón', 'Jagüey Grande', 'Jovellanos', 'Limonar', 'Los Arabos', 'Martí', 'Matanzas', 'Pedro Betancourt', 'Perico', 'Unión de Reyes']
+      'Pinar del Río': ['Viñales'],
+      'La Habana': ['Plaza de la Revolución', 'Centro Habana', 'Habana Vieja', 'Cerro', 'Cotorro', 'Diez de Octubre', 'Guanabacoa', 'Habana del Este', 'La Lisa', 'Marianao', 'Playa', 'Regla', 'San Miguel del Padrón'],
+      'Santiago de Cuba': ['Contramaestre', 'Guamá', 'II Frente', 'Mella', 'Palma Soriano', 'San Luis', 'Santiago de Cuba', 'Songo-La Maya', 'Tercer Frente'],
+      'Matanzas': ['Calimete', 'Cárdenas', 'Ciénaga de Zapata', 'Colón', 'Jagüey Grande', 'Jovellanos', 'Limonar', 'Los Arabos', 'Martí', 'Matanzas', 'Pedro Betancourt', 'Perico', 'Unión de Reyes']
     };
 
     // Verificar y asignar el evento al botón "aggrent"
     const aggrentButton = document.getElementById('aggrent');
     if (aggrentButton) {
-        aggrentButton.addEventListener('click', function () {
-            console.log('Botón "Agregar Renta" clickeado');
+      aggrentButton.addEventListener('click', function() {
+        console.log('Botón "Agregar Renta" clickeado');
 
-            // Restablecer el formulario
-            document.getElementById('addRentalForm').reset();
-            document.getElementById('addRentalForm').action = 'php-add-rent.php';
-            document.getElementById('addRentalModalLabel').textContent = 'Agregar Renta';
-
-            // Restablecer el select de municipio
-            const municipioSelect = document.getElementById('municipio1');
-            if (municipioSelect) {
-                municipioSelect.innerHTML = '<option value="" selected>Municipio</option>';
-                municipioSelect.disabled = true;
-            } else {
-                console.error('El select de "municipio1" no fue encontrado en el DOM.');
-            }
-
-            // Limpiar los checkboxes de servicios
-            const servicesCheckboxes = document.getElementById('servicesCheckboxes');
-            if (servicesCheckboxes) {
-                servicesCheckboxes.innerHTML = '';
-            } else {
-                console.error('El contenedor de servicios no fue encontrado en el DOM.');
-            }
-
-            // Limpiar los campos de habitaciones y capacidad
-            document.getElementById('habitaciones').value = '';
-            document.getElementById('capacidad').value = '';
-
-            // Cargar servicios cuando se agrega una nueva renta
-            cargarServicios([]);
-
-            // Mostrar los contenedores que se ocultaron al editar
-            const containers = document.querySelectorAll('.services-content, .images-content, .ubi-content');
-            containers.forEach(container => {
-                container.classList.remove('d-none');
-                console.log('Contenedor mostrado:', container); // Depuración
-            });
-        });
-    } else {
-        console.error('El botón "aggrent" no fue encontrado en el DOM.');
-    }
-
-    // Lógica para editar rentas
-    const editButtons = document.querySelectorAll('.edit-rental-btn');
-    console.log(`Número de botones de edición encontrados: ${editButtons.length}`);
-
-    editButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            console.log('Botón de editar clickeado');
-            const rentalId = this.getAttribute('data-rental-id');
-            console.log(`ID de renta a editar: ${rentalId}`);
-
-            fetch(`php-get-rent.php?id=${rentalId}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Error en la solicitud: ' + response.statusText);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    if (data.error) {
-                        console.error(data.error);
-                        return;
-                    }
-
-                    console.log('Datos recibidos:', data);
-
-                    // Llenar los campos del formulario con los datos obtenidos
-                    document.getElementById('rentalTitle').value = data.rentalTitle;
-                    document.getElementById('rentalDescription').value = data.rentalDescription;
-                    document.getElementById('rentalPrice').value = data.rentalPrice;
-                    document.getElementById('rentalPriceType').value = data.rentalPriceType;
-                    document.getElementById('typeTimeRent').value = data.typeTimeRent;
-                    document.getElementById('rentalLocation').value = data.rentalLocation;
-                    document.getElementById('rentalCategory').value = data.category;
-                    document.getElementById('provincia1').value = data.provincia;
-                    document.getElementById('habitaciones').value = data.habitaciones;
-                    document.getElementById('capacidad').value = data.capacidad;
-
-                    // Cargar y seleccionar el municipio
-                    cargarMunicipios(data.provincia, data.municipio);
-
-                    // Cargar y seleccionar los servicios
-                    cargarServicios(data.selectedServices);
-
-                    // Cambiar la acción del formulario para editar
-                    document.getElementById('addRentalForm').action = `php-edit-rent.php?id=${rentalId}`;
-                    document.getElementById('addRentalModalLabel').textContent = 'Editar Renta';
-
-                    // Ocultar los contenedores
-                    const containers = document.querySelectorAll('.services-content, .images-content, .ubi-content');
-                    containers.forEach(container => {
-                        container.classList.add('d-none');
-                        console.log('Contenedor ocultado:', container); // Depuración
-                    });
-                })
-                .catch(error => console.error('Error:', error));
-        });
-    });
-
-    // Restaurar el formulario al estado de agregar cuando se cierra el modal
-    $('#addRentalModal').on('hidden.bs.modal', function () {
+        // Restablecer el formulario
         document.getElementById('addRentalForm').reset();
         document.getElementById('addRentalForm').action = 'php-add-rent.php';
         document.getElementById('addRentalModalLabel').textContent = 'Agregar Renta';
@@ -411,18 +364,18 @@ document.addEventListener('DOMContentLoaded', function () {
         // Restablecer el select de municipio
         const municipioSelect = document.getElementById('municipio1');
         if (municipioSelect) {
-            municipioSelect.innerHTML = '<option value="" selected>Municipio</option>';
-            municipioSelect.disabled = true;
+          municipioSelect.innerHTML = '<option value="" selected>Municipio</option>';
+          municipioSelect.disabled = true;
         } else {
-            console.error('El select de "municipio1" no fue encontrado en el DOM.');
+          console.error('El select de "municipio1" no fue encontrado en el DOM.');
         }
 
         // Limpiar los checkboxes de servicios
         const servicesCheckboxes = document.getElementById('servicesCheckboxes');
         if (servicesCheckboxes) {
-            servicesCheckboxes.innerHTML = '';
+          servicesCheckboxes.innerHTML = '';
         } else {
-            console.error('El contenedor de servicios no fue encontrado en el DOM.');
+          console.error('El contenedor de servicios no fue encontrado en el DOM.');
         }
 
         // Limpiar los campos de habitaciones y capacidad
@@ -432,64 +385,163 @@ document.addEventListener('DOMContentLoaded', function () {
         // Cargar servicios cuando se agrega una nueva renta
         cargarServicios([]);
 
-        // Mostrar los contenedores nuevamente
+        // Mostrar los contenedores que se ocultaron al editar
         const containers = document.querySelectorAll('.services-content, .images-content, .ubi-content');
         containers.forEach(container => {
-            container.classList.remove('d-none');
-            console.log('Contenedor mostrado:', container); // Depuración
+          container.classList.remove('d-none');
+          console.log('Contenedor mostrado:', container); // Depuración
         });
+      });
+    } else {
+      console.error('El botón "aggrent" no fue encontrado en el DOM.');
+    }
+
+    // Lógica para editar rentas
+    const editButtons = document.querySelectorAll('.edit-rental-btn');
+    console.log(`Número de botones de edición encontrados: ${editButtons.length}`);
+
+    editButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        console.log('Botón de editar clickeado');
+        const rentalId = this.getAttribute('data-rental-id');
+        console.log(`ID de renta a editar: ${rentalId}`);
+
+        fetch(`php-get-rent.php?id=${rentalId}`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Error en la solicitud: ' + response.statusText);
+            }
+            return response.json();
+          })
+          .then(data => {
+            if (data.error) {
+              console.error(data.error);
+              return;
+            }
+
+            console.log('Datos recibidos:', data);
+
+            // Llenar los campos del formulario con los datos obtenidos
+            document.getElementById('rentalTitle').value = data.rentalTitle;
+            document.getElementById('rentalDescription').value = data.rentalDescription;
+            document.getElementById('rentalPrice').value = data.rentalPrice;
+            document.getElementById('rentalPriceType').value = data.rentalPriceType;
+            document.getElementById('typeTimeRent').value = data.typeTimeRent;
+            document.getElementById('rentalLocation').value = data.rentalLocation;
+            document.getElementById('rentalCategory').value = data.category;
+            document.getElementById('provincia1').value = data.provincia;
+            document.getElementById('habitaciones').value = data.habitaciones;
+            document.getElementById('capacidad').value = data.capacidad;
+
+            // Cargar y seleccionar el municipio
+            cargarMunicipios(data.provincia, data.municipio);
+
+            // Cargar y seleccionar los servicios
+            cargarServicios(data.selectedServices);
+
+            // Cambiar la acción del formulario para editar
+            document.getElementById('addRentalForm').action = `php-edit-rent.php?id=${rentalId}`;
+            document.getElementById('addRentalModalLabel').textContent = 'Editar Renta';
+
+            // Ocultar los contenedores
+            const containers = document.querySelectorAll('.services-content, .images-content, .ubi-content');
+            containers.forEach(container => {
+              container.classList.add('d-none');
+              console.log('Contenedor ocultado:', container); // Depuración
+            });
+          })
+          .catch(error => console.error('Error:', error));
+      });
+    });
+
+    // Restaurar el formulario al estado de agregar cuando se cierra el modal
+    $('#addRentalModal').on('hidden.bs.modal', function() {
+      document.getElementById('addRentalForm').reset();
+      document.getElementById('addRentalForm').action = 'php-add-rent.php';
+      document.getElementById('addRentalModalLabel').textContent = 'Agregar Renta';
+
+      // Restablecer el select de municipio
+      const municipioSelect = document.getElementById('municipio1');
+      if (municipioSelect) {
+        municipioSelect.innerHTML = '<option value="" selected>Municipio</option>';
+        municipioSelect.disabled = true;
+      } else {
+        console.error('El select de "municipio1" no fue encontrado en el DOM.');
+      }
+
+      // Limpiar los checkboxes de servicios
+      const servicesCheckboxes = document.getElementById('servicesCheckboxes');
+      if (servicesCheckboxes) {
+        servicesCheckboxes.innerHTML = '';
+      } else {
+        console.error('El contenedor de servicios no fue encontrado en el DOM.');
+      }
+
+      // Limpiar los campos de habitaciones y capacidad
+      document.getElementById('habitaciones').value = '';
+      document.getElementById('capacidad').value = '';
+
+      // Cargar servicios cuando se agrega una nueva renta
+      cargarServicios([]);
+
+      // Mostrar los contenedores nuevamente
+      const containers = document.querySelectorAll('.services-content, .images-content, .ubi-content');
+      containers.forEach(container => {
+        container.classList.remove('d-none');
+        console.log('Contenedor mostrado:', container); // Depuración
+      });
     });
 
     // Asignar evento de cambio al seleccionar la provincia
     const provinciaSelect = document.getElementById('provincia1');
     if (provinciaSelect) {
-        provinciaSelect.addEventListener('change', function () {
-            const provincia = this.value;
-            cargarMunicipios(provincia);
-        });
+      provinciaSelect.addEventListener('change', function() {
+        const provincia = this.value;
+        cargarMunicipios(provincia);
+      });
     } else {
-        console.error('El select de "provincia1" no fue encontrado en el DOM.');
+      console.error('El select de "provincia1" no fue encontrado en el DOM.');
     }
 
     // Función para cargar y seleccionar los municipios
     function cargarMunicipios(provincia, selectedMunicipio = '') {
-        const municipioSelect = document.getElementById('municipio1');
-        if (municipioSelect) {
-            municipioSelect.innerHTML = '<option value="" selected>Municipio</option>';
-            municipioSelect.disabled = false;
+      const municipioSelect = document.getElementById('municipio1');
+      if (municipioSelect) {
+        municipioSelect.innerHTML = '<option value="" selected>Municipio</option>';
+        municipioSelect.disabled = false;
 
-            if (provincia && provinciasMunicipios[provincia]) {
-                provinciasMunicipios[provincia].forEach(municipio => {
-                    const option = document.createElement('option');
-                    option.value = municipio;
-                    option.text = municipio;
-                    if (municipio === selectedMunicipio) {
-                        option.selected = true;
-                    }
-                    municipioSelect.appendChild(option);
-                });
+        if (provincia && provinciasMunicipios[provincia]) {
+          provinciasMunicipios[provincia].forEach(municipio => {
+            const option = document.createElement('option');
+            option.value = municipio;
+            option.text = municipio;
+            if (municipio === selectedMunicipio) {
+              option.selected = true;
             }
-        } else {
-            console.error('El select de "municipio1" no fue encontrado en el DOM.');
+            municipioSelect.appendChild(option);
+          });
         }
+      } else {
+        console.error('El select de "municipio1" no fue encontrado en el DOM.');
+      }
     }
 
     // Función para cargar y seleccionar los servicios
     function cargarServicios(selectedServices) {
-        fetch('php-get-services.php')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Error en la solicitud: ' + response.statusText);
-                }
-                return response.json();
-            })
-            .then(services => {
-                const servicesContainer = document.getElementById('servicesCheckboxes');
-                if (servicesContainer) {
-                    servicesContainer.innerHTML = '';
-                    services.forEach(service => {
-                        const isChecked = Array.isArray(selectedServices) && selectedServices.includes(service.id.toString()) ? 'checked' : '';
-                        const checkbox = `
+      fetch('php-get-services.php')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error en la solicitud: ' + response.statusText);
+          }
+          return response.json();
+        })
+        .then(services => {
+          const servicesContainer = document.getElementById('servicesCheckboxes');
+          if (servicesContainer) {
+            servicesContainer.innerHTML = '';
+            services.forEach(service => {
+              const isChecked = Array.isArray(selectedServices) && selectedServices.includes(service.id.toString()) ? 'checked' : '';
+              const checkbox = `
                             <div class="col-6 checkbox-wrapper-16">
                                 <label class="checkbox-wrapper">
                                     <input class="checkbox-input" type="checkbox" value="${service.id}" id="service_${service.id}" name="services[]" ${isChecked}>
@@ -499,15 +551,15 @@ document.addEventListener('DOMContentLoaded', function () {
                                     </span>
                                 </label>
                             </div>`;
-                        servicesContainer.innerHTML += checkbox;
-                    });
-                } else {
-                    console.error('El contenedor de servicios no fue encontrado en el DOM.');
-                }
-            })
-            .catch(error => console.error('Error:', error));
+              servicesContainer.innerHTML += checkbox;
+            });
+          } else {
+            console.error('El contenedor de servicios no fue encontrado en el DOM.');
+          }
+        })
+        .catch(error => console.error('Error:', error));
     }
-});
+  });
 </script>
 
 
@@ -517,40 +569,39 @@ document.addEventListener('DOMContentLoaded', function () {
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Script para aplicar gradientes aleatorios
-        (function() {
-            // Función para generar un color hexadecimal aleatorio
-            function getRandomColor() {
-                return '#' + Math.floor(Math.random() * 16777215).toString(16);
-            }
+  document.addEventListener("DOMContentLoaded", function() {
+    // Script para aplicar gradientes aleatorios
+    (function() {
+      // Función para generar un color hexadecimal aleatorio
+      function getRandomColor() {
+        return '#' + Math.floor(Math.random() * 16777215).toString(16);
+      }
 
-            // Función para aplicar un gradiente aleatorio a un elemento
-            function applyRandomGradient(element) {
-                const color1 = getRandomColor();
-                const color2 = getRandomColor();
-                element.style.backgroundImage = `linear-gradient(45deg, ${color1}, ${color2})`;
-            }
+      // Función para aplicar un gradiente aleatorio a un elemento
+      function applyRandomGradient(element) {
+        const color1 = getRandomColor();
+        const color2 = getRandomColor();
+        element.style.backgroundImage = `linear-gradient(45deg, ${color1}, ${color2})`;
+      }
 
-            // Obtener todos los elementos con la clase 'bg-gradient-al'
-            const elements = document.querySelectorAll('.bg-gradient-al');
+      // Obtener todos los elementos con la clase 'bg-gradient-al'
+      const elements = document.querySelectorAll('.bg-gradient-al');
 
-            // Aplicar gradiente aleatorio a cada elemento
-            elements.forEach(element => applyRandomGradient(element));
-        })();
-    });
+      // Aplicar gradiente aleatorio a cada elemento
+      elements.forEach(element => applyRandomGradient(element));
+    })();
+  });
 </script>
 
 <style>
-
   /* From Uiverse.io by Bodyhc */
-.checkbox-wrapper-16 *,
-.checkbox-wrapper-16 *:after,
-.checkbox-wrapper-16 *:before {
+  .checkbox-wrapper-16 *,
+  .checkbox-wrapper-16 *:after,
+  .checkbox-wrapper-16 *:before {
     box-sizing: border-box;
-}
+  }
 
-.checkbox-wrapper-16 .checkbox-input {
+  .checkbox-wrapper-16 .checkbox-input {
     clip: rect(0 0 0 0);
     -webkit-clip-path: inset(100%);
     clip-path: inset(100%);
@@ -559,42 +610,42 @@ document.addEventListener('DOMContentLoaded', function () {
     position: absolute;
     white-space: nowrap;
     width: 1px;
-}
+  }
 
-.checkbox-wrapper-16 .checkbox-input:checked + .checkbox-tile {
-    border-color:#2193b0;
+  .checkbox-wrapper-16 .checkbox-input:checked+.checkbox-tile {
+    border-color: #2193b0;
     display: flex !important;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    color:#2193b0;
-}
+    color: #2193b0;
+  }
 
-.checkbox-wrapper-16 .checkbox-input:checked + .checkbox-tile:before {
+  .checkbox-wrapper-16 .checkbox-input:checked+.checkbox-tile:before {
     transform: scale(1);
     opacity: 1;
-    background-color:#2193b0;
-    border-color:#2193b0;
-}
+    background-color: #2193b0;
+    border-color: #2193b0;
+  }
 
-.checkbox-wrapper-16 .checkbox-input:checked + .checkbox-tile .checkbox-icon,
-.checkbox-wrapper-16 .checkbox-input:checked + .checkbox-tile .checkbox-label {
-    color:#2193b0;
-}
+  .checkbox-wrapper-16 .checkbox-input:checked+.checkbox-tile .checkbox-icon,
+  .checkbox-wrapper-16 .checkbox-input:checked+.checkbox-tile .checkbox-label {
+    color: #2193b0;
+  }
 
-.checkbox-wrapper-16 .checkbox-input:focus + .checkbox-tile {
-    border-color:#2193b0;
+  .checkbox-wrapper-16 .checkbox-input:focus+.checkbox-tile {
+    border-color: #2193b0;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4pxrgb(123, 229, 255);
-}
+  }
 
-.checkbox-wrapper-16 .checkbox-input:focus + .checkbox-tile:before {
+  .checkbox-wrapper-16 .checkbox-input:focus+.checkbox-tile:before {
     transform: scale(1);
     opacity: 1;
-}
+  }
 
-.checkbox-wrapper-16 .checkbox-tile {
+  .checkbox-wrapper-16 .checkbox-tile {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px  30px!important;
+    padding: 20px 30px !important;
     width: 200px;
     height: 40px;
     border-radius: 0.5rem;
@@ -604,9 +655,9 @@ document.addEventListener('DOMContentLoaded', function () {
     transition: 0.15s ease;
     cursor: pointer;
     position: relative;
-}
+  }
 
-.checkbox-wrapper-16 .checkbox-tile:before {
+  .checkbox-wrapper-16 .checkbox-tile:before {
     content: "";
     position: absolute;
     display: flex;
@@ -624,28 +675,30 @@ document.addEventListener('DOMContentLoaded', function () {
     background-size: 12px;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-}
+  }
 
-.checkbox-wrapper-16 .checkbox-tile:hover {
-    border-color:#2193b0;
-}
+  .checkbox-wrapper-16 .checkbox-tile:hover {
+    border-color: #2193b0;
+  }
 
-.checkbox-wrapper-16 .checkbox-tile:hover:before {
+  .checkbox-wrapper-16 .checkbox-tile:hover:before {
     transform: scale(1);
     opacity: 1;
-}
+  }
 
-.checkbox-wrapper-16 .checkbox-icon {
-  margin-bottom: -3px !important;
-  margin-right: 0px !important;
+  .checkbox-wrapper-16 .checkbox-icon {
+    margin-bottom: -3px !important;
+    margin-right: 0px !important;
     transition: 0.375s ease;
     color: #494949;
-    margin-right: 3px; /* Añadir espacio entre el ícono y el texto */
-}
+    margin-right: 3px;
+    /* Añadir espacio entre el ícono y el texto */
+  }
 
-.checkbox-wrapper-16 .checkbox-label {
+  .checkbox-wrapper-16 .checkbox-label {
     color: #707070;
     transition: 0.375s ease;
-    text-align: left; /* Ajustar alineación del texto */
-}
+    text-align: left;
+    /* Ajustar alineación del texto */
+  }
 </style>

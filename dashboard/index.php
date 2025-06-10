@@ -144,7 +144,7 @@
                 <div class=\"row g-0\">
                     <div class=\"col-sm-4 col-md-3 rounded overflow-hidden pb-2 pb-sm-0 pe-sm-2\">
                         <a class=\"position-relative d-flex h-100 bg-body-tertiary\" href=\"#\" style=\"min-height: 174px\">
-                            <img src=\"$firstImage\" class=\"position-absolute top-0 start-0 w-100 h-100 object-fit-cover\" alt=\"Image\">
+                            <img src=\"$firstImage\" class=\"position-absolute top-0 start-0 w-100 h-100 object-fit-cover\" alt=\"Imagen de $rentalTitle\">
                             <div class=\"ratio d-none d-sm-block\" style=\"--fn-aspect-ratio: calc(180 / 240 * 100%)\"></div>
                             <div class=\"ratio ratio-16x9 d-sm-none\"></div>
                         </a>
