@@ -291,8 +291,8 @@
 
         while ($row = $result->fetch_assoc()) {
           $rentalId = $row['rental_id'];
-          $images = explode(',', $row['images']);
-          $firstImage = !empty($images[0]) ? 'uploads/' . $images[0] : 'ruta/a/la/imagen/por/defecto.jpg';
+          $images = !empty($row['images']) ? explode(',', $row['images']) : [];
+          $firstImage = !empty($images[0]) ? 'uploads/' . $images[0] : 'uixsoftware/assets/img/default-img.png';
           $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
           $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
           $rentalHab = htmlspecialchars($row['rental_rooms'], ENT_QUOTES, 'UTF-8');
@@ -329,19 +329,29 @@
           // Generar las slides del Swiper
           $slides = "";
           $imageCount = 0;
-          foreach ($images as $index => $image) {
-            if ($imageCount >= 4) break; // Limitar a 4 imágenes
-            $slideImage = !empty($image) ? 'uploads/' . $image : 'ruta/a/la/imagen/por/defecto.jpg';
+          if (empty($images)) {
+            // Si no hay imágenes, agregar 1 slide con la imagen por defecto
             $slides .= "
-              <div class=\"swiper-slide\" role=\"group\" aria-label=\"" . ($index + 1) . " / " . count($images) . "\" style=\"width: 304px;\">
-                  <div class=\"ratio d-block\" style=\"--fn-aspect-ratio: calc(248 / 362 * 100%)\">
-                      <img src=\"./dashboard/$slideImage\" alt=\"Image\">
-                      <span class=\"position-absolute top-0 start-0 w-100 h-100 z-1\" style=\"background: linear-gradient(180deg, rgba(0,0,0, 0) 0%, rgba(0,0,0, .11) 100%)\"></span>
-                  </div>
-              </div>";
-            $imageCount++;
+    <div class=\"swiper-slide\">
+        <div class=\"ratio d-block\" style=\"--fn-aspect-ratio: calc(248 / 362 * 100%)\">
+            <img src=\"uixsoftware/assets/img/default-img.png\" alt=\"Imagen por defecto\">
+            <span class=\"position-absolute top-0 start-0 w-100 h-100 z-1\" style=\"background: linear-gradient(180deg, rgba(0,0,0, 0) 0%, rgba(0,0,0, .11) 100%)\"></span>
+        </div>
+    </div>";
+          } else {
+            foreach ($images as $index => $image) {
+              if ($imageCount >= 4) break;
+              $slideImage = !empty($image) ? 'uploads/' . $image : 'uixsoftware/assets/img/default-img.png';
+              $slides .= "
+        <div class=\"swiper-slide\" role=\"group\" aria-label=\"" . ($index + 1) . " / " . count($images) . "\" style=\"width: 304px;\">
+            <div class=\"ratio d-block\" style=\"--fn-aspect-ratio: calc(248 / 362 * 100%)\">
+                <img src=\"./dashboard/$slideImage\" alt=\"Image\">
+                <span class=\"position-absolute top-0 start-0 w-100 h-100 z-1\" style=\"background: linear-gradient(180deg, rgba(0,0,0, 0) 0%, rgba(0,0,0, .11) 100%)\"></span>
+            </div>
+        </div>";
+              $imageCount++;
+            }
           }
-
           echo "
           <div class=\"col\">
               <article class=\"card hover-effect-opacity h-100\">

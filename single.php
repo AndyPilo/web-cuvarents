@@ -1,31 +1,34 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="light"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="es" data-bs-theme="light">
 
-<!-- Meta tags -->
-<title>CuVaRents</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="Uixsoftware">
-<meta name="keywords" content="rentas en Cuba, alquileres en Cuba, apartamentos en Cuba, casas en Cuba, CuVaRents, Uixsoftware, alquiler de viviendas, La Habana, Santiago de Cuba, Matanzas, provincia, municipio, Cuba">
-<meta name="description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
-<meta property="og:description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
-<meta property="og:url" content="https://www.cuvarents.com/">
-<meta property="og:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CuVaRents | Alquileres en Cuba">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="CuVaRents | Alquileres en Cuba">
-<meta name="twitter:description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
-<meta name="twitter:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
-<meta name="contact" content="soporte@cuvarents.com">
-<meta name="copyright" content="Copyright (c) 2024. Uixsoftware. Todos los derechos reservados.">
-<meta name="DC.title" content="CuVaRents: Líderes en Alquileres en Cuba">
-<meta name="geo.placename" content="Cuba">
-<meta name="geo.region" content="CU">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  
-<link rel="shortcut icon" href="https://www.uixsoftware.com/assets/img/logos/logo_uixsoftware.svg">
-  
+
+    <!-- Meta tags -->
+    <title>CuVaRents</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Uixsoftware">
+    <meta name="keywords" content="rentas en Cuba, alquileres en Cuba, apartamentos en Cuba, casas en Cuba, CuVaRents, Uixsoftware, alquiler de viviendas, La Habana, Santiago de Cuba, Matanzas, provincia, municipio, Cuba">
+    <meta name="description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
+    <meta property="og:description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
+    <meta property="og:url" content="https://www.cuvarents.com/">
+    <meta property="og:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CuVaRents | Alquileres en Cuba">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CuVaRents | Alquileres en Cuba">
+    <meta name="twitter:description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
+    <meta name="twitter:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
+    <meta name="contact" content="soporte@cuvarents.com">
+    <meta name="copyright" content="Copyright (c) 2024. Uixsoftware. Todos los derechos reservados.">
+    <meta name="DC.title" content="CuVaRents: Líderes en Alquileres en Cuba">
+    <meta name="geo.placename" content="Cuba">
+    <meta name="geo.region" content="CU">
+
+
+    <link rel="shortcut icon" href="https://www.uixsoftware.com/assets/img/logos/logo_uixsoftware.svg">
+
 
     <!-- Theme switcher (color modes) -->
     <script src="uixsoftware/assets/js/theme-switcher.js"></script>
@@ -48,64 +51,97 @@
     <link rel="stylesheet" href="uixsoftware/assets/css/theme.min.css" id="theme-styles">
 
     <!-- Customizer -->
-    <script src="uixsoftware/assets/js/customizer.min.js"></script><style id="customizer-styles">:root,[data-bs-theme="light"]{}[data-bs-theme="dark"]{}.btn-primary{}.btn-success{}.btn-warning{}.btn-danger{}.btn-info{}.btn-outline-primary{}.btn-outline-success{}.btn-outline-warning{}.btn-outline-danger{}.btn-outline-info{}</style>
-  </head>
+    <script src="uixsoftware/assets/js/customizer.min.js"></script>
+    <style id="customizer-styles">
+        :root,
+        [data-bs-theme="light"] {}
+
+        [data-bs-theme="dark"] {}
+
+        .btn-primary {}
+
+        .btn-success {}
+
+        .btn-warning {}
+
+        .btn-danger {}
+
+        .btn-info {}
+
+        .btn-outline-primary {}
+
+        .btn-outline-success {}
+
+        .btn-outline-warning {}
+
+        .btn-outline-danger {}
+
+        .btn-outline-info {}
+    </style>
+</head>
 
 
-  <!-- Body -->
-  <body>
+<!-- Body -->
 
-  <?php include 'navbar.php'; ?>
+<body>
+
+    <?php include 'navbar.php'; ?>
 
 
     <main class="content-wrapper">
-      <div class="container pt-4 pb-5 mb-xxl-3">
+        <div class="container pt-4 pb-5 mb-xxl-3">
 
 
-      <?php
-// Obtener el ID de la renta desde la URL
-$rentalId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+            <?php
+            // Obtener el ID de la renta desde la URL
+            $rentalId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-// Verificar que el ID sea válido
-if ($rentalId <= 0) {
-    echo "Renta no encontrada.";
-    exit();
-}
+            // Verificar que el ID sea válido
+            if ($rentalId <= 0) {
+                echo "Renta no encontrada.";
+                exit();
+            }
 
-// Obtener los detalles de la renta desde la base de datos
-$sql = "SELECT Rentals.*, GROUP_CONCAT(RentalImages.image_url) AS images FROM Rentals
+            // Obtener los detalles de la renta desde la base de datos
+            $sql = "SELECT Rentals.*, GROUP_CONCAT(RentalImages.image_url) AS images FROM Rentals
         LEFT JOIN RentalImages ON Rentals.rental_id = RentalImages.rental_id
         WHERE Rentals.rental_id = $rentalId
         GROUP BY Rentals.rental_id";
-$result = $conn->query($sql);
+            $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $images = explode(',', $row['images']);
-    $firstImage = !empty($images[0]) ? 'uploads/' . $images[0] : 'ruta/a/la/imagen/por/defecto.jpg';
-    $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
-    $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
-    $rentalProvincia = htmlspecialchars($row['rental_provincia'], ENT_QUOTES, 'UTF-8');
-    $rentalMunicipio = htmlspecialchars($row['rental_municipio'], ENT_QUOTES, 'UTF-8');
-    $rentalDescription = htmlspecialchars($row['rental_description'], ENT_QUOTES, 'UTF-8');
-    $rentalPriceType = htmlspecialchars($row['rental_price_type'], ENT_QUOTES, 'UTF-8');
-    $typeTimeRent = htmlspecialchars($row['type_time_rent'], ENT_QUOTES, 'UTF-8');
-    $rentalRooms = intval($row['rental_rooms']);
-    $rentalCapacity = intval($row['rental_capacity']);
-    $isPromoted = $row['is_promoted'];
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $images = !empty($row['images']) ? explode(',', $row['images']) : [];
+                if (!empty($images[0])) {
+                    $firstImage = 'uploads/' . $images[0]; // ruta relativa
+                    $firstImageFull = 'dashboard/' . $firstImage; // para href y src
+                } else {
+                    $firstImage = 'uixsoftware/assets/img/default-img.png';
+                    $firstImageFull = $firstImage; // ya está en public path
+                }
+                $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
+                $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
+                $rentalProvincia = htmlspecialchars($row['rental_provincia'], ENT_QUOTES, 'UTF-8');
+                $rentalMunicipio = htmlspecialchars($row['rental_municipio'], ENT_QUOTES, 'UTF-8');
+                $rentalDescription = htmlspecialchars($row['rental_description'], ENT_QUOTES, 'UTF-8');
+                $rentalPriceType = htmlspecialchars($row['rental_price_type'], ENT_QUOTES, 'UTF-8');
+                $typeTimeRent = htmlspecialchars($row['type_time_rent'], ENT_QUOTES, 'UTF-8');
+                $rentalRooms = intval($row['rental_rooms']);
+                $rentalCapacity = intval($row['rental_capacity']);
+                $isPromoted = $row['is_promoted'];
 
-    // Obtener los servicios de la renta
-    $sqlServices = "SELECT services_rent_name, services_rent_icon_svg FROM services_rent
+                // Obtener los servicios de la renta
+                $sqlServices = "SELECT services_rent_name, services_rent_icon_svg FROM services_rent
                     JOIN RentalServices ON services_rent.services_rent_id = RentalServices.service_rent_id
                     WHERE RentalServices.rental_id = $rentalId";
-    $resultServices = $conn->query($sqlServices);
+                $resultServices = $conn->query($sqlServices);
 
-    $servicesIcons = "";
-    while ($service = $resultServices->fetch_assoc()) {
-        $servicesIcons .= '<div class="col-6 col-md-3 d-flex align-items-center">' . $service['services_rent_icon_svg'] . '' . htmlspecialchars($service['services_rent_name']) . '</div>';
-    }
+                $servicesIcons = "";
+                while ($service = $resultServices->fetch_assoc()) {
+                    $servicesIcons .= '<div class="col-6 col-md-3 d-flex align-items-center">' . $service['services_rent_icon_svg'] . '' . htmlspecialchars($service['services_rent_name']) . '</div>';
+                }
 
-    echo "
+                echo "
     <!-- Breadcrumb -->
     <nav class=\"pb-2 pb-md-3\" aria-label=\"breadcrumb\">
         <ol class=\"breadcrumb\">
@@ -118,20 +154,20 @@ if ($result->num_rows > 0) {
     <!-- Image gallery -->
     <div class=\"row g-3 g-lg-4\">
         <div class=\"col-md-8\">
-            <a class=\"hover-effect-scale hover-effect-opacity position-relative d-flex rounded overflow-hidden\" href=\"dashboard/$firstImage\" data-glightbox=\"\" data-gallery=\"image-gallery\">
+            <a class=\"hover-effect-scale hover-effect-opacity position-relative d-flex rounded overflow-hidden\" href=\"$firstImageFull\" data-glightbox=\"\" data-gallery=\"image-gallery\">
                 <i class=\"fi-zoom-in hover-effect-target fs-3 text-white position-absolute top-50 start-50 translate-middle opacity-0 z-2\"></i>
                 <span class=\"hover-effect-target position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-25 opacity-0 z-1\"></span>
                 <div class=\"ratio hover-effect-target bg-body-tertiary rounded\" style=\"--fn-aspect-ratio: calc(450 / 856 * 100%)\">
-                    <img src=\"dashboard/$firstImage\" alt=\"Image\">
+                    <img src=\"$firstImageFull\" alt=\"Image\">
                 </div>
             </a>
         </div>";
 
-    // Mostrar hasta 3 imágenes adicionales
-    for ($i = 1; $i < count($images); $i++) {
-        $image = 'uploads/' . $images[$i];
-        if ($i <= 3) {
-            echo "
+                // Mostrar hasta 3 imágenes adicionales
+                for ($i = 1; $i < count($images); $i++) {
+                    $image = 'uploads/' . $images[$i];
+                    if ($i <= 3) {
+                        echo "
             <div class=\"col-md-4 vstack gap-3 gap-lg-4\">
                 <a class=\"hover-effect-scale h-100 hover-effect-opacity position-relative d-flex rounded overflow-hidden\" href=\"dashboard/$image\" data-glightbox=\"\" data-gallery=\"image-gallery\">
                     <i class=\"fi-zoom-in hover-effect-target fs-3 text-white position-absolute top-50 start-50 translate-middle opacity-0 z-2\"></i>
@@ -141,9 +177,9 @@ if ($result->num_rows > 0) {
                     </div>
                 </a>
             </div>";
-        } else if ($i === 4) {
-            $remainingImages = count($images) - 4;
-            echo "
+                    } else if ($i === 4) {
+                        $remainingImages = count($images) - 4;
+                        echo "
             <div class=\"col-md-4 vstack gap-3 gap-lg-4\">
                 <a class=\"hover-effect-scale h-100 hover-effect-opacity position-relative d-flex rounded overflow-hidden\" href=\"dashboard/$image\" data-glightbox=\"\" data-gallery=\"image-gallery\">
                     <i class=\"fi-zoom-in hover-effect-target fs-3 text-white position-absolute top-50 start-50 translate-middle opacity-0 z-2\"></i>
@@ -156,17 +192,17 @@ if ($result->num_rows > 0) {
                     </div>
                 </a>
             </div>";
-            break;
-        }
-    }
+                        break;
+                    }
+                }
 
-    // Añadir enlaces ocultos para las imágenes adicionales
-    for ($i = 4; $i < count($images); $i++) {
-        $image = 'uploads/' . $images[$i];
-        echo "<a class=\"d-none\" href=\"dashboard/$image\" data-glightbox=\"\" data-gallery=\"image-gallery\"></a>";
-    }
+                // Añadir enlaces ocultos para las imágenes adicionales
+                for ($i = 4; $i < count($images); $i++) {
+                    $image = 'uploads/' . $images[$i];
+                    echo "<a class=\"d-none\" href=\"dashboard/$image\" data-glightbox=\"\" data-gallery=\"image-gallery\"></a>";
+                }
 
-    echo "
+                echo "
     </div>
 
     <!-- Listing details -->
@@ -200,132 +236,130 @@ if ($result->num_rows > 0) {
 
         </div>
     ";
-
-} else {
-    echo "Renta no encontrada.";
-}
-?>
-
+            } else {
+                echo "Renta no encontrada.";
+            }
+            ?>
 
 
 
-          <!-- Sidebar with contact form that turns into offcanvas on screens < 992px wide (lg breakpoint) -->
-          <aside class="col-lg-4 offset-xl-1">
-            <div class="d-none d-lg-block" style="margin-top: -105px"></div>
-            <div class="sticky-lg-top">
-              <div class="d-none d-lg-block" style="height: 105px"></div>
-              <div class="card shadow rounded-5 rounded p-4">
-                <div class="p-sm-2 p-lg-0 p-xl-2">
 
-                      <!-- Botón para abrir el modal -->
-<button type="button" class="btn btn-lg btn-info w-100 rounded-pill" data-bs-toggle="modal" data-bs-target="#addGestorModal">
-Reservar
-</button>
+            <!-- Sidebar with contact form that turns into offcanvas on screens < 992px wide (lg breakpoint) -->
+            <aside class="col-lg-4 offset-xl-1">
+                <div class="d-none d-lg-block" style="margin-top: -105px"></div>
+                <div class="sticky-lg-top">
+                    <div class="d-none d-lg-block" style="height: 105px"></div>
+                    <div class="card shadow rounded-5 rounded p-4">
+                        <div class="p-sm-2 p-lg-0 p-xl-2">
+
+                            <!-- Botón para abrir el modal -->
+                            <button type="button" class="btn btn-lg btn-info w-100 rounded-pill" data-bs-toggle="modal" data-bs-target="#addGestorModal">
+                                Reservar
+                            </button>
 
 
 
-                 
-                  <div class="fs-xs text-center pt-1 pb-2 my-2">Esta reserva se enviaría a nuestros gestores</div>
-                  <div class="d-flex align-items-center mb-3">
-                    <hr class="w-100 m-0">
-                    <div class="mt-n1 px-3">o</div>
-                    <hr class="w-100 m-0">
-                  </div>
-                 <!-- Botón para enviar mensaje a WhatsApp -->
-<button type="button" class="btn btn-lg btn-outline-dark w-100 rounded-pill" id="contactBtn">Envíanos un mensaje</button>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('contactBtn').addEventListener('click', function() {
-        fetch('php-get-gestor-activo.php')
-            .then(response => response.json())
-            .then(data => {
-                if (data.telefono) {
-                    const telefono = data.telefono;
-                    const mensaje = encodeURIComponent("Hola, vengo de su sitio web cuvarents");
-                    const whatsappUrl = `https://wa.me/${telefono}?text=${mensaje}`;
-                    console.log('WhatsApp URL:', whatsappUrl);
-                    window.location.href = whatsappUrl; // Usar window.location.href en lugar de window.open
-                } else {
-                    alert('No hay gestores activos disponibles.');
-                }
-            })
-            .catch(error => console.error('Error:', error));
-    });
-});
+                            <div class="fs-xs text-center pt-1 pb-2 my-2">Esta reserva se enviaría a nuestros gestores</div>
+                            <div class="d-flex align-items-center mb-3">
+                                <hr class="w-100 m-0">
+                                <div class="mt-n1 px-3">o</div>
+                                <hr class="w-100 m-0">
+                            </div>
+                            <!-- Botón para enviar mensaje a WhatsApp -->
+                            <button type="button" class="btn btn-lg btn-outline-dark w-100 rounded-pill" id="contactBtn">Envíanos un mensaje</button>
 
-</script>
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    document.getElementById('contactBtn').addEventListener('click', function() {
+                                        fetch('php-get-gestor-activo.php')
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                if (data.telefono) {
+                                                    const telefono = data.telefono;
+                                                    const mensaje = encodeURIComponent("Hola, vengo de su sitio web cuvarents");
+                                                    const whatsappUrl = `https://wa.me/${telefono}?text=${mensaje}`;
+                                                    console.log('WhatsApp URL:', whatsappUrl);
+                                                    window.location.href = whatsappUrl; // Usar window.location.href en lugar de window.open
+                                                } else {
+                                                    alert('No hay gestores activos disponibles.');
+                                                }
+                                            })
+                                            .catch(error => console.error('Error:', error));
+                                    });
+                                });
+                            </script>
 
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </aside>
+            </aside>
         </div>
-      </div>
+        </div>
     </main>
 
 
-<!-- Modal para enviar reserva -->
-<div class="modal fade" id="addGestorModal" tabindex="-1" aria-labelledby="addGestorModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="addGestorModalLabel">Enviar reservación</h5>
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id="sendReserveForm">
-          <div class="form-group">
-            <label for="nombre">Nombre y Apellidos</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" required>
-          </div>
-          <button type="submit" class="btn btn-dark w-100 mt-3 rounded-pill">Enviar reserva</button>
-        </form>
-      </div>
+    <!-- Modal para enviar reserva -->
+    <div class="modal fade" id="addGestorModal" tabindex="-1" aria-labelledby="addGestorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addGestorModalLabel">Enviar reservación</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="sendReserveForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre y Apellidos</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        </div>
+                        <button type="submit" class="btn btn-dark w-100 mt-3 rounded-pill">Enviar reserva</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('sendReserveForm').addEventListener('submit', function(event) {
-        event.preventDefault();
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('sendReserveForm').addEventListener('submit', function(event) {
+                event.preventDefault();
 
-        const nombre = document.getElementById('nombre').value;
-        const rentalId = <?php echo $rentalId; ?>; // Obtener el ID de la renta desde PHP
-        const currentUrl = window.location.href; // Obtener la URL actual del navegador
+                const nombre = document.getElementById('nombre').value;
+                const rentalId = <?php echo $rentalId; ?>; // Obtener el ID de la renta desde PHP
+                const currentUrl = window.location.href; // Obtener la URL actual del navegador
 
-        console.log('Nombre:', nombre);
-        console.log('Rental ID:', rentalId);
-        console.log('Current URL:', currentUrl);
+                console.log('Nombre:', nombre);
+                console.log('Rental ID:', rentalId);
+                console.log('Current URL:', currentUrl);
 
-        // Hacer una solicitud para obtener los detalles de la renta y el número del gestor activo
-        fetch('php-get-rental-and-gestor.php?rental_id=' + rentalId)
-            .then(response => response.json())
-            .then(data => {
-                if (data.telefono && data.rental) {
-                    const telefono = data.telefono;
-                    const rental = data.rental;
-                    const mensaje = `Hola, me gustaría reservar la renta:\n\n` +
-                                    `Nombre: ${rental.rental_title}\n` +
-                                    `Precio: ${rental.rental_price} (${rental.rental_price_type})\n` +
-                                    `Ubicación: ${rental.rental_provincia}, ${rental.rental_municipio}\n` +
-                                    `Tipo de Renta: ${rental.type_time_rent}\n\n` +
-                                    `Enlace de la renta: ${currentUrl}\n\n` +
-                                    `Nombre del cliente: ${nombre}`;
-                    const whatsappUrl = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
-                    console.log('WhatsApp URL:', whatsappUrl);
-                    window.location.href = whatsappUrl; // Usar window.location.href en lugar de window.open
-                } else {
-                    alert('No hay gestores activos disponibles o no se pudieron obtener los detalles de la renta.');
-                }
-            })
-            .catch(error => console.error('Error:', error));
-    });
-});
-</script>
+                // Hacer una solicitud para obtener los detalles de la renta y el número del gestor activo
+                fetch('php-get-rental-and-gestor.php?rental_id=' + rentalId)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.telefono && data.rental) {
+                            const telefono = data.telefono;
+                            const rental = data.rental;
+                            const mensaje = `Hola, me gustaría reservar la renta:\n\n` +
+                                `Nombre: ${rental.rental_title}\n` +
+                                `Precio: ${rental.rental_price} (${rental.rental_price_type})\n` +
+                                `Ubicación: ${rental.rental_provincia}, ${rental.rental_municipio}\n` +
+                                `Tipo de Renta: ${rental.type_time_rent}\n\n` +
+                                `Enlace de la renta: ${currentUrl}\n\n` +
+                                `Nombre del cliente: ${nombre}`;
+                            const whatsappUrl = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+                            console.log('WhatsApp URL:', whatsappUrl);
+                            window.location.href = whatsappUrl; // Usar window.location.href en lugar de window.open
+                        } else {
+                            alert('No hay gestores activos disponibles o no se pudieron obtener los detalles de la renta.');
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+        });
+    </script>
 
 
 
@@ -341,6 +375,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <!-- Bootstrap + Theme scripts -->
     <script src="uixsoftware/assets/js/theme.min.js"></script>
-  
 
-</body></html>
+
+</body>
+
+</html>

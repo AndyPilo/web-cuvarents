@@ -1,34 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="light"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Meta tags -->
-  <title>Dashboard</title>
-  <meta name="author" content="Uixsoftware">
-  <meta name="keywords" content="desarrollo web, agencia, empresa, diseño web, SEO, wordPress, habana, cuba, perzonalización, como crear web, tienda online">
-  <meta name="description" content="Servicios de desarrollo web y marketing digital en Cuba. Ofrecemos soluciones personalizadas y de calidad para potenciar tu negocio en internet - Uixsoftware">
-  <meta property="og:description" content="Servicios de desarrollo web y marketing digital en Cuba. Ofrecemos soluciones personalizadas y de calidad para potenciar tu negocio en internet.">
-  <meta property="og:url" content="https://www.uixsoftware.com/">
-  <meta property="og:image" content="https://www.uixsoftware.com/assets/img/logos/logo_uixsoftware.svg">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Uixsoftware | Servicios de Desarrollo Web en Cuba">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Uixsoftware | Servicios de Desarrollo Web en Cuba">
-  <meta name="twitter:description" content="Servicios de desarrollo web y marketing digital en Cuba. Ofrecemos soluciones personalizadas y de calidad para potenciar tu negocio en internet.">
-  <meta name="twitter:image" content="https://www.uixsoftware.com/assets/img/logos/logo_uixsoftware.svg">
-  <meta name="contact" content="soporte@uixsoftware.com">
-  <meta name="copyright" content="Copyright (c) 2024. Uixsoftware. All Rights Reserved.">
-  <meta name="DC.title" content="Uixsoftware: Líderes en Desarrollo Web en Cuba">
-  <meta name="geo.placename" content="CUBA">
-  <meta name="geo.region" content="CU">
+    <!-- Meta tags -->
+    <title>Dashboard</title>
+    <meta name="author" content="Uixsoftware">
+    <meta name="keywords" content="desarrollo web, agencia, empresa, diseño web, SEO, wordPress, habana, cuba, perzonalización, como crear web, tienda online">
+    <meta name="description" content="Servicios de desarrollo web y marketing digital en Cuba. Ofrecemos soluciones personalizadas y de calidad para potenciar tu negocio en internet - Uixsoftware">
+    <meta property="og:description" content="Servicios de desarrollo web y marketing digital en Cuba. Ofrecemos soluciones personalizadas y de calidad para potenciar tu negocio en internet.">
+    <meta property="og:url" content="https://www.uixsoftware.com/">
+    <meta property="og:image" content="https://www.uixsoftware.com/assets/img/logos/logo_uixsoftware.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Uixsoftware | Servicios de Desarrollo Web en Cuba">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Uixsoftware | Servicios de Desarrollo Web en Cuba">
+    <meta name="twitter:description" content="Servicios de desarrollo web y marketing digital en Cuba. Ofrecemos soluciones personalizadas y de calidad para potenciar tu negocio en internet.">
+    <meta name="twitter:image" content="https://www.uixsoftware.com/assets/img/logos/logo_uixsoftware.svg">
+    <meta name="contact" content="soporte@uixsoftware.com">
+    <meta name="copyright" content="Copyright (c) 2024. Uixsoftware. All Rights Reserved.">
+    <meta name="DC.title" content="Uixsoftware: Líderes en Desarrollo Web en Cuba">
+    <meta name="geo.placename" content="CUBA">
+    <meta name="geo.region" content="CU">
 
 
 
-  
+
     <link rel="shortcut icon" href="https://www.uixsoftware.com/assets/img/logos/logo_uixsoftware.svg">
-  
+
     <!-- Theme switcher (color modes) -->
     <script src="../uixsoftware/assets/js/theme-switcher.js"></script>
 
@@ -50,64 +53,91 @@
     <link rel="stylesheet" href="../uixsoftware/assets/css/theme.min.css" id="theme-styles">
 
     <!-- Customizer -->
-    <script src="../uixsoftware/assets/js/customizer.min.js"></script><style id="customizer-styles">:root,[data-bs-theme="light"]{}[data-bs-theme="dark"]{}.btn-primary{}.btn-success{}.btn-warning{}.btn-danger{}.btn-info{}.btn-outline-primary{}.btn-outline-success{}.btn-outline-warning{}.btn-outline-danger{}.btn-outline-info{}</style>
-  </head>
+    <script src="../uixsoftware/assets/js/customizer.min.js"></script>
+    <style id="customizer-styles">
+        :root,
+        [data-bs-theme="light"] {}
+
+        [data-bs-theme="dark"] {}
+
+        .btn-primary {}
+
+        .btn-success {}
+
+        .btn-warning {}
+
+        .btn-danger {}
+
+        .btn-info {}
+
+        .btn-outline-primary {}
+
+        .btn-outline-success {}
+
+        .btn-outline-warning {}
+
+        .btn-outline-danger {}
+
+        .btn-outline-info {}
+    </style>
+</head>
 
 
-  <!-- Body -->
-  <body>
+<!-- Body -->
+
+<body>
 
 
     <main class="content-wrapper">
-      <div class="container pt-4 pt-sm-5 pb-5 mb-xxl-3">
-        <div class="row pt-2 pt-sm-0 pt-lg-2 pb-2 pb-sm-3 pb-md-4 pb-lg-5">
+        <div class="container pt-4 pt-sm-5 pb-5 mb-xxl-3">
+            <div class="row pt-2 pt-sm-0 pt-lg-2 pb-2 pb-sm-3 pb-md-4 pb-lg-5">
 
 
-        <?php include "sidebar.php" ?>
+                <?php include "sidebar.php" ?>
 
-          <!-- Account settings content -->
-          <div class="col-lg-9">
+                <!-- Account settings content -->
+                <div class="col-lg-9">
 
-          <div class="d-flex justify-content-between pb-5">
+                    <div class="d-flex justify-content-between pb-5">
 
-<h1 class="h2 mb-0">Dashboard</h1>
+                        <h1 class="h2 mb-0">Dashboard</h1>
 
-</div>
-
-
+                    </div>
 
 
-<div class="p-2 p-md-4 shadow card rounded-5 mb-4">
 
-<h3 class="h4">Mis rentas</h3>
 
-<!-- Published listings -->
-<div class="row gap-4" id="publishedSelection">
+                    <div class="p-2 p-md-4 shadow card rounded-5 mb-4">
 
-      <?php
+                        <h3 class="h4">Mis rentas</h3>
 
-// Obtener las rentas de la base de datos (excluyendo las ocultas)
-$sql3 = "SELECT Rentals.*, GROUP_CONCAT(RentalImages.image_url) AS images 
+                        <!-- Published listings -->
+                        <div class="row gap-4" id="publishedSelection">
+
+                            <?php
+
+                            // Obtener las rentas de la base de datos (excluyendo las ocultas)
+                            $sql3 = "SELECT Rentals.*, GROUP_CONCAT(RentalImages.image_url) AS images 
         FROM Rentals
         LEFT JOIN RentalImages ON Rentals.rental_id = RentalImages.rental_id
         WHERE Rentals.is_hidden = FALSE
         GROUP BY Rentals.rental_id
         ORDER BY Rentals.rental_id DESC
         LIMIT 2";
-$result = $conn->query($sql3);
+                            $result = $conn->query($sql3);
 
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        $images = explode(',', $row['images']);
-        $firstImage = !empty($images[0]) ? 'uploads/' . $images[0] : 'ruta/a/la/imagen/por/defecto.jpg';
-        $rentalId = htmlspecialchars($row['rental_id'], ENT_QUOTES, 'UTF-8');
-        $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
-        $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
-        $rentalLocation = htmlspecialchars($row['rental_provincia'], ENT_QUOTES, 'UTF-8');
-        $rentalCreated = date('d/m/Y', strtotime($row['rental_created_at']));
-        $rentalEdited = date('d/m/Y', strtotime($row['rental_updated_at']));
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    $images = !empty($row['images']) ? explode(',', $row['images']) : [];
+                                    $firstImage = !empty($images[0]) ? 'uploads/' . $images[0] : '../uixsoftware/assets/img/default-img.png';
+                                    $rentalId = htmlspecialchars($row['rental_id'], ENT_QUOTES, 'UTF-8');
+                                    $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
+                                    $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
+                                    $rentalLocation = htmlspecialchars($row['rental_provincia'], ENT_QUOTES, 'UTF-8');
+                                    $rentalCreated = date('d/m/Y', strtotime($row['rental_created_at']));
+                                    $rentalEdited = date('d/m/Y', strtotime($row['rental_updated_at']));
 
-        echo "
+                                    echo "
         <div class=\"col-12 d-sm-flex align-items-center\">
             <article class=\"card w-100\">
                 <div class=\"d-sm-none\"></div>
@@ -166,38 +196,39 @@ if ($result->num_rows > 0) {
                 </div>
             </article>
         </div>";
-    }
-} else {
-    echo "<p>No hay rentas disponibles.</p>";
-}
-?>
+                                }
+                            } else {
+                                echo "<p>No hay rentas disponibles.</p>";
+                            }
+                            ?>
 
 
-<div>
-<a href="rents.php" class="btn btn-dark px-4 rounded-pill">Ver rentas</a>
-</div>
-</div></div>
+                            <div>
+                                <a href="rents.php" class="btn btn-dark px-4 rounded-pill">Ver rentas</a>
+                            </div>
+                        </div>
+                    </div>
 
 
 
 
-<div class="p-2 p-md-4 shadow card rounded-5 mb-4">
+                    <div class="p-2 p-md-4 shadow card rounded-5 mb-4">
 
-<h3 class="h4">Comentarios</h3>
+                        <h3 class="h4">Comentarios</h3>
 
-<?php
-            // Obtener las recomendaciones de la base de datos
-            $sql4 = "SELECT * FROM Recommendations ORDER BY created_at DESC LIMIT 1";
-            $result4 = $conn->query($sql4);
+                        <?php
+                        // Obtener las recomendaciones de la base de datos
+                        $sql4 = "SELECT * FROM Recommendations ORDER BY created_at DESC LIMIT 1";
+                        $result4 = $conn->query($sql4);
 
-            if ($result4->num_rows > 0) {
-                while($row4 = $result4->fetch_assoc()) {
-                    $userName = htmlspecialchars($row4['user_name'], ENT_QUOTES, 'UTF-8');
-                    $userRank = htmlspecialchars($row4['user_rank'], ENT_QUOTES, 'UTF-8');
-                    $recommendationText = htmlspecialchars($row4['recommendation_text'], ENT_QUOTES, 'UTF-8');
-                    $createdDate = date('M d, Y', strtotime($row4['created_at']));
+                        if ($result4->num_rows > 0) {
+                            while ($row4 = $result4->fetch_assoc()) {
+                                $userName = htmlspecialchars($row4['user_name'], ENT_QUOTES, 'UTF-8');
+                                $userRank = htmlspecialchars($row4['user_rank'], ENT_QUOTES, 'UTF-8');
+                                $recommendationText = htmlspecialchars($row4['recommendation_text'], ENT_QUOTES, 'UTF-8');
+                                $createdDate = date('M d, Y', strtotime($row4['created_at']));
 
-                    echo "
+                                echo "
                     <div class=\"py-2\">
                         <div class=\"d-sm-flex align-items-center mt-2 mb-3\">
                             <div class=\"d-flex align-items-center pe-3\">
@@ -215,23 +246,23 @@ if ($result->num_rows > 0) {
                     
                    
                     ";
-                }
-                $result4->close(); // Cerrar la consulta
-            } else {
-                echo "<p>No hay recomendaciones disponibles.</p>";
-            }
-            ?>
+                            }
+                            $result4->close(); // Cerrar la consulta
+                        } else {
+                            echo "<p>No hay recomendaciones disponibles.</p>";
+                        }
+                        ?>
 
-<div>
-<a href="reviews.php" class="btn btn-dark px-4 rounded-pill">Ver comentarios</a>
-</div>
+                        <div>
+                            <a href="reviews.php" class="btn btn-dark px-4 rounded-pill">Ver comentarios</a>
+                        </div>
 
-</div>
+                    </div>
 
 
-          </div>
+                </div>
+            </div>
         </div>
-      </div>
     </main>
 
     <!-- Vendor scripts -->
@@ -243,8 +274,11 @@ if ($result->num_rows > 0) {
     <!-- Bootstrap + Theme scripts -->
     <script src="../uixsoftware/assets/js/theme.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script> <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-  
 
-</body></html>
+
+</body>
+
+</html>
