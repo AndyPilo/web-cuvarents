@@ -30,18 +30,86 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $rentalId = $stmt2->insert_id;
 
         // Verificar si la carpeta de destino existe, sino crearla
+
         $uploadDir = 'uploads/';
         if (!is_dir($uploadDir)) {
-            mkdir($uploadDir, 0777, true);
+            mkdir($uploadDir, 0755, true);
         }
 
-        // Guardar las imágenes
+        // Extensiones permitidas
+        $allowedExts = ['jpg', 'jpeg', 'png', 'webp'];
+
+        // Función para redimensionar imagen
+        function resizeImage($sourcePath, $destinationPath, $maxWidth = 1200, $quality = 85)
+        {
+            $info = getimagesize($sourcePath);
+            if ($info === false) return false;
+
+            list($origWidth, $origHeight) = $info;
+            $mime = $info['mime'];
+
+            if ($origWidth > $maxWidth) {
+                $newWidth = $maxWidth;
+                $newHeight = intval(($origHeight / $origWidth) * $newWidth);
+            } else {
+                return move_uploaded_file($sourcePath, $destinationPath);
+            }
+
+            switch ($mime) {
+                case 'image/jpeg':
+                    $image = imagecreatefromjpeg($sourcePath);
+                    break;
+                case 'image/png':
+                    $image = imagecreatefrompng($sourcePath);
+                    break;
+                case 'image/webp':
+                    $image = imagecreatefromwebp($sourcePath);
+                    break;
+                default:
+                    return false;
+            }
+
+            $resized = imagecreatetruecolor($newWidth, $newHeight);
+
+            if ($mime === 'image/png') {
+                imagealphablending($resized, false);
+                imagesavealpha($resized, true);
+            }
+
+            imagecopyresampled($resized, $image, 0, 0, 0, 0, $newWidth, $newHeight, $origWidth, $origHeight);
+
+            switch ($mime) {
+                case 'image/jpeg':
+                    imagejpeg($resized, $destinationPath, $quality);
+                    break;
+                case 'image/png':
+                    imagepng($resized, $destinationPath, 8);
+                    break;
+                case 'image/webp':
+                    imagewebp($resized, $destinationPath, $quality);
+                    break;
+            }
+
+            imagedestroy($image);
+            imagedestroy($resized);
+
+            return true;
+        }
+
+        // Guardar imágenes del formulario
         foreach ($_FILES['rentalImages']['tmp_name'] as $key => $tmpName) {
-            $fileExt = pathinfo($_FILES['rentalImages']['name'][$key], PATHINFO_EXTENSION);
-            $uniqueFileName = uniqid() . '.' . $fileExt;
+            $originalName = $_FILES['rentalImages']['name'][$key];
+            $fileExt = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));
+
+            if (!in_array($fileExt, $allowedExts)) continue;
+            if (!getimagesize($tmpName)) continue;
+
+            // Generar nombre amigable SEO basado en título
+            $baseName = strtolower(preg_replace('/[^a-z0-9]+/', '-', $rentalTitle));
+            $uniqueFileName = $baseName . '-' . uniqid() . '.' . $fileExt;
             $targetFilePath = $uploadDir . $uniqueFileName;
 
-            if (move_uploaded_file($tmpName, $targetFilePath)) {
+            if (resizeImage($tmpName, $targetFilePath)) {
                 $stmtImg = $conn->prepare("INSERT INTO RentalImages (rental_id, image_url) VALUES (?, ?)");
                 $stmtImg->bind_param("is", $rentalId, $uniqueFileName);
                 $stmtImg->execute();
@@ -70,4 +138,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 }
-?>
