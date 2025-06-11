@@ -1,0 +1,59 @@
+.hero-mask-1 {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+
+  /* Múltiples máscaras combinadas */
+  -webkit-mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0) 5%,
+      rgba(0, 0, 0, 1) 20%
+    ),
+    /* izquierda */
+      linear-gradient(to left, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 20%),
+    /*derecha */
+      linear-gradient(to bottom, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 20%),
+    /* abajo*/
+      linear-gradient(to top, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 20%);
+  /* arriba*/
+
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+
+.hero-mask {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+
+  /* Múltiples máscaras combinadas */
+  -webkit-mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0) 2%,
+      rgba(0, 0, 0, 1) 10%
+    ),
+    /* izquierda */
+      linear-gradient(to left, rgba(0, 0, 0, 0) 2%, rgba(0, 0, 0, 1) 10%),
+    /*derecha */
+      linear-gradient(to bottom, rgba(0, 0, 0, 0) 2%, rgba(0, 0, 0, 1) 10%),
+    /* abajo*/
+      linear-gradient(to top, rgba(0, 0, 0, 0) 2%, rgba(0, 0, 0, 1) 10%);
+  /* arriba*/
+
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}

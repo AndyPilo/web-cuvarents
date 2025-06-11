@@ -125,7 +125,7 @@
             <div class="position-relative overflow-hidden">
               <div class="position-absolute top-0 z-1 fw-bold" style="right: 0; margin: -75px 96px 0px 0; margin-top: 10px; font-size: 108px; color: var(--fn-body-bg)">Confort</div>
               <div class="ratio bg-body-tertiary rounded overflow-hidden" style="--fn-aspect-ratio: calc(328 / 568 * 100%)">
-                <img src="uixsoftware/assets/img/hero3.jpg" alt="Image">
+                <img src="uixsoftware/assets/img/hero3.jpg" alt="Sala pintada de blanco con muebles blancos mostrando confort y elegancia">
               </div>
             </div>
           </div>
@@ -135,7 +135,7 @@
             <div class="position-relative overflow-hidden">
               <div class="position-absolute top-0 z-1 fw-bold" style="left: 0; margin: -53px 0 0 -18px; font-size: 108px; color: var(--fn-body-bg)">Cuba</div>
               <div class="ratio bg-body-tertiary rounded overflow-hidden" style="--fn-aspect-ratio: calc(446 / 438 * 100%)">
-                <img src="uixsoftware/assets/img/hero2.jpg" alt="Image">
+                <img src="uixsoftware/assets/img/hero2.jpg" alt="Vista de una casa con piscina con un rancho de fondo">
               </div>
             </div>
           </div>
@@ -148,7 +148,7 @@
         <div class="text-center pt-5 pb-3" style="margin-top: -80px;">
           <span class="display-4 mb-2 text-white black-ops-one-regular" style="text-shadow: 0 0 10px #393939;">CuVaRents</span>
           <br>
-          <span class="display-6 text-white  pb-2 black-ops-one-regular" style="text-shadow: 0 0 10px #393939;">Una manera fácil de encontrar el hospedaje perfecto</span>
+          <span class="display-6 text-white  pb-2 black-ops-one-regular" style="text-shadow: 0 0 10px #393939;">Renta de casas y hospedaje en Cuba</span>
           <?php include 'inputsearch.php'; ?>
         </div>
       </div>
@@ -334,7 +334,7 @@
             $slides .= "
     <div class=\"swiper-slide\">
         <div class=\"ratio d-block\" style=\"--fn-aspect-ratio: calc(248 / 362 * 100%)\">
-            <img src=\"uixsoftware/assets/img/default-img.png\" alt=\"Imagen gris con una casita en medio que se muestra por defecto cuando una renta no tiene fotos\">
+            <img src=\"uixsoftware/assets/img/default-img.png\" alt=\"ícono de casa gris como marcador por defecto de una propiedad en alquiler sin fotos disponibles\">
             <span class=\"position-absolute top-0 start-0 w-100 h-100 z-1\" style=\"background: linear-gradient(180deg, rgba(0,0,0, 0) 0%, rgba(0,0,0, .11) 100%)\"></span>
         </div>
     </div>";
