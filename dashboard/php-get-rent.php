@@ -59,4 +59,3 @@ if (isset($_GET['id'])) {
 $conn->close();
 
 echo json_encode($response);
-?>

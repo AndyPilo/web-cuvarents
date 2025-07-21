@@ -2,16 +2,13 @@
 <html lang="es" data-bs-theme="light">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+  <meta charset="UTF-8">
 
   <!-- Meta tags -->
-  <title>CuVaRents | Rentas de casas en Cuba</title>
+  <title>CuVaRents | Renta de casas en Cuba</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Uixsoftware">
-  <meta name="keywords" content="rentas en Cuba, alquileres en Cuba, apartamentos en Cuba, casas en Cuba, CuVaRents, Uixsoftware, alquiler de viviendas, La Habana, Santiago de Cuba, Matanzas, provincia, municipio, Cuba">
-  <meta name="description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
-  <meta property="og:description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
+  <meta name="description" content="CuVaRents ofrece una amplia selección de propiedades en renta en toda Cuba. Encuentra el hogar ideal en La Habana, Santiago de Cuba, Matanzas y más.">
+  <meta property="og:description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más.">
   <meta property="og:url" content="https://www.cuvarents.com/">
   <meta property="og:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
   <meta property="og:type" content="website">
@@ -20,17 +17,9 @@
   <meta name="twitter:title" content="CuVaRents | Alquileres en Cuba">
   <meta name="twitter:description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
   <meta name="twitter:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
-  <meta name="contact" content="soporte@cuvarents.com">
-  <meta name="copyright" content="Copyright (c) 2024. Uixsoftware. Todos los derechos reservados.">
-  <meta name="DC.title" content="CuVaRents: Líderes en Alquileres en Cuba">
-  <meta name="geo.placename" content="Cuba">
-  <meta name="geo.region" content="CU">
 
-
-
-
+  <!-- Favicon -->
   <link rel="shortcut icon" href="https://www.uixsoftware.com/assets/img/logos/logo_uixsoftware.svg">
-
 
   <!-- Theme switcher (color modes) -->
   <script src="uixsoftware/assets/js/theme-switcher.js"></script>

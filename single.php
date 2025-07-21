@@ -48,6 +48,9 @@
     <!-- Bootstrap + Theme styles -->
     <link rel="preload" href="uixsoftware/assets/css/theme.min.css" as="style">
 
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
     <link rel="stylesheet" href="uixsoftware/assets/css/theme.min.css" id="theme-styles">
 
     <!-- Customizer -->
@@ -288,6 +291,14 @@
         </div>
     </main>
 
+    <!-- Estilo para que el calendario salga en medio del input -->
+    <style>
+        /* Centra el datepicker de Flatpickr respecto al input */
+        .flatpickr-calendar {
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+        }
+    </style>
 
     <!-- Modal para enviar reserva -->
     <div class="modal fade" id="addGestorModal" tabindex="-1" aria-labelledby="addGestorModalLabel" aria-hidden="true">
@@ -305,6 +316,10 @@
                             <label for="nombre">Nombre y Apellidos</label>
                             <input type="text" class="form-control" id="nombre" name="nombre" required>
                         </div>
+                        <div class="form-group mt-3">
+                            <label for="fechaHospedaje">Fecha de hospedaje</label>
+                            <input type="text" class="form-control h" id="fechaHospedaje" name="fechaHospedaje" placeholder="Selecciona una fecha" style="display: none;" required>
+                        </div>
                         <button type="submit" class="btn btn-dark w-100 mt-3 rounded-pill">Enviar reserva</button>
                     </form>
                 </div>
@@ -312,36 +327,63 @@
         </div>
     </div>
 
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        // Esperar hasta que Flatpickr esté completamente cargado
+        window.addEventListener('load', function() {
+            // Inicializar el datepicker después de que todo se haya cargado
+            if (typeof flatpickr !== 'undefined') {
+                flatpickr("#fechaHospedaje", {
+                    mode: "range",
+                    dateFormat: "Y-m-d",
+                    minDate: "today",
+                    inline: true
+
+                });
+            } else {
+                console.error("Flatpickr no está definido. Verifica que se esté cargando correctamente.");
+            }
+
+            // Form submission
             document.getElementById('sendReserveForm').addEventListener('submit', function(event) {
                 event.preventDefault();
 
                 const nombre = document.getElementById('nombre').value;
-                const rentalId = <?php echo $rentalId; ?>; // Obtener el ID de la renta desde PHP
-                const currentUrl = window.location.href; // Obtener la URL actual del navegador
+                const fechaHospedaje = document.getElementById('fechaHospedaje').value;
+                const rentalId = <?php echo $rentalId; ?>;
+                const currentUrl = window.location.href;
 
-                console.log('Nombre:', nombre);
-                console.log('Rental ID:', rentalId);
-                console.log('Current URL:', currentUrl);
+                if (!fechaHospedaje) {
+                    alert("Por favor selecciona una fecha de hospedaje.");
+                    return;
+                }
 
-                // Hacer una solicitud para obtener los detalles de la renta y el número del gestor activo
+                // Separar fecha de entrada y salida
+                const fechas = fechaHospedaje.split(" to ");
+                const fechaEntrada = fechas[0] || "No especificada";
+                const fechaSalida = fechas[1] || "No especificada";
+
                 fetch('php-get-rental-and-gestor.php?rental_id=' + rentalId)
                     .then(response => response.json())
                     .then(data => {
                         if (data.telefono && data.rental) {
                             const telefono = data.telefono;
                             const rental = data.rental;
+
                             const mensaje = `Hola, me gustaría reservar la renta:\n\n` +
-                                `Nombre: ${rental.rental_title}\n` +
+                                `*${rental.rental_title}*\n` +
                                 `Precio: ${rental.rental_price} (${rental.rental_price_type})\n` +
                                 `Ubicación: ${rental.rental_provincia}, ${rental.rental_municipio}\n` +
                                 `Tipo de Renta: ${rental.type_time_rent}\n\n` +
                                 `Enlace de la renta: ${currentUrl}\n\n` +
-                                `Nombre del cliente: ${nombre}`;
+                                `Nombre del cliente: ${nombre}\n` +
+                                `Fecha de entrada: ${fechaEntrada}\n` +
+                                `Fecha de salida: ${fechaSalida}`;
+
                             const whatsappUrl = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
-                            console.log('WhatsApp URL:', whatsappUrl);
-                            window.location.href = whatsappUrl; // Usar window.location.href en lugar de window.open
+                            window.location.href = whatsappUrl;
                         } else {
                             alert('No hay gestores activos disponibles o no se pudieron obtener los detalles de la renta.');
                         }
@@ -350,9 +392,6 @@
             });
         });
     </script>
-
-
-
 
     <?php include 'footer.php'; ?>
 
