@@ -105,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!getimagesize($tmpName)) continue;
 
             // Generar nombre amigable SEO basado en título
-            $baseName = strtolower(preg_replace('/[^a-z0-9]+/', '-', $rentalTitle));
+            $baseName = strtolower(preg_replace('/[^\p{L}0-9]+/u', '-', $rentalTitle));
             $uniqueFileName = $baseName . '-' . uniqid() . '.' . $fileExt;
             $targetFilePath = $uploadDir . $uniqueFileName;
 

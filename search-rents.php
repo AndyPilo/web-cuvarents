@@ -1,31 +1,34 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="light"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="es" data-bs-theme="light">
 
-<!-- Meta tags -->
-<title>CuVaRents | Explorar Rentas</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="Uixsoftware">
-<meta name="keywords" content="rentas en Cuba, alquileres en Cuba, apartamentos en Cuba, casas en Cuba, CuVaRents, Uixsoftware, alquiler de viviendas, La Habana, Santiago de Cuba, Matanzas, provincia, municipio, Cuba">
-<meta name="description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
-<meta property="og:description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
-<meta property="og:url" content="https://www.cuvarents.com/">
-<meta property="og:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CuVaRents | Alquileres en Cuba">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="CuVaRents | Alquileres en Cuba">
-<meta name="twitter:description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
-<meta name="twitter:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
-<meta name="contact" content="soporte@cuvarents.com">
-<meta name="copyright" content="Copyright (c) 2024. Uixsoftware. Todos los derechos reservados.">
-<meta name="DC.title" content="CuVaRents: Líderes en Alquileres en Cuba">
-<meta name="geo.placename" content="Cuba">
-<meta name="geo.region" content="CU">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  
-<link rel="shortcut icon" href="https://www.uixsoftware.com/assets/img/logos/logo_uixsoftware.svg">
-  
+
+    <!-- Meta tags -->
+    <title>CuVaRents | Explorar Rentas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Uixsoftware">
+    <meta name="keywords" content="rentas en Cuba, alquileres en Cuba, apartamentos en Cuba, casas en Cuba, CuVaRents, Uixsoftware, alquiler de viviendas, La Habana, Santiago de Cuba, Matanzas, provincia, municipio, Cuba">
+    <meta name="description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
+    <meta property="og:description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
+    <meta property="og:url" content="https://www.cuvarents.com/">
+    <meta property="og:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CuVaRents | Alquileres en Cuba">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CuVaRents | Alquileres en Cuba">
+    <meta name="twitter:description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
+    <meta name="twitter:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
+    <meta name="contact" content="soporte@cuvarents.com">
+    <meta name="copyright" content="Copyright (c) 2024. Uixsoftware. Todos los derechos reservados.">
+    <meta name="DC.title" content="CuVaRents: Líderes en Alquileres en Cuba">
+    <meta name="geo.placename" content="Cuba">
+    <meta name="geo.region" content="CU">
+
+
+    <link rel="shortcut icon" href="https://www.uixsoftware.com/assets/img/logos/logo_uixsoftware.svg">
+
 
     <!-- Theme switcher (color modes) -->
     <script src="uixsoftware/assets/js/theme-switcher.js"></script>
@@ -48,155 +51,193 @@
     <link rel="stylesheet" href="uixsoftware/assets/css/theme.min.css" id="theme-styles">
 
     <!-- Customizer -->
-    <script src="uixsoftware/assets/js/customizer.min.js"></script><style id="customizer-styles">:root,[data-bs-theme="light"]{}[data-bs-theme="dark"]{}.btn-primary{}.btn-success{}.btn-warning{}.btn-danger{}.btn-info{}.btn-outline-primary{}.btn-outline-success{}.btn-outline-warning{}.btn-outline-danger{}.btn-outline-info{}</style>
-  </head>
+    <script src="uixsoftware/assets/js/customizer.min.js"></script>
+    <style id="customizer-styles">
+        :root,
+        [data-bs-theme="light"] {}
+
+        [data-bs-theme="dark"] {}
+
+        .btn-primary {}
+
+        .btn-success {}
+
+        .btn-warning {}
+
+        .btn-danger {}
+
+        .btn-info {}
+
+        .btn-outline-primary {}
+
+        .btn-outline-success {}
+
+        .btn-outline-warning {}
+
+        .btn-outline-danger {}
+
+        .btn-outline-info {}
+    </style>
+</head>
 
 
-  <!-- Body -->
-  <body>
+<!-- Body -->
 
-  <?php include 'navbar.php'; ?>
+<body>
+
+    <?php include 'navbar.php'; ?>
 
     <!-- Page content -->
     <main class="content-wrapper">
 
-    <?php include 'search.php'; ?>
+        <?php include 'search.php'; ?>
 
 
-    </div>
-</div>
+        </div>
+        </div>
 
 
-<!-- Property listings -->
-<section class="container mt-2 mt-md-3 mt-lg-5 pb-5">
-    <h2 class="pb-2 pb-lg-3">Rentas populares</h2>
+        <!-- Property listings -->
+        <section class="container mt-2 mt-md-3 mt-lg-5 pb-5">
+            <h2 class="pb-2 pb-lg-3">Rentas populares</h2>
 
-    <!-- Properties grid -->
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 g-md-3 g-lg-4">
-    <?php
-$precio = isset($_GET['precio']) ? $_GET['precio'] : [];
-$zona = isset($_GET['municipio']) ? $_GET['municipio'] : [];
-$habitaciones = isset($_GET['habitaciones']) ? intval($_GET['habitaciones']) : 0;
-$capacidad = isset($_GET['capacidad']) ? intval($_GET['capacidad']) : 0;
-$servicios = isset($_GET['servicios']) ? $_GET['servicios'] : [];
-$search = isset($_GET['search']) ? trim($_GET['search']) : '';
+            <!-- Properties grid -->
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 g-md-3 g-lg-4">
+                <?php
+                $precio = isset($_GET['precio']) ? $_GET['precio'] : [];
+                $zona = isset($_GET['municipio']) ? $_GET['municipio'] : [];
+                $habitaciones = isset($_GET['habitaciones']) ? intval($_GET['habitaciones']) : 0;
+                $capacidad = isset($_GET['capacidad']) ? intval($_GET['capacidad']) : 0;
+                $servicios = isset($_GET['servicios']) ? $_GET['servicios'] : [];
+                $search = isset($_GET['search']) ? trim($_GET['search']) : '';
 
-// Construir la consulta SQL dinámica
-$sql3 = "SELECT Rentals.*, GROUP_CONCAT(RentalImages.image_url) AS images 
+                // Construir la consulta SQL dinámica
+                $sql3 = "SELECT Rentals.*, GROUP_CONCAT(RentalImages.image_url) AS images 
         FROM Rentals
         LEFT JOIN RentalImages ON Rentals.rental_id = RentalImages.rental_id
         WHERE Rentals.is_hidden = FALSE";
 
-// Agregar condición de búsqueda
-if (!empty($search)) {
-    $search = $conn->real_escape_string($search); // Evitar inyección SQL
-    $sql3 .= " AND (
+                // Agregar condición de búsqueda
+                if (!empty($search)) {
+                    $search = $conn->real_escape_string($search); // Evitar inyección SQL
+                    $sql3 .= " AND (
         rental_title LIKE '%$search%' OR
         rental_provincia LIKE '%$search%' OR
         rental_municipio LIKE '%$search%' OR
         rental_category LIKE '%$search%'
     )";
-}
+                }
 
-if (!empty($precio)) {
-    $priceConditions = [];
-    foreach ($precio as $p) {
-        switch ($p) {
-            case '<50':
-                $priceConditions[] = "rental_price < 50";
-                break;
-            case '50-100':
-                $priceConditions[] = "rental_price BETWEEN 50 AND 100";
-                break;
-            case '100-200':
-                $priceConditions[] = "rental_price BETWEEN 100 AND 200";
-                break;
-            case '>200':
-                $priceConditions[] = "rental_price > 200";
-                break;
-        }
-    }
-    $sql3 .= " AND (" . implode(' OR ', $priceConditions) . ")";
-}
+                if (!empty($precio)) {
+                    $priceConditions = [];
+                    foreach ($precio as $p) {
+                        switch ($p) {
+                            case '<50':
+                                $priceConditions[] = "rental_price < 50";
+                                break;
+                            case '50-100':
+                                $priceConditions[] = "rental_price BETWEEN 50 AND 100";
+                                break;
+                            case '100-200':
+                                $priceConditions[] = "rental_price BETWEEN 100 AND 200";
+                                break;
+                            case '>200':
+                                $priceConditions[] = "rental_price > 200";
+                                break;
+                        }
+                    }
+                    $sql3 .= " AND (" . implode(' OR ', $priceConditions) . ")";
+                }
 
-if (!empty($zona)) {
-    $sql3 .= " AND rental_municipio IN ('" . implode("','", $zona) . "')";
-}
+                if (!empty($zona)) {
+                    $sql3 .= " AND rental_municipio IN ('" . implode("','", $zona) . "')";
+                }
 
-if ($habitaciones > 0) {
-    $sql3 .= " AND rental_rooms = $habitaciones";
-}
+                if ($habitaciones > 0) {
+                    $sql3 .= " AND rental_rooms = $habitaciones";
+                }
 
-if ($capacidad > 0) {
-    $sql3 .= " AND rental_capacity = $capacidad";
-}
+                if ($capacidad > 0) {
+                    $sql3 .= " AND rental_capacity = $capacidad";
+                }
 
-if (!empty($servicios)) {
-    $sql3 .= " AND Rentals.rental_id IN (
+                if (!empty($servicios)) {
+                    $sql3 .= " AND Rentals.rental_id IN (
         SELECT rental_id 
         FROM RentalServices 
         WHERE service_rent_id IN ('" . implode("','", $servicios) . "') 
         GROUP BY rental_id 
         HAVING COUNT(DISTINCT service_rent_id) = " . count($servicios) . "
     )";
-}
+                }
 
-$sql3 .= " GROUP BY Rentals.rental_id ORDER BY Rentals.is_promoted DESC";
+                $sql3 .= " GROUP BY Rentals.rental_id ORDER BY Rentals.is_promoted DESC";
 
-$result = $conn->query($sql3);
+                $result = $conn->query($sql3);
 
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $rentalId = $row['rental_id'];
-        $images = explode(',', $row['images']);
-        $firstImage = !empty($images[0]) ? 'uploads/' . $images[0] : 'ruta/a/la/imagen/por/defecto.jpg';
-        $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
-        $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
-        $rentalHab = htmlspecialchars($row['rental_rooms'], ENT_QUOTES, 'UTF-8');
-        $rentalPriceType = htmlspecialchars($row['rental_price_type'], ENT_QUOTES, 'UTF-8');
-        $rentalLocation = htmlspecialchars($row['rental_provincia'] . ', ' . $row['rental_municipio'], ENT_QUOTES, 'UTF-8');
-        $rentalCreated = date('d/m/Y', strtotime($row['rental_created_at']));
-        $rentalEdited = date('d/m/Y', strtotime($row['rental_updated_at']));
-        $isPromoted = $row['is_promoted'];
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $rentalId = $row['rental_id'];
+                        $images = !empty($row['images']) ? explode(',', $row['images']) : [];
+                        $firstImage = !empty($images[0]) ? 'uploads/' . $images[0] : 'uixsoftware/assets/img/default-img.png';
+                        $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
+                        $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
+                        $rentalHab = htmlspecialchars($row['rental_rooms'], ENT_QUOTES, 'UTF-8');
+                        $rentalPriceType = htmlspecialchars($row['rental_price_type'], ENT_QUOTES, 'UTF-8');
+                        $rentalLocation = htmlspecialchars($row['rental_provincia'] . ', ' . $row['rental_municipio'], ENT_QUOTES, 'UTF-8');
+                        $rentalCreated = date('d/m/Y', strtotime($row['rental_created_at']));
+                        $rentalEdited = date('d/m/Y', strtotime($row['rental_updated_at']));
+                        $isPromoted = $row['is_promoted'];
 
-        // Obtener los servicios de la renta
-        $sqlServices = "SELECT services_rent_name, services_rent_icon_svg FROM services_rent
+                        // Obtener los servicios de la renta
+                        $sqlServices = "SELECT services_rent_name, services_rent_icon_svg FROM services_rent
                         JOIN RentalServices ON services_rent.services_rent_id = RentalServices.service_rent_id
                         WHERE RentalServices.rental_id = " . $row['rental_id'];
-        $resultServices = $conn->query($sqlServices);
+                        $resultServices = $conn->query($sqlServices);
 
-        $servicesIcons = "";
-        $totalServices = $resultServices->num_rows;
-        $count = 0;
+                        $servicesIcons = "";
+                        $totalServices = $resultServices->num_rows;
+                        $count = 0;
 
-        while ($service = $resultServices->fetch_assoc()) {
-            if ($count < 5) {
-                $servicesIcons .= $service['services_rent_icon_svg'];
-            }
-            $count++;
-        }
+                        while ($service = $resultServices->fetch_assoc()) {
+                            if ($count < 5) {
+                                $servicesIcons .= $service['services_rent_icon_svg'];
+                            }
+                            $count++;
+                        }
 
-        if ($totalServices > 5) {
-            $servicesIcons .= '<span class="fs-sm ms-2">+' . ($totalServices - 5) . '</span>';
-        }
+                        if ($totalServices > 5) {
+                            $servicesIcons .= '<span class="fs-sm ms-2">+' . ($totalServices - 5) . '</span>';
+                        }
 
-        // Generar las slides del Swiper
-        $slides = "";
-        $imageCount = 0;
-        foreach ($images as $index => $image) {
-            if ($imageCount >= 4) break; // Limitar a 4 imágenes
-            $slideImage = !empty($image) ? 'uploads/' . $image : 'ruta/a/la/imagen/por/defecto.jpg';
-            $slides .= "
-            <div class=\"swiper-slide\" role=\"group\" aria-label=\"" . ($index + 1) . " / " . count($images) . "\" style=\"width: 304px;\">
-                <div class=\"ratio d-block\" style=\"--fn-aspect-ratio: calc(248 / 362 * 100%)\">
-                    <img src=\"./dashboard/$slideImage\" alt=\"Image\">
-                    <span class=\"position-absolute top-0 start-0 w-100 h-100 z-1\" style=\"background: linear-gradient(180deg, rgba(0,0,0, 0) 0%, rgba(0,0,0, .11) 100%)\"></span>
-                </div>
-            </div>";
-            $imageCount++;
-        }
+                        // Generar las slides del Swiper
+                        $slides = "";
+                        $imageCount = 0;
+                        if (empty($images)) {
+                            // Si no hay imágenes, agregar 1 slide con la imagen por defecto
+                            $slides .= "
+    <div class=\"swiper-slide\">
+        <div class=\"ratio d-block\" style=\"--fn-aspect-ratio: calc(248 / 362 * 100%)\">
+            <img src=\"uixsoftware/assets/img/default-img.png\" alt=\"Imagen gris con una casita en medio que se muestra por defecto cuando una renta no tiene fotos\">
+            <span class=\"position-absolute top-0 start-0 w-100 h-100 z-1\" style=\"background: linear-gradient(180deg, rgba(0,0,0, 0) 0%, rgba(0,0,0, .11) 100%)\"></span>
+        </div>
+    </div>";
+                        } else {
+                            foreach ($images as $index => $image) {
+                                if ($imageCount >= 4) break;
+                                $slideImage = !empty($image) ? 'uploads/' . $image : 'uixsoftware/assets/img/default-img.png';
+                                $slides .= "
+        <div class=\"swiper-slide\" role=\"group\" aria-label=\"" . ($index + 1) . " / " . count($images) . "\" style=\"width: 304px;\">
+            <div class=\"ratio d-block\" style=\"--fn-aspect-ratio: calc(248 / 362 * 100%)\">
+                <img src=\"./dashboard/$slideImage\" alt=\"Imagen " . ($index + 1) . " de $rentalTitle\">
+                <span class=\"position-absolute top-0 start-0 w-100 h-100 z-1\" style=\"background: linear-gradient(180deg, rgba(0,0,0, 0) 0%, rgba(0,0,0, .11) 100%)\"></span>
+            </div>
+        </div>";
+                                $imageCount++;
+                            }
+                        }
 
-        echo "
+                        echo "
         <div class=\"col\">
             <article class=\"card shadow hover-effect-opacity h-100\">
                 <div class=\"card-img-top position-relative bg-body-tertiary overflow-hidden\">
@@ -211,7 +252,7 @@ if ($result->num_rows > 0) {
                     <div class=\"pb-1 mb-2\">
                         <span class=\"badge text-body-emphasis bg-body-secondary\">$rentalLocation</span>
                         " . ($isPromoted ? "<span class=\"badge bg-warning ms-2\">VIP</span>" : "") . "
-                                                       <span class='ms-2'>
+                                                  <span class='ms-2'>
                          $rentalHab
                           <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' class='icon icon-tabler icons-tabler-outline icon-tabler-bed'>
   <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
@@ -234,22 +275,22 @@ if ($result->num_rows > 0) {
                 </div>
             </article>
         </div>";
-    }
-} else {
-    echo "<p>No hay rentas disponibles para esa búsqueda.</p>";
-}
-?>
+                    }
+                } else {
+                    echo "<p>No hay rentas disponibles para esa búsqueda.</p>";
+                }
+                ?>
 
 
 
 
 
-        </div>
-      </section>
+            </div>
+        </section>
 
 
-      <?php include 'testimonialComponent.php'; ?>
-      
+        <?php include 'testimonialComponent.php'; ?>
+
     </main>
 
     <?php include 'footer.php'; ?>
@@ -264,6 +305,8 @@ if ($result->num_rows > 0) {
 
     <!-- Bootstrap + Theme scripts -->
     <script src="uixsoftware/assets/js/theme.min.js"></script>
-  
 
-</body></html>
+
+</body>
+
+</html>

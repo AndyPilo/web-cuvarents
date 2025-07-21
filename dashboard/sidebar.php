@@ -272,7 +272,7 @@ if ($result->num_rows > 0) {
               <label for="municipio1">Zonas</label>
               <select class="form-select" name="municipio1" tabindex="-1">
                 <option value="" selected>Seleccione una zona</option>
-                <option value="Viniales">Viñales</option>
+                <option value="Viñales">Viñales</option>
                 <option value="La Habana">La Habana</option>
                 <option value="Vedado">Vedado</option>
                 <option value="Playa">Playa</option>

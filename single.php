@@ -319,6 +319,7 @@
                         <div class="form-group mt-3">
                             <label for="fechaHospedaje">Fecha de hospedaje</label>
                             <input type="text" class="form-control h" id="fechaHospedaje" name="fechaHospedaje" placeholder="Selecciona una fecha" style="display: none;" required>
+
                         </div>
                         <button type="submit" class="btn btn-dark w-100 mt-3 rounded-pill">Enviar reserva</button>
                     </form>
