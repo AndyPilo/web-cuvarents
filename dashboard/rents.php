@@ -216,7 +216,7 @@
                                             <i class=\"fi-settings fs-base\"></i>
                                         </button>
                                         <ul class=\"dropdown-menu dropdown-menu-end\">
-                                            <li><button type=\"button\" class=\"dropdown-item edit-rental-btn\" data-rental-id=\"$rentalId\" data-toggle=\"modal\" data-target=\"#addRentalModal\"><i class=\"fi-edit fs-base opacity-75 me-2\"></i>Editar renta</button></li>
+                                            
                                             <li>
                                                 <form action=\"php-promote-rent.php\" method=\"POST\" onsubmit=\"return confirm('¿Estás seguro de que deseas promocionar esta renta?');\">
                                                     <input type=\"hidden\" name=\"rental_id\" value=\"$rentalId\">

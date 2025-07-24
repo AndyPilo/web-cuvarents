@@ -270,7 +270,7 @@ if ($result->num_rows > 0) {
 
             <div class="form-group col-12 col-md-6">
               <label for="municipio1">Zonas</label>
-              <select class="form-select" name="municipio1" tabindex="-1">
+              <select class="form-select" name="municipio1" id="municipio1" tabindex="-1">
                 <option value="" selected>Seleccione una zona</option>
                 <option value="Viñales">Viñales</option>
                 <option value="La Habana">La Habana</option>
@@ -347,7 +347,7 @@ if ($result->num_rows > 0) {
       'Pinar del Río': ['Viñales'],
       'La Habana': ['Plaza de la Revolución', 'Centro Habana', 'Habana Vieja', 'Cerro', 'Cotorro', 'Diez de Octubre', 'Guanabacoa', 'Habana del Este', 'La Lisa', 'Marianao', 'Playa', 'Regla', 'San Miguel del Padrón'],
       'Santiago de Cuba': ['Contramaestre', 'Guamá', 'II Frente', 'Mella', 'Palma Soriano', 'San Luis', 'Santiago de Cuba', 'Songo-La Maya', 'Tercer Frente'],
-      'Matanzas': ['Calimete', 'Cárdenas', 'Ciénaga de Zapata', 'Colón', 'Jagüey Grande', 'Jovellanos', 'Limonar', 'Los Arabos', 'Martí', 'Matanzas', 'Pedro Betancourt', 'Perico', 'Unión de Reyes']
+      'Matanzas': ['Calimete', 'Cárdenas', 'Ciénaga de Zapata', 'Colón', 'Jagüey Grande', 'Jovellanos', 'Limonar', 'Los Arabos', 'Martí', 'Matanzas', 'Pedro Betancourt', 'Perico', 'Unión de Reyes, Varadero, Santa Marta']
     };
 
     // Verificar y asignar el evento al botón "aggrent"
@@ -386,7 +386,7 @@ if ($result->num_rows > 0) {
         cargarServicios([]);
 
         // Mostrar los contenedores que se ocultaron al editar
-        const containers = document.querySelectorAll('.services-content, .images-content, .ubi-content');
+        const containers = document.querySelectorAll(' .images-content');
         containers.forEach(container => {
           container.classList.remove('d-none');
           console.log('Contenedor mostrado:', container); // Depuración
@@ -444,7 +444,7 @@ if ($result->num_rows > 0) {
             document.getElementById('addRentalModalLabel').textContent = 'Editar Renta';
 
             // Ocultar los contenedores
-            const containers = document.querySelectorAll('.services-content, .images-content, .ubi-content');
+            const containers = document.querySelectorAll('.services-content, .images-content');
             containers.forEach(container => {
               container.classList.add('d-none');
               console.log('Contenedor ocultado:', container); // Depuración
