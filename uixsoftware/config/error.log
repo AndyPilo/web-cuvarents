@@ -745,3 +745,32 @@ Stack trace:
 [10-Jun-2025 22:00:09 Europe/Berlin] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\xampp\htdocs\web-cuvarents\dashboard\index.php on line 131
 [10-Jun-2025 23:03:01 Europe/Berlin] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\xampp\htdocs\web-cuvarents\dashboard\index.php on line 131
 [22-Jul-2025 01:23:31 Europe/Berlin] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\xampp\htdocs\web-cuvarents\search-rents.php on line 151
+[24-Jul-2025 23:35:50 Europe/Berlin] PHP Warning:  mysqli::__construct(): Error while reading greeting packet. PID=9012 in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[24-Jul-2025 23:35:50 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: MySQL server has gone away in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php:23
+Stack trace:
+#0 C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php(23): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'u756511143_cuva...')
+#1 C:\xampp\htdocs\web-cuvarents\navbar.php(2): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\web-cuvarents\index.php(77): include('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[24-Jul-2025 23:35:59 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php:23
+Stack trace:
+#0 C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php(23): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'u756511143_cuva...')
+#1 C:\xampp\htdocs\web-cuvarents\navbar.php(2): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\web-cuvarents\index.php(77): include('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[24-Jul-2025 23:36:14 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php:23
+Stack trace:
+#0 C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php(23): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'u756511143_cuva...')
+#1 C:\xampp\htdocs\web-cuvarents\navbar.php(2): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\web-cuvarents\index.php(77): include('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[24-Jul-2025 23:36:23 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php:23
+Stack trace:
+#0 C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php(23): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'u756511143_cuva...')
+#1 C:\xampp\htdocs\web-cuvarents\navbar.php(2): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\web-cuvarents\index.php(77): include('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23

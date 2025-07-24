@@ -9,8 +9,8 @@ ErrorDocument 403 /error/404.php
 ErrorDocument 403 /error/404.html
 
 <FilesMatch "\.ini$">
-    Order Allow,Deny
-    Deny from all
+Order Allow,Deny
+Deny from all
 </FilesMatch>
 
 <IfModule mod_rewrite.c>
@@ -22,4 +22,5 @@ ErrorDocument 403 /error/404.html
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME}.html -f
     RewriteRule ^(.*)$ $1.html [NC,L]
+
 </IfModule>

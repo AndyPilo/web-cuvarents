@@ -53,13 +53,13 @@ $accountRango = $_SESSION['account_rango'] ?? null;
             <a class="nav-link" href="./">Inicio</a>
           </li>
           <li class="nav-item py-lg-2 me-lg-n2 me-xl-0">
-            <a class="nav-link" href="./rents.php">Rentas</a>
+            <a class="nav-link" href="./rents">Rentas</a>
           </li>
           <li class="nav-item py-lg-2 me-lg-n2 me-xl-0">
-            <a class="nav-link" href="./about.php">Quienes somos?</a>
+            <a class="nav-link" href="./about">Quienes somos?</a>
           </li>
           <li class="nav-item py-lg-2 me-lg-n2 me-xl-0">
-            <a class="nav-link" href="./contact.php">Contactos</a>
+            <a class="nav-link" href="./contact">Contactos</a>
           </li>
         </ul>
       </div>
