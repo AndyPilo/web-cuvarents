@@ -28,7 +28,7 @@
 
 
 
-  <link rel="shortcut icon" href="https://www.uixsoftware.com/assets/img/logos/logo_uixsoftware.svg">
+  <link rel="icon" href="/uixsoftware/assets/img/favicon-32x32.png" type="image/png">
 
 
   <!-- Theme switcher (color modes) -->

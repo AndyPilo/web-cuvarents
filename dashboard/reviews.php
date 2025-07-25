@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="light"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="en" data-bs-theme="light">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Meta tags -->
   <title>Dashboard</title>
   <meta name="author" content="Uixsoftware">
@@ -26,105 +29,132 @@
 
 
 
-  
-    <link rel="shortcut icon" href="https://www.uixsoftware.com/assets/img/logos/logo_uixsoftware.svg">
-  
-    <!-- Theme switcher (color modes) -->
-    <script src="../uixsoftware/assets/js/theme-switcher.js"></script>
 
-    <!-- Preloaded local web font (Inter) -->
-    <link href="../uixsoftware/assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="icon" href="/uixsoftware/assets/img/favicon-32x32.png" type="image/png">
 
-    <!-- Font icons -->
-    <link rel="stylesheet" href="../uixsoftware/assets/css/finder-icons.min.css">
-    <link href="../uixsoftware/assets/fonts/finder-icons.woff2" as="font" type="font/woff2" crossorigin="">
+  <!-- Theme switcher (color modes) -->
+  <script src="../uixsoftware/assets/js/theme-switcher.js"></script>
 
-    <!-- Vendor styles -->
-    <link rel="stylesheet" href="../uixsoftware/assets/css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="../uixsoftware/assets/css/glightbox.min.css">
-    <link rel="stylesheet" href="../uixsoftware/assets/css/choices.min.css">
-    <link rel="stylesheet" href="../uixsoftware/assets/css/nouislider.min.css">
-    <!-- Bootstrap + Theme styles -->
-    <link rel="preload" href="../uixsoftware/assets/css/theme.min.css" as="style">
+  <!-- Preloaded local web font (Inter) -->
+  <link href="../uixsoftware/assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin="">
 
-    <link rel="stylesheet" href="../uixsoftware/assets/css/theme.min.css" id="theme-styles">
+  <!-- Font icons -->
+  <link rel="stylesheet" href="../uixsoftware/assets/css/finder-icons.min.css">
+  <link href="../uixsoftware/assets/fonts/finder-icons.woff2" as="font" type="font/woff2" crossorigin="">
 
-    <!-- Customizer -->
-    <script src="../uixsoftware/assets/js/customizer.min.js"></script><style id="customizer-styles">:root,[data-bs-theme="light"]{}[data-bs-theme="dark"]{}.btn-primary{}.btn-success{}.btn-warning{}.btn-danger{}.btn-info{}.btn-outline-primary{}.btn-outline-success{}.btn-outline-warning{}.btn-outline-danger{}.btn-outline-info{}</style>
-  </head>
+  <!-- Vendor styles -->
+  <link rel="stylesheet" href="../uixsoftware/assets/css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="../uixsoftware/assets/css/glightbox.min.css">
+  <link rel="stylesheet" href="../uixsoftware/assets/css/choices.min.css">
+  <link rel="stylesheet" href="../uixsoftware/assets/css/nouislider.min.css">
+  <!-- Bootstrap + Theme styles -->
+  <link rel="preload" href="../uixsoftware/assets/css/theme.min.css" as="style">
+
+  <link rel="stylesheet" href="../uixsoftware/assets/css/theme.min.css" id="theme-styles">
+
+  <!-- Customizer -->
+  <script src="../uixsoftware/assets/js/customizer.min.js"></script>
+  <style id="customizer-styles">
+    :root,
+    [data-bs-theme="light"] {}
+
+    [data-bs-theme="dark"] {}
+
+    .btn-primary {}
+
+    .btn-success {}
+
+    .btn-warning {}
+
+    .btn-danger {}
+
+    .btn-info {}
+
+    .btn-outline-primary {}
+
+    .btn-outline-success {}
+
+    .btn-outline-warning {}
+
+    .btn-outline-danger {}
+
+    .btn-outline-info {}
+  </style>
+</head>
 
 
-  <!-- Body -->
-  <body>
+<!-- Body -->
 
-<main class="content-wrapper">
-  <div class="container pt-4 pt-sm-5 pb-5 mb-xxl-3">
-    <div class="row pt-2 pt-sm-0 pt-lg-2 pb-2 pb-sm-3 pb-md-4 pb-lg-5">
+<body>
 
-      <?php include "sidebar.php" ?>
+  <main class="content-wrapper">
+    <div class="container pt-4 pt-sm-5 pb-5 mb-xxl-3">
+      <div class="row pt-2 pt-sm-0 pt-lg-2 pb-2 pb-sm-3 pb-md-4 pb-lg-5">
 
-      <!-- Account settings content -->
-      <div class="col-lg-9">
-        <!-- Botón para abrir la Modal -->
+        <?php include "sidebar.php" ?>
 
-        <div class="d-flex justify-content-between pb-3">
+        <!-- Account settings content -->
+        <div class="col-lg-9">
+          <!-- Botón para abrir la Modal -->
 
-<h1 class="h2 mb-0">Reseñas</h1>
+          <div class="d-flex justify-content-between pb-3">
 
-  <!-- Botón para abrir la Modal -->
-  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addReviewModal">
-          Agregar Reseña
-        </button>
-</div>
+            <h1 class="h2 mb-0">Reseñas</h1>
 
-        
+            <!-- Botón para abrir la Modal -->
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addReviewModal">
+              Agregar Reseña
+            </button>
+          </div>
 
-        
-        <div class="modal fade" id="addReviewModal" tabindex="-1" aria-labelledby="addReviewModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="addReviewModalLabel">Agregar Reseña</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form id="addReviewForm" action="php-add-review.php" method="POST">
-                  <div class="form-group">
-                    <label for="reviewText">Tu Reseña</label>
-                    <textarea class="form-control" id="reviewText" name="reviewText" rows="4" required></textarea>
-                  </div>
-                  <div class="form-group">
-                    <label for="userName">Tu Nombre</label>
-                    <input type="text" class="form-control" id="userName" name="userName" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="userRank">Tu Rango</label>
-                    <input type="text" class="form-control" id="userRank" name="userRank" required>
-                  </div>
-                  <button type="submit" class="btn btn-dark mt-3 w-100">Guardar</button>
-                </form>
+
+
+
+          <div class="modal fade" id="addReviewModal" tabindex="-1" aria-labelledby="addReviewModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="addReviewModalLabel">Agregar Reseña</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="addReviewForm" action="php-add-review.php" method="POST">
+                    <div class="form-group">
+                      <label for="reviewText">Tu Reseña</label>
+                      <textarea class="form-control" id="reviewText" name="reviewText" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="userName">Tu Nombre</label>
+                      <input type="text" class="form-control" id="userName" name="userName" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="userRank">Tu Rango</label>
+                      <input type="text" class="form-control" id="userRank" name="userRank" required>
+                    </div>
+                    <button type="submit" class="btn btn-dark mt-3 w-100">Guardar</button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
 
-        <?php
-// Obtener las recomendaciones de la base de datos
-$sql4 = "SELECT * FROM Recommendations ORDER BY created_at DESC";
-$result4 = $conn->query($sql4);
+          <?php
+          // Obtener las recomendaciones de la base de datos
+          $sql4 = "SELECT * FROM Recommendations ORDER BY created_at DESC";
+          $result4 = $conn->query($sql4);
 
-if ($result4->num_rows > 0) {
-    while($row4 = $result4->fetch_assoc()) {
-        $recommendationId = $row4['recommendation_id'];
-        $userName = htmlspecialchars($row4['user_name'], ENT_QUOTES, 'UTF-8');
-        $userRank = htmlspecialchars($row4['user_rank'], ENT_QUOTES, 'UTF-8');
-        $recommendationText = htmlspecialchars($row4['recommendation_text'], ENT_QUOTES, 'UTF-8');
-        $createdDate = date('M d, Y', strtotime($row4['created_at']));
+          if ($result4->num_rows > 0) {
+            while ($row4 = $result4->fetch_assoc()) {
+              $recommendationId = $row4['recommendation_id'];
+              $userName = htmlspecialchars($row4['user_name'], ENT_QUOTES, 'UTF-8');
+              $userRank = htmlspecialchars($row4['user_rank'], ENT_QUOTES, 'UTF-8');
+              $recommendationText = htmlspecialchars($row4['recommendation_text'], ENT_QUOTES, 'UTF-8');
+              $createdDate = date('M d, Y', strtotime($row4['created_at']));
 
-        echo "
+              echo "
         <div class=\"border-bottom py-4\">
             <div class=\"d-sm-flex align-items-center mt-2 mb-3\">
                 <div class=\"d-flex align-items-center pe-3\">
@@ -142,29 +172,29 @@ if ($result4->num_rows > 0) {
                 <button type='submit' class='btn btn-dark p-2'>Eliminar</button>
             </form>
         </div>";
-    }
-    $result4->close(); // Cerrar la consulta
-} else {
-    echo "<p>No hay recomendaciones disponibles.</p>";
-}
-?>
+            }
+            $result4->close(); // Cerrar la consulta
+          } else {
+            echo "<p>No hay recomendaciones disponibles.</p>";
+          }
+          ?>
 
 
+        </div>
       </div>
     </div>
-  </div>
-</main>
+  </main>
 
 
 
-<!-- Vendor scripts -->
-<script src="../uixsoftware/assets/js/swiper-bundle.min.js"></script>
-<script src="../uixsoftware/assets/js/glightbox.min.js"></script>
-<script src="../uixsoftware/assets/js/choices.min.js"></script>
-<script src="../uixsoftware/assets/js/nouislider.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.3/dist/sweetalert2.min.js"></script>
-<!-- Bootstrap + Theme scripts -->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="../uixsoftware/assets/js/theme.min.js"></script>
+  <!-- Vendor scripts -->
+  <script src="../uixsoftware/assets/js/swiper-bundle.min.js"></script>
+  <script src="../uixsoftware/assets/js/glightbox.min.js"></script>
+  <script src="../uixsoftware/assets/js/choices.min.js"></script>
+  <script src="../uixsoftware/assets/js/nouislider.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.3/dist/sweetalert2.min.js"></script>
+  <!-- Bootstrap + Theme scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="../uixsoftware/assets/js/theme.min.js"></script>

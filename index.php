@@ -19,7 +19,7 @@
   <meta name="twitter:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/uixsoftware//assets/img/favicon-32x32.png">
+  <link rel="icon" href="/uixsoftware/assets/img/favicon-32x32.png" type="image/png">
 
   <!-- Theme switcher (color modes) -->
   <script src="uixsoftware/assets/js/theme-switcher.js"></script>
