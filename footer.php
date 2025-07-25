@@ -29,10 +29,10 @@
 
       <!-- Columns with links that are turned into accordion on screens < 500px wide (sm breakpoint) -->
       <div class="accordion-item col-sm-4 col-md-4 col-lg-3 border-0">
-        <h6 class="accordion-header" id="quickLinksHeading">
+        <h4 class="accordion-header" id="quickLinksHeading">
           <span class="h5 d-none d-sm-block">Enlaces</span>
           <button type="button" class="accordion-button collapsed py-3 d-sm-none" data-bs-toggle="collapse" data-bs-target="#quickLinks" aria-expanded="false" aria-controls="quickLinks">Enlaces</button>
-        </h6>
+        </h4>
         <div class="accordion-collapse collapse d-sm-block" id="quickLinks" aria-labelledby="quickLinksHeading" data-bs-parent="#footerLinks">
           <ul class="nav flex-column gap-2 pt-sm-1 pt-lg-2 pb-3 pb-sm-0 mt-n1 mb-1 mb-sm-0">
             <li class="pt-1">
@@ -49,10 +49,10 @@
         <hr class="d-sm-none my-0">
       </div>
       <div class="accordion-item col-sm-3 col-lg-2 col-xxl-3 border-0">
-        <h6 class="accordion-header" id="profileLinksHeading">
+        <h4 class="accordion-header" id="profileLinksHeading">
           <span class="h5 d-none d-sm-block">Social</span>
           <button type="button" class="accordion-button collapsed py-3 d-sm-none" data-bs-toggle="collapse" data-bs-target="#profileLinks" aria-expanded="false" aria-controls="profileLinks">Social</button>
-        </h6>
+        </h4>
         <div class="accordion-collapse collapse d-sm-block" id="profileLinks" aria-labelledby="profileLinksHeading" data-bs-parent="#footerLinks">
           <ul class="nav flex-column gap-2 pt-sm-1 pt-lg-2 pb-3 pb-sm-0 mt-n1 mb-1 mb-sm-0">
             <li class="pt-1">
@@ -177,7 +177,7 @@
           <?php else: ?>
 
 
-            <h6 class="h5 mb-sm-0 mb-lg-3 me-sm-3 me-md-4 me-lg-0">Explora nuestras rentas recientes</h6>
+            <h4 class="h5 mb-sm-0 mb-lg-3 me-sm-3 me-md-4 me-lg-0">Explora nuestras rentas recientes</h4>
             <a class="btn btn-lg btn-outline-secondary w-100" href="rents.php" style="max-width: 205px">Explorar<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon ms-2 icon-tabler icons-tabler-outline icon-tabler-search">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>

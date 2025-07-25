@@ -112,7 +112,7 @@
               </div>
             </div>
             <div class="ps-3 ps-sm-4">
-              <h5 class="mb-2">¿Preguntas?</h5>
+              <span class="mb-2 h5">¿Preguntas?</span>
               <div class="nav gap-2 fs-sm">
                 <span>Llámanos ahora mismo</span>
                 <a class="nav-link hover-effect-underline fw-semibold p-0 numbergestor">Cargando...</a>
