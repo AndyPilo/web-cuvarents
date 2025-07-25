@@ -260,11 +260,21 @@ if ($result->num_rows > 0) {
               <select class="form-select" id="provincia1" name="provincia1" onchange="cambiarMunicipios('provincia1', 'municipio1')" tabindex="-1">
                 <option value="" selected>Provincia</option>
                 <option value="Pinar del Río">Pinar del Río</option>
+                <option value="Artemisa">Artemisa</option>
                 <option value="La Habana">La Habana</option>
+                <option value="Mayabeque">Mayabeque</option>
                 <option value="Matanzas">Matanzas</option>
+                <option value="Cienfuegos">Cienfuegos</option>
+                <option value="Villa Clara">Villa Clara</option>
                 <option value="Sancti Spíritus">Sancti Spíritus</option>
+                <option value="Ciego de Ávila">Ciego de Ávila</option>
+                <option value="Camagüey">Camagüey</option>
+                <option value="Las Tunas">Las Tunas</option>
+                <option value="Granma">Granma</option>
+                <option value="Las Tunas">Las Tunas</option>
                 <option value="Holguín">Holguín</option>
                 <option value="Santiago de Cuba">Santiago de Cuba</option>
+                <option value="Guantánamo">Guantánamo</option>
               </select>
             </div>
 
@@ -289,7 +299,6 @@ if ($result->num_rows > 0) {
                 <option value="Boca Camarioca">Boca Camarioca</option>
                 <option value="Cienaga de Zapata">Ciénaga de Zapata</option>
                 <option value="Santa Marta">Santa Marta</option>
-                <option value="Cienfuegos">Cienfuegos</option>
                 <option value="Trinidad">Trinidad</option>
                 <option value="Guarda la Vaca">Guarda la Vaca</option>
               </select>
@@ -344,11 +353,207 @@ if ($result->num_rows > 0) {
 
     // Definir provinciasMunicipios en el ámbito global
     const provinciasMunicipios = {
-      'Pinar del Río': ['Viñales'],
-      'La Habana': ['Plaza de la Revolución', 'Centro Habana', 'Habana Vieja', 'Cerro', 'Cotorro', 'Diez de Octubre', 'Guanabacoa', 'Habana del Este', 'La Lisa', 'Marianao', 'Playa', 'Regla', 'San Miguel del Padrón'],
-      'Santiago de Cuba': ['Contramaestre', 'Guamá', 'II Frente', 'Mella', 'Palma Soriano', 'San Luis', 'Santiago de Cuba', 'Songo-La Maya', 'Tercer Frente'],
-      'Matanzas': ['Calimete', 'Cárdenas', 'Ciénaga de Zapata', 'Colón', 'Jagüey Grande', 'Jovellanos', 'Limonar', 'Los Arabos', 'Martí', 'Matanzas', 'Pedro Betancourt', 'Perico', 'Unión de Reyes, Varadero, Santa Marta']
+      'Pinar del Río': [
+        'Viñales',
+        'Consolación del Sur',
+        'Guane',
+        'La Palma',
+        'Los Palacios',
+        'Mantua',
+        'Minas de Matahambre',
+        'Pinar del Río',
+        'San Juan y Martínez',
+        'San Luis',
+        'Sandino'
+      ],
+      'La Habana': [
+        'Plaza de la Revolución',
+        'Centro Habana',
+        'Habana Vieja',
+        'Cerro',
+        'Cotorro',
+        'Diez de Octubre',
+        'Guanabacoa',
+        'Habana del Este',
+        'La Lisa',
+        'Marianao',
+        'Playa',
+        'Regla',
+        'San Miguel del Padrón',
+        'Arroyo Naranjo',
+        'Boyeros'
+      ],
+      'Santiago de Cuba': [
+        'Contramaestre',
+        'Guamá',
+        'II Frente',
+        'Mella',
+        'Palma Soriano',
+        'San Luis',
+        'Santiago de Cuba',
+        'Songo-La Maya',
+        'Tercer Frente'
+      ],
+      'Matanzas': [
+        'Calimete',
+        'Cárdenas',
+        'Ciénaga de Zapata',
+        'Colón',
+        'Jagüey Grande',
+        'Jovellanos',
+        'Limonar',
+        'Los Arabos',
+        'Martí',
+        'Matanzas',
+        'Pedro Betancourt',
+        'Perico',
+        'Unión de Reyes',
+        'Varadero',
+        'Santa Marta'
+      ],
+      'Artemisa': [
+        'Alquízar',
+        'Artemisa',
+        'Bauta',
+        'Caimito',
+        'Candelaria',
+        'Guanajay',
+        'Güira de Melena',
+        'Mariel',
+        'San Antonio de los Baños',
+        'San Cristóbal'
+      ],
+      'Mayabeque': [
+        'Batabanó',
+        'Bejucal',
+        'Güines',
+        'Jaruco',
+        'Madruga',
+        'Melena del Sur',
+        'Nueva Paz',
+        'Quivicán',
+        'San José de las Lajas',
+        'San Nicolás'
+      ],
+      'Isla de la Juventud': [
+        'Isla de la Juventud'
+      ],
+      'Villa Clara': [
+        'Camajuaní',
+        'Caibarién',
+        'Cifuentes',
+        'Corralillo',
+        'Encrucijada',
+        'Manicaragua',
+        'Placetas',
+        'Quemado de Güines',
+        'Ranchuelo',
+        'Remedios',
+        'Santa Clara',
+        'Sagua la Grande',
+        'Santo Domingo'
+      ],
+      'Cienfuegos': [
+        'Aguada de Pasajeros',
+        'Cienfuegos',
+        'Cumanayagua',
+        'Cruces',
+        'Lajas',
+        'Palmira',
+        'Rodas',
+        'Abreus'
+      ],
+      'Sancti Spíritus': [
+        'Cabaiguán',
+        'Fomento',
+        'Jatibonico',
+        'La Sierpe',
+        'Sancti Spíritus',
+        'Taguasco',
+        'Trinidad',
+        'Yaguajay'
+      ],
+      'Ciego de Ávila': [
+        'Baraguá',
+        'Bolivia',
+        'Chambas',
+        'Ciego de Ávila',
+        'Ciro Redondo',
+        'Florencia',
+        'Majagua',
+        'Morón',
+        'Primero de Enero',
+        'Venezuela'
+      ],
+      'Camagüey': [
+        'Camagüey',
+        'Carlos Manuel de Céspedes',
+        'Esmeralda',
+        'Florida',
+        'Guaimaro',
+        'Jimaguayú',
+        'Minas',
+        'Najasa',
+        'Nuevitas',
+        'Santa Cruz del Sur',
+        'Sibanicú',
+        'Vertientes'
+      ],
+      'Las Tunas': [
+        'Amancio',
+        'Colombia',
+        'Jesús Menéndez',
+        'Jobabo',
+        'Las Tunas',
+        'Majibacoa',
+        'Manatí',
+        'Puerto Padre'
+      ],
+      'Holguín': [
+        'Antilla',
+        'Báguanos',
+        'Banes',
+        'Cacocum',
+        'Calixto García',
+        'Cueto',
+        'Frank País',
+        'Gibara',
+        'Holguín',
+        'Mayarí',
+        'Moa',
+        'Rafael Freyre',
+        'Sagua de Tánamo',
+        'Urbano Noris'
+      ],
+      'Granma': [
+        'Bartolomé Masó',
+        'Bayamo',
+        'Buey Arriba',
+        'Campechuela',
+        'Cauto Cristo',
+        'Guisa',
+        'Jiguaní',
+        'Manzanillo',
+        'Media Luna',
+        'Niquero',
+        'Pilón',
+        'Río Cauto',
+        'Yara'
+      ],
+      'Guantánamo': [
+        'Baracoa',
+        'Caimanera',
+        'El Salvador',
+        'Guantánamo',
+        'Imías',
+        'Maisí',
+        'Manuel Tames',
+        'Niceto Pérez',
+        'San Antonio del Sur',
+        'Yateras'
+      ]
     };
+
 
     // Verificar y asignar el evento al botón "aggrent"
     const aggrentButton = document.getElementById('aggrent');
