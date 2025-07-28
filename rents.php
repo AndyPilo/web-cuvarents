@@ -29,6 +29,8 @@
 
     <link rel="icon" href="/uixsoftware/assets/img/favicon-32x32.png" type="image/png">
 
+    <!-- CANNONICAL -->
+    <link rel="canonical" href="https://cuvarents.com/rents" />
 
     <!-- Theme switcher (color modes) -->
     <script src="uixsoftware/assets/js/theme-switcher.js"></script>
