@@ -284,7 +284,7 @@
 
                           </span>
                     </div>
-                    <div class=\"h5 mb-2\">\$$rentalPriceDisplay <span class=\"fs-sm text-muted\">($rentalPriceType)</span></div>
+                    <div class=\"h5 mb-2\"> $rentalPriceDisplay <span class=\"fs-sm text-muted\">($rentalPriceType)</span></div>
                     <h3 class=\"fs-sm fw-normal text-body mb-2\">
                         <a class=\"stretched-link text-body\" href=\"./single/$rentalId\">$rentalTitle</a>
                     </h3>

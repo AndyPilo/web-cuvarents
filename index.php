@@ -390,7 +390,7 @@
 </svg>
                           </span>
                       </div>
-                      <div class=\"h5 mb-2\">\$$rentalPriceDisplay <span class=\"fs-sm text-muted\">($rentalPriceType)</span></div>
+                      <div class=\"h5 mb-2\"> $rentalPriceDisplay <span class=\"fs-sm text-muted\">($rentalPriceType)</span></div>
                       <div class=\"h6 fs-sm mb-0 mt-3\">Servicios</div>
                   </div>
                   <div class=\"card-footer d-flex gap-2 border-0 bg-transparent pt-0 pb-3 px-3 mt-n1\">

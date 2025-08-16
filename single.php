@@ -233,7 +233,7 @@
             " . ($isPromoted ? "<span class=\"badge bg-warning\">VIP</span>" : "") . "
         </div>
 
-        <div class=\"h3 pb-1 mb-2\">\$$rentalPriceDisplay <span class=\"fs-sm text-muted\">($rentalPriceType)</span></div>
+        <div class=\"h3 pb-1 mb-2\"> $rentalPriceDisplay <span class=\"fs-sm text-muted\">($rentalPriceType)</span></div>
         <p class=\"fs-sm pb-1 mb-2\">$rentalProvincia, $rentalMunicipio</p>
         <p class=\"fs-sm pb-1 mb-2\"><strong>Tipo de renta:</strong> $typeTimeRent</p>
 

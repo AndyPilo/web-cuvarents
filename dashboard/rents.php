@@ -228,7 +228,7 @@
                         <div class=\"card-body row p-3 py-sm-4 ps-sm-2 ps-md-3 pe-md-4 mt-n1 mt-sm-0\">
                             <div class=\"col-12 col-md-8 position-relative pe-3\">
                                 <span class=\"badge text-body-emphasis bg-body-secondary mb-2\">$rentalTitle</span>
-                                <div class=\"h5 mb-2\">\$$rentalPriceDisplay</div>
+                                <div class=\"h5 mb-2\"> $rentalPriceDisplay</div>
                                 <a class=\"stretched-link d-block fs-sm text-body text-decoration-none mb-2\" href=\"/dashboard/rent/$rentalId\">$rentalLocation</a>
                             </div>
                             <div class=\"col-12 col-md-4\">
@@ -330,8 +330,8 @@
 
                 if ($result->num_rows > 0) {
                   while ($row = $result->fetch_assoc()) {
-                    $images = explode(',', $row['images']);
-                    $firstImage = !empty($images[0]) ? 'uploads/' . $images[0] : 'ruta/a/la/imagen/por/defecto.jpg';
+                    $images = !empty($row['images']) ? explode(',', $row['images']) : [];
+                    $firstImage = !empty($images[0]) ? 'uploads/' . $images[0] : '../uixsoftware/assets/img/default-img.png';
                     $rentalId = htmlspecialchars($row['rental_id'], ENT_QUOTES, 'UTF-8');
                     $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
                     $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
@@ -364,7 +364,7 @@
                         <div class=\"card-body row p-3 py-sm-4 ps-sm-2 ps-md-3 pe-md-4 mt-n1 mt-sm-0\">
                             <div class=\"col-12 col-md-8 position-relative pe-3\">
                                 <span class=\"badge text-body-emphasis bg-body-secondary mb-2\">$rentalTitle</span>
-                                <div class=\"h5 mb-2\">\$$rentalPriceDisplay</div>
+                                <div class=\"h5 mb-2\"> $rentalPriceDisplay</div>
                                 <a class=\"stretched-link d-block fs-sm text-body text-decoration-none mb-2\" href=\"#\">$rentalLocation</a>
                             </div>
                             <div class=\"col-12 col-md-4\">
@@ -437,8 +437,8 @@ GROUP BY Rentals.rental_id";
 
                 if ($result->num_rows > 0) {
                   while ($row = $result->fetch_assoc()) {
-                    $images = explode(',', $row['images']);
-                    $firstImage = !empty($images[0]) ? 'uploads/' . $images[0] : 'ruta/a/la/imagen/por/defecto.jpg';
+                    $images = !empty($row['images']) ? explode(',', $row['images']) : [];
+                    $firstImage = !empty($images[0]) ? 'uploads/' . $images[0] : '../uixsoftware/assets/img/default-img.png';
                     $rentalId = htmlspecialchars($row['rental_id'], ENT_QUOTES, 'UTF-8');
                     $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
                     $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
@@ -470,7 +470,7 @@ GROUP BY Rentals.rental_id";
                         <div class=\"card-body row p-3 py-sm-4 ps-sm-2 ps-md-3 pe-md-4 mt-n1 mt-sm-0\">
                             <div class=\"col-12 col-md-8 position-relative pe-3\">
                                 <span class=\"badge text-body-emphasis bg-body-secondary mb-2\">$rentalTitle</span>
-                                <div class=\"h5 mb-2\">\$$rentalPriceDisplay</div>
+                                <div class=\"h5 mb-2\"> $rentalPriceDisplay</div>
                                 <a class=\"stretched-link d-block fs-sm text-body text-decoration-none mb-2\" href=\"#\">$rentalLocation</a>
                             </div>
                             <div class=\"col-12 col-md-4\">

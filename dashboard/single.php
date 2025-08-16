@@ -134,6 +134,14 @@
                 }
                 $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
                 $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
+
+                // Si el precio es 1, mostrar "Consultar" en vez de "1$"
+                if ($rentalPrice == "1") {
+                    $rentalPriceDisplay = "Consultar";
+                } else {
+                    $rentalPriceDisplay = "$" . $rentalPrice;
+                }
+
                 $rentalProvincia = htmlspecialchars($row['rental_provincia'], ENT_QUOTES, 'UTF-8');
                 $rentalMunicipio = htmlspecialchars($row['rental_municipio'], ENT_QUOTES, 'UTF-8');
                 $rentalDescription = htmlspecialchars($row['rental_description'], ENT_QUOTES, 'UTF-8');
@@ -217,7 +225,7 @@
             " . ($isPromoted ? "<span class=\"badge bg-warning\">VIP</span>" : "") . "
         </div>
 
-        <div class=\"h3 pb-1 mb-2\">\$$rentalPrice <span class=\"fs-sm text-muted\">($rentalPriceType)</span></div>
+        <div class=\"h3 pb-1 mb-2\"> $rentalPriceDisplay <span class=\"fs-sm text-muted\">($rentalPriceType)</span></div>
         <p class=\"fs-sm pb-1 mb-2\">$rentalProvincia, $rentalMunicipio</p>
         <p class=\"fs-sm pb-1 mb-2\"><strong>Tipo de renta:</strong> $typeTimeRent</p>
 
