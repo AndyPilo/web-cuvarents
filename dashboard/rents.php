@@ -199,6 +199,15 @@
                     $rentalId = htmlspecialchars($row['rental_id'], ENT_QUOTES, 'UTF-8');
                     $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
                     $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
+
+                    // Si el precio es 1, mostrar "Consultar" en vez de "1$"
+                    if ($rentalPrice == "1") {
+                      $rentalPriceDisplay = "Consultar";
+                    } else {
+                      $rentalPriceDisplay = "$" . $rentalPrice;
+                    }
+
+
                     $rentalLocation = htmlspecialchars($row['rental_provincia'], ENT_QUOTES, 'UTF-8');
                     $rentalCreated = date('d/m/Y', strtotime($row['rental_created_at']));
                     $rentalEdited = date('d/m/Y', strtotime($row['rental_updated_at']));
@@ -219,7 +228,7 @@
                         <div class=\"card-body row p-3 py-sm-4 ps-sm-2 ps-md-3 pe-md-4 mt-n1 mt-sm-0\">
                             <div class=\"col-12 col-md-8 position-relative pe-3\">
                                 <span class=\"badge text-body-emphasis bg-body-secondary mb-2\">$rentalTitle</span>
-                                <div class=\"h5 mb-2\">\$$rentalPrice</div>
+                                <div class=\"h5 mb-2\">\$$rentalPriceDisplay</div>
                                 <a class=\"stretched-link d-block fs-sm text-body text-decoration-none mb-2\" href=\"/dashboard/rent/$rentalId\">$rentalLocation</a>
                             </div>
                             <div class=\"col-12 col-md-4\">
@@ -326,6 +335,15 @@
                     $rentalId = htmlspecialchars($row['rental_id'], ENT_QUOTES, 'UTF-8');
                     $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
                     $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
+
+                    // Si el precio es 1, mostrar "Consultar" en vez de "1$"
+                    if ($rentalPrice == "1") {
+                      $rentalPriceDisplay = "Consultar";
+                    } else {
+                      $rentalPriceDisplay = "$" . $rentalPrice;
+                    }
+
+
                     $rentalLocation = htmlspecialchars($row['rental_provincia'], ENT_QUOTES, 'UTF-8');
                     $rentalCreated = date('d/m/Y', strtotime($row['rental_created_at']));
                     $rentalEdited = date('d/m/Y', strtotime($row['rental_updated_at']));
@@ -346,7 +364,7 @@
                         <div class=\"card-body row p-3 py-sm-4 ps-sm-2 ps-md-3 pe-md-4 mt-n1 mt-sm-0\">
                             <div class=\"col-12 col-md-8 position-relative pe-3\">
                                 <span class=\"badge text-body-emphasis bg-body-secondary mb-2\">$rentalTitle</span>
-                                <div class=\"h5 mb-2\">\$$rentalPrice</div>
+                                <div class=\"h5 mb-2\">\$$rentalPriceDisplay</div>
                                 <a class=\"stretched-link d-block fs-sm text-body text-decoration-none mb-2\" href=\"#\">$rentalLocation</a>
                             </div>
                             <div class=\"col-12 col-md-4\">
@@ -424,6 +442,15 @@ GROUP BY Rentals.rental_id";
                     $rentalId = htmlspecialchars($row['rental_id'], ENT_QUOTES, 'UTF-8');
                     $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
                     $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
+
+                    // Si el precio es 1, mostrar "Consultar" en vez de "1$"
+                    if ($rentalPrice == "1") {
+                      $rentalPriceDisplay = "Consultar";
+                    } else {
+                      $rentalPriceDisplay = "$" . $rentalPrice;
+                    }
+
+
                     $rentalLocation = htmlspecialchars($row['rental_provincia'], ENT_QUOTES, 'UTF-8');
                     $rentalCreated = date('d/m/Y', strtotime($row['rental_created_at']));
                     $rentalEdited = date('d/m/Y', strtotime($row['rental_updated_at']));
@@ -443,7 +470,7 @@ GROUP BY Rentals.rental_id";
                         <div class=\"card-body row p-3 py-sm-4 ps-sm-2 ps-md-3 pe-md-4 mt-n1 mt-sm-0\">
                             <div class=\"col-12 col-md-8 position-relative pe-3\">
                                 <span class=\"badge text-body-emphasis bg-body-secondary mb-2\">$rentalTitle</span>
-                                <div class=\"h5 mb-2\">\$$rentalPrice</div>
+                                <div class=\"h5 mb-2\">\$$rentalPriceDisplay</div>
                                 <a class=\"stretched-link d-block fs-sm text-body text-decoration-none mb-2\" href=\"#\">$rentalLocation</a>
                             </div>
                             <div class=\"col-12 col-md-4\">

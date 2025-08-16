@@ -297,6 +297,15 @@
           $firstImage = !empty($images[0]) ? 'uploads/' . $images[0] : 'uixsoftware/assets/img/default-img.png';
           $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
           $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
+
+
+          // Si el precio es 1, mostrar "Consultar" en vez de "1$"
+          if ($rentalPrice == "1") {
+            $rentalPriceDisplay = "Consultar";
+          } else {
+            $rentalPriceDisplay = "$" . $rentalPrice;
+          }
+
           $rentalHab = htmlspecialchars($row['rental_rooms'], ENT_QUOTES, 'UTF-8');
           $rentalPriceType = htmlspecialchars($row['rental_price_type'], ENT_QUOTES, 'UTF-8');
           $rentalLocation = htmlspecialchars($row['rental_provincia'] . ', ' . $row['rental_municipio'], ENT_QUOTES, 'UTF-8');
@@ -381,7 +390,7 @@
 </svg>
                           </span>
                       </div>
-                      <div class=\"h5 mb-2\">\$$rentalPrice <span class=\"fs-sm text-muted\">($rentalPriceType)</span></div>
+                      <div class=\"h5 mb-2\">\$$rentalPriceDisplay <span class=\"fs-sm text-muted\">($rentalPriceType)</span></div>
                       <div class=\"h6 fs-sm mb-0 mt-3\">Servicios</div>
                   </div>
                   <div class=\"card-footer d-flex gap-2 border-0 bg-transparent pt-0 pb-3 px-3 mt-n1\">

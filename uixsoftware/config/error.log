@@ -1003,3 +1003,5 @@ Stack trace:
 [16-Aug-2025 08:11:52 Europe/Berlin] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\xampp\htdocs\web-cuvarents\dashboard\rents.php on line 422
 [16-Aug-2025 22:08:05 Europe/Berlin] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\xampp\htdocs\web-cuvarents\dashboard\rents.php on line 422
 [16-Aug-2025 22:08:05 Europe/Berlin] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\xampp\htdocs\web-cuvarents\dashboard\rents.php on line 422
+[17-Aug-2025 00:14:40 Europe/Berlin] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\xampp\htdocs\web-cuvarents\dashboard\rents.php on line 440
+[17-Aug-2025 00:14:40 Europe/Berlin] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\xampp\htdocs\web-cuvarents\dashboard\rents.php on line 440
