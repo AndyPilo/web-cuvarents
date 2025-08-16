@@ -186,7 +186,7 @@
             <article class=\"card shadow hover-effect-opacity h-100\">
                 <div class=\"card-img-top position-relative bg-body-tertiary overflow-hidden\">
                     <div class=\"swiper z-2\" data-swiper='{\"pagination\": {\"el\": \".swiper-pagination\"}, \"navigation\": {\"prevEl\": \".btn-prev\", \"nextEl\": \".btn-next\"}, \"breakpoints\": {\"991\": {\"allowTouchMove\": false}}}'>
-                        <a class=\"swiper-wrapper\" href=\"./single.php?id=$rentalId\" aria-live=\"polite\">
+                        <a class=\"swiper-wrapper\" href=\"./single/$rentalId\" aria-live=\"polite\">
                             $slides
                         </a>
                         <div class=\"swiper-pagination bottom-0 mb-2\"></div>
@@ -199,7 +199,7 @@
                     </div>
                     <div class=\"h5 mb-2\">\$$rentalPrice</div>
                     <h3 class=\"fs-sm fw-normal text-body mb-2\">
-                        <a class=\"stretched-link text-body\" href=\"./single.php?id=$rentalId\">$rentalTitle</a>
+                        <a class=\"stretched-link text-body\" href=\"./single/$rentalId\">$rentalTitle</a>
                     </h3>
                     <div class=\"h6 fs-sm mb-0\">Información adicional</div>
                 </div>

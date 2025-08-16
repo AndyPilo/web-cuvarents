@@ -44,6 +44,13 @@ Options -Indexes
     # ✅ Sin categoría y sin página (por defecto página 1): /rents
     RewriteRule ^rents/?$ rents.php?page=1 [NC,L]
 
+   # ================================
+    # 2) URLS AMIGABLES PARA SEARCH-RENTS
+    # ================================
+    # Reescribe la URL para que /search-rents/actúe como search-rents.php
+    RewriteRule ^search-rents/(.*)$ search-rents.php?$1 [L,QSA]
+
+
     # ================================
     # 2) URLS AMIGABLES PARA SINGLE
     # ================================
@@ -55,11 +62,17 @@ Options -Indexes
     # ================================
     # Dashboard rents con paginación: /dashboard/rents/page/3
     RewriteRule ^dashboard/rents/page/([0-9]+)/?$ dashboard/rents.php?page=$1 [L,QSA]
-
     RewriteRule ^dashboard/rents/?$ dashboard/rents.php?page=1 [L,QSA]
 
+      # ================================
+    # 4) URLS AMIGABLES PARA DASHBOARD/SINGLE
     # ================================
-    # 4) QUITAR .PHP Y .HTML DE LAS URLS
+    RewriteRule ^dashboard/single/([0-9]+)/?$ dashboard/single.php?id=$1 [NC,L]
+
+
+
+    # ================================
+    # 5) QUITAR .PHP Y .HTML DE LAS URLS
     # ================================
     # Si no existe el archivo pero sí existe con .php
     RewriteCond %{REQUEST_FILENAME} !-f
