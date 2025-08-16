@@ -36,13 +36,13 @@
         <div class="accordion-collapse collapse d-sm-block" id="quickLinks" aria-labelledby="quickLinksHeading" data-bs-parent="#footerLinks">
           <ul class="nav flex-column gap-2 pt-sm-1 pt-lg-2 pb-3 pb-sm-0 mt-n1 mb-1 mb-sm-0">
             <li class="pt-1">
-              <a class="nav-link hover-effect-underline d-inline text-body fw-normal p-0" href="./about.php">Quienes somos?</a>
+              <a class="nav-link hover-effect-underline d-inline text-body fw-normal p-0" href="./about">Quienes somos?</a>
             </li>
             <li class="pt-1">
-              <a class="nav-link hover-effect-underline d-inline text-body fw-normal p-0" href="./rents.php">Explorar</a>
+              <a class="nav-link hover-effect-underline d-inline text-body fw-normal p-0" href="./rents">Explorar</a>
             </li>
             <li class="pt-1">
-              <a class="nav-link hover-effect-underline d-inline text-body fw-normal p-0" href="./contact.php">Contacto</a>
+              <a class="nav-link hover-effect-underline d-inline text-body fw-normal p-0" href="./contact">Contacto</a>
             </li>
           </ul>
         </div>
@@ -178,7 +178,7 @@
 
 
             <h4 class="h5 mb-sm-0 mb-lg-3 me-sm-3 me-md-4 me-lg-0">Explora nuestras rentas recientes</h4>
-            <a class="btn btn-lg btn-outline-secondary w-100" href="rents.php" style="max-width: 205px">Explorar<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon ms-2 icon-tabler icons-tabler-outline icon-tabler-search">
+            <a class="btn btn-lg btn-outline-secondary w-100" href="rents" style="max-width: 205px">Explorar<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon ms-2 icon-tabler icons-tabler-outline icon-tabler-search">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
                 <path d="M21 21l-6 -6"></path>
@@ -195,7 +195,7 @@
 
     <!-- Copyright -->
     <div class="text-center pt-4 pb-md-2">
-      <p class="text-body-secondary fs-sm mb-0">© 2025 CuvaRents. All rights reserved. Made by <a class="text-body fw-medium text-decoration-none hover-effect-underline" href="https://www.uixsoftware.com/" target="_blank" rel="noreferrer">Uixsoftware</a></p>
+      <p class="text-body-secondary fs-sm mb-0">© 2025 CuvaRents. All rights reserved.</p>
     </div>
   </div>
 </footer>

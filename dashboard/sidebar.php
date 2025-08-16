@@ -107,7 +107,7 @@ if ($result->num_rows > 0) {
           </svg>
           Dashboard
         </a>
-        <a class="list-group-item list-group-item-action rounded-pill d-flex align-items-center" href="rents.php">
+        <a class="list-group-item list-group-item-action rounded-pill d-flex align-items-center" href="rents">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-home-edit">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M9 21v-6a2 2 0 0 1 2 -2h2c.645 0 1.218 .305 1.584 .78" />
@@ -116,7 +116,7 @@ if ($result->num_rows > 0) {
           </svg>
           Gestionar rentas
         </a>
-        <a class="list-group-item list-group-item-action rounded-pill d-flex align-items-center" href="reviews.php">
+        <a class="list-group-item list-group-item-action rounded-pill d-flex align-items-center" href="reviews">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-message-circle-user">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M19 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
@@ -125,7 +125,7 @@ if ($result->num_rows > 0) {
           </svg>
           Recomendaciones
         </a>
-        <a class="list-group-item list-group-item-action rounded-pill d-flex align-items-center" href="comodities.php">
+        <a class="list-group-item list-group-item-action rounded-pill d-flex align-items-center" href="comodities">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-wifi">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M12 18l.01 0" />
@@ -135,7 +135,7 @@ if ($result->num_rows > 0) {
           </svg>
           Servicios de rentas
         </a>
-        <a class="list-group-item list-group-item-action rounded-pill d-flex align-items-center" href="reservas.php">
+        <a class="list-group-item list-group-item-action rounded-pill d-flex align-items-center" href="reservas">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-circle-dashed-check">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M8.56 3.69a9 9 0 0 0 -2.92 1.95" />
@@ -150,7 +150,7 @@ if ($result->num_rows > 0) {
           </svg>
           Sistema de Reservas
         </a>
-        <a class="list-group-item list-group-item-action rounded-pill d-flex align-items-center" href="profile.php">
+        <a class="list-group-item list-group-item-action rounded-pill d-flex align-items-center" href="profile">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler me-2 icons-tabler-outline icon-tabler-settings-2">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M19.875 6.27a2.225 2.225 0 0 1 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z" />

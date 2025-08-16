@@ -114,7 +114,7 @@
             <div class="position-relative overflow-hidden">
               <div class="position-absolute top-0 z-1 fw-bold" style="right: 0; margin: -75px 96px 0px 0; margin-top: 10px; font-size: 108px; color: var(--fn-body-bg)">Confort</div>
               <div class="ratio bg-body-tertiary rounded overflow-hidden" style="--fn-aspect-ratio: calc(328 / 568 * 100%)">
-                <img src="uixsoftware/assets/img/hero3.jpg" alt="Sala pintada de blanco con muebles blancos mostrando confort y elegancia">
+                <img src="uixsoftware/assets/img/hero3.jpg" loading="lazy" alt="Sala pintada de blanco con muebles blancos mostrando confort y elegancia">
               </div>
             </div>
           </div>
@@ -124,7 +124,7 @@
             <div class="position-relative overflow-hidden">
               <div class="position-absolute top-0 z-1 fw-bold" style="left: 0; margin: -53px 0 0 -18px; font-size: 108px; color: var(--fn-body-bg)">Cuba</div>
               <div class="ratio bg-body-tertiary rounded overflow-hidden" style="--fn-aspect-ratio: calc(446 / 438 * 100%)">
-                <img src="uixsoftware/assets/img/hero2.jpg" alt="Vista de una casa con piscina con un rancho de fondo">
+                <img src="uixsoftware/assets/img/hero2.jpg" loading="lazy" alt="Vista de una casa con piscina con un rancho de fondo">
               </div>
             </div>
           </div>
@@ -177,7 +177,7 @@
             <p class="h3">Elige una categoría para ver casas relacionadas</p>
           </div>
           <div class="col-12 col-md-6">
-            <a class="card txn gradient-overlay border-0" href="rents.php?category=Casas+de+lujo" style="border-radius:12px; background-image: url('uixsoftware/assets/img/1.jpg'); background-position-x: right; background-position-y: center;background-size: cover;">
+            <a class="card txn gradient-overlay border-0" href="rents/casas-de-lujo" style="border-radius:12px; background-image: url('uixsoftware/assets/img/1.jpg'); background-position-x: right; background-position-y: center;background-size: cover;">
               <div class="card-body p-3 p-md-5">
                 <span class="h4 text-white">Casas de lujo</span>
                 <br>
@@ -192,7 +192,7 @@
           </div>
 
           <div class="col-12 col-md-6">
-            <a class="card txn gradient-overlay border-0" href="rents.php?category=Casas+en+la+playa" style="border-radius:12px; background-image: url('uixsoftware/assets/img/2.jpg'); background-position-x: right; background-position-y: center;background-size: cover;">
+            <a class="card txn gradient-overlay border-0" href="rents/Casas-en-la-playa" style="border-radius:12px; background-image: url('uixsoftware/assets/img/2.jpg'); background-position-x: right; background-position-y: center;background-size: cover;">
               <div class="card-body p-3 p-md-5">
                 <span class="h4 text-white">Casas en la playa</span>
                 <br>
@@ -207,7 +207,7 @@
           </div>
 
           <div class="col-12 col-md-6">
-            <a class="card txn gradient-overlay border-0" href="rents.php?category=Casas+y+Apartamentos+por+largas+y+cortas+estancias" style="border-radius:12px; background-image: url('uixsoftware/assets/img/3.jpg'); background-position-x: right; background-position-y: center;background-size: cover;">
+            <a class="card txn gradient-overlay border-0" href="rents/Casas-y-Apartamentos-por-largas-y-cortas-estancias" style="border-radius:12px; background-image: url('uixsoftware/assets/img/3.jpg'); background-position-x: right; background-position-y: center;background-size: cover;">
               <div class="card-body p-3 p-md-5">
                 <span class="h4 text-white">Casas y Apartamentos por largas y cortas estancias</span>
                 <br>
@@ -222,7 +222,7 @@
           </div>
 
           <div class="col-12 col-md-6">
-            <a class="card txn gradient-overlay border-0 h-100" href="rents.php?category=Casas+y+Alojamientos+vacacionales" style="border-radius:12px; background-image: url('uixsoftware/assets/img/4.jpg'); background-position-x: right; background-position-y: center;background-size: cover;">
+            <a class="card txn gradient-overlay border-0 h-100" href="rents/Casas-y-Alojamientos-vacacionales" style="border-radius:12px; background-image: url('uixsoftware/assets/img/4.jpg'); background-position-x: right; background-position-y: center;background-size: cover;">
               <div class="card-body p-3 p-md-5">
                 <span class="h4 text-white">Casas y Alojamientos vacacionales</span>
                 <br>
@@ -251,7 +251,16 @@
     </section>
     <!-- Property listings -->
 
+
     <?php
+    // Función para convertir texto a slug (coincide con las reglas de .htaccess)
+    function slugify($text)
+    {
+      $text = strtolower(trim($text));
+      $text = preg_replace('/[^a-z0-9]+/i', '-', $text);
+      return trim($text, '-');
+    }
+
     $categories = [
       "Casas de lujo",
       "Casas en la playa",
@@ -327,7 +336,7 @@
             $slides .= "
     <div class=\"swiper-slide\">
         <div class=\"ratio d-block\" style=\"--fn-aspect-ratio: calc(248 / 362 * 100%)\">
-            <img src=\"uixsoftware/assets/img/default-img.png\" alt=\"ícono de casa gris como marcador por defecto de una propiedad en alquiler sin fotos disponibles\">
+            <img src=\"uixsoftware/assets/img/default-img.png\" loading=\"lazy\" alt=\"ícono de casa gris como marcador por defecto de una propiedad en alquiler sin fotos disponibles\">
             <span class=\"position-absolute top-0 start-0 w-100 h-100 z-1\" style=\"background: linear-gradient(180deg, rgba(0,0,0, 0) 0%, rgba(0,0,0, .11) 100%)\"></span>
         </div>
     </div>";
@@ -338,19 +347,20 @@
               $slides .= "
         <div class=\"swiper-slide\" role=\"group\" aria-label=\"" . ($index + 1) . " / " . count($images) . "\" style=\"width: 304px;\">
             <div class=\"ratio d-block\" style=\"--fn-aspect-ratio: calc(248 / 362 * 100%)\">
-                <img src=\"./dashboard/$slideImage\" alt=\"Imagen " . ($index + 1) . " de $rentalTitle\">
+                <img src=\"./dashboard/$slideImage\" loading=\"lazy\" alt=\"Imagen " . ($index + 1) . " de $rentalTitle\">
                 <span class=\"position-absolute top-0 start-0 w-100 h-100 z-1\" style=\"background: linear-gradient(180deg, rgba(0,0,0, 0) 0%, rgba(0,0,0, .11) 100%)\"></span>
             </div>
         </div>";
               $imageCount++;
             }
           }
+
           echo "
           <div class=\"col\">
               <article class=\"card hover-effect-opacity h-100\">
                   <div class=\"card-img-top position-relative bg-body-tertiary overflow-hidden\">
                       <div class=\"swiper z-2\" data-swiper='{\"pagination\": {\"el\": \".swiper-pagination\"}, \"navigation\": {\"prevEl\": \".btn-prev\", \"nextEl\": \".btn-next\"}, \"breakpoints\": {\"991\": {\"allowTouchMove\": false}}}'>
-                          <a class=\"swiper-wrapper\" href=\"./single.php?id=$rentalId\" aria-live=\"polite\">
+                          <a class=\"swiper-wrapper\" href=\"/web-cuvarents/single/$rentalId\" aria-live=\"polite\">
                               $slides
                           </a>
                           <div class=\"swiper-pagination bottom-0 mb-2\"></div>
@@ -369,7 +379,6 @@
   <path d='M2 8v9'></path>
   <path d='M12 14h10v-2a3 3 0 0 0 -3 -3h-7v5z'></path>
 </svg>
-
                           </span>
                       </div>
                       <div class=\"h5 mb-2\">\$$rentalPrice <span class=\"fs-sm text-muted\">($rentalPriceType)</span></div>
@@ -385,7 +394,7 @@
         echo "
           </div>
           <div class=\"d-flex pt-5\">
-              <a href=\"rents.php?category=" . urlencode($category) . "\" class=\"btn btn-outline-secondary\">Ver más alquileres de esta categoría</a>
+              <a href=\"/web-cuvarents/rents/" . slugify($category) . "\" class=\"btn btn-outline-secondary\">Ver más alquileres de esta categoría</a>
           </div>
       </section>";
       }
@@ -393,7 +402,6 @@
       $stmt->close();
     }
     ?>
-
 
 
 

@@ -6,7 +6,18 @@
 
 
     <!-- Meta tags -->
-    <title>CuVaRents | Explorar Rentas</title>
+    <title>CuVaRents | Explorar Rentas en Cuba</title>
+
+    <?php
+    // Detectar si está en localhost o producción
+    $basePath = '/';
+    if (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'localhost') {
+        $basePath = '/web-cuvarents/';
+    }
+    ?>
+
+    <base href="<?php echo $basePath; ?>">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Uixsoftware">
     <meta name="keywords" content="rentas en Cuba, alquileres en Cuba, apartamentos en Cuba, casas en Cuba, CuVaRents, Uixsoftware, alquiler de viviendas, La Habana, Santiago de Cuba, Matanzas, provincia, municipio, Cuba">
@@ -159,12 +170,31 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 g-md-3 g-lg-4">
 
                 <?php
+                // Función para convertir categoría en slug amigable
+                function slugify($string)
+                {
+                    $string = strtolower(trim($string));
+                    $string = preg_replace('/[^a-z0-9]+/i', '-', $string);
+                    return trim($string, '-');
+                }
+
                 // Obtener el número de página actual desde la URL
                 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
                 $itemsPerPage = 8; // Número de rentas por página
                 $offset = ($page - 1) * $itemsPerPage;
 
-                $category = isset($_GET['category']) ? $_GET['category'] : '';
+                if (isset($_GET['category'])) {
+                    // Slug desde la URL
+                    $category_slug = $_GET['category'];
+
+                    // Convertir guiones en espacios para coincidir con la base de datos
+                    $category = str_replace('-', ' ', $category_slug);
+                } else {
+                    $category = '';
+                }
+
+                // Crear slug SEO para usar en los enlaces de paginación
+                $categorySlug = $category ? slugify($category) : '';
 
                 // Construir la consulta SQL según si se proporciona una categoría
                 if ($category) {
@@ -260,7 +290,7 @@
                             $slides .= "
     <div class=\"swiper-slide\">
         <div class=\"ratio d-block\" style=\"--fn-aspect-ratio: calc(248 / 362 * 100%)\">
-            <img src=\"uixsoftware/assets/img/default-img.png\" alt=\"Imagen gris con una casita en medio que se muestra por defecto cuando una renta no tiene fotos\">
+            <img src=\"uixsoftware/assets/img/default-img.png\" loading=\"lazy\" alt=\"Imagen gris con una casita en medio que se muestra por defecto cuando una renta no tiene fotos\">
             <span class=\"position-absolute top-0 start-0 w-100 h-100 z-1\" style=\"background: linear-gradient(180deg, rgba(0,0,0, 0) 0%, rgba(0,0,0, .11) 100%)\"></span>
         </div>
     </div>";
@@ -271,7 +301,7 @@
                                 $slides .= "
         <div class=\"swiper-slide\" role=\"group\" aria-label=\"" . ($index + 1) . " / " . count($images) . "\" style=\"width: 304px;\">
             <div class=\"ratio d-block\" style=\"--fn-aspect-ratio: calc(248 / 362 * 100%)\">
-                <img src=\"./dashboard/$slideImage\" alt=\"Imagen " . ($index + 1) . " de $rentalTitle\">
+                <img src=\"./dashboard/$slideImage\" loading=\"lazy\" alt=\"Imagen " . ($index + 1) . " de $rentalTitle\">
                 <span class=\"position-absolute top-0 start-0 w-100 h-100 z-1\" style=\"background: linear-gradient(180deg, rgba(0,0,0, 0) 0%, rgba(0,0,0, .11) 100%)\"></span>
             </div>
         </div>";
@@ -284,7 +314,7 @@
             <article class=\"card shadow hover-effect-opacity h-100\">
                 <div class=\"card-img-top position-relative bg-body-tertiary overflow-hidden\">
                     <div class=\"swiper z-2\" data-swiper='{\"pagination\": {\"el\": \".swiper-pagination\"}, \"navigation\": {\"prevEl\": \".btn-prev\", \"nextEl\": \".btn-next\"}, \"breakpoints\": {\"991\": {\"allowTouchMove\": false}}}'>
-                        <a class=\"swiper-wrapper\" href=\"./single.php?id=$rentalId\" aria-live=\"polite\">
+                        <a class=\"swiper-wrapper\" href=\"./single/$rentalId\" aria-live=\"polite\">
                             $slides
                         </a>
                         <div class=\"swiper-pagination bottom-0 mb-2\"></div>
@@ -308,7 +338,7 @@
                     </div>
                     <div class=\"h5 mb-2\">\$$rentalPrice <span class=\"fs-sm text-muted\">($rentalPriceType)</span></div>
                     <h3 class=\"fs-sm fw-normal text-body mb-2\">
-                        <a class=\"stretched-link text-body\" href=\"./single.php?id=$rentalId\">$rentalTitle</a>
+                        <a class=\"stretched-link text-body\" href=\"./single/$rentalId\">$rentalTitle</a>
                     </h3>
                     <div class=\"h6 fs-sm mb-0\">Información adicional</div>
                 </div>
@@ -319,26 +349,29 @@
         </div>";
                     }
 
-                    // Generar la paginación
+                    // Generar la paginación amigable
                     echo '</div> <nav class="pt-5 mt-3" aria-label="Listings pagination">
-            <ul class="pagination pagination-lg">';
+    <ul class="pagination pagination-lg">';
+
+                    // Base de la URL: con o sin categoría
+                    $baseUrl = $categorySlug ? "rents/$categorySlug" : "rents";
 
                     if ($page > 1) {
-                        echo '<li class="page-item"><a class="page-link" href="?page=' . ($page - 1) . '&category=' . $category . '">Anterior</a></li>';
+                        echo '<li class="page-item"><a class="page-link" href="' . $baseUrl . '/page/' . ($page - 1) . '">Anterior</a></li>';
                     }
 
                     for ($i = 1; $i <= $totalPages; $i++) {
                         if ($i == $page) {
                             echo '<li class="page-item active" aria-current="page">
-                    <span class="page-link">' . $i . '<span class="visually-hidden">(current)</span></span>
-                  </li>';
+                                    <span class="page-link">' . $i . '<span class="visually-hidden">(current)</span></span>
+                                </li>';
                         } else {
-                            echo '<li class="page-item"><a class="page-link" href="?page=' . $i . '&category=' . $category . '">' . $i . '</a></li>';
+                            echo '<li class="page-item"><a class="page-link" href="' . $baseUrl . '/page/' . $i . '">' . $i . '</a></li>';
                         }
                     }
 
                     if ($page < $totalPages) {
-                        echo '<li class="page-item"><a class="page-link" href="?page=' . ($page + 1) . '&category=' . $category . '">Siguiente</a></li>';
+                        echo '<li class="page-item"><a class="page-link" href="' . $baseUrl . '/page/' . ($page + 1) . '">Siguiente</a></li>';
                     }
 
                     echo '</ul></nav>';

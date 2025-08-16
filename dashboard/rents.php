@@ -9,6 +9,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Meta tags -->
   <title>Dashboard</title>
+
+  <?php
+  // Detectar si está en localhost o producción
+  $basePath = '/dashboard/';
+  if (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'localhost') {
+    $basePath = '/web-cuvarents/dashboard/';
+  }
+  ?>
+
+  <base href="<?php echo $basePath; ?>">
+
   <meta name="author" content="Uixsoftware">
   <meta name="keywords" content="desarrollo web, agencia, empresa, diseño web, SEO, wordPress, habana, cuba, perzonalización, como crear web, tienda online">
   <meta name="description" content="Servicios de desarrollo web y marketing digital en Cuba. Ofrecemos soluciones personalizadas y de calidad para potenciar tu negocio en internet - Uixsoftware">
@@ -148,12 +159,17 @@
 
 
                 <?php
-                // Obtener el número de página actual desde la URL
-                $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-                $itemsPerPage = 6; // Número de rentas por página
+                // Conexión a la base de datos (asume que $conn ya está definido)
+
+                // Obtener el número de página desde la URL amigable
+                $page = 1;
+                if (isset($_GET['page']) && is_numeric($_GET['page'])) {
+                  $page = (int)$_GET['page'];
+                }
+                $itemsPerPage = 6;
                 $offset = ($page - 1) * $itemsPerPage;
 
-                // Obtener el número total de rentas para la paginación
+                // Obtener total de rentas para la paginación
                 $sqlTotal = "SELECT COUNT(DISTINCT Rentals.rental_id) AS total 
              FROM Rentals 
              LEFT JOIN RentalImages ON Rentals.rental_id = RentalImages.rental_id
@@ -163,14 +179,14 @@
                 $totalRentals = $rowTotal['total'];
                 $totalPages = ceil($totalRentals / $itemsPerPage);
 
-                // Obtener las rentas de la base de datos (excluyendo las ocultas) con paginación
+                // Obtener rentas con paginación
                 $sql3 = "SELECT Rentals.*, GROUP_CONCAT(RentalImages.image_url) AS images 
-        FROM Rentals
-        LEFT JOIN RentalImages ON Rentals.rental_id = RentalImages.rental_id
-        WHERE Rentals.is_hidden = FALSE
-        GROUP BY Rentals.rental_id
-        ORDER BY Rentals.rental_id DESC
-        LIMIT ? OFFSET ?";
+         FROM Rentals
+         LEFT JOIN RentalImages ON Rentals.rental_id = RentalImages.rental_id
+         WHERE Rentals.is_hidden = FALSE
+         GROUP BY Rentals.rental_id
+         ORDER BY Rentals.rental_id DESC
+         LIMIT ? OFFSET ?";
                 $stmt = $conn->prepare($sql3);
                 $stmt->bind_param("ii", $itemsPerPage, $offset);
                 $stmt->execute();
@@ -190,10 +206,10 @@
                     echo "
         <div class=\"col-12 d-sm-flex align-items-center\">
             <article class=\"card w-100\">
-                <div class=\"d-sm-none\"  ></div>
+                <div class=\"d-sm-none\"></div>
                 <div class=\"row g-0\">
                     <div class=\"col-sm-4 col-md-3 rounded overflow-hidden pb-2 pb-sm-0 pe-sm-2\">
-                        <a class=\"position-relative d-flex h-100 bg-body-tertiary\" href=\"#\" style=\"min-height: 174px\">
+                        <a class=\"position-relative d-flex h-100 bg-body-tertiary\" href=\"/dashboard/rent/$rentalId\" style=\"min-height: 174px\">
                             <img src=\"$firstImage\" class=\"position-absolute top-0 start-0 w-100 h-100 object-fit-cover\" alt=\"Imagen de $rentalTitle\">
                             <div class=\"ratio d-none d-sm-block\" style=\"--fn-aspect-ratio: calc(180 / 240 * 100%)\"></div>
                             <div class=\"ratio ratio-16x9 d-sm-none\"></div>
@@ -204,7 +220,7 @@
                             <div class=\"col-12 col-md-8 position-relative pe-3\">
                                 <span class=\"badge text-body-emphasis bg-body-secondary mb-2\">$rentalTitle</span>
                                 <div class=\"h5 mb-2\">\$$rentalPrice</div>
-                                <a class=\"stretched-link d-block fs-sm text-body text-decoration-none mb-2\" href=\"#\">$rentalLocation</a>
+                                <a class=\"stretched-link d-block fs-sm text-body text-decoration-none mb-2\" href=\"/dashboard/rent/$rentalId\">$rentalLocation</a>
                             </div>
                             <div class=\"col-12 col-md-4\">
                                 <div class=\"fs-xs text-body-secondary\">Publicada: $rentalCreated</div>
@@ -216,7 +232,6 @@
                                             <i class=\"fi-settings fs-base\"></i>
                                         </button>
                                         <ul class=\"dropdown-menu dropdown-menu-end\">
-                                            
                                             <li>
                                                 <form action=\"php-promote-rent.php\" method=\"POST\" onsubmit=\"return confirm('¿Estás seguro de que deseas promocionar esta renta?');\">
                                                     <input type=\"hidden\" name=\"rental_id\" value=\"$rentalId\">
@@ -246,26 +261,27 @@
         </div>";
                   }
 
-                  // Generar la paginación
+                  $baseUrl = '/web-cuvarents/dashboard/rents/page';
+
                   echo '<nav class="pt-3 mt-3" aria-label="Listings pagination">
-            <ul class="pagination pagination-lg justify-content-center">';
+        <ul class="pagination pagination-lg justify-content-center">';
 
                   if ($page > 1) {
-                    echo '<li class="page-item"><a class="page-link" href="?page=' . ($page - 1) . '">Anterior</a></li>';
+                    echo '<li class="page-item"><a class="page-link" href="' . $baseUrl . '/' . ($page - 1) . '">Anterior</a></li>';
                   }
 
                   for ($i = 1; $i <= $totalPages; $i++) {
                     if ($i == $page) {
                       echo '<li class="page-item active" aria-current="page">
-                    <span class="page-link">' . $i . '<span class="visually-hidden">(current)</span></span>
-                  </li>';
+                <span class="page-link">' . $i . '<span class="visually-hidden">(current)</span></span>
+            </li>';
                     } else {
-                      echo '<li class="page-item"><a class="page-link" href="?page=' . $i . '">' . $i . '</a></li>';
+                      echo '<li class="page-item"><a class="page-link" href="' . $baseUrl . '/' . $i . '">' . $i . '</a></li>';
                     }
                   }
 
                   if ($page < $totalPages) {
-                    echo '<li class="page-item"><a class="page-link" href="?page=' . ($page + 1) . '">Siguiente</a></li>';
+                    echo '<li class="page-item"><a class="page-link" href="' . $baseUrl . '/' . ($page + 1) . '">Siguiente</a></li>';
                   }
 
                   echo '</ul></nav>';
@@ -275,7 +291,6 @@
 
                 $stmt->close();
                 ?>
-
 
 
 

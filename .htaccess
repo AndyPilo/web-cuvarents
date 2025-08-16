@@ -1,25 +1,66 @@
+# =========================================
+
+# CONFIGURACIÓN DE .HTACCESS PARA CUVARENTS
+
+# =========================================
+
+# --- Permitir CORS (si lo necesitas para peticiones externas) ---
+
 <IfModule mod_headers.c>
     Header set Access-Control-Allow-Origin "*"
 </IfModule>
 
+# --- Páginas de error personalizadas ---
+
 ErrorDocument 404 /error/404.php
-ErrorDocument 404 /error/404.html
-Options -Indexes
 ErrorDocument 403 /error/404.php
-ErrorDocument 403 /error/404.html
+
+# --- Seguridad: impedir acceso a archivos .ini ---
 
 <FilesMatch "\.ini$">
 Order Allow,Deny
 Deny from all
 </FilesMatch>
 
+# --- Seguridad: desactivar listado de directorios ---
+
+Options -Indexes
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # 🔹 Redirigir rents.php a rents (antes de la regla que agrega .php automáticamente)
-    RewriteCond %{THE_REQUEST} \s/rents\.php
-    RewriteRule ^rents\.php$ /rents [R=301,L]
+    # ================================
+    # 1) URLS AMIGABLES PARA RENTS
+    # ================================
+    # ✅ Con categoría + página: /rents/casas-de-lujo/page/3
+    RewriteRule ^rents/([a-z0-9-]+)/page/([0-9]+)/?$ rents.php?category=$1&page=$2 [NC,L]
 
+    # ✅ Con categoría sin página (por defecto página 1): /rents/casas-de-lujo
+    RewriteRule ^rents/([a-z0-9-]+)/?$ rents.php?category=$1&page=1 [NC,L]
+
+    # ✅ Sin categoría pero con página: /rents/page/2
+    RewriteRule ^rents/page/([0-9]+)/?$ rents.php?page=$1 [NC,L]
+
+    # ✅ Sin categoría y sin página (por defecto página 1): /rents
+    RewriteRule ^rents/?$ rents.php?page=1 [NC,L]
+
+    # ================================
+    # 2) URLS AMIGABLES PARA SINGLE
+    # ================================
+    # Ejemplo: /single/25 -> single.php?id=25
+    RewriteRule ^single/([0-9]+)/?$ single.php?id=$1 [NC,L]
+
+    # ================================
+    # 3) URLS AMIGABLES PARA DASHBOARD/RENTS/PAGE
+    # ================================
+    # Dashboard rents con paginación: /dashboard/rents/page/3
+    RewriteRule ^dashboard/rents/page/([0-9]+)/?$ dashboard/rents.php?page=$1 [L,QSA]
+
+    RewriteRule ^dashboard/rents/?$ dashboard/rents.php?page=1 [L,QSA]
+
+    # ================================
+    # 4) QUITAR .PHP Y .HTML DE LAS URLS
+    # ================================
     # Si no existe el archivo pero sí existe con .php
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME}.php -f

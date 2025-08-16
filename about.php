@@ -138,8 +138,8 @@
         min-height: 600px;
      ">
               <img src="uixsoftware/assets/img/single1.jpg" class="hero-mask" style="grid-column: 2; grid-row: 1; width: 100%; height: 100%; object-fit: cover;" alt="Sala de una casa con mueble de moderno">
-              <img src="uixsoftware/assets/img/single2.jpg" class="hero-mask" style="grid-column: 1; grid-row: 2; width: 100%; height: 100%; object-fit: cover;" alt="Cocina moderna con mesa de madera en el centro">
-              <img src="uixsoftware/assets/img/single3.jpg" class="hero-mask" style="grid-column: 2; grid-row: 3; width: 100%; height: 100%; object-fit: cover;" alt="Baño moderno con regadera de cristal">
+              <img src="uixsoftware/assets/img/single2.jpg" loading="lazy" class="hero-mask" style="grid-column: 1; grid-row: 2; width: 100%; height: 100%; object-fit: cover;" alt="Cocina moderna con mesa de madera en el centro">
+              <img src="uixsoftware/assets/img/single3.jpg" loading="lazy" class="hero-mask" style="grid-column: 2; grid-row: 3; width: 100%; height: 100%; object-fit: cover;" alt="Baño moderno con regadera de cristal">
             </div>
 
             <!-- MD & LG: 2 imágenes en patrón 2x2 -->
@@ -151,8 +151,8 @@
         gap: 4rem;
         min-height: 700px;
      ">
-              <img src="uixsoftware/assets/img/single1.jpg" class="hero-mask" style="grid-column: 1; grid-row: 1; width: 100%; height: 100%; object-fit: cover;" alt="Sala de una casa con mueble de moderno">
-              <img src="uixsoftware/assets/img/single2.jpg" class="hero-mask" style="grid-column: 1; grid-row: 2; width: 100%; height: 100%; object-fit: cover;" alt="Cocina moderna con mesa de madera en el centro">
+              <img src="uixsoftware/assets/img/single1.jpg" loading="lazy" class="hero-mask" style="grid-column: 1; grid-row: 1; width: 100%; height: 100%; object-fit: cover;" alt="Sala de una casa con mueble de moderno">
+              <img src="uixsoftware/assets/img/single2.jpg" loading="lazy" class="hero-mask" style="grid-column: 1; grid-row: 2; width: 100%; height: 100%; object-fit: cover;" alt="Cocina moderna con mesa de madera en el centro">
             </div>
 
           </div>

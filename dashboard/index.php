@@ -204,7 +204,7 @@
 
 
                             <div>
-                                <a href="rents.php" class="btn btn-dark px-4 rounded-pill">Ver rentas</a>
+                                <a href="rents" class="btn btn-dark px-4 rounded-pill">Ver rentas</a>
                             </div>
                         </div>
                     </div>
@@ -254,7 +254,7 @@
                         ?>
 
                         <div>
-                            <a href="reviews.php" class="btn btn-dark px-4 rounded-pill">Ver comentarios</a>
+                            <a href="reviews" class="btn btn-dark px-4 rounded-pill">Ver comentarios</a>
                         </div>
 
                     </div>

@@ -6,7 +6,18 @@
 
 
     <!-- Meta tags -->
-    <title>CuVaRents</title>
+    <title>CuVaRents | Renta</title>
+
+    <?php
+    // Detectar si está en localhost o producción
+    $basePath = '/';
+    if (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'localhost') {
+        $basePath = '/web-cuvarents/';
+    }
+    ?>
+
+    <base href="<?php echo $basePath; ?>">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Uixsoftware">
     <meta name="keywords" content="rentas en Cuba, alquileres en Cuba, apartamentos en Cuba, casas en Cuba, CuVaRents, Uixsoftware, alquiler de viviendas, La Habana, Santiago de Cuba, Matanzas, provincia, municipio, Cuba">
@@ -147,7 +158,7 @@
 <!-- Breadcrumb -->
 <nav class=\"pb-2 pb-md-3\" aria-label=\"breadcrumb\">
     <ol class=\"breadcrumb\">
-        <li class=\"breadcrumb-item\"><a href=\"home-real-estate.html\">Inicio</a></li>
+        <li class=\"breadcrumb-item\"><a href=\"./\">Inicio</a></li>
         <li class=\"breadcrumb-item\"><a href=\"./rents\">Propiedad en alquiler</a></li>
         <li class=\"breadcrumb-item active\" aria-current=\"page\">$rentalTitle</li>
     </ol>
@@ -160,7 +171,7 @@
             <i class=\"fi-zoom-in hover-effect-target fs-3 text-white position-absolute top-50 start-50 translate-middle opacity-0 z-2\"></i>
             <span class=\"hover-effect-target position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-25 opacity-0 z-1\"></span>
             <div class=\"ratio hover-effect-target bg-body-tertiary rounded\" style=\"--fn-aspect-ratio: calc(450 / 856 * 100%)\">
-                <img src=\"$firstImageFull\" alt=\"Imagen 1 de $rentalTitle\">
+                <img src=\"$firstImageFull\" loading=\"lazy\" alt=\"Imagen 1 de $rentalTitle\">
             </div>
         </a>
     </div>";
@@ -175,7 +186,7 @@
                 <i class=\"fi-zoom-in hover-effect-target fs-3 text-white position-absolute top-50 start-50 translate-middle opacity-0 z-2\"></i>
                 <span class=\"hover-effect-target position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-25 opacity-0 z-1\"></span>
                 <div class=\"ratio hover-effect-target bg-body-tertiary rounded\" style=\"--fn-aspect-ratio: calc(213 / 416 * 100%)\">
-                    <img src=\"dashboard/$image\" alt=\"$altText\">
+                    <img src=\"dashboard/$image\" loading=\"lazy\" alt=\"$altText\">
                 </div>
             </a>
         </div>";
@@ -187,7 +198,7 @@
                 <i class=\"fi-zoom-in hover-effect-target fs-3 text-white position-absolute top-50 start-50 translate-middle opacity-0 z-2\"></i>
                 <span class=\"hover-effect-target position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-25 opacity-0 z-1\"></span>
                 <div class=\"ratio hover-effect-target bg-body-tertiary rounded\" style=\"--fn-aspect-ratio: calc(213 / 416 * 100%)\">
-                    <img src=\"dashboard/$image\" alt=\"$altText\">
+                    <img src=\"dashboard/$image\" loading=\"lazy\" alt=\"$altText\">
                     <div class=\"position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-75 d-flex align-items-center justify-content-center\">
                         <span class=\"text-white fs-3\">+$remainingImages</span>
                     </div>
