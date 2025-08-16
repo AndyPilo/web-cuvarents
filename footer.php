@@ -258,3 +258,16 @@
     })
     .catch(error => console.error('Error:', error));
 </script>
+
+//Script para que el boton de top funcione en todas las paginas
+<script>
+  document.querySelectorAll('.btn-scroll-top').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
