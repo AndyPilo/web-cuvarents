@@ -381,7 +381,18 @@ if ($result->num_rows > 0) {
         'Regla',
         'San Miguel del Padrón',
         'Arroyo Naranjo',
-        'Boyeros'
+        'Boyeros',
+        'Vedado',
+        'Siboney',
+        'Miramar',
+        'Santa Fe',
+        'Habana Vieja',
+        'Guanabo',
+        'Boca Ciega',
+        'Brisas del Mar',
+        'Santa María',
+        'Boca Camarioca'
+
       ],
       'Santiago de Cuba': [
         'Contramaestre',
@@ -397,7 +408,7 @@ if ($result->num_rows > 0) {
       'Matanzas': [
         'Calimete',
         'Cárdenas',
-        'Ciénaga de Zapata',
+        'Cienaga de Zapata',
         'Colón',
         'Jagüey Grande',
         'Jovellanos',
