@@ -369,7 +369,7 @@
               <article class=\"card hover-effect-opacity h-100\">
                   <div class=\"card-img-top position-relative bg-body-tertiary overflow-hidden\">
                       <div class=\"swiper z-2\" data-swiper='{\"pagination\": {\"el\": \".swiper-pagination\"}, \"navigation\": {\"prevEl\": \".btn-prev\", \"nextEl\": \".btn-next\"}, \"breakpoints\": {\"991\": {\"allowTouchMove\": false}}}'>
-                          <a class=\"swiper-wrapper\" href=\"/web-cuvarents/single/$rentalId\" aria-live=\"polite\">
+                          <a class=\"swiper-wrapper\" href=\"/single/$rentalId\" aria-live=\"polite\">
                               $slides
                           </a>
                           <div class=\"swiper-pagination bottom-0 mb-2\"></div>
