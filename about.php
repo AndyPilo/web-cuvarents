@@ -7,6 +7,8 @@
 
   <!-- Meta tags -->
   <title>CuVaRents | Acerca de nosotros</title>
+
+  <link rel="canonical" href="https://cuvarents.com/about" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Uixsoftware">
   <meta name="keywords" content="rentas en Cuba, alquileres en Cuba, apartamentos en Cuba, casas en Cuba, CuVaRents, Uixsoftware, alquiler de viviendas, La Habana, Santiago de Cuba, Matanzas, provincia, municipio, Cuba">

@@ -1005,3 +1005,23 @@ Stack trace:
 [16-Aug-2025 22:08:05 Europe/Berlin] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\xampp\htdocs\web-cuvarents\dashboard\rents.php on line 422
 [17-Aug-2025 00:14:40 Europe/Berlin] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\xampp\htdocs\web-cuvarents\dashboard\rents.php on line 440
 [17-Aug-2025 00:14:40 Europe/Berlin] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\xampp\htdocs\web-cuvarents\dashboard\rents.php on line 440
+[21-Aug-2025 23:33:29 Europe/Berlin] PHP Warning:  mysqli::__construct(): Error while reading greeting packet. PID=7076 in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[21-Aug-2025 23:33:29 Europe/Berlin] PHP Warning:  mysqli::__construct(): Error while reading greeting packet. PID=7076 in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[21-Aug-2025 23:33:29 Europe/Berlin] PHP Warning:  mysqli::__construct(): Error while reading greeting packet. PID=7076 in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[21-Aug-2025 23:33:29 Europe/Berlin] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[21-Aug-2025 23:33:29 Europe/Berlin] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[21-Aug-2025 23:33:29 Europe/Berlin] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[21-Aug-2025 23:33:29 Europe/Berlin] PHP Warning:  mysqli::__construct(): Error while reading greeting packet. PID=7076 in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[21-Aug-2025 23:33:29 Europe/Berlin] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[21-Aug-2025 23:33:29 Europe/Berlin] PHP Warning:  mysqli::__construct(): Error while reading greeting packet. PID=7076 in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[21-Aug-2025 23:33:29 Europe/Berlin] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[21-Aug-2025 23:33:29 Europe/Berlin] PHP Warning:  mysqli::__construct(): Error while reading greeting packet. PID=7076 in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[21-Aug-2025 23:33:29 Europe/Berlin] PHP Warning:  mysqli::__construct(): Error while reading greeting packet. PID=7076 in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[21-Aug-2025 23:33:29 Europe/Berlin] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[21-Aug-2025 23:33:29 Europe/Berlin] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[21-Aug-2025 23:33:29 Europe/Berlin] PHP Warning:  mysqli::__construct(): Error while reading greeting packet. PID=7076 in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[21-Aug-2025 23:33:29 Europe/Berlin] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[21-Aug-2025 23:33:29 Europe/Berlin] PHP Warning:  mysqli::__construct(): Error while reading greeting packet. PID=7076 in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[21-Aug-2025 23:33:29 Europe/Berlin] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[21-Aug-2025 23:33:29 Europe/Berlin] PHP Warning:  mysqli::__construct(): Error while reading greeting packet. PID=7076 in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23
+[21-Aug-2025 23:33:29 Europe/Berlin] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\web-cuvarents\uixsoftware\config\config.php on line 23

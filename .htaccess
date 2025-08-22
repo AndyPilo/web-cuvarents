@@ -1,85 +1,92 @@
 # =========================================
-
 # CONFIGURACIÓN DE .HTACCESS PARA CUVARENTS
-
 # =========================================
 
 # --- Permitir CORS (si lo necesitas para peticiones externas) ---
-
 <IfModule mod_headers.c>
     Header set Access-Control-Allow-Origin "*"
 </IfModule>
 
 # --- Páginas de error personalizadas ---
-
 ErrorDocument 404 /error/404.php
 ErrorDocument 403 /error/404.php
 
 # --- Seguridad: impedir acceso a archivos .ini ---
-
 <FilesMatch "\.ini$">
 Order Allow,Deny
 Deny from all
 </FilesMatch>
 
 # --- Seguridad: desactivar listado de directorios ---
-
 Options -Indexes
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
     # ================================
-    # 1) URLS AMIGABLES PARA RENTS
+    # REDIRECCIONES 301 (URLs ANTIGUAS -> NUEVAS)
     # ================================
-    # ✅ Con categoría + página: /rents/casas-de-lujo/page/3
+
+    # Rentas con categoría y paginación
+    RewriteCond %{THE_REQUEST} \s/rents\.php\?page=([0-9]+)&category=([^&\s]+) [NC]
+    RewriteRule ^rents\.php$ /rents/%2/page/%1 [R=301,L]
+
+    # Rentas con categoría sin paginación (page=1)
+    RewriteCond %{THE_REQUEST} \s/rents\.php\?category=([^&\s]+) [NC]
+    RewriteRule ^rents\.php$ /rents/%1 [R=301,L]
+
+    # Rentas sin categoría con paginación
+    RewriteCond %{THE_REQUEST} \s/rents\.php\?page=([0-9]+) [NC]
+    RewriteRule ^rents\.php$ /rents/page/%1 [R=301,L]
+
+    # Rentas sin categoría ni paginación
+    RewriteCond %{THE_REQUEST} \s/rents\.php [NC]
+    RewriteRule ^rents\.php$ /rents [R=301,L]
+
+    # Páginas con extensión .php (about.php -> /about, contact.php -> /contact, etc.)
+    RewriteCond %{THE_REQUEST} \s([A-Za-z0-9_-]+)\.php [NC]
+    RewriteRule ^([A-Za-z0-9_-]+)\.php$ /%1 [R=301,L]
+
+    # Páginas de detalle (single.php?id=123 -> /single/123)
+    RewriteCond %{THE_REQUEST} \s/single\.php\?id=([0-9]+) [NC]
+    RewriteRule ^single\.php$ /single/%1 [R=301,L]
+
+    # ================================
+    # URLS AMIGABLES (REWRITE INTERNO)
+    # ================================
+
+    # Rentas con categoría y paginación
     RewriteRule ^rents/([a-z0-9-]+)/page/([0-9]+)/?$ rents.php?category=$1&page=$2 [NC,L]
 
-    # ✅ Con categoría sin página (por defecto página 1): /rents/casas-de-lujo
+    # Rentas con categoría sin paginación
     RewriteRule ^rents/([a-z0-9-]+)/?$ rents.php?category=$1&page=1 [NC,L]
 
-    # ✅ Sin categoría pero con página: /rents/page/2
+    # Rentas sin categoría con paginación
     RewriteRule ^rents/page/([0-9]+)/?$ rents.php?page=$1 [NC,L]
 
-    # ✅ Sin categoría y sin página (por defecto página 1): /rents
+    # Rentas sin categoría ni paginación
     RewriteRule ^rents/?$ rents.php?page=1 [NC,L]
 
-   # ================================
-    # 2) URLS AMIGABLES PARA SEARCH-RENTS
-    # ================================
-    # Reescribe la URL para que /search-rents/actúe como search-rents.php
+    # Search rents
     RewriteRule ^search-rents/(.*)$ search-rents.php?$1 [L,QSA]
 
-
-    # ================================
-    # 2) URLS AMIGABLES PARA SINGLE
-    # ================================
-    # Ejemplo: /single/25 -> single.php?id=25
+    # Single
     RewriteRule ^single/([0-9]+)/?$ single.php?id=$1 [NC,L]
 
-    # ================================
-    # 3) URLS AMIGABLES PARA DASHBOARD/RENTS/PAGE
-    # ================================
-    # Dashboard rents con paginación: /dashboard/rents/page/3
+    # Dashboard rents
     RewriteRule ^dashboard/rents/page/([0-9]+)/?$ dashboard/rents.php?page=$1 [L,QSA]
     RewriteRule ^dashboard/rents/?$ dashboard/rents.php?page=1 [L,QSA]
 
-      # ================================
-    # 4) URLS AMIGABLES PARA DASHBOARD/SINGLE
-    # ================================
+    # Dashboard single
     RewriteRule ^dashboard/single/([0-9]+)/?$ dashboard/single.php?id=$1 [NC,L]
 
-
-
     # ================================
-    # 5) QUITAR .PHP Y .HTML DE LAS URLS
+    # QUITAR .PHP Y .HTML DE LAS URLS
     # ================================
-    # Si no existe el archivo pero sí existe con .php
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME}.php -f
     RewriteRule ^(.*)$ $1.php [NC,L]
 
-    # Si no existe el archivo pero sí existe con .html
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME}.html -f
     RewriteRule ^(.*)$ $1.html [NC,L]

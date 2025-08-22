@@ -6,6 +6,18 @@
 
   <!-- Meta tags -->
   <title>CuVaRents | Renta de casas en Cuba</title>
+
+
+  <?php
+  // Detectar si está en localhost o producción
+  $basePath = '/';
+  if (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'localhost') {
+    $basePath = '/web-cuvarents/';
+  }
+  ?>
+
+  <base href="<?php echo $basePath; ?>">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="CuVaRents ofrece una amplia selección de propiedades en renta en toda Cuba. Encuentra el hogar ideal en La Habana, Santiago de Cuba, Matanzas y más.">
   <meta property="og:description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más.">
@@ -369,7 +381,7 @@
               <article class=\"card hover-effect-opacity h-100\">
                   <div class=\"card-img-top position-relative bg-body-tertiary overflow-hidden\">
                       <div class=\"swiper z-2\" data-swiper='{\"pagination\": {\"el\": \".swiper-pagination\"}, \"navigation\": {\"prevEl\": \".btn-prev\", \"nextEl\": \".btn-next\"}, \"breakpoints\": {\"991\": {\"allowTouchMove\": false}}}'>
-                          <a class=\"swiper-wrapper\" href=\"/single/$rentalId\" aria-live=\"polite\">
+                          <a class=\"swiper-wrapper\" href=\"single/$rentalId\" aria-live=\"polite\">
                               $slides
                           </a>
                           <div class=\"swiper-pagination bottom-0 mb-2\"></div>
