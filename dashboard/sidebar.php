@@ -390,9 +390,7 @@ if ($result->num_rows > 0) {
         'Guanabo',
         'Boca Ciega',
         'Brisas del Mar',
-        'Santa María',
-        'Boca Camarioca'
-
+        'Santa María'
       ],
       'Santiago de Cuba': [
         'Contramaestre',
@@ -420,7 +418,8 @@ if ($result->num_rows > 0) {
         'Perico',
         'Unión de Reyes',
         'Varadero',
-        'Santa Marta'
+        'Santa Marta',
+        'Boca Camarioca'
       ],
       'Artemisa': [
         'Alquízar',
