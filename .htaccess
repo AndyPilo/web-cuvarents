@@ -27,29 +27,10 @@ Options -Indexes
     # REDIRECCIONES 301 (URLs ANTIGUAS -> NUEVAS)
     # ================================
 
-    # Rentas con categoría y paginación
-    RewriteCond %{THE_REQUEST} \s/rents\.php\?page=([0-9]+)&category=([^&\s]+) [NC]
-    RewriteRule ^rents\.php$ /rents/%2/page/%1 [R=301,L]
+    # =========================================
+    # REDIRECCIONES 301 DESDE CATEGORIAS ANTIGUAS
+    # =========================================
 
-    # Rentas con categoría sin paginación (page=1)
-    RewriteCond %{THE_REQUEST} \s/rents\.php\?category=([^&\s]+) [NC]
-    RewriteRule ^rents\.php$ /rents/%1 [R=301,L]
-
-    # Rentas sin categoría con paginación
-    RewriteCond %{THE_REQUEST} \s/rents\.php\?page=([0-9]+) [NC]
-    RewriteRule ^rents\.php$ /rents/page/%1 [R=301,L]
-
-    # Rentas sin categoría ni paginación
-    RewriteCond %{THE_REQUEST} \s/rents\.php [NC]
-    RewriteRule ^rents\.php$ /rents [R=301,L]
-
-    # Páginas con extensión .php (about.php -> /about, contact.php -> /contact, etc.)
-    RewriteCond %{THE_REQUEST} \s([A-Za-z0-9_-]+)\.php [NC]
-    RewriteRule ^([A-Za-z0-9_-]+)\.php$ /%1 [R=301,L]
-
-    # Páginas de detalle (single.php?id=123 -> /single/123)
-    RewriteCond %{THE_REQUEST} \s/single\.php\?id=([0-9]+) [NC]
-    RewriteRule ^single\.php$ /single/%1 [R=301,L]
 
     # ================================
     # URLS AMIGABLES (REWRITE INTERNO)

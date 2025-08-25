@@ -415,7 +415,7 @@
         echo "
           </div>
           <div class=\"d-flex pt-5\">
-              <a href=\"/web-cuvarents/rents/" . slugify($category) . "\" class=\"btn btn-outline-secondary\">Ver más alquileres de esta categoría</a>
+              <a href=\"rents/" . slugify($category) . "\" class=\"btn btn-outline-secondary\">Ver más alquileres de esta categoría</a>
           </div>
       </section>";
       }
