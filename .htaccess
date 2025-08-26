@@ -30,7 +30,9 @@ Options -Indexes
     # =========================================
     # REDIRECCIONES 301 DESDE CATEGORIAS ANTIGUAS
     # =========================================
-
+    # Redirigir todas las URLs que terminan en .php a la versión sin .php
+    RewriteCond %{THE_REQUEST} \s/([^.]+)\.php[\s?] [NC]
+    RewriteRule ^ %1 [R=301,L]
 
     # ================================
     # URLS AMIGABLES (REWRITE INTERNO)
