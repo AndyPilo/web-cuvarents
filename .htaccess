@@ -8,8 +8,8 @@
 </IfModule>
 
 # --- Páginas de error personalizadas ---
-ErrorDocument 404 /error/404.php
-ErrorDocument 403 /error/404.php
+ErrorDocument 404 404.php
+#ErrorDocument 403 404.php
 
 # --- Seguridad: impedir acceso a archivos .ini ---
 <FilesMatch "\.ini$">
@@ -30,6 +30,9 @@ Options -Indexes
     # =========================================
     # REDIRECCIONES 301 DESDE CATEGORIAS ANTIGUAS
     # =========================================
+    # Redirigir cualquier URL antigua de rents.php con parámetro category
+    RewriteCond %{QUERY_STRING} ^id=([0-9]+)$ [NC]
+    RewriteRule ^single\.php$ /single/%1? [R=301,L]
     # Redirigir todas las URLs que terminan en .php a la versión sin .php
     RewriteCond %{THE_REQUEST} \s/([^.]+)\.php[\s?] [NC]
     RewriteRule ^ %1 [R=301,L]
