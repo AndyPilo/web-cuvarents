@@ -38,6 +38,10 @@ Options -Indexes
     RewriteCond %{THE_REQUEST} \s/([^.]+)\.php[\s?] [NC]
     RewriteRule ^ %1 [R=301,L]
 
+    RewriteCond %{THE_REQUEST} \s/rents\.php\?page=([0-9]+)&category=Casas\%20y\%20Alojamientos\%20vacacionales\s [NC]
+    RewriteRule ^ /rents/casas-y-alojamientos-vacacionales/page/%1? [R=301,L]
+
+
     # ========================================
     # 2) Mantener funcionales login.php y signup.php
     #    - El usuario ve /login o /signup
