@@ -33,14 +33,18 @@ Options -Indexes
     # Redirigir cualquier URL de Single.php?id=
     RewriteCond %{QUERY_STRING} ^id=([0-9]+)$ [NC]
     RewriteRule ^single\.php$ /single/%1? [R=301,L]
-
-    # Redirección para categoría "Casas y Alojamientos vacacionales"
-    RewriteCond %{QUERY_STRING} ^page=([0-9]+)&category=Casas\ y\ Alojamientos\ vacacionales$ [NC]
-    RewriteRule ^rents\.php$ /rents/casas-y-alojamientos-vacacionales/page/%1? [R=301,L]
     
     # Redirigir todas las URLs que terminan en .php a la versión sin .php
     RewriteCond %{THE_REQUEST} \s/([^.]+)\.php[\s?] [NC]
     RewriteRule ^ %1 [R=301,L]
+
+    # ========================================
+    # 2) Mantener funcionales login.php y signup.php
+    #    - El usuario ve /login o /signup
+    #    - Internamente se ejecutan login.php y signup.php
+    # ========================================
+    RewriteRule ^login$ login.php [L]
+    RewriteRule ^signup$ signup.php [L]
 
     # ================================
     # URLS AMIGABLES (REWRITE INTERNO)

@@ -53,7 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  <link rel="shortcut icon" href="https://www.uixsoftware.com/assets/img/logos/logo_uixsoftware.svg">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/uixsoftware/assets/img/favicon-32x32.png" type="image/png">
 
   <!-- Theme switcher (color modes) -->
   <script src="../uixsoftware/assets/js/theme-switcher.js"></script>
@@ -134,7 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <!-- Form -->
-        <form class="needs-validation" novalidate="" action="signup.php" method="post">
+        <form class="needs-validation" novalidate="" action="signup" method="post">
           <div class="position-relative mb-4">
             <label for="register-name" class="form-label">Nombre y Apellido</label>
             <input type="text" class="form-control form-control-lg" id="register-name" name="name" required="">

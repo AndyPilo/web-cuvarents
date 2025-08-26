@@ -30,7 +30,9 @@ session_start();
   <meta name="geo.region" content="CU">
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link rel="shortcut icon" href="https://www.uixsoftware.com/assets/img/logos/logo_uixsoftware.svg">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/uixsoftware/assets/img/favicon-32x32.png" type="image/png">
 
   <!-- Theme switcher (color modes) -->
   <script src="../uixsoftware/assets/js/theme-switcher.js"></script>
@@ -89,6 +91,8 @@ session_start();
     if ($result->num_rows > 0) {
       $row = $result->fetch_assoc();
       if (password_verify($password, $row['account_password'])) {
+
+        echo "Hasta aqui todo bien";
         // La contraseña es correcta
         $_SESSION['account_id'] = $row['account_id'];
         $_SESSION['account_username'] = $row['account_username'];
@@ -167,7 +171,7 @@ session_start();
           <a class="nav-link text-decoration-underline p-0 ms-2" href="signup.php">Crear una cuenta</a>
         </div>
 
-        <form class="needs-validation" novalidate="" action="login.php" method="post">
+        <form class="needs-validation" novalidate="" action="login" method="post">
           <div class="position-relative mb-4">
             <input type="email" class="form-control form-control-lg" name="email" placeholder="Correo electrónico" required="">
             <div class="invalid-tooltip bg-transparent py-0">Enter a valid email address!</div>
