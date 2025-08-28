@@ -21,8 +21,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Uixsoftware">
     <meta name="keywords" content="rentas en Cuba, alquileres en Cuba, apartamentos en Cuba, casas en Cuba, CuVaRents, Uixsoftware, alquiler de viviendas, La Habana, Santiago de Cuba, Matanzas, provincia, municipio, Cuba">
-    <meta name="description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
-    <meta property="og:description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
+    <meta name="description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más.">
+    <meta property="og:description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más.">
     <meta property="og:url" content="https://www.cuvarents.com/">
     <meta property="og:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
     <meta property="og:type" content="website">
@@ -437,8 +437,8 @@
         {
             "@context": "https://schema.org",
             "@type": "ItemList",
-            "name": "Listado de rentas en Cuba",
-            "description": "Encuentra casas y apartamentos en renta en Cuba. Filtra por precio, habitaciones, zona y más.",
+            "name": "Explorar rentas en Cuba",
+            "description": "CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más.",
             "numberOfItems": <?php echo count($itemList); ?>,
             "itemListOrder": "https://schema.org/ItemListOrderDescending",
             "itemListElement": <?php echo json_encode($itemList, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
