@@ -44,6 +44,12 @@ Options -Indexes
     RewriteCond %{QUERY_STRING} ^category=Casas\+y\+Alojamientos\+vacacionales$ [NC]
     RewriteRule ^rents$ /rents/casas-y-alojamientos-vacacionales? [R=301,L]
 
+    # =========
+
+    # Redirigir URLs con page pero categoría vacía
+    RewriteCond %{QUERY_STRING} ^page=([0-9]+)&category=$ [NC]
+    RewriteRule ^rents\.php$ /rents/page/%1? [R=301,L]
+
     # =========================================
 
     # Redirigir cualquier URL de Single.php?id=
