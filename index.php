@@ -79,6 +79,20 @@
 
     .btn-outline-info {}
   </style>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "WebSite",
+      "name": "Cuvarents",
+      "url": "https://cuvarents.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://cuvarents.com/search-rents/{search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
 </head>
 
 

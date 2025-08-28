@@ -245,6 +245,8 @@
                 $totalPages = ceil($totalRentals / $itemsPerPage);
 
                 if ($result->num_rows > 0) {
+                    $itemList = [];
+                    $position = 1;
                     while ($row = $result->fetch_assoc()) {
                         $rentalId = $row['rental_id'];
                         $images = !empty($row['images']) ? explode(',', $row['images']) : [];
@@ -278,6 +280,22 @@
                         $servicesIcons = "";
                         $totalServices = $resultServices->num_rows;
                         $count = 0;
+
+                        // Agregamos simultáneamente al array para JSON-LD
+                        $itemList[] = [
+                            "@type" => "ListItem",
+                            "position" => $position,
+                            "url" => "https://www.cuvarents.com/single/" . $row['rental_id'],
+                            "name" => htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8'),
+                            "image" => !empty($row['images']) ? 'https://www.cuvarents.com/uploads/' . explode(',', $row['images'])[0] : 'https://www.cuvarents.com/uixsoftware/assets/img/default-img.png',
+                            "offers" => [
+                                "@type" => "Offer",
+                                "price" => $row['rental_price'],
+                                "priceCurrency" => "USD",
+                                "availability" => "https://schema.org/InStock"
+                            ]
+                        ];
+                        $position++;
 
                         while ($service = $resultServices->fetch_assoc()) {
                             if ($count < 5) {
@@ -414,6 +432,18 @@
     <!-- Bootstrap + Theme scripts -->
     <script src="uixsoftware/assets/js/theme.min.js"></script>
 
+    <!-- JSON - LD -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Listado de rentas en Cuba",
+            "description": "Encuentra casas y apartamentos en renta en Cuba. Filtra por precio, habitaciones, zona y más.",
+            "numberOfItems": <?php echo count($itemList); ?>,
+            "itemListOrder": "https://schema.org/ItemListOrderDescending",
+            "itemListElement": <?php echo json_encode($itemList, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
+        }
+    </script>
 
 </body>
 

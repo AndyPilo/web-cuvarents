@@ -367,7 +367,6 @@
 
     <?php include 'footer.php'; ?>
 
-
     <!-- Vendor scripts -->
     <script src="uixsoftware/assets/js/swiper-bundle.min.js"></script>
     <script src="uixsoftware/assets/js/glightbox.min.js"></script>
@@ -377,6 +376,40 @@
     <!-- Bootstrap + Theme scripts -->
     <script src="uixsoftware/assets/js/theme.min.js"></script>
 
+    <!-- al final de single.php, justo antes de </body> -->
+    <script type="application/ld+json">
+        <?php
+        $schema = [
+            "@context" => "https://schema.org",
+            "@type" => "Hotel",
+            "name" => $rentalTitle,
+            "description" => $rentalDescription,
+            "image" => array_map(function ($img) {
+                return "https://cuvarents.com/dashboard/uploads/" . $img;
+            }, $images),
+            "address" => [
+                "@type" => "PostalAddress",
+                "addressLocality" => $rentalMunicipio,
+                "addressRegion" => $rentalProvincia,
+                "addressCountry" => "CU"
+            ],
+            "numberOfRooms" => $rentalRooms,
+            "occupancy" => [
+                "@type" => "QuantitativeValue",
+                "value" => $rentalCapacity,
+                "unitCode" => "C62"
+            ],
+            "makesOffer" => [
+                "@type" => "Offer",
+                "url" => "https://www.cuvarents.com/single/$rentalId",
+                "price" => $rentalPrice,
+                "priceCurrency" => "USD",
+                "availability" => "https://schema.org/InStock"
+            ]
+        ];
+        echo json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+        ?>
+    </script>
 
 </body>
 
