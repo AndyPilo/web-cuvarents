@@ -113,7 +113,6 @@
                             }
                         });
                     } else {
-                        console.log("Mostrando todas las zonas"); // Depuración
                         allZones.forEach(zone => {
                             zone.parentElement.style.display = 'block'; // Mostrar todas las zonas
                         });

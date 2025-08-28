@@ -27,9 +27,25 @@ Options -Indexes
     # REDIRECCIONES 301 (URLs ANTIGUAS -> NUEVAS)
     # ================================
 
+    # Redirecciones de rentas con categoria sin paginacion
+    #Casas de lujo
+    RewriteCond %{QUERY_STRING} ^category=Casas\+de\+lujo$ [NC]
+    RewriteRule ^rents$ /rents/casas-de-lujo? [R=301,L]
+
+    # Casas en la playa
+    RewriteCond %{QUERY_STRING} ^category=Casas\+en\+la\+playa$ [NC]
+    RewriteRule ^rents$ /rents/casas-en-la-playa? [R=301,L]
+
+    # Casas y Apartamentos por largas y cortas estancias
+    RewriteCond %{QUERY_STRING} ^category=Casas\+y\+Apartamentos\+por\+largas\+y\+cortas\+estancias$ [NC]
+    RewriteRule ^rents$ /rents/casas-y-apartamentos-por-largas-y-cortas-estancias? [R=301,L]
+
+    # Casas y Alojamientos vacacionales
+    RewriteCond %{QUERY_STRING} ^category=Casas\+y\+Alojamientos\+vacacionales$ [NC]
+    RewriteRule ^rents$ /rents/casas-y-alojamientos-vacacionales? [R=301,L]
+
     # =========================================
-    # REDIRECCIONES 301 DESDE CATEGORIAS ANTIGUAS
-    # =========================================
+
     # Redirigir cualquier URL de Single.php?id=
     RewriteCond %{QUERY_STRING} ^id=([0-9]+)$ [NC]
     RewriteRule ^single\.php$ /single/%1? [R=301,L]
@@ -37,10 +53,6 @@ Options -Indexes
     # Redirigir todas las URLs que terminan en .php a la versión sin .php
     RewriteCond %{THE_REQUEST} \s/([^.]+)\.php[\s?] [NC]
     RewriteRule ^ %1 [R=301,L]
-
-    RewriteCond %{THE_REQUEST} \s/rents\.php\?page=([0-9]+)&category=Casas\%20y\%20Alojamientos\%20vacacionales\s [NC]
-    RewriteRule ^ /rents/casas-y-alojamientos-vacacionales/page/%1? [R=301,L]
-
 
     # ========================================
     # 2) Mantener funcionales login.php y signup.php
