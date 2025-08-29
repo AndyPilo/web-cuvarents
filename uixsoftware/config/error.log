@@ -1041,3 +1041,18 @@ Stack trace:
 [26-Aug-2025 14:58:10 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\web-cuvarents\navbar.php:22) in C:\xampp\htdocs\web-cuvarents\single.php on line 256
 [26-Aug-2025 14:58:10 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\web-cuvarents\navbar.php:22) in C:\xampp\htdocs\web-cuvarents\single.php on line 257
 [26-Aug-2025 23:30:07 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\web-cuvarents\navbar.php:22) in C:\xampp\htdocs\web-cuvarents\rents.php on line 190
+[29-Aug-2025 23:11:02 Europe/Berlin] PHP Warning:  include(./includes/navbar.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\web-cuvarents\index.php on line 78
+[29-Aug-2025 23:11:02 Europe/Berlin] PHP Warning:  include(): Failed opening './includes/navbar.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\web-cuvarents\index.php on line 78
+[29-Aug-2025 23:11:03 Europe/Berlin] PHP Warning:  Undefined variable $loggedIn in C:\xampp\htdocs\web-cuvarents\footer.php on line 172
+[29-Aug-2025 23:19:30 Europe/Berlin] PHP Warning:  include(./includes/navbar.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\web-cuvarents\rents.php on line 79
+[29-Aug-2025 23:19:30 Europe/Berlin] PHP Warning:  include(): Failed opening './includes/navbar.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\web-cuvarents\rents.php on line 79
+[29-Aug-2025 23:19:30 Europe/Berlin] PHP Warning:  Undefined variable $loggedIn in C:\xampp\htdocs\web-cuvarents\footer.php on line 172
+[29-Aug-2025 23:22:03 Europe/Berlin] PHP Warning:  include(./includes/navbar.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\web-cuvarents\rents.php on line 79
+[29-Aug-2025 23:22:03 Europe/Berlin] PHP Warning:  include(): Failed opening './includes/navbar.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\web-cuvarents\rents.php on line 79
+[29-Aug-2025 23:22:04 Europe/Berlin] PHP Warning:  Undefined variable $loggedIn in C:\xampp\htdocs\web-cuvarents\footer.php on line 172
+[29-Aug-2025 23:22:09 Europe/Berlin] PHP Warning:  include(./includes/navbar.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\web-cuvarents\rents.php on line 79
+[29-Aug-2025 23:22:09 Europe/Berlin] PHP Warning:  include(): Failed opening './includes/navbar.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\web-cuvarents\rents.php on line 79
+[29-Aug-2025 23:22:09 Europe/Berlin] PHP Warning:  Undefined variable $loggedIn in C:\xampp\htdocs\web-cuvarents\footer.php on line 172
+[29-Aug-2025 23:22:19 Europe/Berlin] PHP Warning:  include(./includes/navbar.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\web-cuvarents\rents.php on line 79
+[29-Aug-2025 23:22:19 Europe/Berlin] PHP Warning:  include(): Failed opening './includes/navbar.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\web-cuvarents\rents.php on line 79
+[29-Aug-2025 23:22:19 Europe/Berlin] PHP Warning:  Undefined variable $loggedIn in C:\xampp\htdocs\web-cuvarents\footer.php on line 172

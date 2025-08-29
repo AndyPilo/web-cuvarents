@@ -76,7 +76,7 @@
 
     <?php
     require_once './uixsoftware/config/config.php';
-    include './includes/navbar.php';
+    include 'navbar.php';
     ?>
 
 
