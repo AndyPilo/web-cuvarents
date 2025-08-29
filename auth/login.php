@@ -92,7 +92,6 @@ session_start();
       $row = $result->fetch_assoc();
       if (password_verify($password, $row['account_password'])) {
 
-        echo "Hasta aqui todo bien";
         // La contraseña es correcta
         $_SESSION['account_id'] = $row['account_id'];
         $_SESSION['account_username'] = $row['account_username'];
@@ -168,7 +167,7 @@ session_start();
         <h1 class="h2 mt-auto">Bienvenido</h1>
         <div class="nav fs-sm mb-4">
           ¿No tienes una cuenta?
-          <a class="nav-link text-decoration-underline p-0 ms-2" href="signup.php">Crear una cuenta</a>
+          <a class="nav-link text-decoration-underline p-0 ms-2" href="signup">Crear una cuenta</a>
         </div>
 
         <form class="needs-validation" novalidate="" action="login" method="post">
@@ -190,7 +189,6 @@ session_start();
         <!-- Footer -->
         <footer class="mt-auto">
           <div class="nav mb-4">
-            <a class="nav-link text-decoration-underline p-0" href="help-topics-v1.html">¿Necesitas ayuda?</a>
           </div>
           <div class="text-center pt-4 pb-md-2">
             <p class="text-body-secondary fs-sm mb-0">© 2025 CuvaRents. All rights reserved. Made by <a class="text-body fw-medium text-decoration-none hover-effect-underline" href="https://www.uixsoftware.com/" target="_blank" rel="noreferrer">Uixsoftware</a></p>

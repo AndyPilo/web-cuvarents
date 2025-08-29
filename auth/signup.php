@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$name', '$email', '$password', '$phone_prefix', '$phone_number')";
 
   if ($conn->query($sql) === TRUE) {
-    header("Location: login.php");
+    header("Location: login");
     exit();
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
@@ -131,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1 class="h2 mt-auto">Crear una cuenta</h1>
         <div class="nav fs-sm mb-3 mb-lg-4">
           Ya tengo una cuenta
-          <a class="nav-link text-decoration-underline p-0 ms-2" href="login.php">Inicia sesión</a>
+          <a class="nav-link text-decoration-underline p-0 ms-2" href="login">Inicia sesión</a>
         </div>
 
         <!-- Form -->
@@ -221,7 +221,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <!-- Footer -->
         <footer class="mt-auto">
           <div class="nav mb-4">
-            <a class="nav-link text-decoration-underline p-0" href="help-topics-v1.html">¿Necesitas ayuda?</a>
           </div>
           <div class="text-center pt-4 pb-md-2">
             <p class="text-body-secondary fs-sm mb-0">© 2025 CuvaRents. All rights reserved. Made by <a class="text-body fw-medium text-decoration-none hover-effect-underline" href="https://www.uixsoftware.com/" target="_blank" rel="noreferrer">Uixsoftware</a></p>

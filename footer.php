@@ -172,7 +172,7 @@
           <?php if (!$loggedIn): ?>
 
             <h6 class="h5 mb-sm-0 mb-lg-3 me-sm-3 me-md-4 me-lg-0">Disfruta de toda la experiencia</h6>
-            <a class="btn btn-lg btn-outline-secondary w-100" href="auth/signup.php" style="max-width: 205px">Registrate</a>
+            <a class="btn btn-lg btn-outline-secondary w-100" href="auth/signup" style="max-width: 205px">Registrate</a>
 
           <?php else: ?>
 

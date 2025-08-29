@@ -381,7 +381,8 @@
         <?php
         $schema = [
             "@context" => "https://schema.org",
-            "@type" => "Hotel",
+            "@type" => "LodgingBusiness",
+            "identifier" => "rental-" . $rentalId,
             "name" => $rentalTitle,
             "description" => $rentalDescription,
             "image" => array_map(function ($img) {
@@ -399,12 +400,18 @@
                 "value" => $rentalCapacity,
                 "unitCode" => "C62"
             ],
+            "checkinTime" => "14:00",
+            "checkoutTime" => "12:00",
             "makesOffer" => [
                 "@type" => "Offer",
                 "url" => "https://www.cuvarents.com/single/$rentalId",
-                "price" => $rentalPrice,
                 "priceCurrency" => "USD",
-                "availability" => "https://schema.org/InStock"
+                "availability" => "https://schema.org/InStock",
+                "priceSpecification" => [
+                    "@type" => "PriceSpecification",
+                    "price" => $rentalPrice,
+                    "priceCurrency" => "USD"
+                ]
             ]
         ];
         echo json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);

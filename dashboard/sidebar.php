@@ -5,14 +5,14 @@ session_start();
 // Lógica para cerrar sesión
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {
   session_destroy();
-  header("Location: ../auth/login.php"); // Redirige a la página de inicio de sesión después de cerrar la sesión
+  header("Location: ../auth/login"); // Redirige a la página de inicio de sesión después de cerrar la sesión
   exit();
 }
 
 // Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['account_id'])) {
   // Si no hay sesión activa, redirige al login
-  header("Location: ../auth/login.php");
+  header("Location: ../auth/login");
   exit();
 }
 
