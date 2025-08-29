@@ -93,19 +93,6 @@
       }
     }
   </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Cuvarents",
-      "url": "https://cuvarents.com/",
-      "logo": "https://cuvarents.com/uixsoftware/assets/img/logo-white.png",
-      "sameAs": [
-        "https://www.facebook.com/profile.php?id=61560542866042&mibextid=ZbWKwL",
-        "https://www.instagram.com/cuvarents/"
-      ]
-    }
-  </script>
 </head>
 
 

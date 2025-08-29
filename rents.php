@@ -281,28 +281,18 @@
                         $totalServices = $resultServices->num_rows;
                         $count = 0;
 
-                        // JSON-LD para cada renta
+                        // Agregamos simultáneamente al array para JSON-LD
                         $itemList[] = [
                             "@type" => "ListItem",
                             "position" => $position,
-                            "url" => "https://www.cuvarents.com/single/" . $rentalId,
-                            "item" => [
-                                "@type" => "Apartment", // También podrías usar "LodgingBusiness"
-                                "name" => htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8'),
-                                "image" => $firstImage,
-                                "address" => [
-                                    "@type" => "PostalAddress",
-                                    "addressLocality" => $row['rental_municipio'],
-                                    "addressRegion" => $row['rental_provincia'],
-                                    "addressCountry" => "CU"
-                                ],
-                                "offers" => [
-                                    "@type" => "Offer",
-                                    "price" => $row['rental_price'],
-                                    "priceCurrency" => "USD",
-                                    "availability" => "https://schema.org/InStock",
-                                    "url" => "https://www.cuvarents.com/single/" . $rentalId
-                                ]
+                            "url" => "https://www.cuvarents.com/single/" . $row['rental_id'],
+                            "name" => htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8'),
+                            "image" => !empty($row['images']) ? 'https://www.cuvarents.com/uploads/' . explode(',', $row['images'])[0] : 'https://www.cuvarents.com/uixsoftware/assets/img/default-img.png',
+                            "offers" => [
+                                "@type" => "Offer",
+                                "price" => $row['rental_price'],
+                                "priceCurrency" => "USD",
+                                "availability" => "https://schema.org/InStock"
                             ]
                         ];
                         $position++;
@@ -451,7 +441,7 @@
             "description": "CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más.",
             "numberOfItems": <?php echo count($itemList); ?>,
             "itemListOrder": "https://schema.org/ItemListOrderDescending",
-            "itemListElement": <?php echo json_encode($itemList, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT); ?>
+            "itemListElement": <?php echo json_encode($itemList, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
         }
     </script>
 
