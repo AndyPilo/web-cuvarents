@@ -1,5 +1,4 @@
 <?php
-include './uixsoftware/config/config.php';
 session_start();
 
 // Lógica para cerrar sesión

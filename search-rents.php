@@ -63,32 +63,7 @@
 
     <!-- Customizer -->
     <script src="uixsoftware/assets/js/customizer.min.js"></script>
-    <style id="customizer-styles">
-        :root,
-        [data-bs-theme="light"] {}
 
-        [data-bs-theme="dark"] {}
-
-        .btn-primary {}
-
-        .btn-success {}
-
-        .btn-warning {}
-
-        .btn-danger {}
-
-        .btn-info {}
-
-        .btn-outline-primary {}
-
-        .btn-outline-success {}
-
-        .btn-outline-warning {}
-
-        .btn-outline-danger {}
-
-        .btn-outline-info {}
-    </style>
 </head>
 
 
@@ -96,7 +71,10 @@
 
 <body>
 
-    <?php include 'navbar.php'; ?>
+    <?php
+    require_once './uixsoftware/config/config.php';
+    include './includes/navbar.php';
+    ?>
 
     <!-- Page content -->
     <main class="content-wrapper">

@@ -53,33 +53,6 @@
 
   <link rel="stylesheet" href="uixsoftware/assets/css/theme.min.css" id="theme-styles">
 
-  <style id="customizer-styles">
-    :root,
-    [data-bs-theme="light"] {}
-
-    [data-bs-theme="dark"] {}
-
-    .btn-primary {}
-
-    .btn-success {}
-
-    .btn-warning {}
-
-    .btn-danger {}
-
-    .btn-info {}
-
-    .btn-outline-primary {}
-
-    .btn-outline-success {}
-
-    .btn-outline-warning {}
-
-    .btn-outline-danger {}
-
-    .btn-outline-info {}
-  </style>
-
   <script type="application/ld+json">
     {
       "@context": "https://schema.org/",
@@ -100,7 +73,10 @@
 
 <body>
 
-  <?php include 'navbar.php'; ?>
+  <?php
+  require_once './uixsoftware/config/config.php';
+  include './includes/navbar.php';
+  ?>
 
 
   <!-- Page content -->

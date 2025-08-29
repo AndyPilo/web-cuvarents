@@ -57,32 +57,7 @@
 
   <!-- Customizer -->
   <script src="uixsoftware/assets/js/customizer.min.js"></script>
-  <style id="customizer-styles">
-    :root,
-    [data-bs-theme="light"] {}
 
-    [data-bs-theme="dark"] {}
-
-    .btn-primary {}
-
-    .btn-success {}
-
-    .btn-warning {}
-
-    .btn-danger {}
-
-    .btn-info {}
-
-    .btn-outline-primary {}
-
-    .btn-outline-success {}
-
-    .btn-outline-warning {}
-
-    .btn-outline-danger {}
-
-    .btn-outline-info {}
-  </style>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
