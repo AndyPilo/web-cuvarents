@@ -4,10 +4,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-
-    <!-- Meta tags -->
-    <title>CuVaRents | Renta</title>
-
     <?php
     // Detectar si está en localhost o producción
     $basePath = '/';
@@ -16,56 +12,119 @@
     }
     ?>
 
-    <base href="<?php echo $basePath; ?>">
+    <?php require_once './uixsoftware/config/config.php';
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Uixsoftware">
-    <meta name="keywords" content="rentas en Cuba, alquileres en Cuba, apartamentos en Cuba, casas en Cuba, CuVaRents, Uixsoftware, alquiler de viviendas, La Habana, Santiago de Cuba, Matanzas, provincia, municipio, Cuba">
-    <meta name="description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
-    <meta property="og:description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
-    <meta property="og:url" content="https://www.cuvarents.com/">
-    <meta property="og:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="CuVaRents | Alquileres en Cuba">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="CuVaRents | Alquileres en Cuba">
-    <meta name="twitter:description" content="CuVaRents ofrece una amplia selección de propiedades en alquiler en toda Cuba. Encuentra tu hogar ideal en La Habana, Santiago de Cuba, Matanzas y más. Desarrollado por Uixsoftware.">
-    <meta name="twitter:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
-    <meta name="contact" content="soporte@cuvarents.com">
-    <meta name="copyright" content="Copyright (c) 2024. Uixsoftware. Todos los derechos reservados.">
-    <meta name="DC.title" content="CuVaRents: Líderes en Alquileres en Cuba">
-    <meta name="geo.placename" content="Cuba">
-    <meta name="geo.region" content="CU">
+    // Obtener el ID de la renta desde la URL
+    $rentalId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+
+    // Verificar que el ID sea válido
+    if ($rentalId <= 0) {
+        http_response_code(404);
+        echo "<h1>Renta no encontrada</h1>";
+        exit();
+    }
+
+    // Obtener los detalles de la renta desde la base de datos
+    $sql = "SELECT Rentals.*, GROUP_CONCAT(RentalImages.image_url) AS images FROM Rentals
+                    LEFT JOIN RentalImages ON Rentals.rental_id = RentalImages.rental_id
+                    WHERE Rentals.rental_id = $rentalId
+                    GROUP BY Rentals.rental_id";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $images = !empty($row['images']) ? explode(',', $row['images']) : [];
+        if (!empty($images[0])) {
+            $firstImage = 'uploads/' . $images[0];
+            $firstImageFull = 'dashboard/' . $firstImage;
+        } else {
+            $firstImage = 'uixsoftware/assets/img/default-img.png';
+            $firstImageFull = $firstImage;
+        }
+        $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
+        $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
+
+        // Si el precio es 1, mostrar "Consultar" en vez de "1$"
+        if ($rentalPrice == "1") {
+            $rentalPriceDisplay = "Consultar";
+        } else {
+            $rentalPriceDisplay = "$" . $rentalPrice;
+        }
 
 
-    <link rel="icon" href="/uixsoftware/assets/img/favicon-32x32.png" type="image/png">
+        $rentalProvincia = htmlspecialchars($row['rental_provincia'], ENT_QUOTES, 'UTF-8');
+        $rentalMunicipio = htmlspecialchars($row['rental_municipio'], ENT_QUOTES, 'UTF-8');
+        $rentalDescription = htmlspecialchars($row['rental_description'], ENT_QUOTES, 'UTF-8');
+        $rentalPriceType = htmlspecialchars($row['rental_price_type'], ENT_QUOTES, 'UTF-8');
+        $typeTimeRent = htmlspecialchars($row['type_time_rent'], ENT_QUOTES, 'UTF-8');
+        $rentalRooms = intval($row['rental_rooms']);
+        $rentalCapacity = intval($row['rental_capacity']);
+        $isPromoted = $row['is_promoted'];
+
+        $sqlServices = "SELECT services_rent_name, services_rent_icon_svg FROM services_rent
+        JOIN RentalServices ON services_rent.services_rent_id = RentalServices.service_rent_id
+        WHERE RentalServices.rental_id = $rentalId";
+        $resultServices = $conn->query($sqlServices);
+
+        $servicesIcons = "";
+        while ($service = $resultServices->fetch_assoc()) {
+            $servicesIcons .= '<div class="col-6 col-md-3 d-flex align-items-center">' . $service['services_rent_icon_svg'] . '' . htmlspecialchars($service['services_rent_name']) . '</div>';
+        }
+
+    ?>
+
+        <base href="<?php echo $basePath; ?>">
+
+        <!-- Meta tags -->
+        <title>CuVaRents | <?php echo $rentalTitle; ?></title>
+        <meta name="description" content="<?php echo $rentalDescription; ?>">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Uixsoftware">
+        <meta name="keywords" content="rentas en Cuba, alquileres en Cuba, apartamentos en Cuba, casas en Cuba, CuVaRents, alquiler de viviendas, La Habana, Santiago de Cuba, Matanzas, provincia, municipio, Cuba">
+        <meta property="og:description" content="<?php echo $rentalDescription; ?>">
+        <meta property="og:url" content="https://www.cuvarents.com/">
+        <meta property="og:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="CuVaRents | Alquileres en Cuba">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="CuVaRents | <?php echo $rentalTitle; ?>">
+        <meta name="twitter:description" content="<?php echo $rentalDescription; ?>">
+        <meta name="twitter:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
+        <meta name="contact" content="soporte@cuvarents.com">
+        <meta name="copyright" content="Copyright (c) 2024. Uixsoftware. Todos los derechos reservados.">
+        <meta name="DC.title" content="CuVaRents: Líderes en Alquileres en Cuba">
+        <meta name="geo.placename" content="Cuba">
+        <meta name="geo.region" content="CU">
 
 
-    <!-- Theme switcher (color modes) -->
-    <script src="uixsoftware/assets/js/theme-switcher.js"></script>
+        <link rel="icon" href="/uixsoftware/assets/img/favicon-32x32.png" type="image/png">
 
-    <!-- Preloaded local web font (Inter) -->
-    <link href="uixsoftware/assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin="">
 
-    <!-- Font icons -->
-    <link rel="stylesheet" href="uixsoftware/assets/css/finder-icons.min.css">
-    <link href="uixsoftware/assets/fonts/finder-icons.woff2" as="font" type="font/woff2" crossorigin="">
+        <!-- Theme switcher (color modes) -->
+        <script src="uixsoftware/assets/js/theme-switcher.js"></script>
 
-    <!-- Vendor styles -->
-    <link rel="stylesheet" href="uixsoftware/assets/css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="uixsoftware/assets/css/glightbox.min.css">
-    <link rel="stylesheet" href="uixsoftware/assets/css/choices.min.css">
-    <link rel="stylesheet" href="uixsoftware/assets/css/nouislider.min.css">
-    <!-- Bootstrap + Theme styles -->
-    <link rel="preload" href="uixsoftware/assets/css/theme.min.css" as="style">
+        <!-- Preloaded local web font (Inter) -->
+        <link href="uixsoftware/assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin="">
 
-    <!-- Flatpickr CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+        <!-- Font icons -->
+        <link rel="stylesheet" href="uixsoftware/assets/css/finder-icons.min.css">
+        <link href="uixsoftware/assets/fonts/finder-icons.woff2" as="font" type="font/woff2" crossorigin="">
 
-    <link rel="stylesheet" href="uixsoftware/assets/css/theme.min.css" id="theme-styles">
+        <!-- Vendor styles -->
+        <link rel="stylesheet" href="uixsoftware/assets/css/swiper-bundle.min.css">
+        <link rel="stylesheet" href="uixsoftware/assets/css/glightbox.min.css">
+        <link rel="stylesheet" href="uixsoftware/assets/css/choices.min.css">
+        <link rel="stylesheet" href="uixsoftware/assets/css/nouislider.min.css">
+        <!-- Bootstrap + Theme styles -->
+        <link rel="preload" href="uixsoftware/assets/css/theme.min.css" as="style">
 
-    <!-- Customizer -->
-    <script src="uixsoftware/assets/js/customizer.min.js"></script>
+        <!-- Flatpickr CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+        <link rel="stylesheet" href="uixsoftware/assets/css/theme.min.css" id="theme-styles">
+
+        <!-- Customizer -->
+        <script src="uixsoftware/assets/js/customizer.min.js"></script>
 
 </head>
 
@@ -75,8 +134,7 @@
 <body>
 
     <?php
-    require_once './uixsoftware/config/config.php';
-    include 'navbar.php';
+        include 'navbar.php';
     ?>
 
 
@@ -84,65 +142,11 @@
         <div class="container pt-4 pb-5 mb-xxl-3">
 
 
-            <?php
-            // Obtener el ID de la renta desde la URL
-            $rentalId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-
-            // Verificar que el ID sea válido
-            if ($rentalId <= 0) {
-                http_response_code(404);
-                echo "<h1>Renta no encontrada</h1>";
-                exit();
-            }
-
-            // Obtener los detalles de la renta desde la base de datos
-            $sql = "SELECT Rentals.*, GROUP_CONCAT(RentalImages.image_url) AS images FROM Rentals
-                    LEFT JOIN RentalImages ON Rentals.rental_id = RentalImages.rental_id
-                    WHERE Rentals.rental_id = $rentalId
-                    GROUP BY Rentals.rental_id";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc();
-                $images = !empty($row['images']) ? explode(',', $row['images']) : [];
-                if (!empty($images[0])) {
-                    $firstImage = 'uploads/' . $images[0];
-                    $firstImageFull = 'dashboard/' . $firstImage;
-                } else {
-                    $firstImage = 'uixsoftware/assets/img/default-img.png';
-                    $firstImageFull = $firstImage;
-                }
-                $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
-                $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
-
-                // Si el precio es 1, mostrar "Consultar" en vez de "1$"
-                if ($rentalPrice == "1") {
-                    $rentalPriceDisplay = "Consultar";
-                } else {
-                    $rentalPriceDisplay = "$" . $rentalPrice;
-                }
+        <?php
 
 
-                $rentalProvincia = htmlspecialchars($row['rental_provincia'], ENT_QUOTES, 'UTF-8');
-                $rentalMunicipio = htmlspecialchars($row['rental_municipio'], ENT_QUOTES, 'UTF-8');
-                $rentalDescription = htmlspecialchars($row['rental_description'], ENT_QUOTES, 'UTF-8');
-                $rentalPriceType = htmlspecialchars($row['rental_price_type'], ENT_QUOTES, 'UTF-8');
-                $typeTimeRent = htmlspecialchars($row['type_time_rent'], ENT_QUOTES, 'UTF-8');
-                $rentalRooms = intval($row['rental_rooms']);
-                $rentalCapacity = intval($row['rental_capacity']);
-                $isPromoted = $row['is_promoted'];
 
-                $sqlServices = "SELECT services_rent_name, services_rent_icon_svg FROM services_rent
-        JOIN RentalServices ON services_rent.services_rent_id = RentalServices.service_rent_id
-        WHERE RentalServices.rental_id = $rentalId";
-                $resultServices = $conn->query($sqlServices);
-
-                $servicesIcons = "";
-                while ($service = $resultServices->fetch_assoc()) {
-                    $servicesIcons .= '<div class="col-6 col-md-3 d-flex align-items-center">' . $service['services_rent_icon_svg'] . '' . htmlspecialchars($service['services_rent_name']) . '</div>';
-                }
-
-                echo "
+        echo "
 <!-- Breadcrumb -->
 <nav class=\"pb-2 pb-md-3\" aria-label=\"breadcrumb\">
     <ol class=\"breadcrumb\">
@@ -164,11 +168,11 @@
         </a>
     </div>";
 
-                for ($i = 1; $i < count($images); $i++) {
-                    $image = 'uploads/' . $images[$i];
-                    $altText = "Imagen " . ($i + 1) . " de $rentalTitle";
-                    if ($i <= 3) {
-                        echo "
+        for ($i = 1; $i < count($images); $i++) {
+            $image = 'uploads/' . $images[$i];
+            $altText = "Imagen " . ($i + 1) . " de $rentalTitle";
+            if ($i <= 3) {
+                echo "
         <div class=\"col-md-4 vstack gap-3 gap-lg-4\">
             <a class=\"hover-effect-scale h-100 hover-effect-opacity position-relative d-flex rounded overflow-hidden\" href=\"dashboard/$image\" data-glightbox=\"\" data-gallery=\"image-gallery\">
                 <i class=\"fi-zoom-in hover-effect-target fs-3 text-white position-absolute top-50 start-50 translate-middle opacity-0 z-2\"></i>
@@ -178,9 +182,9 @@
                 </div>
             </a>
         </div>";
-                    } else if ($i === 4) {
-                        $remainingImages = count($images) - 4;
-                        echo "
+            } else if ($i === 4) {
+                $remainingImages = count($images) - 4;
+                echo "
         <div class=\"col-md-4 vstack gap-3 gap-lg-4\">
             <a class=\"hover-effect-scale h-100 hover-effect-opacity position-relative d-flex rounded overflow-hidden\" href=\"dashboard/$image\" data-glightbox=\"\" data-gallery=\"image-gallery\">
                 <i class=\"fi-zoom-in hover-effect-target fs-3 text-white position-absolute top-50 start-50 translate-middle opacity-0 z-2\"></i>
@@ -193,16 +197,16 @@
                 </div>
             </a>
         </div>";
-                        break;
-                    }
-                }
+                break;
+            }
+        }
 
-                for ($i = 4; $i < count($images); $i++) {
-                    $image = 'uploads/' . $images[$i];
-                    echo "<a class=\"d-none\" href=\"dashboard/$image\" data-glightbox=\"\" data-gallery=\"image-gallery\" aria-label=\"Imagen adicional de $rentalTitle en $rentalMunicipio, $rentalProvincia\"></a>";
-                }
+        for ($i = 4; $i < count($images); $i++) {
+            $image = 'uploads/' . $images[$i];
+            echo "<a class=\"d-none\" href=\"dashboard/$image\" data-glightbox=\"\" data-gallery=\"image-gallery\" aria-label=\"Imagen adicional de $rentalTitle en $rentalMunicipio, $rentalProvincia\"></a>";
+        }
 
-                echo "
+        echo "
 </div>
 
 <!-- Listing details -->
@@ -228,13 +232,13 @@
         </div>
     </div>";
 
-                include "single-aside.php";
-            } else {
-                http_response_code(404);
-                echo "<h1>404</h1>
+        include "single-aside.php";
+    } else {
+        http_response_code(404);
+        echo "<h1>404</h1>
                 <p>La renta que busca no existe</p>";
-            }
-            ?>
+    }
+        ?>
 
         </div>
         </div>
