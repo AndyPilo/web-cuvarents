@@ -76,7 +76,7 @@
         <base href="<?php echo $basePath; ?>">
 
         <!-- Meta tags -->
-        <title>CuVaRents | <?php echo $rentalTitle; ?></title>
+        <title><?php echo $rentalTitle; ?></title>
         <meta name="description" content="<?php echo $rentalDescription; ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Uixsoftware">
@@ -85,9 +85,9 @@
         <meta property="og:url" content="https://www.cuvarents.com/">
         <meta property="og:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
         <meta property="og:type" content="website">
-        <meta property="og:title" content="CuVaRents | Alquileres en Cuba">
+        <meta property="og:title" content="<?php echo $rentalTitle; ?>">
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="CuVaRents | <?php echo $rentalTitle; ?>">
+        <meta name="twitter:title" content="<?php echo $rentalTitle; ?>">
         <meta name="twitter:description" content="<?php echo $rentalDescription; ?>">
         <meta name="twitter:image" content="https://www.cuvarents.com/assets/img/logos/logo_qvarents.svg">
         <meta name="contact" content="soporte@cuvarents.com">
