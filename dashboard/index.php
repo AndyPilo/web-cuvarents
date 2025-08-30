@@ -137,6 +137,13 @@
                                     $rentalCreated = date('d/m/Y', strtotime($row['rental_created_at']));
                                     $rentalEdited = date('d/m/Y', strtotime($row['rental_updated_at']));
 
+                                    // Si el precio es 1, mostrar "Consultar" en vez de "1$"
+                                    if ($rentalPrice == "1") {
+                                        $rentalPriceDisplay = "Consultar";
+                                    } else {
+                                        $rentalPriceDisplay = "$" . $rentalPrice;
+                                    }
+
                                     echo "
         <div class=\"col-12 d-sm-flex align-items-center\">
             <article class=\"card w-100\">
@@ -153,7 +160,7 @@
                         <div class=\"card-body row p-3 py-sm-4 ps-sm-2 ps-md-3 pe-md-4 mt-n1 mt-sm-0\">
                             <div class=\"col-12 col-md-8 position-relative pe-3\">
                                 <span class=\"badge text-body-emphasis bg-body-secondary mb-2\">$rentalTitle</span>
-                                <div class=\"h5 mb-2\">\$$rentalPrice</div>
+                                <div class=\"h5 mb-2\">$rentalPriceDisplay</div>
                                 <a class=\"stretched-link d-block fs-sm text-body text-decoration-none mb-2\" href=\"#\">$rentalLocation</a>
                             </div>
                           

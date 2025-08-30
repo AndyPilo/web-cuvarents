@@ -273,22 +273,46 @@
                   $baseUrl = $basePath . 'rents/page';
 
                   echo '<nav class="pt-3 mt-3" aria-label="Listings pagination">
-        <ul class="pagination pagination-lg justify-content-center">';
+<ul class="pagination pagination-lg justify-content-center">';
 
+                  // Botón "Anterior"
                   if ($page > 1) {
                     echo '<li class="page-item"><a class="page-link" href="' . $baseUrl . '/' . ($page - 1) . '">Anterior</a></li>';
                   }
 
-                  for ($i = 1; $i <= $totalPages; $i++) {
+                  // Rango de páginas a mostrar
+                  $range = 10; // Número de páginas a mostrar antes y después de la actual
+                  $start = max(1, $page - $range);
+                  $end = min($totalPages, $page + $range);
+
+                  // Mostrar siempre la primera página
+                  if ($start > 1) {
+                    echo '<li class="page-item"><a class="page-link" href="' . $baseUrl . '/1">1</a></li>';
+                    if ($start > 2) {
+                      echo '<li class="page-item disabled"><span class="page-link">...</span></li>';
+                    }
+                  }
+
+                  // Mostrar el rango de páginas
+                  for ($i = $start; $i <= $end; $i++) {
                     if ($i == $page) {
                       echo '<li class="page-item active" aria-current="page">
-                <span class="page-link">' . $i . '<span class="visually-hidden">(current)</span></span>
-            </li>';
+            <span class="page-link">' . $i . '<span class="visually-hidden">(current)</span></span>
+          </li>';
                     } else {
                       echo '<li class="page-item"><a class="page-link" href="' . $baseUrl . '/' . $i . '">' . $i . '</a></li>';
                     }
                   }
 
+                  // Mostrar última página
+                  if ($end < $totalPages) {
+                    if ($end < $totalPages - 1) {
+                      echo '<li class="page-item disabled"><span class="page-link">...</span></li>';
+                    }
+                    echo '<li class="page-item"><a class="page-link" href="' . $baseUrl . '/' . $totalPages . '">' . $totalPages . '</a></li>';
+                  }
+
+                  // Botón "Siguiente"
                   if ($page < $totalPages) {
                     echo '<li class="page-item"><a class="page-link" href="' . $baseUrl . '/' . ($page + 1) . '">Siguiente</a></li>';
                   }
