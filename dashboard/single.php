@@ -36,6 +36,7 @@
     <meta name="DC.title" content="CuVaRents: Líderes en Alquileres en Cuba">
     <meta name="geo.placename" content="Cuba">
     <meta name="geo.region" content="CU">
+    <meta name="robots" content="noindex, nofollow">
 
 
     <link rel="icon" href="/uixsoftware/assets/img/favicon-32x32.png" type="image/png">
@@ -66,32 +67,7 @@
 
     <!-- Customizer -->
     <script src="uixsoftware/assets/js/customizer.min.js"></script>
-    <style id="customizer-styles">
-        :root,
-        [data-bs-theme="light"] {}
 
-        [data-bs-theme="dark"] {}
-
-        .btn-primary {}
-
-        .btn-success {}
-
-        .btn-warning {}
-
-        .btn-danger {}
-
-        .btn-info {}
-
-        .btn-outline-primary {}
-
-        .btn-outline-success {}
-
-        .btn-outline-warning {}
-
-        .btn-outline-danger {}
-
-        .btn-outline-info {}
-    </style>
 </head>
 
 

@@ -26,9 +26,7 @@
   <meta name="DC.title" content="Uixsoftware: Líderes en Desarrollo Web en Cuba">
   <meta name="geo.placename" content="CUBA">
   <meta name="geo.region" content="CU">
-
-
-
+  <meta name="robots" content="noindex, nofollow">
 
   <link rel="icon" href="/uixsoftware/assets/img/favicon-32x32.png" type="image/png">
 

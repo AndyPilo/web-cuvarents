@@ -1056,3 +1056,6 @@ Stack trace:
 [29-Aug-2025 23:22:19 Europe/Berlin] PHP Warning:  include(./includes/navbar.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\web-cuvarents\rents.php on line 79
 [29-Aug-2025 23:22:19 Europe/Berlin] PHP Warning:  include(): Failed opening './includes/navbar.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\web-cuvarents\rents.php on line 79
 [29-Aug-2025 23:22:19 Europe/Berlin] PHP Warning:  Undefined variable $loggedIn in C:\xampp\htdocs\web-cuvarents\footer.php on line 172
+[30-Aug-2025 06:48:40 Europe/Berlin] PHP Warning:  Undefined variable $start in C:\xampp\htdocs\web-cuvarents\rents.php on line 373
+[30-Aug-2025 06:48:40 Europe/Berlin] PHP Warning:  Undefined variable $end in C:\xampp\htdocs\web-cuvarents\rents.php on line 373
+[30-Aug-2025 06:48:40 Europe/Berlin] PHP Warning:  Undefined variable $end in C:\xampp\htdocs\web-cuvarents\rents.php on line 373

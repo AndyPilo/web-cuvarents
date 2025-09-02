@@ -37,6 +37,8 @@
   <meta name="DC.title" content="Uixsoftware: Líderes en Desarrollo Web en Cuba">
   <meta name="geo.placename" content="CUBA">
   <meta name="geo.region" content="CU">
+  <meta name="robots" content="noindex, nofollow">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.3/dist/sweetalert2.min.css">
 
 
@@ -66,32 +68,7 @@
 
   <!-- Customizer -->
   <script src="../uixsoftware/assets/js/customizer.min.js"></script>
-  <style id="customizer-styles">
-    :root,
-    [data-bs-theme="light"] {}
 
-    [data-bs-theme="dark"] {}
-
-    .btn-primary {}
-
-    .btn-success {}
-
-    .btn-warning {}
-
-    .btn-danger {}
-
-    .btn-info {}
-
-    .btn-outline-primary {}
-
-    .btn-outline-success {}
-
-    .btn-outline-warning {}
-
-    .btn-outline-danger {}
-
-    .btn-outline-info {}
-  </style>
 </head>
 
 
@@ -281,17 +258,9 @@
                   }
 
                   // Rango de páginas a mostrar
-                  $range = 10; // Número de páginas a mostrar antes y después de la actual
+                  $range = 5; // Número de páginas a mostrar antes y después de la actual
                   $start = max(1, $page - $range);
                   $end = min($totalPages, $page + $range);
-
-                  // Mostrar siempre la primera página
-                  if ($start > 1) {
-                    echo '<li class="page-item"><a class="page-link" href="' . $baseUrl . '/1">1</a></li>';
-                    if ($start > 2) {
-                      echo '<li class="page-item disabled"><span class="page-link">...</span></li>';
-                    }
-                  }
 
                   // Mostrar el rango de páginas
                   for ($i = $start; $i <= $end; $i++) {
@@ -302,14 +271,6 @@
                     } else {
                       echo '<li class="page-item"><a class="page-link" href="' . $baseUrl . '/' . $i . '">' . $i . '</a></li>';
                     }
-                  }
-
-                  // Mostrar última página
-                  if ($end < $totalPages) {
-                    if ($end < $totalPages - 1) {
-                      echo '<li class="page-item disabled"><span class="page-link">...</span></li>';
-                    }
-                    echo '<li class="page-item"><a class="page-link" href="' . $baseUrl . '/' . $totalPages . '">' . $totalPages . '</a></li>';
                   }
 
                   // Botón "Siguiente"
