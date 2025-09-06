@@ -176,7 +176,7 @@
 
         <div class="row g-4">
           <div class="col-12">
-            <p class="h3">Elige una categoría para ver casas relacionadas</p>
+            <p class="h3">Encuentra casas en renta en toda Cuba atendiendo a diferentes categorías</p>
           </div>
           <div class="col-12 col-md-6">
             <a class="card txn gradient-overlay border-0" href="rents/casas-de-lujo" style="border-radius:12px; background-image: url('uixsoftware/assets/img/1.jpg'); background-position-x: right; background-position-y: center;background-size: cover;">

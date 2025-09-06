@@ -1,59 +1,79 @@
-<?php
-// archivo: 404.php (puedes guardarlo aparte y luego incluirlo en send404())
+<!DOCTYPE html>
+<html lang="es">
 
-function showCustom404()
-{
-    http_response_code(404);
-    header("HTTP/1.1 404 Not Found");
-    header("Status: 404 Not Found");
-?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página no encontrada - 404</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-    <!DOCTYPE html>
-    <html lang="es">
+        body {
+            background-color: #ffffff;
+            /* Fondo blanco */
+            color: #333333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>404 - Página no encontrada</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-        <style>
-            body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                background-color: #f8f9fa;
+        h1 {
+            font-size: 10rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #007BFF;
+            /* Color azul */
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+            /* Azul más oscuro al pasar el mouse */
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 6rem;
             }
 
-            .error-container {
-                text-align: center;
+            p {
+                font-size: 1.2rem;
             }
 
-            .error-code {
-                font-size: 8rem;
-                font-weight: bold;
-                color: #ffc107;
-                /* Amarillo estilo warning */
+            a {
+                padding: 10px 20px;
             }
+        }
+    </style>
+</head>
 
-            .error-message {
-                font-size: 1.5rem;
-                margin-bottom: 20px;
-            }
-        </style>
-    </head>
+<body>
+    <h1>404</h1>
+    <p>Lo sentimos, la página que buscas no fue encontrada.</p>
+    <a href="https://cuvarents.com">Volver a la página principal</a>
+</body>
 
-    <body>
-        <div class="error-container">
-            <div class="error-code">404</div>
-            <div class="error-message">Ups, la página que buscas no existe</div>
-            <a href="/" class="btn btn-primary">Volver al inicio</a>
-            <a href="/rents" class="btn btn-outline-secondary">Ver propiedades en alquiler</a>
-        </div>
-    </body>
-
-    </html>
-
-<?php
-    exit();
-}
+</html>

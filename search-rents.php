@@ -36,6 +36,7 @@
     <meta name="DC.title" content="CuVaRents: Líderes en Alquileres en Cuba">
     <meta name="geo.placename" content="Cuba">
     <meta name="geo.region" content="CU">
+    <meta name="robots" content="noindex,follow">
 
 
     <link rel="icon" href="/uixsoftware/assets/img/favicon-32x32.png" type="image/png">

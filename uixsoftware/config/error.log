@@ -1059,3 +1059,48 @@ Stack trace:
 [30-Aug-2025 06:48:40 Europe/Berlin] PHP Warning:  Undefined variable $start in C:\xampp\htdocs\web-cuvarents\rents.php on line 373
 [30-Aug-2025 06:48:40 Europe/Berlin] PHP Warning:  Undefined variable $end in C:\xampp\htdocs\web-cuvarents\rents.php on line 373
 [30-Aug-2025 06:48:40 Europe/Berlin] PHP Warning:  Undefined variable $end in C:\xampp\htdocs\web-cuvarents\rents.php on line 373
+[05-Sep-2025 09:30:52 Europe/Berlin] PHP Warning:  Undefined variable $loggedIn in C:\xampp\htdocs\web-cuvarents\footer.php on line 172
+[05-Sep-2025 09:30:52 Europe/Berlin] PHP Warning:  Undefined variable $rentalTitle in C:\xampp\htdocs\web-cuvarents\single.php on line 369
+[05-Sep-2025 09:30:52 Europe/Berlin] PHP Warning:  Undefined variable $rentalDescription in C:\xampp\htdocs\web-cuvarents\single.php on line 370
+[05-Sep-2025 09:30:52 Europe/Berlin] PHP Warning:  Undefined variable $images in C:\xampp\htdocs\web-cuvarents\single.php on line 373
+[05-Sep-2025 09:30:52 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_map(): Argument #2 ($array) must be of type array, null given in C:\xampp\htdocs\web-cuvarents\single.php:371
+Stack trace:
+#0 C:\xampp\htdocs\web-cuvarents\single.php(371): array_map(Object(Closure), NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\web-cuvarents\single.php on line 371
+[05-Sep-2025 09:33:35 Europe/Berlin] PHP Warning:  Undefined variable $loggedIn in C:\xampp\htdocs\web-cuvarents\footer.php on line 172
+[05-Sep-2025 09:33:35 Europe/Berlin] PHP Warning:  Undefined variable $rentalTitle in C:\xampp\htdocs\web-cuvarents\single.php on line 369
+[05-Sep-2025 09:33:35 Europe/Berlin] PHP Warning:  Undefined variable $rentalDescription in C:\xampp\htdocs\web-cuvarents\single.php on line 370
+[05-Sep-2025 09:33:35 Europe/Berlin] PHP Warning:  Undefined variable $images in C:\xampp\htdocs\web-cuvarents\single.php on line 373
+[05-Sep-2025 09:33:35 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_map(): Argument #2 ($array) must be of type array, null given in C:\xampp\htdocs\web-cuvarents\single.php:371
+Stack trace:
+#0 C:\xampp\htdocs\web-cuvarents\single.php(371): array_map(Object(Closure), NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\web-cuvarents\single.php on line 371
+[05-Sep-2025 09:37:55 Europe/Berlin] PHP Warning:  Undefined variable $loggedIn in C:\xampp\htdocs\web-cuvarents\footer.php on line 172
+[05-Sep-2025 09:37:55 Europe/Berlin] PHP Warning:  Undefined variable $rentalTitle in C:\xampp\htdocs\web-cuvarents\single.php on line 362
+[05-Sep-2025 09:37:55 Europe/Berlin] PHP Warning:  Undefined variable $rentalDescription in C:\xampp\htdocs\web-cuvarents\single.php on line 363
+[05-Sep-2025 09:37:55 Europe/Berlin] PHP Warning:  Undefined variable $images in C:\xampp\htdocs\web-cuvarents\single.php on line 366
+[05-Sep-2025 09:37:55 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_map(): Argument #2 ($array) must be of type array, null given in C:\xampp\htdocs\web-cuvarents\single.php:364
+Stack trace:
+#0 C:\xampp\htdocs\web-cuvarents\single.php(364): array_map(Object(Closure), NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\web-cuvarents\single.php on line 364
+[06-Sep-2025 13:39:23 Europe/Berlin] PHP Warning:  Undefined variable $loggedIn in C:\xampp\htdocs\web-cuvarents\footer.php on line 172
+[06-Sep-2025 13:39:23 Europe/Berlin] PHP Warning:  Undefined variable $rentalTitle in C:\xampp\htdocs\web-cuvarents\single.php on line 362
+[06-Sep-2025 13:39:23 Europe/Berlin] PHP Warning:  Undefined variable $rentalDescription in C:\xampp\htdocs\web-cuvarents\single.php on line 363
+[06-Sep-2025 13:39:23 Europe/Berlin] PHP Warning:  Undefined variable $images in C:\xampp\htdocs\web-cuvarents\single.php on line 366
+[06-Sep-2025 13:39:23 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_map(): Argument #2 ($array) must be of type array, null given in C:\xampp\htdocs\web-cuvarents\single.php:364
+Stack trace:
+#0 C:\xampp\htdocs\web-cuvarents\single.php(364): array_map(Object(Closure), NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\web-cuvarents\single.php on line 364
+[06-Sep-2025 13:43:53 Europe/Berlin] PHP Warning:  Undefined variable $loggedIn in C:\xampp\htdocs\web-cuvarents\footer.php on line 172
+[06-Sep-2025 13:43:53 Europe/Berlin] PHP Warning:  Undefined variable $rentalTitle in C:\xampp\htdocs\web-cuvarents\single.php on line 364
+[06-Sep-2025 13:43:53 Europe/Berlin] PHP Warning:  Undefined variable $rentalDescription in C:\xampp\htdocs\web-cuvarents\single.php on line 365
+[06-Sep-2025 13:43:53 Europe/Berlin] PHP Warning:  Undefined variable $images in C:\xampp\htdocs\web-cuvarents\single.php on line 368
+[06-Sep-2025 13:43:53 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: array_map(): Argument #2 ($array) must be of type array, null given in C:\xampp\htdocs\web-cuvarents\single.php:366
+Stack trace:
+#0 C:\xampp\htdocs\web-cuvarents\single.php(366): array_map(Object(Closure), NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\web-cuvarents\single.php on line 366

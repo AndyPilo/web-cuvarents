@@ -17,12 +17,7 @@
     // Obtener el ID de la renta desde la URL
     $rentalId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-    // Verificar que el ID sea válido
-    if ($rentalId <= 0) {
-        http_response_code(404);
-        echo "<h1>Renta no encontrada</h1>";
-        exit();
-    }
+
 
     // Obtener los detalles de la renta desde la base de datos
     $sql = "SELECT Rentals.*, GROUP_CONCAT(RentalImages.image_url) AS images FROM Rentals
@@ -96,6 +91,7 @@
         <meta name="geo.placename" content="Cuba">
         <meta name="geo.region" content="CU">
 
+        <link rel="canonical" href="https://cuvarents.com/single/<?php echo $rentalId; ?>">
 
         <link rel="icon" href="/uixsoftware/assets/img/favicon-32x32.png" type="image/png">
 
@@ -235,8 +231,8 @@
         include "single-aside.php";
     } else {
         http_response_code(404);
-        echo "<h1>404</h1>
-                <p>La renta que busca no existe</p>";
+        include '404.php';
+        exit; // Importante para que no siga ejecutando el resto del código
     }
         ?>
 
