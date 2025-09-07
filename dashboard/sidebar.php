@@ -50,7 +50,34 @@ if ($result->num_rows > 0) {
 ?>
 
 
+<style>
+  .remove-image-btn {
+    background: rgba(220, 53, 69, 0.9);
+    /* rojo Bootstrap */
+    border: none;
+    border-radius: 50%;
+    /* redondo */
+    width: 22px;
+    /* más pequeño */
+    height: 22px;
+    line-height: 18px;
+    font-size: 14px;
+    /* tamaño del ✖ */
+    color: white;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
 
+  .remove-image-btn:hover {
+    background: rgba(220, 53, 69, 0.9);
+    color: white;
+    transform: scale(1.1);
+  }
+</style>
 
 
 <nav class="d-lg-none mb-5 px-0">
@@ -193,7 +220,7 @@ if ($result->num_rows > 0) {
 
 <!-- Modal -->
 <div class="modal" id="addRentalModal">
-  <div class="modal-dialog modal-lg px-3">
+  <div class="modal-dialog modal-xl px-3">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="addRentalModalLabel">Agregar Renta</h5>
@@ -201,12 +228,13 @@ if ($result->num_rows > 0) {
       <div class="modal-body">
         <form id="addRentalForm" action="php-add-rent.php" method="POST" enctype="multipart/form-data">
           <div class="form-group">
-            <label for="rentalTitle">Nombre de la Renta</label>
+            <label for="rentalTitle">Título de la Renta</label>
             <input type="text" class="form-control" id="rentalTitle" name="rentalTitle" required>
           </div>
+
           <div class="form-group">
             <label for="rentalDescription">Descripción</label>
-            <textarea class="form-control" id="rentalDescription" name="rentalDescription" rows="3" required></textarea>
+            <textarea class="form-control" id="rentalDescription" name="rentalDescription" required></textarea>
           </div>
 
           <div class="form-group">
@@ -321,6 +349,13 @@ if ($result->num_rows > 0) {
               <!-- Aquí se cargarán los checkboxes con los servicios -->
             </div>
           </div>
+          <!-- Contenedor de imágenes existentes -->
+          <div class="form-group d-none mt-4" id="existingImagesContainer">
+            <label>Imágenes de renta</label>
+            <div id="existingImages" class="d-flex flex-wrap mt-2">
+              <!-- Se llenará dinámicamente desde JS -->
+            </div>
+          </div>
           <div class="containerx images-content" style="margin-top: 70px;">
             <div class="folder">
               <div class="front-side">
@@ -346,230 +381,16 @@ if ($result->num_rows > 0) {
 
 
 
+<script src="utils/provinciasData.js">
 
+</script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM completamente cargado');
-
-    // Definir provinciasMunicipios en el ámbito global
-    const provinciasMunicipios = {
-      'Pinar del Río': [
-        'Viñales',
-        'Consolación del Sur',
-        'Guane',
-        'La Palma',
-        'Los Palacios',
-        'Mantua',
-        'Minas de Matahambre',
-        'Pinar del Río',
-        'San Juan y Martínez',
-        'San Luis',
-        'Sandino'
-      ],
-      'La Habana': [
-        'Plaza de la Revolución',
-        'Centro Habana',
-        'Habana Vieja',
-        'Cerro',
-        'Cotorro',
-        'Diez de Octubre',
-        'Guanabacoa',
-        'Habana del Este',
-        'La Lisa',
-        'Marianao',
-        'Playa',
-        'Regla',
-        'San Miguel del Padrón',
-        'Arroyo Naranjo',
-        'Boyeros',
-        'Vedado',
-        'Siboney',
-        'Miramar',
-        'Santa Fe',
-        'Habana Vieja',
-        'Guanabo',
-        'Boca Ciega',
-        'Brisas del Mar',
-        'Santa María'
-      ],
-      'Santiago de Cuba': [
-        'Contramaestre',
-        'Guamá',
-        'II Frente',
-        'Mella',
-        'Palma Soriano',
-        'San Luis',
-        'Santiago de Cuba',
-        'Songo-La Maya',
-        'Tercer Frente'
-      ],
-      'Matanzas': [
-        'Calimete',
-        'Cárdenas',
-        'Cienaga de Zapata',
-        'Colón',
-        'Jagüey Grande',
-        'Jovellanos',
-        'Limonar',
-        'Los Arabos',
-        'Martí',
-        'Matanzas',
-        'Pedro Betancourt',
-        'Perico',
-        'Unión de Reyes',
-        'Varadero',
-        'Santa Marta',
-        'Boca Camarioca'
-      ],
-      'Artemisa': [
-        'Alquízar',
-        'Artemisa',
-        'Bauta',
-        'Caimito',
-        'Candelaria',
-        'Guanajay',
-        'Güira de Melena',
-        'Mariel',
-        'San Antonio de los Baños',
-        'San Cristóbal'
-      ],
-      'Mayabeque': [
-        'Batabanó',
-        'Bejucal',
-        'Güines',
-        'Jaruco',
-        'Madruga',
-        'Melena del Sur',
-        'Nueva Paz',
-        'Quivicán',
-        'San José de las Lajas',
-        'San Nicolás'
-      ],
-      'Isla de la Juventud': [
-        'Isla de la Juventud'
-      ],
-      'Villa Clara': [
-        'Camajuaní',
-        'Caibarién',
-        'Cifuentes',
-        'Corralillo',
-        'Encrucijada',
-        'Manicaragua',
-        'Placetas',
-        'Quemado de Güines',
-        'Ranchuelo',
-        'Remedios',
-        'Santa Clara',
-        'Sagua la Grande',
-        'Santo Domingo'
-      ],
-      'Cienfuegos': [
-        'Aguada de Pasajeros',
-        'Cienfuegos',
-        'Cumanayagua',
-        'Cruces',
-        'Lajas',
-        'Palmira',
-        'Rodas',
-        'Abreus'
-      ],
-      'Sancti Spíritus': [
-        'Cabaiguán',
-        'Fomento',
-        'Jatibonico',
-        'La Sierpe',
-        'Sancti Spíritus',
-        'Taguasco',
-        'Trinidad',
-        'Yaguajay'
-      ],
-      'Ciego de Ávila': [
-        'Baraguá',
-        'Bolivia',
-        'Chambas',
-        'Ciego de Ávila',
-        'Ciro Redondo',
-        'Florencia',
-        'Majagua',
-        'Morón',
-        'Primero de Enero',
-        'Venezuela'
-      ],
-      'Camagüey': [
-        'Camagüey',
-        'Carlos Manuel de Céspedes',
-        'Esmeralda',
-        'Florida',
-        'Guaimaro',
-        'Jimaguayú',
-        'Minas',
-        'Najasa',
-        'Nuevitas',
-        'Santa Cruz del Sur',
-        'Sibanicú',
-        'Vertientes'
-      ],
-      'Las Tunas': [
-        'Amancio',
-        'Colombia',
-        'Jesús Menéndez',
-        'Jobabo',
-        'Las Tunas',
-        'Majibacoa',
-        'Manatí',
-        'Puerto Padre'
-      ],
-      'Holguín': [
-        'Antilla',
-        'Báguanos',
-        'Banes',
-        'Cacocum',
-        'Calixto García',
-        'Cueto',
-        'Frank País',
-        'Gibara',
-        'Holguín',
-        'Mayarí',
-        'Moa',
-        'Rafael Freyre',
-        'Sagua de Tánamo',
-        'Urbano Noris'
-      ],
-      'Granma': [
-        'Bartolomé Masó',
-        'Bayamo',
-        'Buey Arriba',
-        'Campechuela',
-        'Cauto Cristo',
-        'Guisa',
-        'Jiguaní',
-        'Manzanillo',
-        'Media Luna',
-        'Niquero',
-        'Pilón',
-        'Río Cauto',
-        'Yara'
-      ],
-      'Guantánamo': [
-        'Baracoa',
-        'Caimanera',
-        'El Salvador',
-        'Guantánamo',
-        'Imías',
-        'Maisí',
-        'Manuel Tames',
-        'Niceto Pérez',
-        'San Antonio del Sur',
-        'Yateras'
-      ]
-    };
-
 
     // Verificar y asignar el evento al botón "aggrent"
     const aggrentButton = document.getElementById('aggrent');
     if (aggrentButton) {
       aggrentButton.addEventListener('click', function() {
-        console.log('Botón "Agregar Renta" clickeado');
 
         // Restablecer el formulario
         document.getElementById('addRentalForm').reset();
@@ -604,7 +425,6 @@ if ($result->num_rows > 0) {
         const containers = document.querySelectorAll(' .images-content');
         containers.forEach(container => {
           container.classList.remove('d-none');
-          console.log('Contenedor mostrado:', container); // Depuración
         });
       });
     } else {
@@ -612,14 +432,12 @@ if ($result->num_rows > 0) {
     }
 
     // Lógica para editar rentas
+
     const editButtons = document.querySelectorAll('.edit-rental-btn');
-    console.log(`Número de botones de edición encontrados: ${editButtons.length}`);
 
     editButtons.forEach(button => {
       button.addEventListener('click', function() {
-        console.log('Botón de editar clickeado');
         const rentalId = this.getAttribute('data-rental-id');
-        console.log(`ID de renta a editar: ${rentalId}`);
 
         fetch(`php-get-rent.php?id=${rentalId}`)
           .then(response => {
@@ -633,8 +451,6 @@ if ($result->num_rows > 0) {
               console.error(data.error);
               return;
             }
-
-            console.log('Datos recibidos:', data);
 
             // Llenar los campos del formulario con los datos obtenidos
             document.getElementById('rentalTitle').value = data.rentalTitle;
@@ -654,58 +470,48 @@ if ($result->num_rows > 0) {
             // Cargar y seleccionar los servicios
             cargarServicios(data.selectedServices);
 
+            // Mostrar imágenes existentes
+            const existingImagesDiv = document.getElementById("existingImages");
+            const existingImagesContainer = document.getElementById("existingImagesContainer");
+
+            existingImagesDiv.innerHTML = "";
+
+            if (data.images && data.images.length > 0) {
+              existingImagesContainer.classList.remove("d-none");
+
+              data.images.forEach(img => {
+                let wrapper = document.createElement("div");
+                wrapper.classList.add("position-relative", "m-2");
+
+                wrapper.style.width = "150px";
+                wrapper.style.height = "150px";
+
+                wrapper.innerHTML = `
+  <img src="uploads/${img.url}" 
+       class="img-thumbnail"
+       style="width:150px; height:150px; object-fit:cover; border-radius:8px;">
+  <button type="button" 
+          class="btn btn-sm remove-image-btn position-absolute top-0 end-0 m-1" 
+          data-image-id="${img.id}">
+    ✖
+  </button>
+`;
+
+                existingImagesDiv.appendChild(wrapper);
+              });
+            } else {
+              existingImagesContainer.classList.add("d-none"); // 👉 si no hay imágenes, lo ocultamos
+            }
+
             // Cambiar la acción del formulario para editar
             document.getElementById('addRentalForm').action = `php-edit-rent.php?id=${rentalId}`;
             document.getElementById('addRentalModalLabel').textContent = 'Editar Renta';
 
-            // Ocultar los contenedores
-            const containers = document.querySelectorAll('.services-content, .images-content');
-            containers.forEach(container => {
-              container.classList.add('d-none');
-              console.log('Contenedor ocultado:', container); // Depuración
-            });
           })
           .catch(error => console.error('Error:', error));
       });
     });
 
-    // Restaurar el formulario al estado de agregar cuando se cierra el modal
-    $('#addRentalModal').on('hidden.bs.modal', function() {
-      document.getElementById('addRentalForm').reset();
-      document.getElementById('addRentalForm').action = 'php-add-rent.php';
-      document.getElementById('addRentalModalLabel').textContent = 'Agregar Renta';
-
-      // Restablecer el select de municipio
-      const municipioSelect = document.getElementById('municipio1');
-      if (municipioSelect) {
-        municipioSelect.innerHTML = '<option value="" selected>Municipio</option>';
-        municipioSelect.disabled = true;
-      } else {
-        console.error('El select de "municipio1" no fue encontrado en el DOM.');
-      }
-
-      // Limpiar los checkboxes de servicios
-      const servicesCheckboxes = document.getElementById('servicesCheckboxes');
-      if (servicesCheckboxes) {
-        servicesCheckboxes.innerHTML = '';
-      } else {
-        console.error('El contenedor de servicios no fue encontrado en el DOM.');
-      }
-
-      // Limpiar los campos de habitaciones y capacidad
-      document.getElementById('habitaciones').value = '';
-      document.getElementById('capacidad').value = '';
-
-      // Cargar servicios cuando se agrega una nueva renta
-      cargarServicios([]);
-
-      // Mostrar los contenedores nuevamente
-      const containers = document.querySelectorAll('.services-content, .images-content, .ubi-content');
-      containers.forEach(container => {
-        container.classList.remove('d-none');
-        console.log('Contenedor mostrado:', container); // Depuración
-      });
-    });
 
     // Asignar evento de cambio al seleccionar la provincia
     const provinciaSelect = document.getElementById('provincia1');
@@ -744,36 +550,77 @@ if ($result->num_rows > 0) {
     // Función para cargar y seleccionar los servicios
     function cargarServicios(selectedServices) {
       fetch('php-get-services.php')
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Error en la solicitud: ' + response.statusText);
-          }
-          return response.json();
-        })
+        .then(response => response.json())
         .then(services => {
           const servicesContainer = document.getElementById('servicesCheckboxes');
           if (servicesContainer) {
             servicesContainer.innerHTML = '';
             services.forEach(service => {
-              const isChecked = Array.isArray(selectedServices) && selectedServices.includes(service.id.toString()) ? 'checked' : '';
+              const isChecked = Array.isArray(selectedServices) && selectedServices.includes(Number(service.id)) ? 'checked' : '';
               const checkbox = `
-                            <div class="col-6 checkbox-wrapper-16">
-                                <label class="checkbox-wrapper">
-                                    <input class="checkbox-input" type="checkbox" value="${service.id}" id="service_${service.id}" name="services[]" ${isChecked}>
-                                    <span class="checkbox-tile">
-                                        <span class="checkbox-icon">${service.icon}</span>
-                                        <span class="small">${service.name}</span>
-                                    </span>
-                                </label>
-                            </div>`;
+            <div class="col-6 checkbox-wrapper-16">
+              <label class="checkbox-wrapper">
+                <input class="checkbox-input" type="checkbox" value="${service.id}" id="service_${service.id}" name="services[]" ${isChecked}>
+                <span class="checkbox-tile">
+                  <span class="checkbox-icon">${service.icon}</span>
+                  <span class="small">${service.name}</span>
+                </span>
+              </label>
+            </div>`;
               servicesContainer.innerHTML += checkbox;
             });
-          } else {
-            console.error('El contenedor de servicios no fue encontrado en el DOM.');
           }
         })
         .catch(error => console.error('Error:', error));
     }
+  });
+
+  // Delegación de evento para eliminar imágenes
+
+  let imagesToDelete = [];
+
+  document.getElementById('existingImages').addEventListener('click', function(e) {
+    if (e.target.classList.contains('remove-image-btn')) {
+      const wrapper = e.target.parentElement;
+      const imageId = e.target.getAttribute('data-image-id');
+
+      // Guardar ID en array
+      imagesToDelete.push(imageId);
+
+      // Solo eliminar del DOM
+      wrapper.remove();
+    }
+  });
+
+  // Al abrir modal para editar renta
+  function openEditRentalModal(rentalId) {
+    fetch(`php-get-rent.php?id=${rentalId}`)
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('rentalTitle').value = data.rentalTitle;
+        document.getElementById('rentalDescription').value = data.rentalDescription;
+        document.getElementById('rentalPrice').value = data.rentalPrice;
+
+        // Cargar imágenes existentes
+        loadExistingImages(data.images);
+
+        // Cambiar acción del formulario
+        document.getElementById('addRentalForm').action = `php-edit-rent.php?id=${rentalId}`;
+      });
+  }
+
+  document.getElementById('addRentalForm').addEventListener('submit', function() {
+    // limpiar inputs ocultos previos
+    document.querySelectorAll('input[name="imagesToDelete[]"]').forEach(el => el.remove());
+
+    // crear inputs ocultos para cada imagen eliminada
+    imagesToDelete.forEach(id => {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'imagesToDelete[]';
+      input.value = id;
+      this.appendChild(input);
+    });
   });
 </script>
 
@@ -782,6 +629,48 @@ if ($result->num_rows > 0) {
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  // Restaurar el formulario al estado de agregar cuando se cierra el modal
+  $('#addRentalModal').on('hidden.bs.modal', function() {
+    document.getElementById('addRentalForm').reset();
+    document.getElementById('addRentalForm').action = 'php-add-rent.php';
+    document.getElementById('addRentalModalLabel').textContent = 'Agregar Renta';
+
+    // Forzar ocultar imágenes existentes
+    document.getElementById("existingImagesContainer").classList.add("d-none");
+    document.getElementById("existingImages").innerHTML = "";
+
+    imagesToDelete.length = 0;
+
+    // Restablecer el select de municipio
+    const municipioSelect = document.getElementById('municipio1');
+    if (municipioSelect) {
+      municipioSelect.innerHTML = '<option value="" selected>Municipio</option>';
+      municipioSelect.disabled = true;
+    } else {
+      console.error('El select de "municipio1" no fue encontrado en el DOM.');
+    }
+
+    // Limpiar los checkboxes de servicios
+    const servicesCheckboxes = document.getElementById('servicesCheckboxes');
+    if (servicesCheckboxes) {
+      servicesCheckboxes.innerHTML = '';
+    } else {
+      console.error('El contenedor de servicios no fue encontrado en el DOM.');
+    }
+
+    // Limpiar los campos de habitaciones y capacidad
+    document.getElementById('habitaciones').value = '';
+    document.getElementById('capacidad').value = '';
+
+    // Mostrar los contenedores nuevamente
+    const containers = document.querySelectorAll('.services-content, .images-content, .ubi-content');
+    containers.forEach(container => {
+      container.classList.remove('d-none');
+    });
+  });
+</script>
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
