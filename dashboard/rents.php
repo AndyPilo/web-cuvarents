@@ -206,7 +206,7 @@
                             <div class=\"col-12 col-md-8 position-relative pe-3\">
                                 <span class=\"badge text-body-emphasis bg-body-secondary mb-2\">$rentalTitle</span>
                                 <div class=\"h5 mb-2\"> $rentalPriceDisplay</div>
-                                <a class=\"stretched-link d-block fs-sm text-body text-decoration-none mb-2\" href=\"/dashboard/rent/$rentalId\">$rentalLocation</a>
+                                <a class=\"stretched-link d-block fs-sm text-body text-decoration-none mb-2\" href=\"./single/$rentalId\">$rentalLocation</a>
                             </div>
                             <div class=\"col-12 col-md-4\">
                                 <div class=\"fs-xs text-body-secondary\">Publicada: $rentalCreated</div>
@@ -339,7 +339,7 @@
                 <div class=\"d-sm-none\"  ></div>
                 <div class=\"row g-0\">
                     <div class=\"col-sm-4 col-md-3 rounded overflow-hidden pb-2 pb-sm-0 pe-sm-2\">
-                        <a class=\"position-relative d-flex h-100 bg-body-tertiary\" href=\"#\" style=\"min-height: 174px\">
+                        <a class=\"position-relative d-flex h-100 bg-body-tertiary\" href=\"./single/$rentalId\" style=\"min-height: 174px\">
                             <img src=\"$firstImage\" class=\"position-absolute top-0 start-0 w-100 h-100 object-fit-cover\" alt=\"Image\">
                             <div class=\"ratio d-none d-sm-block\" style=\"--fn-aspect-ratio: calc(180 / 240 * 100%)\"></div>
                             <div class=\"ratio ratio-16x9 d-sm-none\"></div>
@@ -350,7 +350,7 @@
                             <div class=\"col-12 col-md-8 position-relative pe-3\">
                                 <span class=\"badge text-body-emphasis bg-body-secondary mb-2\">$rentalTitle</span>
                                 <div class=\"h5 mb-2\"> $rentalPriceDisplay</div>
-                                <a class=\"stretched-link d-block fs-sm text-body text-decoration-none mb-2\" href=\"#\">$rentalLocation</a>
+                                <a class=\"stretched-link d-block fs-sm text-body text-decoration-none mb-2\" href=\"./single/$rentalId\">$rentalLocation</a>
                             </div>
                             <div class=\"col-12 col-md-4\">
                                 <div class=\"fs-xs text-body-secondary\">Publicada: $rentalCreated</div>
@@ -445,7 +445,7 @@ GROUP BY Rentals.rental_id";
                 <div class=\"d-sm-none\"  ></div>
                 <div class=\"row g-0\">
                     <div class=\"col-sm-4 col-md-3 rounded overflow-hidden pb-2 pb-sm-0 pe-sm-2\">
-                        <a class=\"position-relative d-flex h-100 bg-body-tertiary\" href=\"#\" style=\"min-height: 174px\">
+                        <a class=\"position-relative d-flex h-100 bg-body-tertiary\" href=\"./single/$rentalId\" style=\"min-height: 174px\">
                             <img src=\"$firstImage\" class=\"position-absolute top-0 start-0 w-100 h-100 object-fit-cover\" alt=\"Image\">
                             <div class=\"ratio d-none d-sm-block\" style=\"--fn-aspect-ratio: calc(180 / 240 * 100%)\"></div>
                             <div class=\"ratio ratio-16x9 d-sm-none\"></div>
@@ -456,7 +456,7 @@ GROUP BY Rentals.rental_id";
                             <div class=\"col-12 col-md-8 position-relative pe-3\">
                                 <span class=\"badge text-body-emphasis bg-body-secondary mb-2\">$rentalTitle</span>
                                 <div class=\"h5 mb-2\"> $rentalPriceDisplay</div>
-                                <a class=\"stretched-link d-block fs-sm text-body text-decoration-none mb-2\" href=\"#\">$rentalLocation</a>
+                                <a class=\"stretched-link d-block fs-sm text-body text-decoration-none mb-2\" href=\"./single/$rentalId\">$rentalLocation</a>
                             </div>
                             <div class=\"col-12 col-md-4\">
                                 <div class=\"fs-xs text-body-secondary\">Publicada: $rentalCreated</div>
