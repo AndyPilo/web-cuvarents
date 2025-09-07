@@ -1,9 +1,4 @@
 <?php
-// Mostrar todos los errores de PHP (Desactivar en producción)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 include '../uixsoftware/config/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rental_id'])) {
@@ -13,23 +8,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rental_id'])) {
     $conn->begin_transaction();
 
     try {
-        // Eliminar imágenes asociadas
-        $sql = "DELETE FROM RentalImages WHERE rental_id = ?";
-        $stmt = $conn->prepare($sql);
+        // 1️⃣ Obtener todas las imágenes del rental
+        $stmtImg = $conn->prepare("SELECT image_url FROM RentalImages WHERE rental_id = ?");
+        $stmtImg->bind_param("i", $rentalId);
+        $stmtImg->execute();
+        $resultImg = $stmtImg->get_result();
+        $images = [];
+        while ($row = $resultImg->fetch_assoc()) {
+            $images[] = $row['image_url'];
+        }
+        $stmtImg->close();
+
+        // 2️⃣ Eliminar archivos físicos
+        foreach ($images as $img) {
+            $filePath = 'uploads/' . $img;
+            if (file_exists($filePath)) unlink($filePath);
+        }
+
+        // 3️⃣ Eliminar imágenes de la base de datos
+        $stmt = $conn->prepare("DELETE FROM RentalImages WHERE rental_id = ?");
         $stmt->bind_param('i', $rentalId);
         $stmt->execute();
         $stmt->close();
 
-        // Eliminar servicios asociados
-        $sql = "DELETE FROM RentalServices WHERE rental_id = ?";
-        $stmt = $conn->prepare($sql);
+        // 4️⃣ Eliminar servicios asociados
+        $stmt = $conn->prepare("DELETE FROM RentalServices WHERE rental_id = ?");
         $stmt->bind_param('i', $rentalId);
         $stmt->execute();
         $stmt->close();
 
-        // Eliminar la renta
-        $sql = "DELETE FROM Rentals WHERE rental_id = ?";
-        $stmt = $conn->prepare($sql);
+        // 5️⃣ Eliminar la renta
+        $stmt = $conn->prepare("DELETE FROM Rentals WHERE rental_id = ?");
         $stmt->bind_param('i', $rentalId);
         $stmt->execute();
         $stmt->close();
@@ -40,9 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rental_id'])) {
         header("Location: rents.php?status=success");
         exit();
     } catch (Exception $e) {
-        // Revertir transacción
         $conn->rollback();
-
         echo json_encode(['status' => 'error', 'message' => $e->getMessage()]);
     }
 
@@ -50,4 +57,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rental_id'])) {
 } else {
     echo json_encode(['status' => 'error', 'message' => 'ID de renta no proporcionado o método no permitido']);
 }
-?>

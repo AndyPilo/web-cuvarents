@@ -3,7 +3,7 @@ include '../uixsoftware/config/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rental_id'])) {
     $rentalId = intval($_POST['rental_id']);
-    $sql = "UPDATE Rentals SET is_promoted = TRUE WHERE rental_id = ?";
+    $sql = "UPDATE Rentals SET is_promoted = TRUE, is_hidden = FALSE WHERE rental_id = ?";
     $stmt = $conn->prepare($sql);
 
     if ($stmt) {
@@ -23,4 +23,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rental_id'])) {
 } else {
     echo json_encode(['status' => 'error', 'message' => 'ID de renta no proporcionado o método no permitido']);
 }
-?>

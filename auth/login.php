@@ -46,32 +46,7 @@ session_start();
   <link rel="preload" href="../uixsoftware/assets/css/theme.min.css" as="style">
   <link rel="stylesheet" href="../uixsoftware/assets/css/theme.min.css" id="theme-styles">
   <script src="../uixsoftware/assets/js/customizer.min.js"></script>
-  <style id="customizer-styles">
-    :root,
-    [data-bs-theme="light"] {}
 
-    [data-bs-theme="dark"] {}
-
-    .btn-primary {}
-
-    .btn-success {}
-
-    .btn-warning {}
-
-    .btn-danger {}
-
-    .btn-info {}
-
-    .btn-outline-primary {}
-
-    .btn-outline-success {}
-
-    .btn-outline-warning {}
-
-    .btn-outline-danger {}
-
-    .btn-outline-info {}
-  </style>
 </head>
 
 
@@ -85,8 +60,13 @@ session_start();
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sql = "SELECT account_id, account_password, account_username, account_prefix_phone, account_number_phone, account_email, account_rango FROM Accounts WHERE account_email='$email'";
-    $result = $conn->query($sql);
+    $stmt = $conn->prepare("SELECT account_id, account_password, account_username, account_prefix_phone, account_number_phone, account_email, account_rango 
+                            FROM Accounts WHERE account_email = ?");
+
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
       $row = $result->fetch_assoc();
@@ -119,7 +99,7 @@ session_start();
                             showConfirmButton: false,
                             timer: 1500
                         }).then(function() {
-                            window.location = '../'; // Redireccionar al dashboard
+                            window.location = '../dashboard'; // Redireccionar al dashboard
                         });
                       </script>";
         }

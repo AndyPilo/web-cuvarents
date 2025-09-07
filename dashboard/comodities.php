@@ -1,10 +1,17 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['account_id']) || $_SESSION['account_rango'] != 99) {
+  header("Location: ../auth/login.php");
+  exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Meta tags -->
@@ -52,32 +59,7 @@
 
   <!-- Customizer -->
   <script src="../uixsoftware/assets/js/customizer.min.js"></script>
-  <style id="customizer-styles">
-    :root,
-    [data-bs-theme="light"] {}
 
-    [data-bs-theme="dark"] {}
-
-    .btn-primary {}
-
-    .btn-success {}
-
-    .btn-warning {}
-
-    .btn-danger {}
-
-    .btn-info {}
-
-    .btn-outline-primary {}
-
-    .btn-outline-success {}
-
-    .btn-outline-warning {}
-
-    .btn-outline-danger {}
-
-    .btn-outline-info {}
-  </style>
 </head>
 
 

@@ -1,6 +1,6 @@
 <?php
 include '../uixsoftware/config/config.php';
-session_start();
+
 
 // Lógica para cerrar sesión
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {

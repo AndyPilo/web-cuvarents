@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['account_id']) || $_SESSION['account_rango'] != 99) {
+  header("Location: ../auth/login.php");
+  exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
 
@@ -219,21 +228,27 @@
                                         </button>
                                         <ul class=\"dropdown-menu dropdown-menu-end\">
                                             <li>
-                                                <form action=\"php-promote-rent.php\" method=\"POST\" onsubmit=\"return confirm('¿Estás seguro de que deseas promocionar esta renta?');\">
-                                                    <input type=\"hidden\" name=\"rental_id\" value=\"$rentalId\">
-                                                    <button type=\"submit\" class=\"dropdown-item\"><i class=\"fi-zap fs-base opacity-75 me-2\"></i>Promocionar</button>
+                                                <form class=\"promote-rent-form\" action=\"php-promote-rent.php\" method=\"POST\">
+                                                    <input type=\"hidden\" name=\"rental_id\" value=\"{$rentalId}\">
+                                                        <button type=\"submit\" class=\"dropdown-item\">
+                                                            <i class=\"fi-zap fs-base opacity-75 me-2\"></i>Promocionar
+                                                        </button>
                                                 </form>
                                             </li>
                                             <li>
-                                                <form action=\"php-hide-rent.php\" method=\"POST\" onsubmit=\"return confirm('¿Estás seguro de que deseas ocultar esta renta?');\">
-                                                    <input type=\"hidden\" name=\"rental_id\" value=\"$rentalId\">
-                                                    <button type=\"submit\" class=\"dropdown-item\"><i class=\"fi-archive opacity-75 me-2\"></i>Ocultar</button>
+                                                <form class=\"hide-rent-form\" action=\"php-hide-rent.php\" method=\"POST\">
+                                                    <input type=\"hidden\" name=\"rental_id\" value=\"{$rentalId}\">
+                                                    <button type=\"submit\" class=\"dropdown-item\">
+                                                        <i class=\"fi-archive opacity-75 me-2\"></i>Ocultar
+                                                    </button>
                                                 </form>
                                             </li>
                                             <li>
-                                                <form action=\"php-delete-rent.php\" method=\"POST\" onsubmit=\"return confirm('¿Estás seguro de que deseas eliminar esta renta?');\">
-                                                    <input type=\"hidden\" name=\"rental_id\" value=\"$rentalId\">
-                                                    <button type=\"submit\" class=\"dropdown-item text-danger\"><i class=\"fi-trash opacity-75 me-2\"></i>Eliminar</button>
+                                                <form class=\"delete-rent-form\" action=\"php-delete-rent.php\" method=\"POST\">
+                                                    <input type=\"hidden\" name=\"rental_id\" value=\"{$rentalId}\">
+                                                    <button type=\"submit\" class=\"dropdown-item text-danger\">
+                                                        <i class=\"fi-trash opacity-75 me-2\"></i>Eliminar
+                                                    </button>
                                                 </form>
                                             </li>
                                         </ul>
@@ -363,22 +378,21 @@
                                         </button>
                                         <ul class=\"dropdown-menu dropdown-menu-end\">
                                             <li><button type=\"button\" class=\"dropdown-item edit-rental-btn\" data-rental-id=\"$rentalId\" data-toggle=\"modal\" data-target=\"#addRentalModal\"><i class=\"fi-edit fs-base opacity-75 me-2\"></i>Editar renta</button></li>
+                                            
                                             <li>
-                                                <form action=\"php-promote-rent.php\" method=\"POST\" onsubmit=\"return confirm('¿Estás seguro de que deseas promocionar esta renta?');\">
-                                                    <input type=\"hidden\" name=\"rental_id\" value=\"$rentalId\">
-                                                    <button type=\"submit\" class=\"dropdown-item\"><i class=\"fi-zap fs-base opacity-75 me-2\"></i>Promocionar</button>
+                                                <form class=\"unhide-rent-form\" action=\"php-deshiden-rent.php\" method=\"POST\">
+                                                    <input type=\"hidden\" name=\"rental_id\" value=\"{$rentalId}\">
+                                                    <button type=\"submit\" class=\"dropdown-item\">
+                                                        <i class=\"fi-archive opacity-75 me-2\"></i>Mostrar nuevamente
+                                                    </button>
                                                 </form>
                                             </li>
                                             <li>
-                                                <form action=\"php-hide-rent.php\" method=\"POST\" onsubmit=\"return confirm('¿Estás seguro de que deseas ocultar esta renta?');\">
-                                                    <input type=\"hidden\" name=\"rental_id\" value=\"$rentalId\">
-                                                    <button type=\"submit\" class=\"dropdown-item\"><i class=\"fi-archive opacity-75 me-2\"></i>Ocultar</button>
-                                                </form>
-                                            </li>
-                                            <li>
-                                                <form action=\"php-delete-rent.php\" method=\"POST\" onsubmit=\"return confirm('¿Estás seguro de que deseas eliminar esta renta?');\">
-                                                    <input type=\"hidden\" name=\"rental_id\" value=\"$rentalId\">
-                                                    <button type=\"submit\" class=\"dropdown-item text-danger\"><i class=\"fi-trash opacity-75 me-2\"></i>Eliminar</button>
+                                                <form class=\"delete-rent-form\" action=\"php-delete-rent.php\" method=\"POST\">
+                                                    <input type=\"hidden\" name=\"rental_id\" value=\"{$rentalId}\">
+                                                    <button type=\"submit\" class=\"dropdown-item text-danger\">
+                                                        <i class=\"fi-trash opacity-75 me-2\"></i>Eliminar
+                                                    </button>
                                                 </form>
                                             </li>
                                         </ul>
@@ -470,21 +484,27 @@ GROUP BY Rentals.rental_id";
                                         <ul class=\"dropdown-menu dropdown-menu-end\">
                                             <li><button type=\"button\" class=\"dropdown-item edit-rental-btn\" data-rental-id=\"$rentalId\" data-toggle=\"modal\" data-target=\"#addRentalModal\"><i class=\"fi-edit fs-base opacity-75 me-2\"></i>Editar renta</button></li>
                                             <li>
-                                                <form action=\"php-promote-rent.php\" method=\"POST\" onsubmit=\"return confirm('¿Estás seguro de que deseas promocionar esta renta?');\">
-                                                    <input type=\"hidden\" name=\"rental_id\" value=\"$rentalId\">
-                                                    <button type=\"submit\" class=\"dropdown-item\"><i class=\"fi-zap fs-base opacity-75 me-2\"></i>Promocionar</button>
+                                                 <form class=\"promote-rent-form\" action=\"php-despromote-rent.php\" method=\"POST\">
+                                                    <input type=\"hidden\" name=\"rental_id\" value=\"{$rentalId}\">
+                                                        <button type=\"submit\" class=\"dropdown-item\">
+                                                            <i class=\"fi-zap fs-base opacity-75 me-2\"></i>Quitar promoción
+                                                        </button>
                                                 </form>
                                             </li>
                                             <li>
-                                                <form action=\"php-hide-rent.php\" method=\"POST\" onsubmit=\"return confirm('¿Estás seguro de que deseas ocultar esta renta?');\">
-                                                    <input type=\"hidden\" name=\"rental_id\" value=\"$rentalId\">
-                                                    <button type=\"submit\" class=\"dropdown-item\"><i class=\"fi-archive opacity-75 me-2\"></i>Ocultar</button>
+                                                <form class=\"hide-rent-form\" action=\"php-hide-rent.php\" method=\"POST\">
+                                                    <input type=\"hidden\" name=\"rental_id\" value=\"{$rentalId}\">
+                                                    <button type=\"submit\" class=\"dropdown-item\">
+                                                        <i class=\"fi-archive opacity-75 me-2\"></i>Ocultar
+                                                    </button>
                                                 </form>
                                             </li>
                                             <li>
-                                                <form action=\"php-delete-rent.php\" method=\"POST\" onsubmit=\"return confirm('¿Estás seguro de que deseas eliminar esta renta?');\">
-                                                    <input type=\"hidden\" name=\"rental_id\" value=\"$rentalId\">
-                                                    <button type=\"submit\" class=\"dropdown-item text-danger\"><i class=\"fi-trash opacity-75 me-2\"></i>Eliminar</button>
+                                                <form class=\"delete-rent-form\" action=\"php-delete-rent.php\" method=\"POST\">
+                                                    <input type=\"hidden\" name=\"rental_id\" value=\"{$rentalId}\">
+                                                    <button type=\"submit\" class=\"dropdown-item text-danger\">
+                                                        <i class=\"fi-trash opacity-75 me-2\"></i>Eliminar
+                                                    </button>
                                                 </form>
                                             </li>
                                         </ul>
@@ -744,10 +764,53 @@ GROUP BY Rentals.rental_id";
   <script src="../uixsoftware/assets/js/choices.min.js"></script>
   <script src="../uixsoftware/assets/js/nouislider.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.3/dist/sweetalert2.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <!-- Bootstrap + Theme scripts -->
   <script src="../uixsoftware/assets/js/theme.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script>
+    // Función genérica para manejar confirmaciones con SweetAlert
+    function setupSweetAlert(formSelector, title, text, icon = 'warning', confirmButtonText = 'Confirmar') {
+      document.querySelectorAll(formSelector).forEach(form => {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+
+          // Capturar datos del formulario
+          const formData = new FormData(form);
+          const data = {};
+          formData.forEach((value, key) => data[key] = value);
+
+          // Log para verificar que todo está correcto
+          console.log(`Datos a enviar para ${formSelector}:`, data);
+
+          // Mostrar SweetAlert
+          Swal.fire({
+            title: title,
+            text: text,
+            icon: icon,
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#aaa',
+            confirmButtonText: confirmButtonText,
+            cancelButtonText: 'Cancelar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              form.submit(); // Enviar formulario si confirma
+            }
+          });
+        });
+      });
+    }
+
+    // Configurar SweetAlert para cada acción
+    setupSweetAlert('.delete-rent-form', '¿Estás seguro?', 'La renta será eliminada permanentemente', 'warning', 'Sí, eliminar');
+    setupSweetAlert('.hide-rent-form', '¿Estás seguro?', 'La renta será ocultada y no será visible públicamente', 'warning', 'Sí, ocultar');
+    setupSweetAlert('.promote-rent-form', '¿Estás seguro?', 'La renta será promocionada', 'info', 'Sí, promocionar');
+    setupSweetAlert('.unhide-rent-form', '¿Estás seguro?', 'La renta volverá a estar visible', 'info', 'Sí, mostrar');
+    setupSweetAlert('.unpromote-rent-form', '¿Estás seguro?', 'La renta dejará de estar promocionada', 'info', 'Sí, quitar promoción');
+  </script>
 </body>
 
 </html>
