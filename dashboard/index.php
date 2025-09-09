@@ -39,6 +39,9 @@ if (!isset($_SESSION['account_id']) || $_SESSION['account_rango'] != 99) {
 
     <link rel="icon" href="/uixsoftware/assets/img/favicon-32x32.png" type="image/png">
 
+    <!-- Style -->
+    <link rel="stylesheet" href="style/file-upload.css">
+
     <!-- Theme switcher (color modes) -->
     <script src="../uixsoftware/assets/js/theme-switcher.js"></script>
 

@@ -48,12 +48,13 @@ if (!isset($_SESSION['account_id']) || $_SESSION['account_rango'] != 99) {
   <meta name="geo.region" content="CU">
   <meta name="robots" content="noindex, nofollow">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.3/dist/sweetalert2.min.css">
-
-
-
-
   <link rel="icon" href="/uixsoftware/assets/img/favicon-32x32.png" type="image/png">
+
+  <!-- Style -->
+  <link rel="stylesheet" href="style/file-upload.css">
+
+  <!-- Sweet Alert -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.3/dist/sweetalert2.min.css">
 
   <!-- Theme switcher (color modes) -->
   <script src="../uixsoftware/assets/js/theme-switcher.js"></script>
@@ -80,25 +81,15 @@ if (!isset($_SESSION['account_id']) || $_SESSION['account_rango'] != 99) {
 
 </head>
 
-
-
 <!-- Body -->
 
 <body>
-
 
   <main class="content-wrapper">
     <div class="container pt-4 pt-sm-5 pb-5 mb-xxl-3">
       <div class="row pt-2 pt-sm-0 pt-lg-2 pb-2 pb-sm-3 pb-md-4 pb-lg-5">
 
-
         <?php include "sidebar.php" ?>
-
-
-
-
-
-
 
         <!-- Account settings content -->
         <div class="col-lg-9">
@@ -515,55 +506,21 @@ GROUP BY Rentals.rental_id";
                     </div>
                 </div>
             </article>
-</div>";
+        </div>";
                   }
                 } else {
                   echo "<p>No hay rentas promocionadas.</p>";
                 }
                 ?>
 
-
-
-
               </div>
-
-
             </div>
           </div>
         </div>
-
-
-
       </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
   </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   <script>
     function previewImages(event) {
@@ -620,8 +577,6 @@ GROUP BY Rentals.rental_id";
     <?php endif; ?>
   </script>
 
-
-
   <script>
     // Incluir el código PHP generado dentro de HTML
     document.addEventListener('DOMContentLoaded', function() {
@@ -629,147 +584,6 @@ GROUP BY Rentals.rental_id";
     });
   </script>
 
-  <style>
-    /* From Uiverse.io by 3bdel3ziz-T */
-    .containerx {
-      --transition: 350ms;
-      --folder-W: 120px;
-      --folder-H: 80px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-end;
-      padding: 10px;
-      background: linear-gradient(135deg, #6dd5ed, #2193b0);
-      border-radius: 15px;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-      height: calc(var(--folder-H) * 1.7);
-      position: relative;
-    }
-
-    .folder {
-      position: absolute;
-      top: -20px;
-      left: calc(50% - 60px);
-      animation: float 2.5s infinite ease-in-out;
-      transition: transform var(--transition) ease;
-    }
-
-    .folder:hover {
-      transform: scale(1.05);
-    }
-
-    .folder .front-side,
-    .folder .back-side {
-      position: absolute;
-      transition: transform var(--transition);
-      transform-origin: bottom center;
-    }
-
-    .folder .back-side::before,
-    .folder .back-side::after {
-      content: "";
-      display: block;
-      background-color: white;
-      opacity: 0.5;
-      z-index: 0;
-      width: var(--folder-W);
-      height: var(--folder-H);
-      position: absolute;
-      transform-origin: bottom center;
-      border-radius: 15px;
-      transition: transform 350ms;
-      z-index: 0;
-    }
-
-    .containerx:hover .back-side::before {
-      transform: rotateX(-5deg) skewX(5deg);
-    }
-
-    .containerx:hover .back-side::after {
-      transform: rotateX(-15deg) skewX(12deg);
-    }
-
-    .folder .front-side {
-      z-index: 1;
-    }
-
-    .containerx:hover .front-side {
-      transform: rotateX(-40deg) skewX(15deg);
-    }
-
-    .folder .tip {
-      background: linear-gradient(135deg, #ff9a56, #ff6f56);
-      width: 80px;
-      height: 20px;
-      border-radius: 12px 12px 0 0;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      position: absolute;
-      top: -10px;
-      z-index: 2;
-    }
-
-    .folder .cover {
-      background: linear-gradient(135deg, #ffe563, #ffc663);
-      width: var(--folder-W);
-      height: var(--folder-H);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-      border-radius: 10px;
-    }
-
-    .custom-file-upload {
-      font-size: 1.1em;
-      color: #ffffff;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.2);
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-      transition: background var(--transition) ease;
-      display: inline-block;
-      width: 100%;
-      padding: 10px 35px;
-      position: relative;
-    }
-
-    .custom-file-upload:hover {
-      background: rgba(255, 255, 255, 0.4);
-    }
-
-    .custom-file-upload input[type="file"] {
-      display: none;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(0px);
-      }
-
-      50% {
-        transform: translateY(-20px);
-      }
-
-      100% {
-        transform: translateY(0px);
-      }
-    }
-  </style>
-
-
-
-  <!-- Vendor scripts -->
-  <script src="../uixsoftware/assets/js/swiper-bundle.min.js"></script>
-  <script src="../uixsoftware/assets/js/glightbox.min.js"></script>
-  <script src="../uixsoftware/assets/js/choices.min.js"></script>
-  <script src="../uixsoftware/assets/js/nouislider.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.3/dist/sweetalert2.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-  <!-- Bootstrap + Theme scripts -->
-  <script src="../uixsoftware/assets/js/theme.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script>
     // Función genérica para manejar confirmaciones con SweetAlert
     function setupSweetAlert(formSelector, title, text, icon = 'warning', confirmButtonText = 'Confirmar') {
@@ -811,6 +625,19 @@ GROUP BY Rentals.rental_id";
     setupSweetAlert('.unhide-rent-form', '¿Estás seguro?', 'La renta volverá a estar visible', 'info', 'Sí, mostrar');
     setupSweetAlert('.unpromote-rent-form', '¿Estás seguro?', 'La renta dejará de estar promocionada', 'info', 'Sí, quitar promoción');
   </script>
+
+  <!-- Vendor scripts -->
+  <script src="../uixsoftware/assets/js/swiper-bundle.min.js"></script>
+  <script src="../uixsoftware/assets/js/glightbox.min.js"></script>
+  <script src="../uixsoftware/assets/js/choices.min.js"></script>
+  <script src="../uixsoftware/assets/js/nouislider.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.3/dist/sweetalert2.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- Bootstrap + Theme scripts -->
+  <script src="../uixsoftware/assets/js/theme.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 </body>
 
 </html>
