@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_GET['id'])) {
         WHERE rental_id = ?
     ");
     $stmt->bind_param(
-        "sssssssiiii",
+        "ssssssssiii",
         $rentalTitle,
         $rentalCategory,
         $rentalDescription,
