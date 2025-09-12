@@ -29,7 +29,7 @@ echo '<url>
 
 
 // Obtener todas las rentas
-$sql = "SELECT rental_id, rental_title, rental_category FROM Rentals";
+$sql = "SELECT rental_id, rental_title FROM Rentals";
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_assoc()) {
@@ -42,9 +42,18 @@ while ($row = $result->fetch_assoc()) {
             <loc>$url</loc>
             <priority>0.8</priority>
           </url>";
+}
+
+// Obtener todas las categorías
+$sqlCategories = "SELECT rental_category FROM Rentals";
+$resultCategories = $conn->query($sqlCategories);
+
+while ($row = $resultCategories->fetch_assoc()) {
+    $slug = slugify($row['rental_category']);
+    $url = "https://cuvarents.com/rents/" . $slug;
 
     echo "<url>
-            <loc>$categorySlug</loc>
+            <loc>$url</loc>
             <priority>0.8</priority>
           </url>";
 }
