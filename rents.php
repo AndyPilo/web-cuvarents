@@ -84,63 +84,6 @@
 
         <?php include 'search.php'; ?>
 
-
-
-
-
-        <style>
-            .buttonz {
-                width: 120px;
-                height: 40px;
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                gap: 10px;
-                background-color: rgb(29, 45, 64);
-                border-radius: 30px;
-                color: rgb(167, 248, 255);
-                font-weight: 600;
-                border: none;
-                position: relative;
-                cursor: pointer;
-                transition-duration: .2s;
-                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.116);
-                padding-left: 8px;
-                transition-duration: .5s;
-            }
-
-            .svgIconz {
-                height: 25px;
-                fill: rgb(167, 248, 255) !important;
-                transition-duration: 1.5s;
-            }
-
-            .bell path {
-                fill: rgb(167, 248, 255) !important;
-            }
-
-            .buttonz:hover {
-                color: rgb(29, 45, 64);
-                background-color: rgb(167, 248, 255);
-                transition-duration: .2s;
-            }
-
-            .buttonz:active {
-                transform: scale(0.97);
-                transition-duration: .2s;
-            }
-
-            .buttonz:hover .svgIconz {
-                fill: rgb(29, 45, 64) !important;
-                transform: rotate(250deg);
-                transition-duration: 1.5s;
-            }
-        </style>
-        </div>
-        </div>
-
-
-
         <!-- Property listings -->
         <section class="container mt-2 mt-md-3 mt-lg-5 pb-5">
             <h2 class="pb-2 pb-lg-3">Rentas populares</h2>
@@ -162,24 +105,19 @@
                 $itemsPerPage = 8; // Número de rentas por página
                 $offset = ($page - 1) * $itemsPerPage;
 
-                if (isset($_GET['category'])) {
-                    // Slug desde la URL
-                    $category_slug = $_GET['category'];
-
-                    // Convertir guiones en espacios para coincidir con la base de datos
-                    $category = str_replace('-', ' ', $category_slug);
-                } else {
-                    $category = '';
-                }
-
-                // Crear slug SEO para usar en los enlaces de paginación
+                // Categoría (si existe)
+                $category = isset($_GET['category']) ? str_replace('-', ' ', $_GET['category']) : '';
                 $categorySlug = $category ? slugify($category) : '';
 
-                // Construir la consulta SQL según si se proporciona una categoría
+                // Construir consulta SQL optimizada
                 if ($category) {
-                    $sql3 = "SELECT Rentals.*, GROUP_CONCAT(RentalImages.image_url) AS images 
+                    $sql3 = "SELECT Rentals.*, 
+                GROUP_CONCAT(DISTINCT RentalImages.image_url) AS images,
+                GROUP_CONCAT(DISTINCT services_rent.services_rent_icon_svg ORDER BY services_rent.services_rent_id SEPARATOR '|') AS service_icons
             FROM Rentals
             LEFT JOIN RentalImages ON Rentals.rental_id = RentalImages.rental_id
+            LEFT JOIN RentalServices ON Rentals.rental_id = RentalServices.rental_id
+            LEFT JOIN services_rent ON RentalServices.service_rent_id = services_rent.services_rent_id
             WHERE Rentals.is_hidden = FALSE AND Rentals.rental_category = ?
             GROUP BY Rentals.rental_id
             ORDER BY Rentals.is_promoted DESC, Rentals.rental_id DESC
@@ -187,9 +125,13 @@
                     $stmt = $conn->prepare($sql3);
                     $stmt->bind_param("sii", $category, $itemsPerPage, $offset);
                 } else {
-                    $sql3 = "SELECT Rentals.*, GROUP_CONCAT(RentalImages.image_url) AS images 
+                    $sql3 = "SELECT Rentals.*, 
+                GROUP_CONCAT(DISTINCT RentalImages.image_url) AS images,
+                GROUP_CONCAT(DISTINCT services_rent.services_rent_icon_svg ORDER BY services_rent.services_rent_id SEPARATOR '|') AS service_icons
             FROM Rentals
             LEFT JOIN RentalImages ON Rentals.rental_id = RentalImages.rental_id
+            LEFT JOIN RentalServices ON Rentals.rental_id = RentalServices.rental_id
+            LEFT JOIN services_rent ON RentalServices.service_rent_id = services_rent.services_rent_id
             WHERE Rentals.is_hidden = FALSE
             GROUP BY Rentals.rental_id
             ORDER BY Rentals.is_promoted DESC, Rentals.rental_id DESC
@@ -201,7 +143,7 @@
                 $stmt->execute();
                 $result = $stmt->get_result();
 
-                // Obtener el número total de rentas para la paginación
+                // Obtener el número total de rentas (sin tocar servicios)
                 if ($category) {
                     $sqlTotal = "SELECT COUNT(DISTINCT Rentals.rental_id) AS total 
                  FROM Rentals 
@@ -216,16 +158,17 @@
                  WHERE Rentals.is_hidden = FALSE";
                     $stmtTotal = $conn->prepare($sqlTotal);
                 }
-
                 $stmtTotal->execute();
                 $resultTotal = $stmtTotal->get_result();
                 $rowTotal = $resultTotal->fetch_assoc();
                 $totalRentals = $rowTotal['total'];
                 $totalPages = ceil($totalRentals / $itemsPerPage);
 
+                // Renderizar resultados
                 if ($result->num_rows > 0) {
                     $itemList = [];
                     $position = 1;
+
                     while ($row = $result->fetch_assoc()) {
                         $rentalId = $row['rental_id'];
                         $images = !empty($row['images']) ? explode(',', $row['images']) : [];
@@ -234,39 +177,32 @@
                         $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
 
                         // Si el precio es 1, mostrar "Consultar" en vez de "1$"
-                        if ($rentalPrice == "1") {
-                            $rentalPriceDisplay = "Consultar";
-                        } else {
-                            $rentalPriceDisplay = "$" . $rentalPrice;
-                        }
+                        $rentalPriceDisplay = ($rentalPrice == "1") ? "Consultar" : "$" . $rentalPrice;
 
                         $rentalHab = htmlspecialchars($row['rental_rooms'], ENT_QUOTES, 'UTF-8');
                         $rentalPriceType = htmlspecialchars($row['rental_price_type'], ENT_QUOTES, 'UTF-8');
                         $rentalLocation = htmlspecialchars($row['rental_provincia'] . ', ' . $row['rental_municipio'], ENT_QUOTES, 'UTF-8');
-                        $rentalCreated = date('d/m/Y', strtotime($row['rental_created_at']));
-                        $rentalEdited = date('d/m/Y', strtotime($row['rental_updated_at']));
                         $isPromoted = $row['is_promoted'];
 
-                        // Obtener los servicios de la renta
-                        $sqlServices = "SELECT services_rent_name, services_rent_icon_svg FROM services_rent
-                        JOIN RentalServices ON services_rent.services_rent_id = RentalServices.service_rent_id
-                        WHERE RentalServices.rental_id = ?";
-                        $stmtServices = $conn->prepare($sqlServices);
-                        $stmtServices->bind_param("i", $rentalId);
-                        $stmtServices->execute();
-                        $resultServices = $stmtServices->get_result();
-
+                        // Procesar servicios (ya vienen en service_icons separados por "|")
                         $servicesIcons = "";
-                        $totalServices = $resultServices->num_rows;
-                        $count = 0;
+                        $icons = !empty($row['service_icons']) ? explode('|', $row['service_icons']) : [];
 
-                        // Agregamos simultáneamente al array para JSON-LD
+                        for ($i = 0; $i < min(5, count($icons)); $i++) {
+                            $servicesIcons .= $icons[$i];
+                        }
+
+                        if (count($icons) > 5) {
+                            $servicesIcons .= '<span class="fs-sm ms-2">+' . (count($icons) - 5) . '</span>';
+                        }
+
+                        // JSON-LD
                         $itemList[] = [
                             "@type" => "ListItem",
                             "position" => $position,
                             "url" => "https://www.cuvarents.com/single/" . $row['rental_id'],
-                            "name" => htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8'),
-                            "image" => !empty($row['images']) ? 'https://www.cuvarents.com/uploads/' . explode(',', $row['images'])[0] : 'https://www.cuvarents.com/uixsoftware/assets/img/default-img.png',
+                            "name" => $rentalTitle,
+                            "image" => !empty($images) ? 'https://www.cuvarents.com/uploads/' . $images[0] : 'https://www.cuvarents.com/uixsoftware/assets/img/default-img.png',
                             "offers" => [
                                 "@type" => "Offer",
                                 "price" => $row['rental_price'],
@@ -275,17 +211,6 @@
                             ]
                         ];
                         $position++;
-
-                        while ($service = $resultServices->fetch_assoc()) {
-                            if ($count < 5) {
-                                $servicesIcons .= $service['services_rent_icon_svg'];
-                            }
-                            $count++;
-                        }
-
-                        if ($totalServices > 5) {
-                            $servicesIcons .= '<span class="fs-sm ms-2">+' . ($totalServices - 5) . '</span>';
-                        }
 
                         // Generar las slides del Swiper
                         $slides = "";
@@ -306,7 +231,7 @@
                                 $slides .= "
         <div class=\"swiper-slide\" role=\"group\" aria-label=\"" . ($index + 1) . " / " . count($images) . "\" style=\"width: 304px;\">
             <div class=\"ratio d-block\" style=\"--fn-aspect-ratio: calc(248 / 362 * 100%)\">
-                <img src=\"./dashboard/$slideImage\" loading=\"lazy\" alt=\"Imagen " . ($index + 1) . " de $rentalTitle\">
+                <img src=\"dashboard/$slideImage\" loading=\"lazy\" alt=\"Imagen " . ($index + 1) . " de $rentalTitle\">
                 <span class=\"position-absolute top-0 start-0 w-100 h-100 z-1\" style=\"background: linear-gradient(180deg, rgba(0,0,0, 0) 0%, rgba(0,0,0, .11) 100%)\"></span>
             </div>
         </div>";
