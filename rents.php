@@ -92,13 +92,8 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 g-md-3 g-lg-4">
 
                 <?php
-                // Función para convertir categoría en slug amigable
-                function slugify($string)
-                {
-                    $string = strtolower(trim($string));
-                    $string = preg_replace('/[^a-z0-9]+/i', '-', $string);
-                    return trim($string, '-');
-                }
+                // Función para convertir en slug amigable
+                require_once __DIR__ . '/utils/slugify.php';
 
                 // Obtener el número de página actual desde la URL
                 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
@@ -170,11 +165,14 @@
                     $position = 1;
 
                     while ($row = $result->fetch_assoc()) {
+
                         $rentalId = $row['rental_id'];
                         $images = !empty($row['images']) ? explode(',', $row['images']) : [];
                         $firstImage = !empty($images[0]) ? 'uploads/' . $images[0] : 'uixsoftware/assets/img/default-img.png';
                         $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
                         $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
+                        $slug = slugify($rentalTitle);
+                        $url = "/rents/" . $slug . "-" . $rentalId;
 
                         // Si el precio es 1, mostrar "Consultar" en vez de "1$"
                         $rentalPriceDisplay = ($rentalPrice == "1") ? "Consultar" : "$" . $rentalPrice;
@@ -244,7 +242,8 @@
             <article class=\"card shadow hover-effect-opacity h-100\">
                 <div class=\"card-img-top position-relative bg-body-tertiary overflow-hidden\">
                     <div class=\"swiper z-2\" data-swiper='{\"pagination\": {\"el\": \".swiper-pagination\"}, \"navigation\": {\"prevEl\": \".btn-prev\", \"nextEl\": \".btn-next\"}, \"breakpoints\": {\"991\": {\"allowTouchMove\": false}}}'>
-                        <a class=\"swiper-wrapper\" href=\"./single/$rentalId\" aria-live=\"polite\">
+                        <a class=\"swiper-wrapper\" href=$url
+                        aria-live=\"polite\">
                             $slides
                         </a>
                         <div class=\"swiper-pagination bottom-0 mb-2\"></div>
@@ -268,7 +267,7 @@
                     </div>
                     <div class=\"h5 mb-2\"> $rentalPriceDisplay <span class=\"fs-sm text-muted\">($rentalPriceType)</span></div>
                     <h3 class=\"fs-sm fw-normal text-body mb-2\">
-                        <a class=\"stretched-link text-body\" href=\"./single/$rentalId\">$rentalTitle</a>
+                        <a class=\"stretched-link text-body\" href=$url>$rentalTitle</a>
                     </h3>
                     <div class=\"h6 fs-sm mb-0\">Información adicional</div>
                 </div>

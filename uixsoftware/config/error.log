@@ -1272,3 +1272,48 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in C:\xampp\htdocs\web-cuvarents\rents.php on line 96
+[12-Sep-2025 15:15:19 Europe/Berlin] PHP Warning:  Undefined variable $itemList in C:\xampp\htdocs\web-cuvarents\rents.php on line 353
+[12-Sep-2025 15:15:19 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\web-cuvarents\rents.php:353
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\web-cuvarents\rents.php on line 353
+[12-Sep-2025 15:18:58 Europe/Berlin] PHP Warning:  Undefined variable $itemList in C:\xampp\htdocs\web-cuvarents\rents.php on line 353
+[12-Sep-2025 15:18:58 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\web-cuvarents\rents.php:353
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\web-cuvarents\rents.php on line 353
+[12-Sep-2025 15:23:18 Europe/Berlin] PHP Warning:  Undefined variable $itemList in C:\xampp\htdocs\web-cuvarents\rents.php on line 353
+[12-Sep-2025 15:23:18 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\web-cuvarents\rents.php:353
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\web-cuvarents\rents.php on line 353
+[12-Sep-2025 15:24:10 Europe/Berlin] PHP Warning:  Undefined variable $itemList in C:\xampp\htdocs\web-cuvarents\rents.php on line 353
+[12-Sep-2025 15:24:10 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\web-cuvarents\rents.php:353
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\web-cuvarents\rents.php on line 353
+[12-Sep-2025 15:24:35 Europe/Berlin] PHP Warning:  Undefined variable $itemList in C:\xampp\htdocs\web-cuvarents\rents.php on line 353
+[12-Sep-2025 15:24:35 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\web-cuvarents\rents.php:353
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\web-cuvarents\rents.php on line 353
+[12-Sep-2025 15:26:43 Europe/Berlin] PHP Warning:  Undefined variable $itemList in C:\xampp\htdocs\web-cuvarents\rents.php on line 353
+[12-Sep-2025 15:26:43 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\web-cuvarents\rents.php:353
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\web-cuvarents\rents.php on line 353
+[12-Sep-2025 15:27:09 Europe/Berlin] PHP Warning:  Undefined variable $itemList in C:\xampp\htdocs\web-cuvarents\rents.php on line 353
+[12-Sep-2025 15:27:09 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\web-cuvarents\rents.php:353
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\web-cuvarents\rents.php on line 353
+[12-Sep-2025 15:27:35 Europe/Berlin] PHP Warning:  Undefined variable $itemList in C:\xampp\htdocs\web-cuvarents\rents.php on line 353
+[12-Sep-2025 15:27:35 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\web-cuvarents\rents.php:353
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\web-cuvarents\rents.php on line 353
+[12-Sep-2025 15:33:13 Europe/Berlin] PHP Warning:  Undefined variable $itemList in C:\xampp\htdocs\web-cuvarents\rents.php on line 353
+[12-Sep-2025 15:33:13 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\web-cuvarents\rents.php:353
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\web-cuvarents\rents.php on line 353

@@ -44,17 +44,22 @@ Options -Indexes
     RewriteCond %{QUERY_STRING} ^category=Casas\+y\+Alojamientos\+vacacionales$ [NC]
     RewriteRule ^rents$ /rents/casas-y-alojamientos-vacacionales? [R=301,L]
 
-    # =========
+    # =========================================
 
     # Redirigir URLs con page pero categoría vacía
     RewriteCond %{QUERY_STRING} ^page=([0-9]+)&category=$ [NC]
     RewriteRule ^rents\.php$ /rents/page/%1? [R=301,L]
 
-    # =========================================
+    # ==================  SINGLE  =======================
 
-    # Redirigir cualquier URL de Single.php?id=
-    RewriteCond %{QUERY_STRING} ^id=([0-9]+)$ [NC]
-    RewriteRule ^single\.php$ /single/%1? [R=301,L]
+   # Redirigir desde single.php?id=324 → /rents/slug-del-titulo-324 (PHP se encargará del slug)
+    RewriteCond %{THE_REQUEST} \s/single\.php\?id=([0-9]+) [NC]
+    RewriteRule ^single\.php$ /rents/%1 [R=301,L]
+
+    # Redirigir desde /single/324 → /rents/slug-del-titulo-324 (PHP se encargará del slug)
+    RewriteRule ^single/([0-9]+)/?$ /rents/$1 [R=301,L]
+
+    # =========================================
     
     # Solo aplicar el remove .php a estos archivos del frontend
     RewriteCond %{THE_REQUEST} \s/(rents|single|search-rents|about|contact)\.php[\s?] [NC]
@@ -72,6 +77,10 @@ Options -Indexes
     # URLS AMIGABLES (REWRITE INTERNO)
     # ================================
 
+    # Single
+    # URLs amigables para rentas: /rents/slug-del-titulo-492 → single.php?id=492
+    RewriteRule ^rents/[a-z0-9-]+-([0-9]+)/?$ single.php?id=$1 [NC,L]
+
     # Rentas con categoría y paginación
     RewriteRule ^rents/([a-z0-9-]+)/page/([0-9]+)/?$ rents.php?category=$1&page=$2 [NC,L]
 
@@ -86,9 +95,6 @@ Options -Indexes
 
     # Search rents
     RewriteRule ^search-rents/(.*)$ search-rents.php?$1 [L,QSA]
-
-    # Single
-    RewriteRule ^single/([0-9]+)/?$ single.php?id=$1 [NC,L]
 
     # Dashboard rents
     RewriteRule ^dashboard/rents/page/([0-9]+)/?$ dashboard/rents.php?page=$1 [L,QSA]

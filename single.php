@@ -12,10 +12,19 @@
     }
     ?>
 
-    <?php require_once './uixsoftware/config/config.php';
+    <?php
+    require_once './uixsoftware/config/config.php';
+
+    // Función para convertir en slug amigable
+    require_once __DIR__ . '/utils/slugify.php';
 
     // Obtener el ID de la renta desde la URL
     $rentalId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+
+    echo "<script>console.log('perro')</script>";
+
+    echo "<script>console.log('rentalID: " . addslashes($rentalId) . "')</script>";
+
 
 
 
@@ -65,6 +74,20 @@
         while ($service = $resultServices->fetch_assoc()) {
             $servicesIcons .= '<div class="col-6 col-md-3 d-flex align-items-center">' . $service['services_rent_icon_svg'] . '' . htmlspecialchars($service['services_rent_name']) . '</div>';
         }
+
+
+        // URLS AMIGLABLE
+        $slug = slugify($row['rental_title']);
+        $finalUrl = "/rents/" . $slug . "-" . $rentalId;
+
+        // Si la URL actual no es la final → redirigir 301
+        $currentUrl = $_SERVER['REQUEST_URI'];
+        if (strpos($currentUrl, $finalUrl) === false) {
+            header("Location: $finalUrl", true, 301);
+            exit();
+        }
+
+        echo "<script>console.log('currentUrl: " . addslashes($currentUrl) . "')</script>";
 
     ?>
 
