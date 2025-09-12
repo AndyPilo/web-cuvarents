@@ -71,6 +71,8 @@ Options -Indexes
     # Single
     # URLs amigables para rentas: /rents/slug-del-titulo-492 → single.php?id=492
     RewriteRule ^rents/[a-z0-9-]+-([0-9]+)/?$ single.php?id=$1 [NC,L]
+    # Redirigir /single/ID a /rents/slug-ID vía PHP
+    RewriteRule ^single/([0-9]+)/?$ single.php?id=$1 [NC,L]
 
     # Rentas con categoría y paginación
     RewriteRule ^rents/([a-z0-9-]+)/page/([0-9]+)/?$ rents.php?category=$1&page=$2 [NC,L]
