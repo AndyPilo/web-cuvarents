@@ -80,9 +80,7 @@
         $slug = slugify($row['rental_title']);
         $finalUrl = "/rents/" . $slug . "-" . $rentalId;
 
-        // Si la URL actual no es la final → redirigir 301
-        $currentUrl = $_SERVER['REQUEST_URI'];
-        if (strpos($currentUrl, $finalUrl) === false) {
+        if (rtrim($_SERVER['REQUEST_URI'], '/') !== $finalUrl) {
             header("Location: $finalUrl", true, 301);
             exit();
         }

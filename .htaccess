@@ -50,15 +50,6 @@ Options -Indexes
     RewriteCond %{QUERY_STRING} ^page=([0-9]+)&category=$ [NC]
     RewriteRule ^rents\.php$ /rents/page/%1? [R=301,L]
 
-    # ==================  SINGLE  =======================
-
-   # Redirigir desde single.php?id=324 → /rents/slug-del-titulo-324 (PHP se encargará del slug)
-    RewriteCond %{THE_REQUEST} \s/single\.php\?id=([0-9]+) [NC]
-    RewriteRule ^single\.php$ /rents/%1 [R=301,L]
-
-    # Redirigir desde /single/324 → /rents/slug-del-titulo-324 (PHP se encargará del slug)
-    RewriteRule ^single/([0-9]+)/?$ /rents/$1 [R=301,L]
-
     # =========================================
     
     # Solo aplicar el remove .php a estos archivos del frontend
