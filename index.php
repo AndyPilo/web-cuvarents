@@ -255,13 +255,8 @@
 
 
     <?php
-    // Función para convertir texto a slug (coincide con las reglas de .htaccess)
-    function slugify($text)
-    {
-      $text = strtolower(trim($text));
-      $text = preg_replace('/[^a-z0-9]+/i', '-', $text);
-      return trim($text, '-');
-    }
+    // Función para convertir en slug amigable
+    require_once __DIR__ . '/utils/slugify.php';
 
     $categories = [
       "Casas de lujo",
