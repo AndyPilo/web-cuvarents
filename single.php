@@ -21,13 +21,6 @@
     // Obtener el ID de la renta desde la URL
     $rentalId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-    echo "<script>console.log('perro')</script>";
-
-    echo "<script>console.log('rentalID: " . addslashes($rentalId) . "')</script>";
-
-
-
-
     // Obtener los detalles de la renta desde la base de datos
     $sql = "SELECT Rentals.*, GROUP_CONCAT(RentalImages.image_url) AS images FROM Rentals
                     LEFT JOIN RentalImages ON Rentals.rental_id = RentalImages.rental_id
@@ -85,8 +78,6 @@
             exit();
         }
 
-        echo "<script>console.log('currentUrl: " . addslashes($currentUrl) . "')</script>";
-
     ?>
 
         <base href="<?php echo $basePath; ?>">
@@ -112,7 +103,7 @@
         <meta name="geo.placename" content="Cuba">
         <meta name="geo.region" content="CU">
 
-        <link rel="canonical" href="https://cuvarents.com/single/<?php echo $rentalId; ?>">
+        <link rel="canonical" href="https://cuvarents.com<?php echo $finalUrl; ?>">
 
         <link rel="icon" href="/uixsoftware/assets/img/favicon-32x32.png" type="image/png">
 
@@ -164,14 +155,20 @@
 
 
         echo "
-<!-- Breadcrumb -->
-<nav class=\"pb-2 pb-md-3\" aria-label=\"breadcrumb\">
-    <ol class=\"breadcrumb\">
-        <li class=\"breadcrumb-item\"><a href=\"./\">Inicio</a></li>
-        <li class=\"breadcrumb-item\"><a href=\"./rents\">Propiedad en alquiler</a></li>
-        <li class=\"breadcrumb-item active\" aria-current=\"page\">$rentalTitle</li>
+    
+<!-- Encabezado del título -->
+<header class=\"mb-4 pb-3 border-bottom\">
+  <h1 class=\"h2 fw-bold text-dark mb-2\">$rentalTitle</h1>
+  
+  <!-- Breadcrumb -->
+  <nav aria-label=\"breadcrumb\">
+    <ol class=\"breadcrumb mb-0\">
+      <li class=\"breadcrumb-item\"><a href=\"./\">Inicio</a></li>
+      <li class=\"breadcrumb-item\"><a href=\"./rents\">Propiedad en alquiler</a></li>
+      <li class=\"breadcrumb-item active\" aria-current=\"page\">$rentalTitle</li>
     </ol>
-</nav>
+  </nav>
+</header>
 
 <!-- Image gallery -->
 <div class=\"row g-3 g-lg-4\">
