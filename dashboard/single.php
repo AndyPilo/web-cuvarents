@@ -148,9 +148,10 @@ if (!isset($_SESSION['account_id']) || $_SESSION['account_rango'] != 99) {
 
                 echo "
 
-            <!-- Title h1 -->
-<h1 class=\"lg\">$rentalTitle</h1>
-
+<!-- Encabezado del título -->
+<header class=\"mb-4 pb-3 border-bottom\">
+  <h1 class=\"h2 fw-bold mb-2\">$rentalTitle</h1>
+</header>
 <!-- Image gallery -->
 <div class=\"row g-3 g-lg-4\">
     <div class=\"col-md-8\">

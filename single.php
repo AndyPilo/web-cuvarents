@@ -158,7 +158,7 @@
     
 <!-- Encabezado del título -->
 <header class=\"mb-4 pb-3 border-bottom\">
-  <h1 class=\"h2 fw-bold text-dark mb-2\">$rentalTitle</h1>
+  <h1 class=\"h2 fw-bold mb-2\">$rentalTitle</h1>
   
   <!-- Breadcrumb -->
   <nav aria-label=\"breadcrumb\">
