@@ -294,21 +294,19 @@
           $firstImage = !empty($images[0]) ? 'uploads/' . $images[0] : 'uixsoftware/assets/img/default-img.png';
           $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
           $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
-
-
-          // Si el precio es 1, mostrar "Consultar" en vez de "1$"
-          if ($rentalPrice == "1") {
-            $rentalPriceDisplay = "Consultar";
-          } else {
-            $rentalPriceDisplay = "$" . $rentalPrice;
-          }
-
           $rentalHab = htmlspecialchars($row['rental_rooms'], ENT_QUOTES, 'UTF-8');
           $rentalPriceType = htmlspecialchars($row['rental_price_type'], ENT_QUOTES, 'UTF-8');
           $rentalLocation = htmlspecialchars($row['rental_provincia'] . ', ' . $row['rental_municipio'], ENT_QUOTES, 'UTF-8');
           $rentalCreated = date('d/m/Y', strtotime($row['rental_created_at']));
           $rentalEdited = date('d/m/Y', strtotime($row['rental_updated_at']));
           $isPromoted = $row['is_promoted'];
+
+          // Si el precio es 1, mostrar "Consultar" en vez de "1$"
+          $rentalPriceDisplay = ($rentalPrice == "1") ? "Consultar" : "$" . $rentalPrice;
+
+          // URLS AMIGLABLE
+          $slug = slugify($rentalTitle);
+          $url = "/rents/" . $slug . "-" . $rentalId;
 
           // Obtener los servicios de la renta
           $sqlServices = "SELECT services_rent_name, services_rent_icon_svg FROM services_rent
@@ -366,7 +364,7 @@
               <article class=\"card hover-effect-opacity h-100\">
                   <div class=\"card-img-top position-relative bg-body-tertiary overflow-hidden\">
                       <div class=\"swiper z-2\" data-swiper='{\"pagination\": {\"el\": \".swiper-pagination\"}, \"navigation\": {\"prevEl\": \".btn-prev\", \"nextEl\": \".btn-next\"}, \"breakpoints\": {\"991\": {\"allowTouchMove\": false}}}'>
-                          <a class=\"swiper-wrapper\" href=\"single/$rentalId\" aria-live=\"polite\">
+                          <a class=\"swiper-wrapper\" href=\"$url\" aria-live=\"polite\">
                               $slides
                           </a>
                           <div class=\"swiper-pagination bottom-0 mb-2\"></div>

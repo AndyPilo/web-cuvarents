@@ -94,6 +94,9 @@
             <!-- Properties grid -->
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 g-md-3 g-lg-4">
                 <?php
+
+                require_once __DIR__ . '/utils/slugify.php';
+
                 $precio = isset($_GET['precio']) ? $_GET['precio'] : [];
                 $zona = isset($_GET['municipio']) ? $_GET['municipio'] : [];
                 $habitaciones = isset($_GET['habitaciones']) ? intval($_GET['habitaciones']) : 0;
@@ -102,10 +105,14 @@
                 $search = isset($_GET['search']) ? trim($_GET['search']) : '';
 
                 // Construir la consulta SQL dinámica
-                $sql3 = "SELECT Rentals.*, GROUP_CONCAT(RentalImages.image_url) AS images 
-        FROM Rentals
-        LEFT JOIN RentalImages ON Rentals.rental_id = RentalImages.rental_id
-        WHERE Rentals.is_hidden = FALSE";
+                $sql3 = "SELECT Rentals.*, 
+                GROUP_CONCAT(DISTINCT RentalImages.image_url) AS images,
+                GROUP_CONCAT(DISTINCT services_rent.services_rent_icon_svg ORDER BY services_rent.services_rent_id SEPARATOR '|') AS service_icons
+            FROM Rentals
+            LEFT JOIN RentalImages ON Rentals.rental_id = RentalImages.rental_id
+            LEFT JOIN RentalServices ON Rentals.rental_id = RentalServices.rental_id
+            LEFT JOIN services_rent ON RentalServices.service_rent_id = services_rent.services_rent_id
+            WHERE Rentals.is_hidden = FALSE";
 
                 // Agregar condición de búsqueda
                 if (!empty($search)) {
@@ -172,15 +179,6 @@
                         $firstImage = !empty($images[0]) ? 'uploads/' . $images[0] : 'uixsoftware/assets/img/default-img.png';
                         $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
                         $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
-
-                        // Si el precio es 1, mostrar "Consultar" en vez de "1$"
-                        if ($rentalPrice == "1") {
-                            $rentalPriceDisplay = "Consultar";
-                        } else {
-                            $rentalPriceDisplay = "$" . $rentalPrice;
-                        }
-
-
                         $rentalHab = htmlspecialchars($row['rental_rooms'], ENT_QUOTES, 'UTF-8');
                         $rentalPriceType = htmlspecialchars($row['rental_price_type'], ENT_QUOTES, 'UTF-8');
                         $rentalLocation = htmlspecialchars($row['rental_provincia'] . ', ' . $row['rental_municipio'], ENT_QUOTES, 'UTF-8');
@@ -188,25 +186,23 @@
                         $rentalEdited = date('d/m/Y', strtotime($row['rental_updated_at']));
                         $isPromoted = $row['is_promoted'];
 
-                        // Obtener los servicios de la renta
-                        $sqlServices = "SELECT services_rent_name, services_rent_icon_svg FROM services_rent
-                        JOIN RentalServices ON services_rent.services_rent_id = RentalServices.service_rent_id
-                        WHERE RentalServices.rental_id = " . $row['rental_id'];
-                        $resultServices = $conn->query($sqlServices);
+                        // Si el precio es 1, mostrar "Consultar" en vez de "1$"
+                        $rentalPriceDisplay = ($rentalPrice == "1") ? "Consultar" : "$" . $rentalPrice;
 
+                        // URLS AMIGLABLE
+                        $slug = slugify($rentalTitle);
+                        $url = "/rents/" . $slug . "-" . $rentalId;
+
+                        // Procesar servicios (ya vienen en service_icons separados por "|")
                         $servicesIcons = "";
-                        $totalServices = $resultServices->num_rows;
-                        $count = 0;
+                        $icons = !empty($row['service_icons']) ? explode('|', $row['service_icons']) : [];
 
-                        while ($service = $resultServices->fetch_assoc()) {
-                            if ($count < 5) {
-                                $servicesIcons .= $service['services_rent_icon_svg'];
-                            }
-                            $count++;
+                        for ($i = 0; $i < min(5, count($icons)); $i++) {
+                            $servicesIcons .= $icons[$i];
                         }
 
-                        if ($totalServices > 5) {
-                            $servicesIcons .= '<span class="fs-sm ms-2">+' . ($totalServices - 5) . '</span>';
+                        if (count($icons) > 5) {
+                            $servicesIcons .= '<span class="fs-sm ms-2">+' . (count($icons) - 5) . '</span>';
                         }
 
                         // Generar las slides del Swiper

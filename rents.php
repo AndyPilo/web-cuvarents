@@ -171,16 +171,17 @@
                         $firstImage = !empty($images[0]) ? 'uploads/' . $images[0] : 'uixsoftware/assets/img/default-img.png';
                         $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
                         $rentalPrice = htmlspecialchars($row['rental_price'], ENT_QUOTES, 'UTF-8');
-                        $slug = slugify($rentalTitle);
-                        $url = "/rents/" . $slug . "-" . $rentalId;
-
-                        // Si el precio es 1, mostrar "Consultar" en vez de "1$"
-                        $rentalPriceDisplay = ($rentalPrice == "1") ? "Consultar" : "$" . $rentalPrice;
-
                         $rentalHab = htmlspecialchars($row['rental_rooms'], ENT_QUOTES, 'UTF-8');
                         $rentalPriceType = htmlspecialchars($row['rental_price_type'], ENT_QUOTES, 'UTF-8');
                         $rentalLocation = htmlspecialchars($row['rental_provincia'] . ', ' . $row['rental_municipio'], ENT_QUOTES, 'UTF-8');
                         $isPromoted = $row['is_promoted'];
+
+                        // Si el precio es 1, mostrar "Consultar" en vez de "1$"
+                        $rentalPriceDisplay = ($rentalPrice == "1") ? "Consultar" : "$" . $rentalPrice;
+
+                        // URLS AMIGLABLE
+                        $slug = slugify($rentalTitle);
+                        $url = "/rents/" . $slug . "-" . $rentalId;
 
                         // Procesar servicios (ya vienen en service_icons separados por "|")
                         $servicesIcons = "";
