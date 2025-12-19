@@ -192,7 +192,7 @@ class Renta
     public function getAllForSitemap(): array
     {
         try {
-            $stmt = $this->db->query("SELECT rental_id, rental_title FROM Rentals WHERE is_hidden = FALSE");
+            $stmt = $this->db->query("SELECT rental_id, rental_title, rental_updated_at FROM Rentals WHERE is_hidden = FALSE");
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             error_log("Error en Renta::getAllForSitemap(): " . $e->getMessage());

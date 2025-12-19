@@ -404,7 +404,10 @@
 
                     <?php if ($page > 1): ?>
                       <li>
-                        <a href="<?= $basePath . '/page/' . ($page - 1) . $queryPrefix ?>"
+                        <a href="<?=
+                                  $prevUrl = (($page - 1) === 1)
+                                    ? ($basePath . $queryPrefix)
+                                    : ($basePath . '/page/' . ($page - 1) . $queryPrefix); ?>"
                           class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-300
                                   bg-white text-sm text-gray-700 transition-all
                                   hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 hover:shadow-sm"
@@ -418,7 +421,10 @@
                     <?php endif; ?>
 
                     <?php for ($i = $start; $i <= $end; $i++): ?>
-                      <?php $pageUrl = $basePath . '/page/' . $i . $queryPrefix; ?>
+                      <?php
+                      $pageUrl = ($i === 1)
+                        ? ($basePath . $queryPrefix)
+                        : ($basePath . '/page/' . $i . $queryPrefix); ?>
                       <li>
                         <a href="<?= $pageUrl ?>"
                           class="inline-flex h-10 w-10 items-center justify-center rounded-full border text-sm transition-all

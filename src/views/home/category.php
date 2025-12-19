@@ -10,14 +10,14 @@
     </div>
 
     <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
-      <span class="block">Explora Casas particulares en alquiler en Cuba</span>
+      <span class="block">Explora Casas particulares de alquiler en Cuba</span>
       <span class="block bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent pb-2">
         por categoría
       </span>
     </h2>
 
     <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-      Descubre nuestra selección de casas y apartamentos particulares en alquiler organizados por tipo de propiedad
+      Descubre nuestra selección de casas y apartamentos particulares de alquiler organizados por tipo de propiedad
     </p>
   </div>
 

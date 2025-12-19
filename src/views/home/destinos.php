@@ -57,14 +57,6 @@
         'url' => BASE_URL . 'rents/municipios/' . slugify('Viñales'),
       ],
       [
-        'nombre' => 'Santiago de Cuba',
-        'img' => BASE_URL . 'assets/img/santiago-cuba.webp',
-        'descripcion' => 'Casas particulares con el calor de su gente: cultura, tradición y un ambiente caribeño ideal para viajar acompañado y crear recuerdos.',
-        'tipo' => 'musical',
-        'icon' => '🎵',
-        'url' => BASE_URL . 'rents/provincias/' . slugify('Santiago de cuba'),
-      ],
-      [
         'nombre' => 'Cienfuegos',
         'img' => BASE_URL . 'assets/img/cienfuegos.webp',
         'descripcion' => 'Un destino sereno para disfrutar en pareja o en familia: paseos junto al mar, arquitectura bonita y una energía súper relajada.',

@@ -29,7 +29,7 @@
               itemprop="headline">
               <span class="block">Casas particulares</span>
               <span class="block bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent pb-2">
-                y alojamientos en alquiler en Cuba
+                de alquiler en Cuba
               </span>
             </h1>
 
@@ -37,7 +37,7 @@
               class="mx-auto mt-6 max-w-2xl text-lg text-gray-600 lg:mx-0"
               itemprop="description">
               Descubre más de <span class="font-semibold text-cyan-700">250 propiedades verificadas</span>
-              en toda Cuba. Desde casas auténticas con fotos reales, apartamentos modernos hasta villas de lujo.
+              en toda Cuba. Casas auténticas con fotos reales, apartamentos modernos y villas de lujo.
               Encuentra el alojamiento perfecto para tu estancia y disfruta de una
               reserva segura.
             </p>
@@ -48,16 +48,11 @@
             </div>
 
             <!-- Estadísticas rápidas -->
-            <div class="mt-10 grid grid-cols-2 gap-4 ">
+            <div class="mt-10 grid grid-cols-1 gap-4 ">
               <div class="text-center lg:text-left">
                 <div class="text-2xl font-bold text-cyan-700 sm:text-3xl">250+</div>
                 <div class="text-sm text-gray-500">Propiedades</div>
               </div>
-              <div class="text-center lg:text-left">
-                <div class="text-2xl font-bold text-cyan-700 sm:text-3xl">15</div>
-                <div class="text-sm text-gray-500">Provincias</div>
-              </div>
-
             </div>
           </div>
 

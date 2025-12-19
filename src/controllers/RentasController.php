@@ -67,6 +67,11 @@ class RentasController
     {
         // --- PAGINACIÓN ---
         $page         = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+
+        //Verificar si es paginada para robots
+        $isPaginated = ($page > 1);
+        $robotsForLists = $isPaginated ? 'noindex, follow' : 'index, follow';
+
         $itemsPerPage = 12;
         $offset       = ($page - 1) * $itemsPerPage;
 
@@ -144,6 +149,7 @@ class RentasController
                 'description' => "Descubre rentas de $categoriaNombre en Cuba. Casas particulares y alojamientos para tu viaje.",
                 'keywords'    => "rentas $categoriaNombre, casas particulares $categoriaNombre, alojamiento $categoriaNombre, cuvarents",
                 'url'         => BASE_URL . "rents/$categoriaSlug",
+                'robots' => $robotsForLists,
                 'breadcrumb'  => [
                     ['Inicio', BASE_URL],
                     ['Rentas', BASE_URL . 'rents'],
@@ -157,6 +163,7 @@ class RentasController
                 'description' => "Encuentra casas particulares y rentas en la provincia de $provinciaNombre. Explora municipios y elige tu alojamiento ideal.",
                 'keywords'    => "rentas en $provinciaNombre, casas particulares $provinciaNombre, alquiler $provinciaNombre, cuvarents",
                 'url'         => BASE_URL . "rents/provincias/$provinciaSlug",
+                'robots' => $robotsForLists,
                 'breadcrumb'  => [
                     ['Inicio', BASE_URL],
                     ['Rentas', BASE_URL . 'rents'],
@@ -171,6 +178,7 @@ class RentasController
                 'description' => "Descubre casas particulares y alojamientos en $municipioNombre. Reserva con confianza y vive Cuba a tu manera.",
                 'keywords'    => "rentas en $municipioNombre, casas particulares $municipioNombre, alojamiento $municipioNombre, cuvarents",
                 'url'         => BASE_URL . "rents/municipios/$municipioSlug",
+                'robots' => $robotsForLists,
                 'breadcrumb'  => [
                     ['Inicio', BASE_URL],
                     ['Rentas', BASE_URL . 'rents'],
@@ -197,7 +205,7 @@ class RentasController
                 'title'       => 'Explorar Rentas en Cuba | CuVaRents',
                 'description' => 'Explora casas particulares, apartamentos y alojamientos en Cuba. Encuentra la renta ideal para tu viaje.',
                 'url'         => BASE_URL . 'rents',
-                'robots'      => 'index, follow',
+                'robots' => $robotsForLists,
                 'breadcrumb'  => [
                     ['Inicio', BASE_URL],
                     ['Rentas', BASE_URL . 'rents']

@@ -4,12 +4,27 @@ require_once __DIR__ . '/../models/User.php';
 
 class AuthController
 {
+
     public function login(): void
     {
         Auth::requireGuest();
 
-        $error = Session::flash('error');      // lee y limpia
-        $info  = Session::flash('info');       // ejemplo, por si quieres mensajes informativos
+        // SEO dinámico para evitar indexación de login
+        $seo = $seo ?? [
+            'title'       => 'Iniciar sesión | CuVaRents',
+            'description' => 'Accede a tu cuenta de CuVaRents.',
+            'keywords'    => '',
+            'url'         => rtrim(BASE_URL, '/') . '/login',
+            'image'       => rtrim(BASE_URL, '/') . '/assets/img/og-image-cuvarents.jpg',
+            'type'        => 'website',
+            'locale'      => 'es_ES',
+            'robots'      => 'noindex, nofollow',
+            'breadcrumb'  => [['Inicio', BASE_URL], ['Login', rtrim(BASE_URL, '/') . '/login']],
+            'pageType'    => 'auth-login'
+        ];
+
+        $error = Session::flash('error');
+        $info  = Session::flash('info');
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email    = trim($_POST['email'] ?? '');
@@ -39,6 +54,20 @@ class AuthController
     public function register(): void
     {
         Auth::requireGuest();
+
+        // SEO dinámico para evitar indexación de register
+        $seo = $seo ?? [
+            'title'       => 'Crear cuenta | CuVaRents',
+            'description' => 'Crea una cuenta en CuVaRents.',
+            'keywords'    => '',
+            'url'         => rtrim(BASE_URL, '/') . '/register',
+            'image'       => rtrim(BASE_URL, '/') . '/assets/img/og-image-cuvarents.jpg',
+            'type'        => 'website',
+            'locale'      => 'es_ES',
+            'robots'      => 'noindex, nofollow',
+            'breadcrumb'  => [['Inicio', BASE_URL], ['Register', rtrim(BASE_URL, '/') . '/register']],
+            'pageType'    => 'auth-register'
+        ];
 
         $error   = Session::flash('error');
         $success = Session::flash('success');
@@ -74,6 +103,9 @@ class AuthController
 
     public function logout(): void
     {
+        // Logout no necesita indexación tampoco
+        header('X-Robots-Tag: noindex, nofollow', true);
+
         Auth::logout();
         header('Location: ' . BASE_URL);
         exit;
