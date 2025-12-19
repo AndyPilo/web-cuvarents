@@ -132,7 +132,7 @@
 
             <!-- Facebook -->
             <a
-              href="https://www.facebook.com/profile.php?id=61560542866042&mibextid=ZbWKwL"
+              href="https://www.facebook.com/people/Agencia-Cuvarents/61560542866042/?mibextid=ZbWKwL"
               target="_blank"
               class="group relative inline-flex items-center justify-center rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 p-3 hover:from-blue-600 hover:to-blue-800 transition-all duration-300 hover:scale-105 shadow-lg"
               aria-label="Facebook">
@@ -146,6 +146,7 @@
             <a
               href="#"
               id="whatsappLink"
+              target="_blank"
               class="group relative inline-flex items-center justify-center rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 p-3 hover:from-green-600 hover:to-green-700 transition-all duration-300 hover:scale-105 shadow-lg"
               aria-label="WhatsApp">
               <div class="absolute inset-0 rounded-xl bg-gradient-to-br from-green-600 to-green-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

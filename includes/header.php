@@ -3,22 +3,6 @@
 // Aquí NO se inicia sesión, ya está gestionado en bootstrap.php
 $basePath = BASE_PATH;
 
-// =============================
-// 🔧 SEO: Valores por defecto
-// =============================
-$seo = $seo ?? [
-  'title' => 'CuVaRents | Alquiler de Casas en Cuba',
-  'description' => 'Encuentra casas particulares y apartamentos en alquiler en toda Cuba. +500 propiedades verificadas. Reserva segura con CuVaRents.',
-  'keywords' => 'alquiler casas cuba, rentas cuba, casas particulares, apartamentos cuba, cuvarents',
-  'url' => BASE_URL,
-  'image' => BASE_URL . 'assets/img/og-image-cuvarents.jpg',
-  'type' => 'website',
-  'locale' => 'es_ES',
-  'robots' => 'index, follow',
-  'breadcrumb' => [['Inicio', BASE_URL]],
-  'pageType' => 'general'
-];
-
 // Sanitizar valores SEO (para evitar warnings de null)
 foreach ($seo as $key => $value) {
   if (is_array($value)) continue;
@@ -29,6 +13,20 @@ foreach ($seo as $key => $value) {
 <html lang="es" data-bs-theme="light">
 
 <head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GGD7VYB2LG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-GGD7VYB2LG');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -38,7 +36,6 @@ foreach ($seo as $key => $value) {
   <meta name="keywords" content="<?= htmlspecialchars($seo['keywords']); ?>">
   <meta name="robots" content="<?= htmlspecialchars($seo['robots']); ?>">
   <meta name="author" content="CuVaRents">
-  <meta name="language" content="Spanish">
   <link rel="canonical" href="<?= htmlspecialchars($seo['url']); ?>">
 
   <!-- GEO LOCAL -->
@@ -97,38 +94,37 @@ foreach ($seo as $key => $value) {
       "@context": "https://schema.org",
       "@graph": [{
           "@type": "WebSite",
-          "@id": "https://cuvarents.com/#website",
-          "url": "https://cuvarents.com/",
-          "name": "CuVaRents - Alquiler de Casas en Cuba",
-          "description": "Plataforma líder de alquileres particulares en Cuba",
+          "@id": "<?= BASE_URL ?>#website",
+          "url": "<?= BASE_URL ?>",
+          "name": "Casas particulares de alquiler en Cuba | CuVaRents",
+          "description": "Casas particulares, apartamentos, hostales y villas en alquiler en toda Cuba. Propiedades en La Habana, Varadero, Trinidad y más. Reserva por WhatsApp.",
           "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://cuvarents.com/search?query={search_term_string}",
+            "target": "<?= BASE_URL ?>rents?search={search_term_string}",
             "query-input": "required name=search_term_string"
           },
           "publisher": {
-            "@id": "https://cuvarents.com/#organization"
+            "@id": "<?= BASE_URL ?>#organization"
           }
         },
         {
           "@type": "Organization",
-          "@id": "https://cuvarents.com/#organization",
+          "@id": "<?= BASE_URL ?>#organization",
           "name": "CuVaRents",
-          "url": "https://cuvarents.com/",
+          "url": "<?= BASE_URL ?>",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://cuvarents.com/assets/img/logos/logo_qvarents.svg",
+            "url": "<?= BASE_URL ?>assets/img/logos/logo_qvarents.svg",
             "width": 250,
             "height": 60
           },
           "sameAs": [
-            "https://www.facebook.com/cuvarents",
+            "https://www.facebook.com/people/Agencia-Cuvarents/61560542866042/?mibextid=ZbWKwL",
             "https://www.instagram.com/cuvarents",
-            "https://twitter.com/cuvarents"
           ],
           "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+53-5-234-5678",
+            "telephone": "+5353868634",
             "contactType": "customer service",
             "availableLanguage": ["Spanish", "English"],
             "areaServed": "CU"
@@ -141,7 +137,7 @@ foreach ($seo as $key => $value) {
           "name": "<?= htmlspecialchars($seo['title']); ?>",
           "description": "<?= htmlspecialchars($seo['description']); ?>",
           "isPartOf": {
-            "@id": "https://cuvarents.com/#website"
+            "@id": "<?= BASE_URL ?>#website"
           },
           "inLanguage": "es-ES"
         },

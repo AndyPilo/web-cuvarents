@@ -35,7 +35,7 @@ if (!empty($nombre)) {
           </div>
           <div>
             <div class="text-xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent lg:text-xl">CuVaRents</div>
-            <div class="text-xs text-gray-500 hidden sm:block">alquiler de casas en cuba</div>
+            <div class="text-xs text-gray-500 hidden sm:block">Casas particulares en Cuba</div>
           </div>
         </a>
 

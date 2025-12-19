@@ -6201,3 +6201,9 @@ Stack trace:
 [18-Dec-2025 13:58:01 Europe/Berlin] ❌ Error de conexión PDO: SQLSTATE[HY000] [1049] Unknown database 'u756511143_cuvarents'
 [18-Dec-2025 13:58:10 Europe/Berlin] ❌ Error de conexión PDO: SQLSTATE[HY000] [1049] Unknown database 'u756511143_cuvarents'
 [18-Dec-2025 14:02:26 Europe/Berlin] ❌ Error de conexión PDO: SQLSTATE[HY000] [1049] Unknown database 'u756511143_cuvarents'
+[19-Dec-2025 19:45:39 Europe/Berlin] PHP Warning:  Undefined array key "keywords" in C:\xampp\htdocs\cuvarents\includes\header.php on line 22
+[19-Dec-2025 19:59:15 Europe/Berlin] PHP Warning:  Undefined array key "keywords" in C:\xampp\htdocs\cuvarents\includes\header.php on line 22
+[19-Dec-2025 20:00:56 Europe/Berlin] PHP Warning:  Undefined array key "keywords" in C:\xampp\htdocs\cuvarents\includes\header.php on line 22
+[19-Dec-2025 20:01:36 Europe/Berlin] PHP Warning:  Undefined array key "keywords" in C:\xampp\htdocs\cuvarents\includes\header.php on line 22
+[19-Dec-2025 20:01:53 Europe/Berlin] PHP Warning:  Undefined array key "keywords" in C:\xampp\htdocs\cuvarents\includes\header.php on line 22
+[19-Dec-2025 20:27:30 Europe/Berlin] PHP Warning:  Undefined array key "keywords" in C:\xampp\htdocs\cuvarents\includes\header.php on line 22
