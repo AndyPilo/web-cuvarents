@@ -1,0 +1,15 @@
+main {
+  background-color: #fff;
+  color: #333;
+}
+
+h1 {
+  font-size: 8rem;
+  font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 5rem;
+  }
+}

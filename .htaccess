@@ -1,110 +1,63 @@
 # =========================================
-# CONFIGURACIÓN DE .HTACCESS PARA CUVARENTS
+# 🌐 .HTACCESS UNIVERSAL - CuVaRents MVC
+# Compatible con localhost y producción (Hostinger)
 # =========================================
 
-# --- Permitir CORS (si lo necesitas para peticiones externas) ---
 <IfModule mod_headers.c>
     Header set Access-Control-Allow-Origin "*"
 </IfModule>
 
-# --- Páginas de error personalizadas ---
-ErrorDocument 404 /404.php
-ErrorDocument 403 /404.php
-
-# --- Seguridad: impedir acceso a archivos .ini ---
-<FilesMatch "\.ini$">
-Order Allow,Deny
-Deny from all
-</FilesMatch>
-
-# --- Seguridad: desactivar listado de directorios ---
 Options -Indexes
 
+<FilesMatch "\.(env|ini|log|sql)$">
+    Require all denied
+</FilesMatch>
+
+# --- Páginas de error personalizadas (controladas por el MVC) ---
+ErrorDocument 404 /index.php?url=error/404
+ErrorDocument 403 /index.php?url=error/403
+ErrorDocument 500 /index.php?url=error/500
+
+# ===============================================================
+# 🚀 MOTOR DE REESCRITURA
+# ===============================================================
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # ================================
-    # REDIRECCIONES 301 (URLs ANTIGUAS -> NUEVAS)
-    # ================================
+    # ===============================
+    # 🔧 Ajuste automático de BASE
+    # ===============================
 
-    # Redirecciones de rentas con categoria sin paginacion
-    #Casas de lujo
-    RewriteCond %{QUERY_STRING} ^category=Casas\+de\+lujo$ [NC]
-    RewriteRule ^rents$ /rents/casas-de-lujo? [R=301,L]
+    # Si estás en localhost (carpeta /cuvarents)
+    RewriteCond %{HTTP_HOST} ^localhost [NC]
+    RewriteRule ^ - [E=BASE:/cuvarents/]
 
-    # Casas en la playa
-    RewriteCond %{QUERY_STRING} ^category=Casas\+en\+la\+playa$ [NC]
-    RewriteRule ^rents$ /rents/casas-en-la-playa? [R=301,L]
+    # Si estás en producción (cuvarents.com)
+    RewriteCond %{HTTP_HOST} !^localhost [NC]
+    RewriteRule ^ - [E=BASE:/]
 
-    # Casas y Apartamentos por largas y cortas estancias
-    RewriteCond %{QUERY_STRING} ^category=Casas\+y\+Apartamentos\+por\+largas\+y\+cortas\+estancias$ [NC]
-    RewriteRule ^rents$ /rents/casas-y-apartamentos-por-largas-y-cortas-estancias? [R=301,L]
+    # ✅ Base correcta para local (subcarpeta /cuvarents/)
+    RewriteBase /cuvarents/
 
-    # Casas y Alojamientos vacacionales
-    RewriteCond %{QUERY_STRING} ^category=Casas\+y\+Alojamientos\+vacacionales$ [NC]
-    RewriteRule ^rents$ /rents/casas-y-alojamientos-vacacionales? [R=301,L]
+    # ===============================================================
+    # 🚫 EXCEPCIONES: No reescribir rutas API o archivos reales
+    # ===============================================================
 
-    # =========================================
+    # ⚙️ Dejar pasar llamadas a /api/
+    RewriteCond %{REQUEST_URI} ^/cuvarents/api/ [NC]
+    RewriteRule ^ - [L]
 
-    # Redirigir URLs con page pero categoría vacía
-    RewriteCond %{QUERY_STRING} ^page=([0-9]+)&category=$ [NC]
-    RewriteRule ^rents\.php$ /rents/page/%1? [R=301,L]
+    # ⚙️ Archivos estáticos
+    RewriteCond %{REQUEST_URI} ^/cuvarents/assets/ [NC]
+    RewriteRule ^ - [L]
 
-    # =========================================
-    
-    # Solo aplicar el remove .php a estos archivos del frontend
-    RewriteCond %{THE_REQUEST} \s/(rents|single|search-rents|about|contact)\.php[\s?] [NC]
-    RewriteRule ^ %1 [R=301,L]
+    RewriteCond %{REQUEST_URI} ^/cuvarents/uploads/ [NC]
+    RewriteRule ^ - [L]
 
-    # ========================================
-    # 2) Mantener funcionales login.php y signup.php
-    #    - El usuario ve /login o /signup
-    #    - Internamente se ejecutan login.php y signup.php
-    # ========================================
-    RewriteRule ^login$ login.php [L]
-    RewriteRule ^signup$ signup.php [L]
-
-    # ================================
-    # URLS AMIGABLES (REWRITE INTERNO)
-    # ================================
-
-    # Single
-    # URLs amigables para rentas: /rents/slug-del-titulo-492 → single.php?id=492
-    RewriteRule ^rents/[a-z0-9-]+-([0-9]+)/?$ single.php?id=$1 [NC,L]
-    # Redirigir /single/ID a /rents/slug-ID vía PHP
-    RewriteRule ^single/([0-9]+)/?$ single.php?id=$1 [NC,L]
-
-    # Rentas con categoría y paginación
-    RewriteRule ^rents/([a-z0-9-]+)/page/([0-9]+)/?$ rents.php?category=$1&page=$2 [NC,L]
-
-    # Rentas con categoría sin paginación
-    RewriteRule ^rents/([a-z0-9-]+)/?$ rents.php?category=$1&page=1 [NC,L]
-
-    # Rentas sin categoría con paginación
-    RewriteRule ^rents/page/([0-9]+)/?$ rents.php?page=$1 [NC,L]
-
-    # Rentas sin categoría ni paginación
-    RewriteRule ^rents/?$ rents.php?page=1 [NC,L]
-
-    # Search rents
-    RewriteRule ^search-rents/(.*)$ search-rents.php?$1 [L,QSA]
-
-    # Dashboard rents
-    RewriteRule ^dashboard/rents/page/([0-9]+)/?$ dashboard/rents.php?page=$1 [L,QSA]
-    RewriteRule ^dashboard/rents/?$ dashboard/rents.php?page=1 [L,QSA]
-
-    # Dashboard single
-    RewriteRule ^dashboard/single/([0-9]+)/?$ dashboard/single.php?id=$1 [NC,L]
-
-    # ================================
-    # QUITAR .PHP Y .HTML DE LAS URLS
-    # ================================
+    # ===============================================================
+    # ⚙️ RUTEO MVC GENERAL
+    # ===============================================================
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME}.php -f
-    RewriteRule ^(.*)$ $1.php [NC,L]
-
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME}.html -f
-    RewriteRule ^(.*)$ $1.html [NC,L]
-
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ %{ENV:BASE}index.php?url=$1 [QSA,L]
 </IfModule>

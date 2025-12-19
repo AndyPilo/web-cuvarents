@@ -1,5 +1,4 @@
 <?php
-// includes/functions.php
 
 if (!function_exists('slugify')) {
     function slugify($string)
