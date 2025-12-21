@@ -97,7 +97,7 @@
                       <h4 class="font-semibold text-gray-900">Busca y Filtra</h4>
                     </div>
                     <p class="text-sm text-gray-600">
-                      Usa nuestro buscador inteligente para seleccionar destino, fechas y filtrar por precio, habitaciones y servicios.
+                      Usa nuestro buscador inteligente para seleccionar destinos y filtrar por precio, habitaciones y servicios.
                     </p>
                   </div>
 
@@ -121,7 +121,7 @@
                       <h4 class="font-semibold text-gray-900">Contacta Directo</h4>
                     </div>
                     <p class="text-sm text-gray-600">
-                      Completa tu reserva contactando al propietario vía WhatsApp desde la ficha de la propiedad.
+                      Completa tu reserva contactando vía WhatsApp desde la ficha de la propiedad.
                     </p>
                   </div>
 

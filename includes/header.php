@@ -121,7 +121,7 @@ foreach ($seo as $key => $value) {
           "sameAs": [
             "https://www.facebook.com/people/Agencia-Cuvarents/61560542866042/?mibextid=ZbWKwL",
             "https://www.instagram.com/cuvarents",
-          ],
+          ]
           "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+5353868634",

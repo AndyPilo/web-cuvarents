@@ -69,7 +69,7 @@
             </div>
 
             <!-- Imagen secundaria flotante -->
-            <div class="absolute -bottom-6 -right-6 z-10 w-64 sm:w-72 lg:-bottom-8 lg:-right-8">
+            <div class="hidden absolute -bottom-6 -right-6 z-10 w-64 sm:w-72 lg:block lg:-bottom-10 lg:-right-8">
               <div class="overflow-hidden rounded-2xl shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
                 <img
                   src="<?= BASE_URL ?>assets/img/hero2.webp"
@@ -81,38 +81,9 @@
           </div>
 
         </div>
+    </section
 
-        <!-- Trust indicators -->
-        <div class="mt-12 flex flex-wrap items-center justify-center gap-8 pt-8">
-          <div class="flex items-center gap-3">
-            <div class="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-100">
-              <svg class="h-3 w-3 text-cyan-600" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-              </svg>
-            </div>
-            <span class="text-sm font-medium text-gray-700">Propiedades verificadas</span>
-          </div>
-          <div class="flex items-center gap-3">
-            <div class="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-100">
-              <svg class="h-3 w-3 text-cyan-600" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-              </svg>
-            </div>
-            <span class="text-sm font-medium text-gray-700">Fotos reales garantizadas</span>
-          </div>
-          <div class="flex items-center gap-3">
-            <div class="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-100">
-              <svg class="h-3 w-3 text-cyan-600" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-              </svg>
-            </div>
-            <span class="text-sm font-medium text-gray-700">Atención personalizada</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CATEGORÍAS DINÁMICAS -->
+      <!-- CATEGORÍAS DINÁMICAS -->
     <?php include_once __DIR__ . '/category.php'; ?>
 
     <!-- SECCIÓN DESTINOS -->
