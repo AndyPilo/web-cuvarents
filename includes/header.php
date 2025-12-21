@@ -94,70 +94,70 @@ foreach ($seo as $key => $value) {
       "@context": "https://schema.org",
       "@graph": [{
           "@type": "WebSite",
-          "@id": "<?= BASE_URL ?>#website",
-          "url": "<?= BASE_URL ?>",
+          "@id": "https://cuvarents.com/#website",
+          "url": "https://cuvarents.com/",
           "name": "Casas particulares de alquiler en Cuba | CuVaRents",
           "description": "Casas particulares, apartamentos, hostales y villas en alquiler en toda Cuba. Propiedades en La Habana, Varadero, Trinidad y más. Reserva por WhatsApp.",
+          "publisher": {
+            "@id": "https://cuvarents.com/#organization"
+          },
           "potentialAction": {
             "@type": "SearchAction",
-            "target": "<?= BASE_URL ?>rents?search={search_term_string}",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://cuvarents.com/rents?search={search_term_string}"
+            },
             "query-input": "required name=search_term_string"
-          },
-          "publisher": {
-            "@id": "<?= BASE_URL ?>#organization"
           }
         },
         {
           "@type": "Organization",
-          "@id": "<?= BASE_URL ?>#organization",
+          "@id": "https://cuvarents.com/#organization",
           "name": "CuVaRents",
-          "url": "<?= BASE_URL ?>",
+          "url": "https://cuvarents.com/",
           "logo": {
             "@type": "ImageObject",
-            "url": "<?= BASE_URL ?>assets/img/logos/logo_qvarents.svg",
+            "url": "https://cuvarents.com/assets/img/logos/logo_qvarents.svg",
             "width": 250,
             "height": 60
           },
           "sameAs": [
             "https://www.facebook.com/people/Agencia-Cuvarents/61560542866042/?mibextid=ZbWKwL",
-            "https://www.instagram.com/cuvarents",
-          ]
-          "contactPoint": {
+            "https://www.instagram.com/cuvarents"
+          ],
+          "contactPoint": [{
             "@type": "ContactPoint",
             "telephone": "+5353868634",
             "contactType": "customer service",
-            "availableLanguage": ["Spanish", "English"],
+            "availableLanguage": ["es", "en"],
             "areaServed": "CU"
-          }
+          }]
         },
         {
           "@type": "WebPage",
-          "@id": "<?= htmlspecialchars($seo['url']); ?>#webpage",
-          "url": "<?= htmlspecialchars($seo['url']); ?>",
-          "name": "<?= htmlspecialchars($seo['title']); ?>",
-          "description": "<?= htmlspecialchars($seo['description']); ?>",
+          "@id": "https://cuvarents.com/#webpage",
+          "url": "https://cuvarents.com/",
+          "name": "Casas particulares de alquiler en Cuba | CuVaRents",
+          "description": "Casas particulares, apartamentos, hostales y villas en alquiler en toda Cuba. Propiedades en La Habana, Varadero, Trinidad y más. Reserva por WhatsApp.",
           "isPartOf": {
-            "@id": "<?= BASE_URL ?>#website"
+            "@id": "https://cuvarents.com/#website"
           },
-          "inLanguage": "es-ES"
+          "inLanguage": "es"
         },
         {
           "@type": "BreadcrumbList",
-          "@id": "<?= htmlspecialchars($seo['url']); ?>#breadcrumb",
-          "itemListElement": [
-            <?php foreach ($seo['breadcrumb'] as $i => $item): ?> {
-                "@type": "ListItem",
-                "position": <?= $i + 1 ?>,
-                "name": "<?= htmlspecialchars($item[0]); ?>",
-                "item": "<?= htmlspecialchars($item[1]); ?>"
-              }
-              <?= $i + 1 < count($seo['breadcrumb']) ? ',' : '' ?>
-            <?php endforeach; ?>
-          ]
+          "@id": "https://cuvarents.com/#breadcrumb",
+          "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://cuvarents.com/"
+          }]
         }
       ]
     }
   </script>
+
 
   <!-- GLOBAL JS VARS -->
   <script>
