@@ -51,10 +51,13 @@
           </a>
         </div>
 
-        <!-- Grid de propiedades -->
+        <!-- Carrusel / Grid -->
         <div class="relative min-w-0">
-          <!-- Scroll horizontal para móvil -->
-          <div class="min-w-0 w-full flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-6 md:overflow-visible">
+          <!-- En móvil y md: carrusel (scroll horizontal). En lg+: grid -->
+          <div
+            class="min-w-0 w-full flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth no-scrollbar
+                   lg:grid lg:grid-cols-3 xl:grid-cols-4 lg:gap-6 lg:overflow-visible"
+            style="touch-action: pan-x;">
             <?php foreach (array_slice($rentas, 0, 8) as $renta): ?>
               <?php
               $images     = !empty($renta['images']) ? explode(',', $renta['images']) : [];
@@ -85,22 +88,28 @@
               $slug = slugify($rentalTitle);
               $url  = rtrim(BASE_URL, '/') . "/rents/" . $slug . "-" . $rentalId;
 
-              //$rating = rand(40, 50) / 10;
-
-              // Servicios: preferir service_data (icon::name), luego el array $renta['services'], luego service_icons
               $servicesData = $renta['service_data'] ?? null;
               $servicesOld  = $renta['service_icons'] ?? null;
-              $servicesArr   = $renta['services'] ?? [];
+              $servicesArr  = $renta['services'] ?? [];
               ?>
 
               <article
                 class="group relative flex flex-col shrink-0 w-[280px] snap-start rounded-2xl bg-white dark:bg-gray-800
                        shadow-md dark:shadow-gray-900/50 ring-1 ring-gray-200/50 dark:ring-gray-700/50 transition-all duration-300
                        hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-gray-900 hover:ring-gray-300/80 dark:hover:ring-gray-600/80
-                       md:w-auto"
+                       lg:w-auto lg:shrink"
                 itemscope
                 itemtype="https://schema.org/Accommodation">
-                <a href="<?= $url ?>" class="relative block overflow-hidden rounded-t-2xl aspect-square no-underline">
+
+                <!-- Overlay: TODA la card es clickeable (sin romper el swipe del carrusel) -->
+                <a href="<?= $url ?>"
+                  class="absolute inset-0 z-50 touch-pan-x"
+                  style="touch-action: pan-x;"
+                  aria-label="<?= htmlspecialchars($rentalTitle, ENT_QUOTES, 'UTF-8') ?>">
+                </a>
+
+                <!-- Imagen -->
+                <div class="relative block overflow-hidden rounded-t-2xl aspect-square z-20">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent z-10"></div>
 
                   <img src="<?= $cardImage ?>" alt="<?= $rentalTitle ?>" loading="lazy" itemprop="image"
@@ -130,15 +139,15 @@
                       <?php if (!empty($rentalPriceType)): ?>
                         <span class="text-xs text-gray-700 dark:text-gray-300 ml-1"><?= $rentalPriceType ?></span>
                       <?php endif; ?>
-
                     </div>
                   </div>
 
                   <div class="absolute inset-0 bg-gradient-to-t from-cyan-900/30 dark:from-cyan-900/50 via-transparent to-transparent
                               opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
-                </a>
+                </div>
 
-                <div class="flex flex-col flex-grow p-4">
+                <!-- Contenido -->
+                <div class="flex flex-col flex-grow p-4 relative z-20">
                   <h3 class="text-sm font-semibold text-gray-900 dark:text-white line-clamp-2 mb-2 group-hover:text-cyan-700 dark:group-hover:text-cyan-400 transition-colors"
                     itemprop="name">
                     <?= $rentalTitle ?>
@@ -203,37 +212,9 @@
                       ?>
                     </div>
                   <?php endif; ?>
-
-                  <a href="<?= $url ?>"
-                    class="inline-flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-700 px-3 py-2
-                            text-xs font-medium text-gray-700 dark:text-gray-300 no-underline transition-all
-                            hover:bg-cyan-100 dark:hover:bg-cyan-900/30 hover:text-cyan-700 dark:hover:text-cyan-400 group-hover:shadow-sm">
-                    Ver detalles
-                    <svg class="ml-1.5 h-3 w-3 transition-transform group-hover:translate-x-1"
-                      fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </a>
                 </div>
               </article>
             <?php endforeach; ?>
-          </div>
-
-          <!-- Flechas de navegación (solo móvil) -->
-          <div class="hidden">
-            <button class="absolute -left-4 top-1/2 -translate-y-1/2 rounded-full bg-white dark:bg-gray-800 p-2
-                           shadow-lg dark:shadow-gray-900/50 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors md:hidden">
-              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button class="absolute -right-4 top-1/2 -translate-y-1/2 rounded-full bg-white dark:bg-gray-800 p-2
-                           shadow-lg dark:shadow-gray-900/50 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors md:hidden">
-              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
           </div>
         </div>
 
@@ -252,6 +233,7 @@
             </a>
           </div>
         <?php endif; ?>
+
       </div>
     <?php endif; ?>
   <?php endforeach; ?>

@@ -262,11 +262,19 @@
 
               <article
                 class="group relative flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg dark:shadow-gray-900/50
-                       ring-1 ring-gray-200/50 dark:ring-gray-700/50 transition-all duration-300
-                       hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-gray-900 hover:ring-gray-300/80 dark:hover:ring-gray-600/80"
+         ring-1 ring-gray-200/50 dark:ring-gray-700/50 transition-all duration-300
+         hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-gray-900 hover:ring-gray-300/80 dark:hover:ring-gray-600/80"
                 itemscope
                 itemtype="https://schema.org/Accommodation">
-                <a href="<?= $url ?>" class="relative block overflow-hidden aspect-square no-underline">
+
+                <!-- Overlay: hace toda la card clickeable -->
+                <a href="<?= $url ?>"
+                  class="absolute inset-0 z-50"
+                  aria-label="<?= htmlspecialchars($rentalTitle, ENT_QUOTES, 'UTF-8') ?>">
+                </a>
+
+                <!-- Imagen -->
+                <div class="relative block overflow-hidden aspect-square no-underline z-20">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent z-10"></div>
 
                   <img src="<?= $cardImage ?>" alt="<?= $rentalTitle ?>" loading="lazy"
@@ -276,9 +284,9 @@
                   <?php if ($isPromoted): ?>
                     <div class="absolute top-3 left-3 z-20">
                       <div class="flex items-center gap-1.5 rounded-full 
-                        bg-gradient-to-r from-yellow-300/60 to-yellow-200 dark:from-yellow-500/60 dark:to-yellow-400
-                        backdrop-blur-sm border border-yellow-200/50 dark:border-yellow-400/50
-                        px-3 py-1.5 group">
+          bg-gradient-to-r from-yellow-300/60 to-yellow-200 dark:from-yellow-500/60 dark:to-yellow-400
+          backdrop-blur-sm border border-yellow-200/50 dark:border-yellow-400/50
+          px-3 py-1.5 group">
                         <svg class="h-3.5 w-3.5 text-yellow-900 dark:text-yellow-900" fill="currentColor" viewBox="0 0 20 20">
                           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                         </svg>
@@ -291,8 +299,8 @@
 
                   <div class="absolute top-3 right-3 z-20">
                     <div class="flex items-center gap-1.5 rounded-full 
-                      bg-gradient-to-r from-slate-100 to-slate-200 dark:from-gray-700 dark:to-gray-800
-                      backdrop-blur-sm border border-gray-200 dark:border-gray-600 px-3 py-1.5 group">
+        bg-gradient-to-r from-slate-100 to-slate-200 dark:from-gray-700 dark:to-gray-800
+        backdrop-blur-sm border border-gray-200 dark:border-gray-600 px-3 py-1.5 group">
                       <span class="text-sm font-bold text-gray-900 dark:text-white"><?= $rentalPriceDisplay ?></span>
                       <?php if (!empty($rentalPriceType)): ?>
                         <span class="text-xs text-gray-700 dark:text-gray-300 ml-1"><?= $rentalPriceType ?></span>
@@ -301,10 +309,11 @@
                   </div>
 
                   <div class="absolute inset-0 bg-gradient-to-t from-cyan-900/30 dark:from-cyan-900/50 via-transparent to-transparent
-                              opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
-                </a>
+                opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+                </div>
 
-                <div class="flex flex-col flex-grow p-4">
+                <!-- Contenido -->
+                <div class="flex flex-col flex-grow p-4 relative z-20">
                   <h3 class="text-sm font-semibold text-gray-900 dark:text-white line-clamp-2 mb-2 group-hover:text-cyan-700 dark:group-hover:text-cyan-400 transition-colors"
                     itemprop="name">
                     <?= $rentalTitle ?>
@@ -368,20 +377,9 @@
                       ?>
                     </div>
                   <?php endif; ?>
-
-                  <a href="<?= $url ?>"
-                    class="inline-flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-700 px-3 py-2
-                            text-xs font-medium text-gray-700 dark:text-gray-300 no-underline transition-all
-                            hover:bg-cyan-100 dark:hover:bg-cyan-900/30 hover:text-cyan-700 dark:hover:text-cyan-400 group-hover:shadow-sm">
-                    Ver detalles
-                    <svg class="ml-1.5 h-3 w-3 transition-transform group-hover:translate-x-1"
-                      fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </a>
                 </div>
               </article>
+
 
             <?php endforeach; ?>
           </div>

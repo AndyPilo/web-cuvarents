@@ -75,6 +75,8 @@ class RentasController
         $itemsPerPage = 12;
         $offset       = ($page - 1) * $itemsPerPage;
 
+        $homeSearch = trim($_GET['search'] ?? '');
+
         // --- CONTEXTO PRO ---
         $categoriaSlug = $_GET['categoria'] ?? '';
         $provinciaSlug = $_GET['provincia_slug'] ?? '';
@@ -129,6 +131,8 @@ class RentasController
         // -------- CONSULTA PRINCIPAL --------
         if ($hasFilters) {
             $rentsData = $this->searchModel->buscarPropiedades($filters, $itemsPerPage, $offset);
+        } elseif ($homeSearch !== '') {
+            $rentsData = $this->rentaModel->getRentas($itemsPerPage, $offset, '', '', $homeSearch);
         } elseif ($categoriaNombre !== '') {
             $rentsData = $this->rentaModel->getRentas($itemsPerPage, $offset, $categoriaNombre);
         } else {
@@ -187,7 +191,7 @@ class RentasController
                 ],
                 'pageType' => 'rentas-municipio'
             ]);
-        } elseif ($hasFilters) {
+        } elseif ($hasFilters || $homeSearch !== '') {
             $seo = $this->mergeSeoDefaults([
                 'title'       => 'Resultados de búsqueda | CuVaRents',
                 'description' => 'Explora casas particulares y apartamentos en Cuba según tus preferencias.',

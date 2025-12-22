@@ -77,7 +77,7 @@ if (!empty($nombre)) {
       <!-- Acciones del usuario (derecha) -->
       <div class="flex items-center gap-3">
 
-        <div class="hidden lg:block">
+        <div class="block">
           <div class="relative" data-dropdown>
             <button
               type="button"

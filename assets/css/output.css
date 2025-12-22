@@ -1521,6 +1521,11 @@ video {
   cursor: pointer;
 }
 
+.touch-pan-x {
+  --tw-pan-x: pan-x;
+  touch-action: var(--tw-pan-x) var(--tw-pan-y) var(--tw-pinch-zoom);
+}
+
 .resize-none {
   resize: none;
 }
@@ -5227,6 +5232,10 @@ video {
     max-width: none;
   }
 
+  .lg\:shrink {
+    flex-shrink: 1;
+  }
+
   .lg\:translate-x-0 {
     --tw-translate-x: 0px;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -5274,6 +5283,14 @@ video {
 
   .lg\:gap-3 {
     gap: 0.75rem;
+  }
+
+  .lg\:gap-6 {
+    gap: 1.5rem;
+  }
+
+  .lg\:overflow-visible {
+    overflow: visible;
   }
 
   .lg\:bg-transparent {
@@ -5401,12 +5418,24 @@ video {
     grid-column: span 7 / span 7;
   }
 
+  .xl\:grid {
+    display: grid;
+  }
+
   .xl\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .xl\:gap-12 {
     gap: 3rem;
+  }
+
+  .xl\:gap-6 {
+    gap: 1.5rem;
+  }
+
+  .xl\:overflow-visible {
+    overflow: visible;
   }
 
   .xl\:pr-12 {

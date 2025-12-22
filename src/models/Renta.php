@@ -16,7 +16,8 @@ class Renta
         int $itemsPerPage,
         int $offset,
         string $category = '',
-        string $zone = ''
+        string $zone = '',
+        string $q = ''
     ): array {
         try {
             // --- Construcción base del WHERE ---
@@ -32,6 +33,17 @@ class Renta
                 // Coincidencia con nombre de municipio o provincia
                 $where .= " AND (Rentals.rental_municipio LIKE :zone OR Rentals.rental_provincia LIKE :zone)";
                 $params[':zone'] = '%' . $zone . '%';
+            }
+
+            $q = trim($q);
+            if ($q !== '') {
+                $where .= " AND ( 
+                    Rentals.rental_title LIKE :q
+                    OR Rentals.rental_provincia LIKE :q
+                    OR Rentals.rental_municipio LIKE :q
+                    OR Rentals.rental_category LIKE :q
+                )";
+                $params[':q'] = '%' . $q . '%';
             }
 
             // --- Consulta principal ---

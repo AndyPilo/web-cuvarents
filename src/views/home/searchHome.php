@@ -1,4 +1,4 @@
-<form action="<?= BASE_URL ?>rents?" method="GET" class="relative">
+<form action="<?= BASE_URL ?>rents" method="GET" class="relative">
     <div class="flex flex-col md:flex-row gap-2">
         <div class="relative flex-1">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
