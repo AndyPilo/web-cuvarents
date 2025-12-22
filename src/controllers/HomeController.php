@@ -18,7 +18,7 @@ class HomeController
             'url' => BASE_URL,
             'image' => BASE_URL . 'assets/img/og-image-cuvarents.jpg',
             'type' => 'website',
-            'locale' => 'es_ES',
+            'locale' => 'es_CU',
             'robots' => 'index, follow',
             'breadcrumb' => [['Inicio', BASE_URL]],
             'pageType' => 'general'
@@ -46,7 +46,7 @@ class HomeController
         ];
 
         $seo = $this->mergeSeoDefaults([
-            'title' => 'Casas particulares de alquiler en Cuba | CuVaRents',
+            'title' => 'Casas particulares en alquiler en Cuba: La Habana, Varadero y más | CuVaRents',
             'description' => 'Casas particulares, apartamentos, hostales y villas en alquiler en toda Cuba. Propiedades en La Habana, Varadero, Trinidad y más. Reserva por WhatsApp.',
             'url' => BASE_URL,
             'robots' => 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',

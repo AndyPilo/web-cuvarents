@@ -17,7 +17,7 @@ class AuthController
             'url'         => rtrim(BASE_URL, '/') . '/login',
             'image'       => rtrim(BASE_URL, '/') . '/assets/img/og-image-cuvarents.jpg',
             'type'        => 'website',
-            'locale'      => 'es_ES',
+            'locale'      => 'es_CU',
             'robots'      => 'noindex, nofollow',
             'breadcrumb'  => [['Inicio', BASE_URL], ['Login', rtrim(BASE_URL, '/') . '/login']],
             'pageType'    => 'auth-login'
@@ -63,7 +63,7 @@ class AuthController
             'url'         => rtrim(BASE_URL, '/') . '/register',
             'image'       => rtrim(BASE_URL, '/') . '/assets/img/og-image-cuvarents.jpg',
             'type'        => 'website',
-            'locale'      => 'es_ES',
+            'locale'      => 'es_CU',
             'robots'      => 'noindex, nofollow',
             'breadcrumb'  => [['Inicio', BASE_URL], ['Register', rtrim(BASE_URL, '/') . '/register']],
             'pageType'    => 'auth-register'

@@ -23,7 +23,7 @@ class RentasController
             'url'         => BASE_URL,
             'image'       => BASE_URL . 'assets/img/og-image-cuvarents.jpg',
             'type'        => 'website',
-            'locale'      => 'es_ES',
+            'locale'      => 'es_CU',
             'robots'      => 'index, follow',
             'breadcrumb'  => [['Inicio', BASE_URL]],
             'pageType'    => 'general'

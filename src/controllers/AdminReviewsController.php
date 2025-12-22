@@ -113,7 +113,7 @@ class AdminReviewsController extends BaseAdminController
             'url'         => BASE_URL . 'dashboard/reviews',
             'image'       => BASE_URL . 'assets/img/og-image-cuvarents.jpg',
             'type'        => 'website',
-            'locale'      => 'es_ES',
+            'locale'      => 'es_CU',
             'robots'      => 'noindex, nofollow',
             'breadcrumb'  => [
                 ['Inicio', BASE_URL],

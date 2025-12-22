@@ -50,7 +50,6 @@ foreach ($seo as $key => $value) {
   <!-- SEO PRINCIPAL -->
   <title><?= htmlspecialchars($seo['title']); ?></title>
   <meta name="description" content="<?= htmlspecialchars($seo['description']); ?>">
-  <meta name="keywords" content="<?= htmlspecialchars($seo['keywords']); ?>">
   <meta name="robots" content="<?= htmlspecialchars($seo['robots']); ?>">
   <meta name="author" content="CuVaRents">
   <link rel="canonical" href="<?= htmlspecialchars($seo['url']); ?>">
