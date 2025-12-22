@@ -20,8 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
     root.setAttribute("data-theme", value);
   }
 
+  // Aplica tema inicial
   applyTheme(localStorage.getItem("theme") || "auto");
 
+  // Si cambia el tema del sistema y estás en auto, actualiza
   if (typeof media.addEventListener === "function") {
     media.addEventListener("change", () => {
       if ((localStorage.getItem("theme") || "auto") === "auto")
@@ -93,6 +95,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // Click dentro del menú NO debe cerrar por el handler global
     menu.addEventListener("click", (e) => e.stopPropagation());
 
+    // ✅ Tema: manejar dentro del menú (porque stopPropagation impide que llegue a document)
+    menu.addEventListener("click", (e) => {
+      const themeBtn = e.target.closest("[data-theme-value]");
+      if (!themeBtn) return;
+
+      const value = themeBtn.getAttribute("data-theme-value");
+      if (!value) return;
+
+      applyTheme(value);
+      closeDropdown(dd); // opcional: cerrar al elegir tema
+    });
+
     // ✅ SOLO cerrar si el usuario hace click en un elemento marcado explícitamente
     menu.addEventListener("click", (e) => {
       const closeEl = e.target.closest("[data-dropdown-close]");
@@ -116,16 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Resize: cierra todo
   window.addEventListener("resize", () => dropdowns.forEach(closeDropdown));
 
-  // -------------------------
-  // Click en opciones de tema
-  // -------------------------
-  document.addEventListener("click", (e) => {
-    const btn = e.target.closest("[data-theme-value]");
-    if (!btn) return;
-
-    const value = btn.getAttribute("data-theme-value");
-    if (!value) return;
-
-    applyTheme(value);
-  });
+  // ❌ IMPORTANTE:
+  // Ya NO hacemos: document.addEventListener("click", ...data-theme-value...)
+  // porque el menú detiene la propagación y nunca llegaba aquí.
 });

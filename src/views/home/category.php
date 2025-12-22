@@ -3,20 +3,20 @@
   <!-- Header principal de la sección -->
   <div class="text-center mb-12 lg:mb-16">
     <div class="inline-flex items-center justify-center mb-4">
-      <span class="inline-flex items-center rounded-full bg-gradient-to-r from-cyan-50 to-blue-50 px-4 py-2">
+      <span class="inline-flex items-center rounded-full bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-cyan-900/30 dark:to-blue-900/30 px-4 py-2">
         <span class="mr-2 h-2 w-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500"></span>
-        <span class="text-sm font-medium text-cyan-800">Encuentra por categoría</span>
+        <span class="text-sm font-medium text-cyan-800 dark:text-cyan-300">Encuentra por categoría</span>
       </span>
     </div>
 
-    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
+    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
       <span class="block">Explora Casas particulares de alquiler en Cuba</span>
-      <span class="block bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent pb-2">
+      <span class="block bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-500 dark:to-blue-500 bg-clip-text text-transparent pb-2">
         por categoría
       </span>
     </h2>
 
-    <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+    <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-600 dark:text-gray-300">
       Descubre nuestra selección de casas y apartamentos particulares de alquiler organizados por tipo de propiedad
     </p>
   </div>
@@ -29,10 +29,10 @@
         <div class="flex items-center justify-between mb-6 lg:mb-8">
           <div class="flex items-center gap-4">
             <div>
-              <h3 class="text-xl font-bold text-gray-900 md:text-2xl">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white md:text-2xl">
                 <?= htmlspecialchars($categoria) ?>
               </h3>
-              <p class="text-sm text-gray-500 mt-1">
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
                 <?= count($rentas) ?> propiedades disponibles
               </p>
             </div>
@@ -40,9 +40,9 @@
 
           <a
             href="<?= BASE_URL ?>rents/<?= slugify($categoria) ?>"
-            class="group inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-5 py-2.5
-                   text-sm font-semibold text-gray-700 no-underline transition-all
-                   hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 hover:shadow-sm">
+            class="group inline-flex items-center gap-2 rounded-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-5 py-2.5
+                   text-sm font-semibold text-gray-700 dark:text-gray-300 no-underline transition-all
+                   hover:border-cyan-500 dark:hover:border-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 hover:text-cyan-700 dark:hover:text-cyan-400 hover:shadow-sm">
             <span>Ver todo</span>
             <svg class="h-4 w-4 transition-transform group-hover:translate-x-1"
               fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -94,9 +94,9 @@
               ?>
 
               <article
-                class="group relative flex flex-col shrink-0 w-[280px] snap-start rounded-2xl bg-white
-                       shadow-md ring-1 ring-gray-200/50 transition-all duration-300
-                       hover:-translate-y-1 hover:shadow-xl hover:ring-gray-300/80
+                class="group relative flex flex-col shrink-0 w-[280px] snap-start rounded-2xl bg-white dark:bg-gray-800
+                       shadow-md dark:shadow-gray-900/50 ring-1 ring-gray-200/50 dark:ring-gray-700/50 transition-all duration-300
+                       hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-gray-900 hover:ring-gray-300/80 dark:hover:ring-gray-600/80
                        md:w-auto"
                 itemscope
                 itemtype="https://schema.org/Accommodation">
@@ -109,13 +109,13 @@
                   <?php if ($isPromoted): ?>
                     <div class="absolute top-3 left-3 z-20">
                       <div class="flex items-center gap-1.5 rounded-full 
-                        bg-gradient-to-r from-yellow-300/60 to-yellow-200
-                        backdrop-blur-sm border border-yellow-200/50
+                        bg-gradient-to-r from-yellow-300/60 to-yellow-200 dark:from-yellow-500/60 dark:to-yellow-400
+                        backdrop-blur-sm border border-yellow-200/50 dark:border-yellow-400/50
                         px-3 py-1.5 group">
-                        <svg class="h-3.5 w-3.5 text-yellow-900" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="h-3.5 w-3.5 text-yellow-900 dark:text-yellow-900" fill="currentColor" viewBox="0 0 20 20">
                           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                         </svg>
-                        <span class="text-xs font-semibold text-yellow-900 group-hover:text-yellow-800">
+                        <span class="text-xs font-semibold text-yellow-900 dark:text-yellow-900 group-hover:text-yellow-800">
                           VIP
                         </span>
                       </div>
@@ -124,27 +124,27 @@
 
                   <div class="absolute top-3 right-3 z-20">
                     <div class="flex items-center gap-1.5 rounded-full 
-                      bg-gradient-to-r from-slate-100 to-slate-200
-                      backdrop-blur-sm border px-3 py-1.5 group">
-                      <span class="text-sm font-bold text-gray-900"><?= $rentalPriceDisplay ?></span>
+                      bg-gradient-to-r from-slate-100 to-slate-200 dark:from-gray-700 dark:to-gray-800
+                      backdrop-blur-sm border border-gray-200 dark:border-gray-600 px-3 py-1.5 group">
+                      <span class="text-sm font-bold text-gray-900 dark:text-white"><?= $rentalPriceDisplay ?></span>
                       <?php if (!empty($rentalPriceType)): ?>
-                        <span class="text-xs text-gray-700 ml-1"><?= $rentalPriceType ?></span>
+                        <span class="text-xs text-gray-700 dark:text-gray-300 ml-1"><?= $rentalPriceType ?></span>
                       <?php endif; ?>
 
                     </div>
                   </div>
 
-                  <div class="absolute inset-0 bg-gradient-to-t from-cyan-900/30 via-transparent to-transparent
+                  <div class="absolute inset-0 bg-gradient-to-t from-cyan-900/30 dark:from-cyan-900/50 via-transparent to-transparent
                               opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
                 </a>
 
                 <div class="flex flex-col flex-grow p-4">
-                  <h3 class="text-sm font-semibold text-gray-900 line-clamp-2 mb-2 group-hover:text-cyan-700 transition-colors"
+                  <h3 class="text-sm font-semibold text-gray-900 dark:text-white line-clamp-2 mb-2 group-hover:text-cyan-700 dark:group-hover:text-cyan-400 transition-colors"
                     itemprop="name">
                     <?= $rentalTitle ?>
                   </h3>
 
-                  <div class="flex items-center gap-1.5 text-xs text-gray-500 mb-3">
+                  <div class="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 mb-3">
                     <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                         d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -154,7 +154,7 @@
                     <span class="truncate"><?= $provincia ?>, <?= $municipio ?></span>
                   </div>
 
-                  <div class="flex items-center gap-4 text-xs text-gray-500 mb-3">
+                  <div class="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400 mb-3">
                     <?php if (!empty($rentalHab)): ?>
                       <div class="flex items-center gap-1">
                         <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -177,7 +177,7 @@
                   </div>
 
                   <?php if (!empty($servicesData) || !empty($servicesOld) || !empty($servicesArr)): ?>
-                    <div class="flex items-center gap-2 text-gray-500 mb-3" aria-hidden="false">
+                    <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400 mb-3" aria-hidden="false">
                       <?php
                       if (!empty($servicesData)) {
                         $pairs = array_filter(explode('||', $servicesData));
@@ -205,9 +205,9 @@
                   <?php endif; ?>
 
                   <a href="<?= $url ?>"
-                    class="inline-flex items-center justify-center rounded-lg bg-gray-100 px-3 py-2
-                            text-xs font-medium text-gray-700 no-underline transition-all
-                            hover:bg-cyan-100 hover:text-cyan-700 group-hover:shadow-sm">
+                    class="inline-flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-700 px-3 py-2
+                            text-xs font-medium text-gray-700 dark:text-gray-300 no-underline transition-all
+                            hover:bg-cyan-100 dark:hover:bg-cyan-900/30 hover:text-cyan-700 dark:hover:text-cyan-400 group-hover:shadow-sm">
                     Ver detalles
                     <svg class="ml-1.5 h-3 w-3 transition-transform group-hover:translate-x-1"
                       fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -222,14 +222,14 @@
 
           <!-- Flechas de navegación (solo móvil) -->
           <div class="hidden">
-            <button class="absolute -left-4 top-1/2 -translate-y-1/2 rounded-full bg-white p-2
-                           shadow-lg hover:bg-gray-50 transition-colors md:hidden">
+            <button class="absolute -left-4 top-1/2 -translate-y-1/2 rounded-full bg-white dark:bg-gray-800 p-2
+                           shadow-lg dark:shadow-gray-900/50 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors md:hidden">
               <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
               </svg>
             </button>
-            <button class="absolute -right-4 top-1/2 -translate-y-1/2 rounded-full bg-white p-2
-                           shadow-lg hover:bg-gray-50 transition-colors md:hidden">
+            <button class="absolute -right-4 top-1/2 -translate-y-1/2 rounded-full bg-white dark:bg-gray-800 p-2
+                           shadow-lg dark:shadow-gray-900/50 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors md:hidden">
               <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>
@@ -242,9 +242,9 @@
           <div class="mt-8 text-center">
             <a
               href="<?= BASE_URL ?>rents/<?= slugify($categoria) ?>"
-              class="inline-flex items-center justify-center rounded-full border border-gray-300
-                     bg-white px-6 py-3 text-sm font-medium text-gray-700 no-underline
-                     hover:border-gray-400 hover:bg-gray-50 hover:shadow-sm transition-all">
+              class="inline-flex items-center justify-center rounded-full border border-gray-300 dark:border-gray-700
+                     bg-white dark:bg-gray-800 px-6 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 no-underline
+                     hover:border-gray-400 dark:hover:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 hover:shadow-sm transition-all">
               Ver <?= count($rentas) - 8 ?> propiedades más de <?= htmlspecialchars($categoria) ?>
               <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />

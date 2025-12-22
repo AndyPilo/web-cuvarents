@@ -1,6 +1,6 @@
 <?php include_once __DIR__ . '/../../../includes/header.php'; ?>
 
-<body class="bg-gray-50">
+<body class="bg-gray-50 dark:bg-gray-900">
   <?php include_once __DIR__ . '/../../../includes/navbar.php'; ?>
 
   <?php
@@ -107,7 +107,7 @@
             class="inline-flex items-center <?php echo $i > 0 ? 'space-x-1.5' : ''; ?>"
             <?php echo ($i === $lastIndex) ? 'aria-current="page"' : ''; ?>>
             <?php if ($i > 0): ?>
-              <svg class="w-3.5 h-3.5 rtl:rotate-180 text-gray-400" aria-hidden="true"
+              <svg class="w-3.5 h-3.5 rtl:rotate-180 text-gray-400 dark:text-gray-500" aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
               </svg>
@@ -115,7 +115,7 @@
 
             <?php if (!empty($c['url']) && $i !== $lastIndex): ?>
               <a href="<?= $c['url'] ?>"
-                class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-blue-800 transition-colors">
+                class="inline-flex items-center text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-blue-800 dark:hover:text-blue-400 transition-colors">
                 <?php if (!empty($c['home'])): ?>
                   <svg class="w-4 h-4 me-1.5" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -129,7 +129,7 @@
                 </span>
               </a>
             <?php else: ?>
-              <span class="inline-flex items-center text-sm font-semibold text-gray-900">
+              <span class="inline-flex items-center text-sm font-semibold text-gray-900 dark:text-white">
                 <span class="truncate max-w-[180px] sm:max-w-xs">
                   <?= htmlspecialchars($c['label']) ?>
                 </span>
@@ -147,45 +147,45 @@
         <?php if (!empty($zonaSeo)): ?>
           <div class="text-center lg:text-left">
             <div class="inline-flex items-center justify-center mb-4">
-              <span class="inline-flex items-center rounded-full bg-gradient-to-r from-cyan-50 to-blue-50 px-4 py-2">
+              <span class="inline-flex items-center rounded-full bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-cyan-900/30 dark:to-blue-900/30 px-4 py-2">
                 <span class="mr-2 h-2 w-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500"></span>
-                <span class="text-sm font-medium text-cyan-800">
+                <span class="text-sm font-medium text-cyan-800 dark:text-cyan-300">
                   <?= htmlspecialchars($zonaSeo['subtitle'] ?? 'Destino') ?>
                 </span>
               </span>
             </div>
 
-            <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl mb-4">
+            <h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl mb-4">
               <?= htmlspecialchars($zonaSeo['h1']) ?>
             </h1>
 
-            <p class="mx-auto max-w-3xl text-lg text-gray-600 lg:text-left">
+            <p class="mx-auto max-w-3xl text-lg text-gray-600 dark:text-gray-300 lg:text-left">
               <?= htmlspecialchars($zonaSeo['intro']) ?>
             </p>
           </div>
         <?php else: ?>
           <div class="text-center lg:text-left">
             <div class="inline-flex items-center justify-center mb-4">
-              <span class="inline-flex items-center rounded-full bg-gradient-to-r from-cyan-50 to-blue-50 px-4 py-2">
+              <span class="inline-flex items-center rounded-full bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-cyan-900/30 dark:to-blue-900/30 px-4 py-2">
                 <span class="mr-2 h-2 w-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500"></span>
-                <span class="text-sm font-medium text-cyan-800">Propiedades disponibles</span>
+                <span class="text-sm font-medium text-cyan-800 dark:text-cyan-300">Propiedades disponibles</span>
               </span>
             </div>
 
-            <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl mb-4">
-              <span class="block bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
+            <h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl mb-4">
+              <span class="block bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-500 dark:to-blue-500 bg-clip-text text-transparent">
                 <?= htmlspecialchars($contextTitle) ?>
               </span>
 
               <?php if (!empty($totalResults)): ?>
-                <span class="block bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
+                <span class="block bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-500 dark:to-blue-500 bg-clip-text text-transparent">
                   <?= $totalResults ?> propiedades
                 </span>
               <?php endif; ?>
             </h1>
 
             <?php if (!empty($totalResults) && $totalResults > 0): ?>
-              <p class="text-lg text-gray-600">
+              <p class="text-lg text-gray-600 dark:text-gray-300">
                 Encuentra la propiedad perfecta para tu estancia en Cuba
               </p>
             <?php endif; ?>
@@ -196,22 +196,22 @@
       <div class="w-full">
 
         <?php if (empty($rents)): ?>
-          <div class="rounded-2xl bg-gradient-to-br from-gray-50 to-white p-12 text-center shadow-sm">
+          <div class="rounded-2xl bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 p-12 text-center shadow-sm dark:shadow-gray-800/30">
             <div class="mx-auto max-w-md">
-              <svg class="mx-auto h-16 w-16 text-gray-400 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="mx-auto h-16 w-16 text-gray-400 dark:text-gray-500 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                   d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
 
-              <h2 class="text-2xl font-bold text-gray-900 mb-3">No encontramos propiedades</h2>
-              <p class="text-gray-600 mb-8">
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">No encontramos propiedades</h2>
+              <p class="text-gray-600 dark:text-gray-300 mb-8">
                 Prueba ajustando los filtros de búsqueda o explorando otros destinos de Cuba
               </p>
 
               <a href="<?= BASE_URL ?>rents"
-                class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600
+                class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-500 dark:to-blue-500
                         px-8 py-3 text-base font-semibold text-white shadow-lg transition-all
-                        hover:from-cyan-700 hover:to-blue-700 hover:shadow-xl hover:-translate-y-0.5">
+                        hover:from-cyan-700 hover:to-blue-700 dark:hover:from-cyan-600 dark:hover:to-blue-600 hover:shadow-xl hover:-translate-y-0.5">
                 <svg class="mr-3 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
@@ -261,9 +261,9 @@
             ?>
 
               <article
-                class="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg
-                       ring-1 ring-gray-200/50 transition-all duration-300
-                       hover:-translate-y-1 hover:shadow-xl hover:ring-gray-300/80"
+                class="group relative flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg dark:shadow-gray-900/50
+                       ring-1 ring-gray-200/50 dark:ring-gray-700/50 transition-all duration-300
+                       hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-gray-900 hover:ring-gray-300/80 dark:hover:ring-gray-600/80"
                 itemscope
                 itemtype="https://schema.org/Accommodation">
                 <a href="<?= $url ?>" class="relative block overflow-hidden aspect-square no-underline">
@@ -276,13 +276,13 @@
                   <?php if ($isPromoted): ?>
                     <div class="absolute top-3 left-3 z-20">
                       <div class="flex items-center gap-1.5 rounded-full 
-                        bg-gradient-to-r from-yellow-300/60 to-yellow-200
-                        backdrop-blur-sm border border-yellow-200/50
+                        bg-gradient-to-r from-yellow-300/60 to-yellow-200 dark:from-yellow-500/60 dark:to-yellow-400
+                        backdrop-blur-sm border border-yellow-200/50 dark:border-yellow-400/50
                         px-3 py-1.5 group">
-                        <svg class="h-3.5 w-3.5 text-yellow-900" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="h-3.5 w-3.5 text-yellow-900 dark:text-yellow-900" fill="currentColor" viewBox="0 0 20 20">
                           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                         </svg>
-                        <span class="text-xs font-semibold text-yellow-900 group-hover:text-yellow-800">
+                        <span class="text-xs font-semibold text-yellow-900 dark:text-yellow-900 group-hover:text-yellow-800">
                           VIP
                         </span>
                       </div>
@@ -291,26 +291,26 @@
 
                   <div class="absolute top-3 right-3 z-20">
                     <div class="flex items-center gap-1.5 rounded-full 
-                      bg-gradient-to-r from-slate-100 to-slate-200
-                      backdrop-blur-sm border px-3 py-1.5 group">
-                      <span class="text-sm font-bold text-gray-900"><?= $rentalPriceDisplay ?></span>
+                      bg-gradient-to-r from-slate-100 to-slate-200 dark:from-gray-700 dark:to-gray-800
+                      backdrop-blur-sm border border-gray-200 dark:border-gray-600 px-3 py-1.5 group">
+                      <span class="text-sm font-bold text-gray-900 dark:text-white"><?= $rentalPriceDisplay ?></span>
                       <?php if (!empty($rentalPriceType)): ?>
-                        <span class="text-xs text-gray-700 ml-1"><?= $rentalPriceType ?></span>
+                        <span class="text-xs text-gray-700 dark:text-gray-300 ml-1"><?= $rentalPriceType ?></span>
                       <?php endif; ?>
                     </div>
                   </div>
 
-                  <div class="absolute inset-0 bg-gradient-to-t from-cyan-900/30 via-transparent to-transparent
+                  <div class="absolute inset-0 bg-gradient-to-t from-cyan-900/30 dark:from-cyan-900/50 via-transparent to-transparent
                               opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
                 </a>
 
                 <div class="flex flex-col flex-grow p-4">
-                  <h3 class="text-sm font-semibold text-gray-900 line-clamp-2 mb-2 group-hover:text-cyan-700 transition-colors"
+                  <h3 class="text-sm font-semibold text-gray-900 dark:text-white line-clamp-2 mb-2 group-hover:text-cyan-700 dark:group-hover:text-cyan-400 transition-colors"
                     itemprop="name">
                     <?= $rentalTitle ?>
                   </h3>
 
-                  <div class="flex items-center gap-1.5 text-xs text-gray-500 mb-3">
+                  <div class="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 mb-3">
                     <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                         d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -320,7 +320,7 @@
                     <span class="truncate"><?= $provincia ?>, <?= $municipio ?></span>
                   </div>
 
-                  <div class="flex items-center gap-4 text-xs text-gray-500 mb-3">
+                  <div class="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400 mb-3">
                     <?php if (!empty($rentalHab)): ?>
                       <div class="flex items-center gap-1">
                         <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -343,7 +343,7 @@
                   </div>
 
                   <?php if (!empty($row['service_data']) || !empty($row['service_icons'])): ?>
-                    <div class="flex items-center gap-2 text-gray-500 mb-3" aria-hidden="false">
+                    <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400 mb-3" aria-hidden="false">
                       <?php
                       if (!empty($row['service_data'])) {
                         $raw = $row['service_data'];
@@ -370,9 +370,9 @@
                   <?php endif; ?>
 
                   <a href="<?= $url ?>"
-                    class="inline-flex items-center justify-center rounded-lg bg-gray-100 px-3 py-2
-                            text-xs font-medium text-gray-700 no-underline transition-all
-                            hover:bg-cyan-100 hover:text-cyan-700 group-hover:shadow-sm">
+                    class="inline-flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-700 px-3 py-2
+                            text-xs font-medium text-gray-700 dark:text-gray-300 no-underline transition-all
+                            hover:bg-cyan-100 dark:hover:bg-cyan-900/30 hover:text-cyan-700 dark:hover:text-cyan-400 group-hover:shadow-sm">
                     Ver detalles
                     <svg class="ml-1.5 h-3 w-3 transition-transform group-hover:translate-x-1"
                       fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -392,9 +392,9 @@
             [$start, $end] = paginationRange($page, (int)$totalPages, $maxPages);
             ?>
 
-            <nav class="mt-12 pt-8 border-t border-gray-200" aria-label="Navegación de páginas">
+            <nav class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700" aria-label="Navegación de páginas">
               <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div class="text-sm text-gray-500">
+                <div class="text-sm text-gray-500 dark:text-gray-400">
                   Página <?= $page ?> de <?= $totalPages ?> •
                   <?= $totalResults ?? 'Varias' ?> propiedades encontradas
                 </div>
@@ -408,9 +408,9 @@
                                   $prevUrl = (($page - 1) === 1)
                                     ? ($basePath . $queryPrefix)
                                     : ($basePath . '/page/' . ($page - 1) . $queryPrefix); ?>"
-                          class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-300
-                                  bg-white text-sm text-gray-700 transition-all
-                                  hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 hover:shadow-sm"
+                          class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 dark:border-gray-600
+                                  bg-white dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300 transition-all
+                                  hover:border-cyan-500 dark:hover:border-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 hover:text-cyan-700 dark:hover:text-cyan-400 hover:shadow-sm"
                           aria-label="Página anterior">
                           <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -429,8 +429,8 @@
                         <a href="<?= $pageUrl ?>"
                           class="inline-flex h-10 w-10 items-center justify-center rounded-full border text-sm transition-all
                             <?= $i === $page
-                              ? 'bg-gradient-to-r from-cyan-600 to-blue-600 text-white border-cyan-700 shadow-md'
-                              : 'bg-white text-gray-700 border-gray-300 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700' ?>">
+                              ? 'bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-500 dark:to-blue-500 text-white border-cyan-700 dark:border-cyan-600 shadow-md'
+                              : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-cyan-500 dark:hover:border-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 hover:text-cyan-700 dark:hover:text-cyan-400' ?>">
                           <?= $i ?>
                         </a>
                       </li>
@@ -439,9 +439,9 @@
                     <?php if ($page < $totalPages): ?>
                       <li>
                         <a href="<?= $basePath . '/page/' . ($page + 1) . $queryPrefix ?>"
-                          class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-300
-                                  bg-white text-sm text-gray-700 transition-all
-                                  hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 hover:shadow-sm"
+                          class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 dark:border-gray-600
+                                  bg-white dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300 transition-all
+                                  hover:border-cyan-500 dark:hover:border-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 hover:text-cyan-700 dark:hover:text-cyan-400 hover:shadow-sm"
                           aria-label="Página siguiente">
                           <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

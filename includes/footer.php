@@ -233,7 +233,7 @@
 <script src="<?= BASE_URL ?>assets/js/footer.js" defer></script>
 <script src="<?= BASE_URL ?>assets/js/gestor.js" defer></script>
 <script src="<?= BASE_URL ?>assets/js/ui-dropdown.js" defer></script>
-<script src="<?= BASE_URL ?>assets/js/ui-offcanvas.js"></script>
+<script src="<?= BASE_URL ?>assets/js/ui-offcanvas.js" defer></script>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {

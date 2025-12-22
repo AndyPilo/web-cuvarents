@@ -14,6 +14,23 @@ foreach ($seo as $key => $value) {
 
 <head>
 
+  <!-- Theme switcher -->
+  <script>
+    (function() {
+      const saved = localStorage.getItem('theme'); // 'light' | 'dark' | 'auto' | null
+      const theme = saved || 'auto';
+
+      const prefersDark =
+        window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      const shouldBeDark = theme === 'dark' || (theme === 'auto' && prefersDark);
+
+      document.documentElement.classList.toggle('dark', shouldBeDark);
+      document.documentElement.dataset.theme = theme; // opcional: ayuda a debug
+    })();
+  </script>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GGD7VYB2LG"></script>
   <script>

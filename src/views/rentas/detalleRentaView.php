@@ -1,89 +1,89 @@
 <?php include_once __DIR__ . '/../../../includes/header.php'; ?>
 
-<body class="bg-gray-50 font-sans antialiased text-slate-600">
+<body class="bg-gray-50 dark:bg-gray-900 font-sans antialiased text-slate-600 dark:text-slate-300">
     <?php include_once __DIR__ . '/../../../includes/navbar.php'; ?>
 
     <main class="min-h-screen pb-12">
 
-        <div class="bg-white border-b border-gray-100">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
-                <nav class="mb-4 flex" aria-label="Breadcrumb">
-                    <ol class="inline-flex items-center space-x-1 md:space-x-2 text-sm text-gray-500">
-                        <!-- Inicio -->
-                        <li class="inline-flex items-center">
-                            <a href="<?= BASE_URL ?>"
-                                class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-blue-800 transition-colors">
-                                <svg class="w-4 h-4 me-1.5" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5" />
-                                </svg>
-                                Inicio
-                            </a>
-                        </li>
-
-                        <!-- Rentas -->
-                        <li>
-                            <div class="flex items-center space-x-1.5">
-                                <svg class="w-3.5 h-3.5 rtl:rotate-180 text-gray-400" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
-                                </svg>
-                                <a href="<?= BASE_URL ?>rents"
-                                    class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-blue-800 transition-colors">
-                                    Rentas
-                                </a>
-                            </div>
-                        </li>
-
-                        <!-- Página actual -->
-                        <li aria-current="page">
-                            <div class="flex items-center space-x-1.5">
-                                <svg class="w-3.5 h-3.5 rtl:rotate-180 text-gray-400" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
-                                </svg>
-                                <span class="inline-flex items-center text-sm font-semibold text-gray-900 truncate max-w-[150px] sm:max-w-xs">
-                                    <?= htmlspecialchars($renta['rental_title']) ?>
-                                </span>
-                            </div>
-                        </li>
-                    </ol>
-                </nav>
-
-
-                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                    <div>
-                        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-2">
-                            <?= htmlspecialchars($renta['rental_title']) ?>
-                        </h1>
-                        <div class="flex items-center gap-2 text-slate-500 text-sm md:text-base">
-                            <svg class="h-5 w-5 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        <div ">
+            <div class=" mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
+            <nav class="mb-4 flex" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-2 text-sm text-gray-500 dark:text-gray-400">
+                    <!-- Inicio -->
+                    <li class="inline-flex items-center">
+                        <a href="<?= BASE_URL ?>"
+                            class="inline-flex items-center text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-blue-800 dark:hover:text-blue-400 transition-colors">
+                            <svg class="w-4 h-4 me-1.5" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5" />
                             </svg>
-                            <span>
-                                <?= htmlspecialchars($renta['rental_provincia']) ?>, <?= htmlspecialchars($renta['rental_municipio']) ?>
+                            Inicio
+                        </a>
+                    </li>
+
+                    <!-- Rentas -->
+                    <li>
+                        <div class="flex items-center space-x-1.5">
+                            <svg class="w-3.5 h-3.5 rtl:rotate-180 text-gray-400 dark:text-gray-500" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
+                            </svg>
+                            <a href="<?= BASE_URL ?>rents"
+                                class="inline-flex items-center text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-blue-800 dark:hover:text-blue-400 transition-colors">
+                                Rentas
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- Página actual -->
+                    <li aria-current="page">
+                        <div class="flex items-center space-x-1.5">
+                            <svg class="w-3.5 h-3.5 rtl:rotate-180 text-gray-400 dark:text-gray-500" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
+                            </svg>
+                            <span class="inline-flex items-center text-sm font-semibold text-gray-900 dark:text-white truncate max-w-[150px] sm:max-w-xs">
+                                <?= htmlspecialchars($renta['rental_title']) ?>
                             </span>
                         </div>
-                    </div>
+                    </li>
+                </ol>
+            </nav>
 
-                    <div class="flex flex-wrap gap-2 md:mt-1">
-                        <?php if (!empty($renta['is_promoted'])): ?>
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200 shadow-sm">
-                                <svg class="mr-1.5 h-3 w-3 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                Destacado
-                            </span>
-                        <?php endif; ?>
 
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">
-                            <?= htmlspecialchars($renta['type_time_rent']) ?>
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight mb-2">
+                        <?= htmlspecialchars($renta['rental_title']) ?>
+                    </h1>
+                    <div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm md:text-base">
+                        <svg class="h-5 w-5 text-cyan-600 dark:text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <span>
+                            <?= htmlspecialchars($renta['rental_provincia']) ?>, <?= htmlspecialchars($renta['rental_municipio']) ?>
                         </span>
                     </div>
                 </div>
+
+                <div class="flex flex-wrap gap-2 md:mt-1">
+                    <?php if (!empty($renta['is_promoted'])): ?>
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800 shadow-sm dark:shadow-none">
+                            <svg class="mr-1.5 h-3 w-3 text-amber-500 dark:text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            Destacado
+                        </span>
+                    <?php endif; ?>
+
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-gray-700 text-slate-700 dark:text-gray-300 border border-slate-200 dark:border-gray-600">
+                        <?= htmlspecialchars($renta['type_time_rent']) ?>
+                    </span>
+                </div>
             </div>
+        </div>
         </div>
 
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
@@ -100,7 +100,7 @@
                     $defaultImg = BASE_URL . 'assets/img/default-img.png';
                     ?>
 
-                    <section class="rounded-3xl overflow-hidden bg-gray-100 shadow-sm relative group">
+                    <section class="rounded-3xl overflow-hidden bg-gray-100 dark:bg-gray-800 shadow-sm dark:shadow-gray-900/50 relative group">
 
                         <div class="block md:hidden relative">
                             <div class="swiper renta-gallery-mobile">
@@ -115,7 +115,7 @@
                                         <?php endforeach; ?>
                                     <?php else: ?>
                                         <div class="swiper-slide">
-                                            <div class="aspect-[4/3] flex items-center justify-center bg-gray-200">
+                                            <div class="aspect-[4/3] flex items-center justify-center bg-gray-200 dark:bg-gray-700">
                                                 <img src="<?= $defaultImg ?>" class="h-20 opacity-40">
                                             </div>
                                         </div>
@@ -134,7 +134,7 @@
                             <?php endif; ?>
                         </div>
 
-                        <div class="hidden md:block bg-white p-2 rounded-3xl border border-gray-100">
+                        <div class="hidden md:block bg-white dark:bg-gray-800 p-2 rounded-3xl border border-gray-100 dark:border-gray-700">
                             <?php if (!empty($images)): ?>
                                 <div class="relative rounded-2xl overflow-hidden mb-2">
                                     <div class="swiper renta-gallery-main">
@@ -163,7 +163,7 @@
                                         <div class="swiper-wrapper">
                                             <?php foreach ($images as $image): ?>
                                                 <div class="swiper-slide !w-24">
-                                                    <div class="aspect-square rounded-lg overflow-hidden cursor-pointer border-2 border-transparent transition-all opacity-60 hover:opacity-100 [.swiper-slide-thumb-active_&]:border-cyan-500 [.swiper-slide-thumb-active_&]:opacity-100">
+                                                    <div class="aspect-square rounded-lg overflow-hidden cursor-pointer border-2 border-transparent transition-all opacity-60 hover:opacity-100 [.swiper-slide-thumb-active_&]:border-cyan-500 dark:[.swiper-slide-thumb-active_&]:border-cyan-400 [.swiper-slide-thumb-active_&]:opacity-100">
                                                         <img src="<?= $baseImg . $image ?>" class="w-full h-full object-cover">
                                                     </div>
                                                 </div>
@@ -173,8 +173,8 @@
                                 <?php endif; ?>
 
                             <?php else: ?>
-                                <div class="aspect-[16/9] bg-gray-100 flex items-center justify-center rounded-2xl">
-                                    <div class="text-center text-gray-400">
+                                <div class="aspect-[16/9] bg-gray-100 dark:bg-gray-700 flex items-center justify-center rounded-2xl">
+                                    <div class="text-center text-gray-400 dark:text-gray-500">
                                         <svg class="h-16 w-16 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                         </svg>
@@ -185,21 +185,21 @@
                         </div>
                     </section>
 
-                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
+                    <div class=" rounded-2xl shadow-sm p-6 md:p-8">
 
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-gray-100 pb-6 mb-6">
-                            <h2 class="text-xl md:text-2xl font-bold text-gray-900">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-gray-300 dark:border-gray-700 pb-6 mb-6">
+                            <h2 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
                                 Detalles de la propiedad
                             </h2>
                             <div class="mt-4 sm:mt-0">
                                 <div class="flex items-baseline gap-1">
-                                    <span class="text-3xl font-bold text-cyan-700">
+                                    <span class="text-3xl font-bold text-cyan-700 dark:text-cyan-400">
                                         <?php
                                         $price = $renta['rental_price'] == "1" ? "Consultar" : "$" . $renta['rental_price'];
                                         echo $price;
                                         ?>
                                     </span>
-                                    <span class="text-sm text-gray-500 font-medium">
+                                    <span class="text-sm text-gray-500 dark:text-gray-400 font-medium">
                                         / <?= htmlspecialchars($renta['rental_price_type']) ?>
                                     </span>
                                 </div>
@@ -207,63 +207,63 @@
                         </div>
 
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-                            <div class="flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-50 border border-slate-100 text-center hover:bg-cyan-50 hover:border-cyan-100 transition-colors">
-                                <div class="bg-white p-2 rounded-full shadow-sm mb-2 text-cyan-600">
+                            <div class="flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-100 dark:bg-gray-900 text-center hover:bg-cyan-50 dark:hover:bg-cyan-900/30 transition-colors">
+                                <div class="bg-white dark:bg-gray-800 p-2 rounded-full shadow-sm mb-2 text-cyan-600 dark:text-cyan-400">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                                     </svg>
                                 </div>
-                                <span class="text-lg font-bold text-gray-900"><?= intval($renta['rental_capacity']) ?></span>
-                                <span class="text-xs text-gray-500 uppercase tracking-wide">Personas</span>
+                                <span class="text-lg font-bold text-gray-900 dark:text-white"><?= intval($renta['rental_capacity']) ?></span>
+                                <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Personas</span>
                             </div>
 
-                            <div class="flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-50 border border-slate-100 text-center hover:bg-cyan-50 hover:border-cyan-100 transition-colors">
-                                <div class="bg-white p-2 rounded-full shadow-sm mb-2 text-cyan-600">
+                            <div class="flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-100 dark:bg-gray-900 text-center hover:bg-cyan-50 dark:hover:bg-cyan-900/30 transition-colors">
+                                <div class="bg-white dark:bg-gray-800 p-2 rounded-full shadow-sm mb-2 text-cyan-600 dark:text-cyan-400">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                                     </svg>
                                 </div>
-                                <span class="text-lg font-bold text-gray-900"><?= intval($renta['rental_rooms']) ?></span>
-                                <span class="text-xs text-gray-500 uppercase tracking-wide">Habitaciones</span>
+                                <span class="text-lg font-bold text-gray-900 dark:text-white"><?= intval($renta['rental_rooms']) ?></span>
+                                <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Habitaciones</span>
                             </div>
 
-                            <div class="flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-50 border border-slate-100 text-center hover:bg-cyan-50 hover:border-cyan-100 transition-colors">
-                                <div class="bg-white p-2 rounded-full shadow-sm mb-2 text-cyan-600">
+                            <div class="flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-100 dark:bg-gray-900 text-center hover:bg-cyan-50 dark:hover:bg-cyan-900/30 transition-colors">
+                                <div class="bg-white dark:bg-gray-800 p-2 rounded-full shadow-sm mb-2 text-cyan-600 dark:text-cyan-400">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                     </svg>
                                 </div>
-                                <span class="text-sm font-bold text-gray-900 truncate w-full px-2"><?= htmlspecialchars($renta['type_time_rent']) ?></span>
-                                <span class="text-xs text-gray-500 uppercase tracking-wide">Modalidad</span>
+                                <span class="text-sm font-bold text-gray-900 dark:text-white truncate w-full px-2"><?= htmlspecialchars($renta['type_time_rent']) ?></span>
+                                <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Modalidad</span>
                             </div>
 
-                            <div class="flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-50 border border-slate-100 text-center hover:bg-cyan-50 hover:border-cyan-100 transition-colors">
-                                <div class="bg-white p-2 rounded-full shadow-sm mb-2 <?= !empty($renta['is_promoted']) ? 'text-green-500' : 'text-gray-400' ?>">
+                            <div class="flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-100 dark:bg-gray-900 text-center hover:bg-cyan-50 dark:hover:bg-cyan-900/30 transition-colors">
+                                <div class="bg-white dark:bg-gray-800 p-2 rounded-full shadow-sm mb-2 <?= !empty($renta['is_promoted']) ? 'text-green-500 dark:text-green-400' : 'text-gray-400 dark:text-gray-500' ?>">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                 </div>
-                                <span class="text-lg font-bold text-gray-900"><?= !empty($renta['is_promoted']) ? 'Sí' : 'No' ?></span>
-                                <span class="text-xs text-gray-500 uppercase tracking-wide">Verificado</span>
+                                <span class="text-lg font-bold text-gray-900 dark:text-white"><?= !empty($renta['is_promoted']) ? 'Sí' : 'No' ?></span>
+                                <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Verificado</span>
                             </div>
                         </div>
 
                         <div class="mb-10">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                                <svg class="w-5 h-5 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                <svg class="w-5 h-5 text-cyan-600 dark:text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
                                 </svg>
                                 Sobre esta renta
                             </h3>
-                            <div class="prose prose-slate prose-p:text-gray-600 prose-headings:font-bold prose-a:text-cyan-600 max-w-none">
+                            <div class="prose prose-slate dark:prose-invert prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-headings:font-bold prose-a:text-cyan-600 dark:prose-a:text-cyan-400 max-w-none">
                                 <?= nl2br(htmlspecialchars($renta['rental_description'])) ?>
                             </div>
                         </div>
 
                         <?php if (!empty($renta['services'])): ?>
-                            <div class="border-t border-gray-100 pt-8">
-                                <h3 class="text-lg font-semibold text-gray-900 mb-6 flex items-center gap-2">
-                                    <svg class="w-5 h-5 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div class="border-t border-gray-300 dark:border-gray-700 pt-8">
+                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-cyan-600 dark:text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                                     </svg>
@@ -272,10 +272,10 @@
 
                                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
                                     <?php foreach ($renta['services'] as $service): ?>
-                                        <div class="flex min-w-0 items-center gap-2 sm:gap-3 text-gray-700">
+                                        <div class="flex min-w-0 items-center gap-2 sm:gap-3 text-gray-700 dark:text-gray-300">
                                             <!-- Icono -->
-                                            <div class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-50
-                                                        text-cyan-600 group-hover:bg-cyan-50 group-hover:text-cyan-700 transition-colors">
+                                            <div class="inline-flex items-center justify-center w-8 h-8 rounded-full 
+                                                        text-cyan-600 dark:text-cyan-400 group-hover:bg-cyan-50 dark:group-hover:bg-cyan-900/30 group-hover:text-cyan-700 dark:group-hover:text-cyan-300 transition-colors">
                                                 <div class="w-4 h-4 flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">
                                                     <?= $service['icon'] ?>
                                                 </div>
@@ -302,8 +302,8 @@
                             </div>
                         </div>
 
-                        <div class="flex items-center gap-3 p-4 bg-cyan-50/50 rounded-xl border border-cyan-100 text-cyan-900 text-sm">
-                            <svg class="w-10 h-10 text-cyan-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="flex items-center gap-3 p-4 bg-cyan-50/50 dark:bg-cyan-900/20 rounded-xl border border-cyan-100 dark:border-cyan-800 text-cyan-900 dark:text-cyan-300 text-sm">
+                            <svg class="w-10 h-10 text-cyan-600 dark:text-cyan-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
                             <p class="font-medium">Reserva segura. Tu pago está protegido hasta que finalice tu estancia.</p>

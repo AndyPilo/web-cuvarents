@@ -8,16 +8,16 @@ function h($s): string
 }
 
 $priceOptions = [
-  ['value' => '<50',     'label' => '< $50',    'color' => 'bg-green-100 text-black',  'desc' => 'Económico'],
-  ['value' => '50-100',  'label' => '$50-100',  'color' => 'bg-blue-100 text-black',   'desc' => 'Medio'],
-  ['value' => '100-200', 'label' => '$100-200', 'color' => 'bg-purple-100 text-black', 'desc' => 'Premium'],
-  ['value' => '>200',    'label' => '> $200',   'color' => 'bg-amber-100 text-black',  'desc' => 'Lujo'],
+  ['value' => '<50',     'label' => '< $50',    'color' => 'bg-green-100 dark:bg-green-900/30 text-black dark:text-green-100',  'desc' => 'Económico'],
+  ['value' => '50-100',  'label' => '$50-100',  'color' => 'bg-blue-100 dark:bg-blue-900/30 text-black dark:text-blue-100',   'desc' => 'Medio'],
+  ['value' => '100-200', 'label' => '$100-200', 'color' => 'bg-purple-100 dark:bg-purple-900/30 text-black dark:text-purple-100', 'desc' => 'Premium'],
+  ['value' => '>200',    'label' => '> $200',   'color' => 'bg-amber-100 dark:bg-amber-900/30 text-black dark:text-amber-100',  'desc' => 'Lujo'],
 ];
 
 function renderProvinceOptions(array $provincias, string $idPrefix, string $clearBtnId): void
 {
   if (empty($provincias)) {
-    echo "<div class='rounded-lg bg-gray-50 p-4 text-center'><p class='text-sm text-gray-500'>No hay provincias disponibles</p></div>";
+    echo "<div class='rounded-lg bg-gray-50 dark:bg-gray-800 p-4 text-center'><p class='text-sm text-gray-500 dark:text-gray-400'>No hay provincias disponibles</p></div>";
     return;
   }
 
@@ -25,19 +25,19 @@ function renderProvinceOptions(array $provincias, string $idPrefix, string $clea
     $provEsc = h($prov);
     $id = h($idPrefix . $i);
     echo <<<HTML
-      <label class="province-label flex cursor-pointer items-center gap-3 rounded-lg p-2 transition hover:bg-gray-50" data-value="{$provEsc}">
+      <label class="province-label flex cursor-pointer items-center gap-3 rounded-lg p-2 transition hover:bg-gray-50 dark:hover:bg-gray-800" data-value="{$provEsc}">
         <input type="radio" class="sr-only province-radio" id="{$id}" name="provincia" value="{$provEsc}" />
-        <div class="province-indicator relative flex h-5 w-5 items-center justify-center rounded-full border border-gray-300 bg-white transition-all">
-          <div class="province-indicator-dot h-2.5 w-2.5 rounded-full bg-white opacity-0 transition-opacity"></div>
+        <div class="province-indicator relative flex h-5 w-5 items-center justify-center rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 transition-all">
+          <div class="province-indicator-dot h-2.5 w-2.5 rounded-full bg-white dark:bg-gray-900 opacity-0 transition-opacity"></div>
         </div>
-        <span class="province-text text-sm text-gray-700 transition">{$provEsc}</span>
+        <span class="province-text text-sm text-gray-700 dark:text-gray-300 transition">{$provEsc}</span>
       </label>
     HTML;
   }
 
   $clearBtnIdEsc = h($clearBtnId);
   echo <<<HTML
-    <button type="button" id="{$clearBtnIdEsc}" class="mt-2 w-full rounded-lg bg-gray-100 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200">
+    <button type="button" id="{$clearBtnIdEsc}" class="mt-2 w-full rounded-lg bg-gray-100 dark:bg-gray-800 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">
       Limpiar provincia
     </button>
   HTML;
@@ -46,7 +46,7 @@ function renderProvinceOptions(array $provincias, string $idPrefix, string $clea
 function renderZoneOptions(array $zonas, string $idPrefix): void
 {
   if (empty($zonas)) {
-    echo "<div class='rounded-lg bg-gray-50 p-4 text-center'><p class='text-sm text-gray-500'>No hay municipios disponibles</p></div>";
+    echo "<div class='rounded-lg bg-gray-50 dark:bg-gray-800 p-4 text-center'><p class='text-sm text-gray-500 dark:text-gray-400'>No hay municipios disponibles</p></div>";
     return;
   }
 
@@ -62,7 +62,7 @@ function renderZoneOptions(array $zonas, string $idPrefix): void
     $i++;
 
     echo <<<HTML
-      <label class="flex cursor-pointer items-center gap-3 rounded-lg p-2 hover:bg-gray-50" data-provincia="{$provEsc}">
+      <label class="flex cursor-pointer items-center gap-3 rounded-lg p-2 hover:bg-gray-50 dark:hover:bg-gray-800" data-provincia="{$provEsc}">
         <div class="relative">
           <input
             type="checkbox"
@@ -72,13 +72,13 @@ function renderZoneOptions(array $zonas, string $idPrefix): void
             value="{$zonaEsc}"
             data-provincia="{$provEsc}"
           />
-          <div class="h-5 w-5 rounded border border-gray-300 peer-checked:border-cyan-500 peer-checked:bg-cyan-500"></div>
+          <div class="h-5 w-5 rounded border border-gray-300 dark:border-gray-600 peer-checked:border-cyan-500 peer-checked:bg-cyan-500 dark:peer-checked:bg-cyan-600"></div>
           <svg class="absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 text-white opacity-0 peer-checked:opacity-100"
                fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <span class="text-sm text-gray-700">{$zonaEsc}</span>
+        <span class="text-sm text-gray-700 dark:text-gray-300">{$zonaEsc}</span>
       </label>
     HTML;
   }
@@ -90,8 +90,8 @@ function renderServicesSkeleton(string $size = 'sm'): void
   echo <<<HTML
     <div class="col-span-2 space-y-2">
       <div class="animate-pulse space-y-2">
-        <div class="{$h} bg-gray-200 rounded"></div>
-        <div class="{$h} bg-gray-200 rounded"></div>
+        <div class="{$h} bg-gray-200 dark:bg-gray-700 rounded"></div>
+        <div class="{$h} bg-gray-200 dark:bg-gray-700 rounded"></div>
       </div>
     </div>
   HTML;
@@ -110,36 +110,36 @@ function renderServicesSkeleton(string $size = 'sm'): void
             </svg>
           </div>
           <div>
-            <h2 class="text-base font-semibold text-gray-900">Filtros avanzados</h2>
-            <p class="text-xs text-gray-500">Personaliza tu búsqueda</p>
+            <h2 class="text-base font-semibold text-gray-900 dark:text-white">Filtros avanzados</h2>
+            <p class="text-xs text-gray-500 dark:text-gray-400">Personaliza tu búsqueda</p>
           </div>
         </div>
       </div>
 
-      <div class="relative rounded-2xl bg-gradient-to-br from-white to-gray-50 p-4 shadow-lg ring-1 ring-gray-200/50">
+      <div class="relative rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 p-4 shadow-lg dark:shadow-gray-900/50 ring-1 ring-gray-200/50 dark:ring-gray-700/50">
         <!-- DESKTOP -->
         <div class="hidden lg:flex lg:items-center lg:gap-3">
 
           <!-- Precio -->
           <div class="relative" data-dropdown data-filter="precio">
             <button type="button"
-              class="filter-trigger inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-200 transition-all hover:shadow-md hover:ring-cyan-300"
+              class="filter-trigger inline-flex items-center gap-2 rounded-full bg-white dark:bg-gray-800 px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 shadow-sm ring-1 ring-gray-200 dark:ring-gray-700 transition-all hover:shadow-md hover:ring-cyan-300 dark:hover:ring-cyan-500"
               data-dropdown-trigger aria-expanded="false">
               <span class="h-2 w-2 rounded-full bg-cyan-500"></span>
               Precio
-              <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="h-4 w-4 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
 
-            <div class="absolute left-0 top-full z-30 mt-2 hidden w-64 rounded-xl bg-white p-4 shadow-2xl ring-1 ring-gray-200" data-dropdown-menu>
+            <div class="absolute left-0 top-full z-30 mt-2 hidden w-64 rounded-xl bg-white dark:bg-gray-800 p-4 shadow-2xl dark:shadow-gray-900/50 ring-1 ring-gray-200 dark:ring-gray-700" data-dropdown-menu>
               <div class="space-y-3">
-                <h3 class="text-sm font-semibold text-gray-900">Rango de precios</h3>
+                <h3 class="text-sm font-semibold text-gray-900 dark:text-white">Rango de precios</h3>
                 <div class="grid grid-cols-1 gap-2">
                   <?php foreach ($priceOptions as $price): ?>
                     <label class="relative">
                       <input type="checkbox" class="peer sr-only" name="precio[]" value="<?= h($price['value']) ?>">
-                      <div class="cursor-pointer rounded-lg border border-gray-200 px-3 py-2 text-center text-sm font-medium transition-all peer-checked:border-cyan-500 peer-checked:ring-2 peer-checked:ring-cyan-500/20 <?= h($price['color']) ?> peer-checked:bg-opacity-60">
+                      <div class="cursor-pointer rounded-lg border border-gray-200 dark:border-gray-700 px-3 py-2 text-center text-sm font-medium transition-all peer-checked:border-cyan-500 dark:peer-checked:border-cyan-400 peer-checked:ring-2 peer-checked:ring-cyan-500/20 dark:peer-checked:ring-cyan-400/20 <?= h($price['color']) ?> peer-checked:bg-opacity-60">
                         <?= h($price['label']) ?>
                       </div>
                     </label>
@@ -152,21 +152,21 @@ function renderServicesSkeleton(string $size = 'sm'): void
           <!-- Provincia -->
           <div class="relative" data-dropdown data-filter="provincia">
             <button type="button"
-              class="filter-trigger inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-200 transition-all hover:shadow-md hover:ring-cyan-300"
+              class="filter-trigger inline-flex items-center gap-2 rounded-full bg-white dark:bg-gray-800 px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 shadow-sm ring-1 ring-gray-200 dark:ring-gray-700 transition-all hover:shadow-md hover:ring-cyan-300 dark:hover:ring-cyan-500"
               data-dropdown-trigger aria-expanded="false">
               <span class="h-2 w-2 rounded-full bg-blue-500"></span>
               Provincia
-              <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="h-4 w-4 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
 
-            <div class="absolute left-0 top-full z-30 mt-2 hidden w-80 rounded-xl bg-white p-4 shadow-2xl ring-1 ring-gray-200" data-dropdown-menu>
+            <div class="absolute left-0 top-full z-30 mt-2 hidden w-80 rounded-xl bg-white dark:bg-gray-800 p-4 shadow-2xl dark:shadow-gray-900/50 ring-1 ring-gray-200 dark:ring-gray-700" data-dropdown-menu>
               <div class="space-y-3 z-10">
                 <div class="flex items-center justify-between">
-                  <h3 class="text-sm font-semibold text-gray-900">Selecciona provincia</h3>
+                  <h3 class="text-sm font-semibold text-gray-900 dark:text-white">Selecciona provincia</h3>
                   <input type="text" id="provinceSearch"
-                    class="w-32 rounded-lg border border-gray-300 px-3 py-1.5 text-sm placeholder-gray-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/20"
+                    class="w-32 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-1.5 text-sm placeholder-gray-400 dark:placeholder-gray-500 text-gray-900 dark:text-gray-300 focus:border-cyan-500 dark:focus:border-cyan-400 focus:ring-1 focus:ring-cyan-500/20 dark:focus:ring-cyan-400/20"
                     placeholder="Buscar..." />
                 </div>
 
@@ -180,21 +180,21 @@ function renderServicesSkeleton(string $size = 'sm'): void
           <!-- Municipio -->
           <div class="relative" data-dropdown data-filter="municipio">
             <button type="button"
-              class="filter-trigger inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-200 transition-all hover:shadow-md hover:ring-cyan-300"
+              class="filter-trigger inline-flex items-center gap-2 rounded-full bg-white dark:bg-gray-800 px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 shadow-sm ring-1 ring-gray-200 dark:ring-gray-700 transition-all hover:shadow-md hover:ring-cyan-300 dark:hover:ring-cyan-500"
               data-dropdown-trigger aria-expanded="false">
               <span class="h-2 w-2 rounded-full bg-indigo-500"></span>
               Municipio
-              <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="h-4 w-4 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
 
-            <div class="absolute left-0 top-full z-30 mt-2 hidden w-80 rounded-xl bg-white p-4 shadow-2xl ring-1 ring-gray-200" data-dropdown-menu>
+            <div class="absolute left-0 top-full z-30 mt-2 hidden w-80 rounded-xl bg-white dark:bg-gray-800 p-4 shadow-2xl dark:shadow-gray-900/50 ring-1 ring-gray-200 dark:ring-gray-700" data-dropdown-menu>
               <div class="space-y-3 z-10">
                 <div class="flex items-center justify-between">
-                  <h3 class="text-sm font-semibold text-gray-900">Selecciona municipios</h3>
+                  <h3 class="text-sm font-semibold text-gray-900 dark:text-white">Selecciona municipios</h3>
                   <input type="text" id="zoneSearch"
-                    class="w-32 rounded-lg border border-gray-300 px-3 py-1.5 text-sm placeholder-gray-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/20"
+                    class="w-32 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-1.5 text-sm placeholder-gray-400 dark:placeholder-gray-500 text-gray-900 dark:text-gray-300 focus:border-cyan-500 dark:focus:border-cyan-400 focus:ring-1 focus:ring-cyan-500/20 dark:focus:ring-cyan-400/20"
                     placeholder="Buscar..." />
                 </div>
 
@@ -208,18 +208,18 @@ function renderServicesSkeleton(string $size = 'sm'): void
           <!-- Servicios -->
           <div class="relative" data-dropdown data-filter="servicios">
             <button type="button"
-              class="filter-trigger inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-200 transition-all hover:shadow-md hover:ring-cyan-300"
+              class="filter-trigger inline-flex items-center gap-2 rounded-full bg-white dark:bg-gray-800 px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 shadow-sm ring-1 ring-gray-200 dark:ring-gray-700 transition-all hover:shadow-md hover:ring-cyan-300 dark:hover:ring-cyan-500"
               data-dropdown-trigger aria-expanded="false">
               <span class="h-2 w-2 rounded-full bg-purple-500"></span>
               Servicio
-              <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="h-4 w-4 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
 
-            <div class="absolute left-0 top-full z-30 mt-2 hidden w-72 rounded-xl bg-white p-4 shadow-2xl ring-1 ring-gray-200" data-dropdown-menu>
+            <div class="absolute left-0 top-full z-30 mt-2 hidden w-72 rounded-xl bg-white dark:bg-gray-800 p-4 shadow-2xl dark:shadow-gray-900/50 ring-1 ring-gray-200 dark:ring-gray-700" data-dropdown-menu>
               <div class="space-y-3">
-                <h3 class="text-sm font-semibold text-gray-900">Comodidades</h3>
+                <h3 class="text-sm font-semibold text-gray-900 dark:text-white">Comodidades</h3>
                 <div class="services-container grid grid-cols-1 gap-2 max-h-56 overflow-y-auto pr-1">
                   <?php renderServicesSkeleton('sm'); ?>
                 </div>
@@ -230,24 +230,24 @@ function renderServicesSkeleton(string $size = 'sm'): void
           <!-- Habitaciones -->
           <div class="relative" data-dropdown data-filter="habitaciones">
             <button type="button"
-              class="filter-trigger inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-200 transition-all hover:shadow-md hover:ring-cyan-300"
+              class="filter-trigger inline-flex items-center gap-2 rounded-full bg-white dark:bg-gray-800 px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 shadow-sm ring-1 ring-gray-200 dark:ring-gray-700 transition-all hover:shadow-md hover:ring-cyan-300 dark:hover:ring-cyan-500"
               data-dropdown-trigger aria-expanded="false">
               <span class="h-2 w-2 rounded-full bg-amber-500"></span>
               Habitaciones
-              <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="h-4 w-4 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
 
-            <div class="absolute left-0 top-full z-30 mt-2 hidden rounded-xl bg-white p-4 shadow-2xl ring-1 ring-gray-200" data-dropdown-menu>
+            <div class="absolute left-0 top-full z-30 mt-2 hidden rounded-xl bg-white dark:bg-gray-800 p-4 shadow-2xl dark:shadow-gray-900/50 ring-1 ring-gray-200 dark:ring-gray-700" data-dropdown-menu>
               <div class="space-y-3">
-                <h3 class="text-sm font-semibold text-gray-900">Número de habitaciones</h3>
+                <h3 class="text-sm font-semibold text-gray-900 dark:text-white">Número de habitaciones</h3>
                 <div class="flex items-center gap-3">
-                  <button type="button" class="counter-btn flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">-</button>
+                  <button type="button" class="counter-btn flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600">-</button>
                   <input type="number" name="habitaciones"
-                    class="w-20 rounded-lg border border-gray-300 px-3 py-1.5 text-center text-lg font-semibold focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/20"
+                    class="w-20 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-1.5 text-center text-lg font-semibold text-gray-900 dark:text-gray-300 focus:border-cyan-500 dark:focus:border-cyan-400 focus:ring-1 focus:ring-cyan-500/20 dark:focus:ring-cyan-400/20"
                     min="1" max="10" />
-                  <button type="button" class="counter-btn flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">+</button>
+                  <button type="button" class="counter-btn flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600">+</button>
                 </div>
               </div>
             </div>
@@ -256,24 +256,24 @@ function renderServicesSkeleton(string $size = 'sm'): void
           <!-- Personas -->
           <div class="relative" data-dropdown data-filter="capacidad">
             <button type="button"
-              class="filter-trigger inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-200 transition-all hover:shadow-md hover:ring-cyan-300"
+              class="filter-trigger inline-flex items-center gap-2 rounded-full bg-white dark:bg-gray-800 px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 shadow-sm ring-1 ring-gray-200 dark:ring-gray-700 transition-all hover:shadow-md hover:ring-cyan-300 dark:hover:ring-cyan-500"
               data-dropdown-trigger aria-expanded="false">
               <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
               Personas
-              <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="h-4 w-4 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
 
-            <div class="absolute left-0 top-full z-30 mt-2 hidden rounded-xl bg-white p-4 shadow-2xl ring-1 ring-gray-200" data-dropdown-menu>
+            <div class="absolute left-0 top-full z-30 mt-2 hidden rounded-xl bg-white dark:bg-gray-800 p-4 shadow-2xl dark:shadow-gray-900/50 ring-1 ring-gray-200 dark:ring-gray-700" data-dropdown-menu>
               <div class="space-y-3">
-                <h3 class="text-sm font-semibold text-gray-900">Capacidad máxima</h3>
+                <h3 class="text-sm font-semibold text-gray-900 dark:text-white">Capacidad máxima</h3>
                 <div class="flex items-center gap-3">
-                  <button type="button" class="counter-btn flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">-</button>
+                  <button type="button" class="counter-btn flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600">-</button>
                   <input type="number" name="capacidad"
-                    class="w-20 rounded-lg border border-gray-300 px-3 py-1.5 text-center text-lg font-semibold focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/20"
+                    class="w-20 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-1.5 text-center text-lg font-semibold text-gray-900 dark:text-gray-300 focus:border-cyan-500 dark:focus:border-cyan-400 focus:ring-1 focus:ring-cyan-500/20 dark:focus:ring-cyan-400/20"
                     min="1" max="20" />
-                  <button type="button" class="counter-btn flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">+</button>
+                  <button type="button" class="counter-btn flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600">+</button>
                 </div>
               </div>
             </div>
@@ -281,7 +281,7 @@ function renderServicesSkeleton(string $size = 'sm'): void
 
           <div class="ml-auto">
             <button type="button" id="buscarBtnDesktop"
-              class="buscarBtn inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-600 to-blue-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:from-cyan-700 hover:to-blue-700 hover:shadow-xl hover:-translate-y-0.5">
+              class="buscarBtn inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-500 dark:to-blue-500 px-6 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:from-cyan-700 hover:to-blue-700 dark:hover:from-cyan-600 dark:hover:to-blue-600 hover:shadow-xl hover:-translate-y-0.5">
               <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -294,7 +294,7 @@ function renderServicesSkeleton(string $size = 'sm'): void
         <!-- MOBILE Trigger -->
         <div class="lg:hidden">
           <button type="button"
-            class="flex w-full items-center justify-between rounded-xl bg-white px-4 py-3 text-left ring-1 ring-gray-200 transition-all hover:ring-cyan-300"
+            class="flex w-full items-center justify-between rounded-xl bg-white dark:bg-gray-800 px-4 py-3 text-left ring-1 ring-gray-200 dark:ring-gray-700 transition-all hover:ring-cyan-300 dark:hover:ring-cyan-500"
             data-offcanvas-open="filtersOffcanvas" aria-controls="filtersOffcanvas">
             <div class="flex items-center gap-3">
               <div class="rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 p-2">
@@ -304,11 +304,11 @@ function renderServicesSkeleton(string $size = 'sm'): void
                 </svg>
               </div>
               <div>
-                <div class="text-sm font-medium text-gray-900">Mostrar filtros</div>
-                <div class="text-xs text-gray-500">Precio, provincia, municipio, servicios</div>
+                <div class="text-sm font-medium text-gray-900 dark:text-white">Mostrar filtros</div>
+                <div class="text-xs text-gray-500 dark:text-gray-400">Precio, provincia, municipio, servicios</div>
               </div>
             </div>
-            <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="h-5 w-5 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
@@ -322,9 +322,9 @@ function renderServicesSkeleton(string $size = 'sm'): void
     <div class="fixed inset-0 z-40 hidden bg-black/40 backdrop-blur-[1px]" data-offcanvas-backdrop="filtersOffcanvas" aria-hidden="true"></div>
 
     <section id="filtersOffcanvas"
-      class="fixed inset-x-0 bottom-0 z-50 w-full translate-y-full transition-transform duration-300 rounded-t-3xl bg-white shadow-2xl max-h-[85vh] flex flex-col"
+      class="fixed inset-x-0 bottom-0 z-50 w-full translate-y-full transition-transform duration-300 rounded-t-3xl bg-white dark:bg-gray-900 shadow-2xl dark:shadow-gray-900/50 max-h-[85vh] flex flex-col"
       role="dialog" aria-modal="true" aria-labelledby="filtersOffcanvasLabel">
-      <header class="border-b border-gray-200 bg-white p-4">
+      <header class="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4">
         <div class="flex items-start justify-between gap-4">
           <div class="flex items-center gap-3">
             <div class="rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 p-2">
@@ -334,37 +334,37 @@ function renderServicesSkeleton(string $size = 'sm'): void
               </svg>
             </div>
             <div>
-              <h5 class="text-lg font-semibold text-gray-900" id="filtersOffcanvasLabel">Filtros</h5>
-              <p class="text-sm text-gray-500">Personaliza tu búsqueda</p>
+              <h5 class="text-lg font-semibold text-gray-900 dark:text-white" id="filtersOffcanvasLabel">Filtros</h5>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Personaliza tu búsqueda</p>
             </div>
           </div>
 
           <button type="button"
-            class="inline-flex h-10 w-10 items-center justify-center rounded-full hover:bg-gray-100"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
             aria-label="Cerrar" data-offcanvas-close="filtersOffcanvas">✕</button>
         </div>
       </header>
 
-      <div class="border-b border-gray-200 bg-white">
+      <div class="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
         <nav class="-mb-px flex" aria-label="Tabs" data-tabs>
-          <button type="button" class="tab-btn flex-1 border-b-2 border-cyan-600 px-4 py-3 text-center text-sm font-medium text-cyan-700" data-tab="price">Precio</button>
-          <button type="button" class="tab-btn flex-1 border-b-2 border-transparent px-4 py-3 text-center text-sm font-medium text-gray-500 hover:text-gray-700" data-tab="province">Provincia</button>
-          <button type="button" class="tab-btn flex-1 border-b-2 border-transparent px-4 py-3 text-center text-sm font-medium text-gray-500 hover:text-gray-700" data-tab="municipio">Municipio</button>
-          <button type="button" class="tab-btn flex-1 border-b-2 border-transparent px-4 py-3 text-center text-sm font-medium text-gray-500 hover:text-gray-700" data-tab="services">Servicio</button>
-          <button type="button" class="tab-btn flex-1 border-b-2 border-transparent px-4 py-3 text-center text-sm font-medium text-gray-500 hover:text-gray-700" data-tab="details">Detalle</button>
+          <button type="button" class="tab-btn flex-1 border-b-2 border-cyan-600 dark:border-cyan-500 px-4 py-3 text-center text-sm font-medium text-cyan-700 dark:text-cyan-400" data-tab="price">Precio</button>
+          <button type="button" class="tab-btn flex-1 border-b-2 border-transparent px-4 py-3 text-center text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300" data-tab="province">Provincia</button>
+          <button type="button" class="tab-btn flex-1 border-b-2 border-transparent px-4 py-3 text-center text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300" data-tab="municipio">Municipio</button>
+          <button type="button" class="tab-btn flex-1 border-b-2 border-transparent px-4 py-3 text-center text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300" data-tab="services">Servicio</button>
+          <button type="button" class="tab-btn flex-1 border-b-2 border-transparent px-4 py-3 text-center text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300" data-tab="details">Detalle</button>
         </nav>
       </div>
 
-      <div class="flex-1 overflow-y-auto p-4 bg-white">
+      <div class="flex-1 overflow-y-auto p-4 bg-white dark:bg-gray-900">
         <div data-tab-panel="price" class="space-y-4">
-          <h3 class="text-sm font-semibold text-gray-900">Rango de precios</h3>
+          <h3 class="text-sm font-semibold text-gray-900 dark:text-white">Rango de precios</h3>
           <div class="grid grid-cols-1 gap-3">
             <?php foreach ($priceOptions as $price): ?>
               <label class="relative">
                 <input type="checkbox" class="peer sr-only" name="precio[]" value="<?= h($price['value']) ?>">
-                <div class="cursor-pointer rounded-xl border-2 border-gray-200 bg-white p-3 text-center transition-all peer-checked:border-cyan-500 peer-checked:bg-cyan-50">
-                  <div class="text-sm font-semibold text-gray-900"><?= h($price['label']) ?></div>
-                  <div class="mt-1 text-xs text-gray-500"><?= h($price['desc']) ?></div>
+                <div class="cursor-pointer rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-3 text-center transition-all peer-checked:border-cyan-500 dark:peer-checked:border-cyan-400 peer-checked:bg-cyan-50 dark:peer-checked:bg-cyan-900/30">
+                  <div class="text-sm font-semibold text-gray-900 dark:text-white"><?= h($price['label']) ?></div>
+                  <div class="mt-1 text-xs text-gray-500 dark:text-gray-400"><?= h($price['desc']) ?></div>
                 </div>
               </label>
             <?php endforeach; ?>
@@ -373,9 +373,9 @@ function renderServicesSkeleton(string $size = 'sm'): void
 
         <div data-tab-panel="province" class="hidden space-y-4">
           <div class="flex items-center justify-between">
-            <h3 class="text-sm font-semibold text-gray-900">Selecciona provincia</h3>
+            <h3 class="text-sm font-semibold text-gray-900 dark:text-white">Selecciona provincia</h3>
             <input type="text" id="provinceSearchMobile"
-              class="w-32 rounded-lg border border-gray-300 px-3 py-1.5 text-sm placeholder-gray-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/20"
+              class="w-32 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-1.5 text-sm placeholder-gray-400 dark:placeholder-gray-500 text-gray-900 dark:text-gray-300 focus:border-cyan-500 dark:focus:border-cyan-400 focus:ring-1 focus:ring-cyan-500/20 dark:focus:ring-cyan-400/20"
               placeholder="Buscar..." />
           </div>
 
@@ -386,9 +386,9 @@ function renderServicesSkeleton(string $size = 'sm'): void
 
         <div data-tab-panel="municipio" class="hidden space-y-4">
           <div class="flex items-center justify-between">
-            <h3 class="text-sm font-semibold text-gray-900">Selecciona municipios</h3>
+            <h3 class="text-sm font-semibold text-gray-900 dark:text-white">Selecciona municipios</h3>
             <input type="text" id="zoneSearchMobile"
-              class="w-32 rounded-lg border border-gray-300 px-3 py-1.5 text-sm placeholder-gray-400 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/20"
+              class="w-32 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-1.5 text-sm placeholder-gray-400 dark:placeholder-gray-500 text-gray-900 dark:text-gray-300 focus:border-cyan-500 dark:focus:border-cyan-400 focus:ring-1 focus:ring-cyan-500/20 dark:focus:ring-cyan-400/20"
               placeholder="Buscar..." />
           </div>
 
@@ -398,7 +398,7 @@ function renderServicesSkeleton(string $size = 'sm'): void
         </div>
 
         <div data-tab-panel="services" class="hidden space-y-4">
-          <h3 class="text-sm font-semibold text-gray-900">Comodidades</h3>
+          <h3 class="text-sm font-semibold text-gray-900 dark:text-white">Comodidades</h3>
           <div class="services-container grid grid-cols-1 gap-3 max-h-56 overflow-y-auto pr-1">
             <?php renderServicesSkeleton('lg'); ?>
           </div>
@@ -406,38 +406,38 @@ function renderServicesSkeleton(string $size = 'sm'): void
 
         <div data-tab-panel="details" class="hidden space-y-6">
           <div>
-            <h3 class="mb-3 text-sm font-semibold text-gray-900">Habitaciones</h3>
+            <h3 class="mb-3 text-sm font-semibold text-gray-900 dark:text-white">Habitaciones</h3>
             <div class="flex items-center justify-center gap-4">
-              <button type="button" class="counter-btn flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">-</button>
+              <button type="button" class="counter-btn flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700">-</button>
               <div class="text-center">
                 <input type="number" name="habitaciones"
-                  class="w-20 rounded-lg border border-gray-300 px-3 py-2 text-center text-2xl font-bold focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/20"
+                  class="w-20 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-center text-2xl font-bold text-gray-900 dark:text-gray-300 focus:border-cyan-500 dark:focus:border-cyan-400 focus:ring-1 focus:ring-cyan-500/20 dark:focus:ring-cyan-400/20"
                   min="1" max="10" />
-                <div class="mt-1 text-xs text-gray-500">Cantidad</div>
+                <div class="mt-1 text-xs text-gray-500 dark:text-gray-400">Cantidad</div>
               </div>
-              <button type="button" class="counter-btn flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">+</button>
+              <button type="button" class="counter-btn flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700">+</button>
             </div>
           </div>
 
           <div>
-            <h3 class="mb-3 text-sm font-semibold text-gray-900">Personas</h3>
+            <h3 class="mb-3 text-sm font-semibold text-gray-900 dark:text-white">Personas</h3>
             <div class="flex items-center justify-center gap-4">
-              <button type="button" class="counter-btn flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">-</button>
+              <button type="button" class="counter-btn flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700">-</button>
               <div class="text-center">
                 <input type="number" name="capacidad"
-                  class="w-20 rounded-lg border border-gray-300 px-3 py-2 text-center text-2xl font-bold focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/20"
+                  class="w-20 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-center text-2xl font-bold text-gray-900 dark:text-gray-300 focus:border-cyan-500 dark:focus:border-cyan-400 focus:ring-1 focus:ring-cyan-500/20 dark:focus:ring-cyan-400/20"
                   min="1" max="20" />
-                <div class="mt-1 text-xs text-gray-500">Capacidad máxima</div>
+                <div class="mt-1 text-xs text-gray-500 dark:text-gray-400">Capacidad máxima</div>
               </div>
-              <button type="button" class="counter-btn flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">+</button>
+              <button type="button" class="counter-btn flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700">+</button>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="border-t border-gray-200 bg-white p-4">
+      <div class="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4">
         <button type="button"
-          class="buscarBtn w-full rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 py-3 text-base font-semibold text-white shadow-lg transition-all hover:from-cyan-700 hover:to-blue-700 hover:shadow-xl"
+          class="buscarBtn w-full rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-500 dark:to-blue-500 py-3 text-base font-semibold text-white shadow-lg transition-all hover:from-cyan-700 hover:to-blue-700 dark:hover:from-cyan-600 dark:hover:to-blue-600 hover:shadow-xl"
           data-offcanvas-close="filtersOffcanvas">
           <div class="flex items-center justify-center gap-2">
             <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -469,11 +469,11 @@ function renderServicesSkeleton(string $size = 'sm'): void
       if (!btn) return;
 
       if (active) {
-        btn.classList.add('bg-cyan-50', 'text-cyan-700', 'ring-cyan-300');
-        btn.classList.remove('bg-white', 'text-gray-700', 'ring-gray-200');
+        btn.classList.add('bg-cyan-50', 'dark:bg-cyan-900/30', 'text-cyan-700', 'dark:text-cyan-400', 'ring-cyan-300', 'dark:ring-cyan-500');
+        btn.classList.remove('bg-white', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300', 'ring-gray-200', 'dark:ring-gray-700');
       } else {
-        btn.classList.remove('bg-cyan-50', 'text-cyan-700', 'ring-cyan-300');
-        btn.classList.add('bg-white', 'text-gray-700', 'ring-gray-200');
+        btn.classList.remove('bg-cyan-50', 'dark:bg-cyan-900/30', 'text-cyan-700', 'dark:text-cyan-400', 'ring-cyan-300', 'dark:ring-cyan-500');
+        btn.classList.add('bg-white', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300', 'ring-gray-200', 'dark:ring-gray-700');
       }
     };
 
@@ -524,9 +524,12 @@ function renderServicesSkeleton(string $size = 'sm'): void
         buttons.forEach(btn => {
           const active = btn.getAttribute("data-tab") === key;
           btn.classList.toggle("border-cyan-600", active);
+          btn.classList.toggle("dark:border-cyan-500", active);
           btn.classList.toggle("text-cyan-700", active);
+          btn.classList.toggle("dark:text-cyan-400", active);
           btn.classList.toggle("border-transparent", !active);
           btn.classList.toggle("text-gray-500", !active);
+          btn.classList.toggle("dark:text-gray-400", !active);
         });
         panels.forEach(p => p.classList.toggle("hidden", p.getAttribute("data-tab-panel") !== key));
       };
@@ -575,36 +578,36 @@ function renderServicesSkeleton(string $size = 'sm'): void
         const text = label.querySelector('.province-text');
 
         if (isSelected) {
-          label.classList.add('bg-cyan-50');
-          label.classList.remove('hover:bg-gray-50');
+          label.classList.add('bg-cyan-50', 'dark:bg-cyan-900/30');
+          label.classList.remove('hover:bg-gray-50', 'dark:hover:bg-gray-800');
 
           if (indicator) {
-            indicator.classList.add('bg-cyan-500', 'border-cyan-500');
-            indicator.classList.remove('bg-white', 'border-gray-300');
+            indicator.classList.add('bg-cyan-500', 'dark:bg-cyan-600', 'border-cyan-500', 'dark:border-cyan-600');
+            indicator.classList.remove('bg-white', 'dark:bg-gray-700', 'border-gray-300', 'dark:border-gray-600');
           }
           if (dot) {
             dot.classList.add('opacity-100');
             dot.classList.remove('opacity-0');
           }
           if (text) {
-            text.classList.add('text-cyan-700', 'font-semibold');
-            text.classList.remove('text-gray-700');
+            text.classList.add('text-cyan-700', 'dark:text-cyan-400', 'font-semibold');
+            text.classList.remove('text-gray-700', 'dark:text-gray-300');
           }
         } else {
-          label.classList.remove('bg-cyan-50');
-          label.classList.add('hover:bg-gray-50');
+          label.classList.remove('bg-cyan-50', 'dark:bg-cyan-900/30');
+          label.classList.add('hover:bg-gray-50', 'dark:hover:bg-gray-800');
 
           if (indicator) {
-            indicator.classList.remove('bg-cyan-500', 'border-cyan-500');
-            indicator.classList.add('bg-white', 'border-gray-300');
+            indicator.classList.remove('bg-cyan-500', 'dark:bg-cyan-600', 'border-cyan-500', 'dark:border-cyan-600');
+            indicator.classList.add('bg-white', 'dark:bg-gray-700', 'border-gray-300', 'dark:border-gray-600');
           }
           if (dot) {
             dot.classList.remove('opacity-100');
             dot.classList.add('opacity-0');
           }
           if (text) {
-            text.classList.remove('text-cyan-700', 'font-semibold');
-            text.classList.add('text-gray-700');
+            text.classList.remove('text-cyan-700', 'dark:text-cyan-400', 'font-semibold');
+            text.classList.add('text-gray-700', 'dark:text-gray-300');
           }
         }
       });

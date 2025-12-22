@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class", // ✅ habilita dark: con clase .dark en <html>
   content: [
     "./*.php", // index.php, etc.
     "./includes/**/*.php", // includes: header, navbar, footer...
