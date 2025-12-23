@@ -141,52 +141,38 @@ foreach ($seo as $key => $value) {
             "https://www.facebook.com/people/Agencia-Cuvarents/61560542866042/?mibextid=ZbWKwL",
             "https://www.instagram.com/cuvarents"
           ],
-          "contactPoint": {
+          "contactPoint": [{
             "@type": "ContactPoint",
             "telephone": "+5353868634",
             "contactType": "customer service",
             "availableLanguage": ["es", "en"],
             "areaServed": "CU"
-          }
+          }]
         },
         {
           "@type": "WebPage",
-          "@id": "https://cuvarents.com/rents/alquiler-de-casa-de-lujo-con-piscina-y-vista-al-mar-en-santa-fe-la-habana-359#webpage",
-          "url": "https://cuvarents.com/rents/alquiler-de-casa-de-lujo-con-piscina-y-vista-al-mar-en-santa-fe-la-habana-359",
-          "name": "Alquiler de casa de lujo con piscina y vista al mar en Santa Fe, La Habana.",
-          "description": "Renta en Santa Fe, La Habana. Precio: $110.00.",
+          "@id": "https://cuvarents.com/#webpage",
+          "url": "https://cuvarents.com/",
+          "name": "Casas particulares de alquiler en Cuba | CuVaRents",
+          "description": "Casas particulares, apartamentos, hostales y villas en alquiler en toda Cuba. Propiedades en La Habana, Varadero, Trinidad y más. Reserva por WhatsApp.",
           "isPartOf": {
             "@id": "https://cuvarents.com/#website"
           },
-          "inLanguage": "es-CU"
+          "inLanguage": "es"
         },
         {
           "@type": "BreadcrumbList",
-          "@id": "https://cuvarents.com/rents/alquiler-de-casa-de-lujo-con-piscina-y-vista-al-mar-en-santa-fe-la-habana-359#breadcrumb",
+          "@id": "https://cuvarents.com/#breadcrumb",
           "itemListElement": [{
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Inicio",
-              "item": "https://cuvarents.com/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Rentas",
-              "item": "https://cuvarents.com/rents"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "Alquiler de casa de lujo con piscina y vista al mar en Santa Fe, La Habana.",
-              "item": "https://cuvarents.com/rents/alquiler-de-casa-de-lujo-con-piscina-y-vista-al-mar-en-santa-fe-la-habana-359"
-            }
-          ]
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://cuvarents.com/"
+          }]
         }
       ]
     }
   </script>
-
 
 
   <!-- GLOBAL JS VARS -->
