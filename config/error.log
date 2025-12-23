@@ -6382,3 +6382,4 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in C:\xampp\htdocs\cuvarents\index.php on line 102
+[23-Dec-2025 23:17:37 Europe/Berlin] PHP Warning:  filemtime(): stat failed for C:\xampp\htdocs\cuvarents\includes/assets/css/output.css in C:\xampp\htdocs\cuvarents\includes\header.php on line 106

@@ -49,7 +49,7 @@
 
       btn.addEventListener('click', async function() {
         try {
-          const res = await fetch(`${BASE_URL}/api/getGestorActivo.php`);
+          const res = await fetch(`${BASE_URL}api/getGestorActivo.php`);
           const data = await res.json();
 
           if (!data.telefono) {

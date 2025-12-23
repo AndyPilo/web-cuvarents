@@ -58,7 +58,7 @@
                   id="footerPhone"
                   class="text-xs text-gray-400 hover:text-cyan-400 transition-colors"
                   href="#">
-                  Cargando...
+                  +5353868634
                 </a>
               </div>
             </div>
@@ -232,34 +232,11 @@
 <!-- Scripts -->
 <script src="<?= BASE_URL ?>assets/js/footer.js" defer></script>
 <script src="<?= BASE_URL ?>assets/js/gestor.js" defer></script>
-<script src="<?= BASE_URL ?>assets/js/ui-dropdown.js" defer></script>
+
 <script src="<?= BASE_URL ?>assets/js/ui-offcanvas.js" defer></script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Cargar número de teléfono
-    fetch('api/getGestorActivo.php')
-      .then(res => res.json())
-      .then(data => {
-        if (data.telefono) {
-          const phoneElement = document.getElementById('footerPhone');
-          const formattedPhone = data.telefono.replace(/\D/g, '');
-          phoneElement.textContent = `+${formattedPhone}`;
-          phoneElement.href = `tel:+${formattedPhone}`;
-
-          // Configurar WhatsApp
-          const whatsappLink = document.getElementById('whatsappLink');
-          whatsappLink.href = `https://wa.me/${formattedPhone}`;
-        }
-      })
-      .catch(err => console.error('Error loading gestor:', err));
-
-    // Responsive pagination (si existe)
-    if (window.innerWidth < 768) {
-      const paginationLinks = document.querySelectorAll(".cuvar-pagination .pagelink-item");
-      paginationLinks.forEach((el, index) => {
-        if (index >= 6) el.style.display = "none";
-      });
-    }
-  });
-</script>
+<?php
+$path = $_SERVER['DOCUMENT_ROOT'] . '/assets/js/ui-dropdown.js';
+$ver  = file_exists($path) ? filemtime($path) : time();
+?>
+<script src="<?= BASE_URL ?>assets/js/ui-dropdown.js?v=<?= $ver ?>" defer></script>

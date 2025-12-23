@@ -102,7 +102,9 @@ foreach ($seo as $key => $value) {
     <?php endforeach; ?>
   <?php endif; ?>
 
-  <link rel="stylesheet" href="assets/css/output.css">
+  <!-- Cargan css evitando cache con filemtime -->
+  <link rel="stylesheet" href="assets/css/output.css?v=<?= filemtime(__DIR__ . '/assets/css/output.css') ?>">
+
 
   <!-- 🧠 SCHEMA.ORG JSON-LD -->
   <script type="application/ld+json">
