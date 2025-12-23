@@ -243,27 +243,69 @@ class RentasController
             return;
         }
 
-        $priceRaw = $renta['rental_price'] ?? null;
+        // -----------------------------
+        // 1) Canonical: /rents/{slug}-{id}
+        // -----------------------------
+        $slug = slugify($renta['rental_title'] ?? '');
+        if ($slug === '') {
+            $slug = 'renta';
+        }
+
+        $expectedUrlParam = 'rents/' . $slug . '-' . (int)$renta['rental_id']; // sin slash inicial
+        $canonicalUrl     = rtrim(BASE_URL, '/') . '/' . $expectedUrlParam;     // absoluta
+
+        // -----------------------------
+        // 2) Redirección 301 si entras por:
+        //    - /rents/{id}
+        //    - slug incorrecto
+        //    IMPORTANTE: comparar contra $_GET['url'] (router) para no liarla en /cuvarents/
+        // -----------------------------
+        $currentUrlParam = trim((string)($_GET['url'] ?? ''), '/');
+
+        if ($currentUrlParam !== $expectedUrlParam) {
+            // Conserva parámetros útiles (utm, etc.) pero elimina el interno 'url'
+            $params = $_GET ?? [];
+            unset($params['url']);
+
+            $dest = $canonicalUrl;
+            if (!empty($params)) {
+                $dest .= '?' . http_build_query($params);
+            }
+
+            header("Location: $dest", true, 301);
+            exit;
+        }
+
+        // -----------------------------
+        // 3) Precio
+        // -----------------------------
+        $priceRaw  = $renta['rental_price'] ?? null;
         $priceText = ($priceRaw === null || trim((string)$priceRaw) === '' || (is_numeric($priceRaw) && (int)$priceRaw === 1))
             ? 'Consultar'
             : ('$' . htmlspecialchars((string)$priceRaw, ENT_QUOTES, 'UTF-8'));
 
+        // -----------------------------
+        // 4) SEO
+        // -----------------------------
         $seo = $this->mergeSeoDefaults([
             'title'       => htmlspecialchars($renta['rental_title'], ENT_QUOTES, 'UTF-8'),
             'description' => 'Renta en ' . htmlspecialchars($renta['rental_municipio'] ?? '', ENT_QUOTES, 'UTF-8')
                 . ', ' . htmlspecialchars($renta['rental_provincia'] ?? '', ENT_QUOTES, 'UTF-8')
                 . '. Precio: ' . $priceText . '.',
-            'url'         => BASE_URL . 'rents/' . $renta['rental_id'],
+            'url'         => $canonicalUrl,
             'image'       => !empty($renta['images'][0]) ? BASE_URL . 'uploads/' . $renta['images'][0] : BASE_URL . 'assets/img/og-image-cuvarents.jpg',
             'robots'      => 'index, follow',
             'breadcrumb'  => [
                 ['Inicio', BASE_URL],
                 ['Rentas', BASE_URL . 'rents'],
-                [$renta['rental_title'], BASE_URL . 'rents/' . $renta['rental_id']]
+                [$renta['rental_title'], $canonicalUrl]
             ],
             'pageType' => 'renta-detalle'
         ]);
 
+        // -----------------------------
+        // 5) CSS específicos
+        // -----------------------------
         $pageStyles = [
             'assets/css/detalle-renta.css',
             'assets/css/glightbox.min.css',

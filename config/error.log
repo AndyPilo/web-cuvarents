@@ -6354,3 +6354,31 @@ Stack trace:
 [22-Dec-2025 08:18:59 Europe/Berlin] PHP Warning:  Undefined array key "keywords" in C:\xampp\htdocs\cuvarents\includes\header.php on line 53
 [22-Dec-2025 08:19:09 Europe/Berlin] PHP Warning:  Undefined array key "keywords" in C:\xampp\htdocs\cuvarents\includes\header.php on line 53
 [22-Dec-2025 08:25:51 Europe/Berlin] PHP Warning:  Undefined array key "keywords" in C:\xampp\htdocs\cuvarents\includes\header.php on line 53
+[23-Dec-2025 20:55:25 Europe/Berlin] PHP Warning:  Undefined variable $canonicalPath in C:\xampp\htdocs\cuvarents\src\controllers\RentasController.php on line 254
+[23-Dec-2025 20:55:25 Europe/Berlin] PHP Warning:  Undefined variable $canonicalUrl in C:\xampp\htdocs\cuvarents\src\controllers\RentasController.php on line 255
+[23-Dec-2025 20:55:31 Europe/Berlin] PHP Warning:  Undefined variable $canonicalPath in C:\xampp\htdocs\cuvarents\src\controllers\RentasController.php on line 254
+[23-Dec-2025 20:55:31 Europe/Berlin] PHP Warning:  Undefined variable $canonicalUrl in C:\xampp\htdocs\cuvarents\src\controllers\RentasController.php on line 255
+[23-Dec-2025 20:55:35 Europe/Berlin] PHP Warning:  Undefined variable $canonicalPath in C:\xampp\htdocs\cuvarents\src\controllers\RentasController.php on line 254
+[23-Dec-2025 20:55:35 Europe/Berlin] PHP Warning:  Undefined variable $canonicalUrl in C:\xampp\htdocs\cuvarents\src\controllers\RentasController.php on line 255
+[23-Dec-2025 20:55:38 Europe/Berlin] PHP Warning:  Undefined variable $canonicalPath in C:\xampp\htdocs\cuvarents\src\controllers\RentasController.php on line 254
+[23-Dec-2025 20:55:38 Europe/Berlin] PHP Warning:  Undefined variable $canonicalUrl in C:\xampp\htdocs\cuvarents\src\controllers\RentasController.php on line 255
+[23-Dec-2025 21:04:26 Europe/Berlin] PHP Warning:  require(src/views/410View.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\cuvarents\index.php on line 102
+[23-Dec-2025 21:04:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'src/views/410View.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\cuvarents\index.php:102
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\cuvarents\index.php on line 102
+[23-Dec-2025 21:04:42 Europe/Berlin] PHP Warning:  require(src/views/404View.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\cuvarents\index.php on line 102
+[23-Dec-2025 21:04:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'src/views/404View.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\cuvarents\index.php:102
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\cuvarents\index.php on line 102
+[23-Dec-2025 21:04:43 Europe/Berlin] PHP Warning:  require(src/views/404View.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\cuvarents\index.php on line 102
+[23-Dec-2025 21:04:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'src/views/404View.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\cuvarents\index.php:102
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\cuvarents\index.php on line 102
+[23-Dec-2025 21:04:51 Europe/Berlin] PHP Warning:  require(src/views/404View.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\cuvarents\index.php on line 102
+[23-Dec-2025 21:04:51 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'src/views/404View.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\cuvarents\index.php:102
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\cuvarents\index.php on line 102
