@@ -13,7 +13,7 @@ class HomeController
     private function mergeSeoDefaults(array $customSeo = []): array
     {
         $defaults = [
-            'title' => 'CuvaRents | Casas particulares en alquiler en Cuba',
+            'title' => 'CuvaRents | Casas particulares de alquiler en Cuba',
             'description' => 'Casas particulares, apartamentos, hostales y villas en alquiler en toda Cuba. Reserva por WhatsApp.',
             'url' => BASE_URL,
             'image' => BASE_URL . 'assets/img/og-image-cuvarents.jpg',
@@ -46,8 +46,8 @@ class HomeController
         ];
 
         $seo = $this->mergeSeoDefaults([
-            'title' => 'Casas particulares en alquiler en Cuba: La Habana, Varadero y más | CuVaRents',
-            'description' => 'Casas particulares, apartamentos, hostales y villas en alquiler en toda Cuba. Propiedades en La Habana, Varadero, Trinidad y más. Reserva por WhatsApp.',
+            'title' => 'Casas particulares de alquiler en Cuba | CuVaRents',
+            'description' => 'Casas particulares, apartamentos, hostales y villas de alquiler en toda Cuba. Propiedades en La Habana, Varadero, Trinidad y más. Reserva por WhatsApp.',
             'url' => BASE_URL,
             'robots' => 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
             'breadcrumb' => [['Inicio', BASE_URL]],

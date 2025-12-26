@@ -17,9 +17,9 @@ class RentasController
     private function mergeSeoDefaults(array $customSeo = []): array
     {
         $defaults = [
-            'title'       => 'Alquiler de Casas en Cuba',
-            'description' => 'Encuentra casas particulares y apartamentos en alquiler en toda Cuba. Reserva segura con CuVaRents.',
-            'keywords'    => 'alquiler casas cuba, rentas cuba, casas particulares, apartamentos cuba, cuvarents',
+            'title'       => 'Casas particulares en Cuba | CuVaRents',
+            'description' => 'Encuentra casas particulares y apartamentos en alquiler en toda Cuba. Compara opciones y reserva por WhatsApp con CuVaRents.',
+            'keywords'    => 'casas particulares en cuba, alquiler casas cuba, rentas cuba, alojamiento cuba, cuvarents',
             'url'         => BASE_URL,
             'image'       => BASE_URL . 'assets/img/og-image-cuvarents.jpg',
             'type'        => 'website',
@@ -68,8 +68,8 @@ class RentasController
         // --- PAGINACIÓN ---
         $page         = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
 
-        //Verificar si es paginada para robots
-        $isPaginated = ($page > 1);
+        // Robots para paginadas
+        $isPaginated    = ($page > 1);
         $robotsForLists = $isPaginated ? 'noindex, follow' : 'index, follow';
 
         $itemsPerPage = 12;
@@ -77,10 +77,10 @@ class RentasController
 
         $homeSearch = trim($_GET['search'] ?? '');
 
-        // --- CONTEXTO PRO ---
-        $categoriaSlug = $_GET['categoria'] ?? '';
-        $provinciaSlug = $_GET['provincia_slug'] ?? '';
-        $municipioSlug = $_GET['municipio_slug'] ?? '';
+        // --- CONTEXTO ---
+        $categoriaSlug  = $_GET['categoria'] ?? '';
+        $provinciaSlug  = $_GET['provincia_slug'] ?? '';
+        $municipioSlug  = $_GET['municipio_slug'] ?? '';
 
         $categoriaNombre = '';
         $provinciaNombre = '';
@@ -139,94 +139,112 @@ class RentasController
             $rentsData = $this->rentaModel->getRentas($itemsPerPage, $offset, '');
         }
 
-        $rents       = $rentsData['rentas'] ?? [];
-        $totalPages  = $rentsData['totalPages'] ?? 1;
+        $rents      = $rentsData['rentas'] ?? [];
+        $totalPages = $rentsData['totalPages'] ?? 1;
 
         // Si tu view lo usa, aquí puedes calcularlo real con el COUNT.
         // Como tu Search devuelve totalPages pero no total, lo dejamos null para no mentir.
         $totalResults = null;
 
+        // ----------------------------
+        // ZONAS SEO (config dinámica)
+        // ----------------------------
+        $zonaSeo = [];
+        $zonaKey = '';
+        if ($provinciaSlug !== '' || $municipioSlug !== '') {
+            $zonasSeoConfig = require __DIR__ . '/../../config/zonas-seo.php';
+            $zonaKey = ($provinciaSlug !== '') ? $provinciaSlug : $municipioSlug;
+            $zonaSeo = $zonasSeoConfig[$zonaKey] ?? [];
+        }
+
         // -------- SEO --------
         if ($categoriaNombre !== '') {
             $seo = $this->mergeSeoDefaults([
-                'title'       => "$categoriaNombre en Cuba | Casas particulares | CuVaRents",
-                'description' => "Descubre rentas de $categoriaNombre en Cuba. Casas particulares y alojamientos para tu viaje.",
-                'keywords'    => "rentas $categoriaNombre, casas particulares $categoriaNombre, alojamiento $categoriaNombre, cuvarents",
+                'title'       => "Alojamientos $categoriaNombre en Cuba | CuVaRents",
+                'description' => "Descubre $categoriaNombre en Cuba. Compara opciones por destino, capacidad y servicios y reserva por WhatsApp con CuVaRents.",
                 'url'         => BASE_URL . "rents/$categoriaSlug",
-                'robots' => $robotsForLists,
+                'robots'      => $robotsForLists,
                 'breadcrumb'  => [
                     ['Inicio', BASE_URL],
-                    ['Rentas', BASE_URL . 'rents'],
-                    [$categoriaNombre, BASE_URL . "rents/$categoriaSlug"]
+                    ['Alojamientos', rtrim(BASE_URL, '/') . '/rents'],
+                    [$categoriaNombre, rtrim(BASE_URL, '/') . "/rents/$categoriaSlug"]
                 ],
                 'pageType' => 'rentas-categoria'
             ]);
         } elseif ($provinciaSlug !== '') {
+
+            // Defaults orientados a keyword
+            $defaultTitle = "Casas particulares en $provinciaNombre | CuVaRents";
+            $defaultDesc  = "Encuentra casas particulares en $provinciaNombre (Cuba). Compara alojamientos por municipios, capacidad y servicios, y reserva por WhatsApp con CuVaRents.";
+
+            // Override si existe en zonas-seo.php
+            $title = !empty($zonaSeo['title']) ? $zonaSeo['title'] : $defaultTitle;
+            $desc  = !empty($zonaSeo['description']) ? $zonaSeo['description'] : $defaultDesc;
+
             $seo = $this->mergeSeoDefaults([
-                'title'       => "Casas particulares en $provinciaNombre | CuVaRents",
-                'description' => "Encuentra casas particulares y rentas en la provincia de $provinciaNombre. Explora municipios y elige tu alojamiento ideal.",
-                'keywords'    => "rentas en $provinciaNombre, casas particulares $provinciaNombre, alquiler $provinciaNombre, cuvarents",
+                'title'       => $title,
+                'description' => $desc,
                 'url'         => BASE_URL . "rents/provincias/$provinciaSlug",
-                'robots' => $robotsForLists,
+                'robots'      => $robotsForLists,
                 'breadcrumb'  => [
                     ['Inicio', BASE_URL],
-                    ['Rentas', BASE_URL . 'rents'],
-                    ['Provincias', BASE_URL . 'rents/provincias'],
-                    [$provinciaNombre, BASE_URL . "rents/provincias/$provinciaSlug"]
+                    ['Alojamientos', rtrim(BASE_URL, '/') . '/rents'],
+                    ['Provincias', rtrim(BASE_URL, '/') . '/rents/provincias'],
+                    [$provinciaNombre, rtrim(BASE_URL, '/') . "/rents/provincias/$provinciaSlug"]
                 ],
                 'pageType' => 'rentas-provincia'
             ]);
         } elseif ($municipioSlug !== '') {
+
+            // Defaults orientados a keyword
+            $defaultTitle = "Casas particulares en $municipioNombre | CuVaRents";
+            $defaultDesc  = "Encuentra casas particulares en $municipioNombre (Cuba). Compara alojamientos por ubicación, capacidad y servicios, y reserva por WhatsApp con CuVaRents.";
+
+            // Override si existe en zonas-seo.php
+            $title = !empty($zonaSeo['title']) ? $zonaSeo['title'] : $defaultTitle;
+            $desc  = !empty($zonaSeo['description']) ? $zonaSeo['description'] : $defaultDesc;
+
             $seo = $this->mergeSeoDefaults([
-                'title'       => "Casas particulares en $municipioNombre | CuVaRents",
-                'description' => "Descubre casas particulares y alojamientos en $municipioNombre. Reserva con confianza y vive Cuba a tu manera.",
-                'keywords'    => "rentas en $municipioNombre, casas particulares $municipioNombre, alojamiento $municipioNombre, cuvarents",
+                'title'       => $title,
+                'description' => $desc,
                 'url'         => BASE_URL . "rents/municipios/$municipioSlug",
-                'robots' => $robotsForLists,
+                'robots'      => $robotsForLists,
                 'breadcrumb'  => [
                     ['Inicio', BASE_URL],
-                    ['Rentas', BASE_URL . 'rents'],
-                    ['Municipios', BASE_URL . 'rents/municipios'],
-                    [$municipioNombre, BASE_URL . "rents/municipios/$municipioSlug"]
+                    ['Alojamientos', rtrim(BASE_URL, '/') . '/rents'],
+                    ['Municipios', rtrim(BASE_URL, '/') . '/rents/municipios'],
+                    [$municipioNombre, rtrim(BASE_URL, '/') . "/rents/municipios/$municipioSlug"]
                 ],
                 'pageType' => 'rentas-municipio'
             ]);
         } elseif ($hasFilters || $homeSearch !== '') {
+
+            // Búsquedas y filtros: noindex
             $seo = $this->mergeSeoDefaults([
                 'title'       => 'Resultados de búsqueda | CuVaRents',
-                'description' => 'Explora casas particulares y apartamentos en Cuba según tus preferencias.',
+                'description' => 'Filtra alojamientos en Cuba por destino, precio, capacidad y servicios. Encuentra opciones según tus preferencias.',
                 'url'         => BASE_URL . 'rents',
                 'robots'      => 'noindex, follow',
                 'breadcrumb'  => [
                     ['Inicio', BASE_URL],
-                    ['Rentas', BASE_URL . 'rents'],
-                    ['Resultados de búsqueda', BASE_URL . 'rents']
+                    ['Alojamientos', rtrim(BASE_URL, '/') . '/rents'],
+                    ['Resultados de búsqueda', rtrim(BASE_URL, '/') . '/rents']
                 ],
                 'pageType' => 'rentas-busqueda'
             ]);
         } else {
+
             $seo = $this->mergeSeoDefaults([
-                'title'       => 'Explorar Rentas en Cuba | CuVaRents',
-                'description' => 'Explora casas particulares, apartamentos y alojamientos en Cuba. Encuentra la renta ideal para tu viaje.',
+                'title'       => 'Explora casas particulares en Cuba | CuVaRents',
+                'description' => 'Explora casas particulares en Cuba: casas, apartamentos y villas. Filtra por destino, capacidad y servicios y reserva por WhatsApp con CuVaRents.',
                 'url'         => BASE_URL . 'rents',
-                'robots' => $robotsForLists,
+                'robots'      => $robotsForLists,
                 'breadcrumb'  => [
                     ['Inicio', BASE_URL],
-                    ['Rentas', BASE_URL . 'rents']
+                    ['Alojamientos', rtrim(BASE_URL, '/') . '/rents']
                 ],
                 'pageType' => 'rentas'
             ]);
-        }
-
-        // --- Texto SEO (config/zonas-seo.php) ---
-        // Para no crear "basura", reutilizamos tu único archivo:
-        // - Provincias: se intenta por slug (ej: la-habana, santiago-de-cuba)
-        // - Municipios: también por slug (ej: varadero, trinidad, vinales)
-        $zonaSeo = [];
-        if ($provinciaSlug !== '' || $municipioSlug !== '') {
-            $zonasSeoConfig = require __DIR__ . '/../../config/zonas-seo.php';
-            $key = $provinciaSlug !== '' ? $provinciaSlug : $municipioSlug;
-            $zonaSeo = $zonasSeoConfig[$key] ?? [];
         }
 
         // --- VIEW ---
@@ -255,15 +273,11 @@ class RentasController
         $canonicalUrl     = rtrim(BASE_URL, '/') . '/' . $expectedUrlParam;     // absoluta
 
         // -----------------------------
-        // 2) Redirección 301 si entras por:
-        //    - /rents/{id}
-        //    - slug incorrecto
-        //    IMPORTANTE: comparar contra $_GET['url'] (router) para no liarla en /cuvarents/
+        // 2) Redirección 301 si entras por slug incorrecto o /rents/{id}
         // -----------------------------
         $currentUrlParam = trim((string)($_GET['url'] ?? ''), '/');
 
         if ($currentUrlParam !== $expectedUrlParam) {
-            // Conserva parámetros útiles (utm, etc.) pero elimina el interno 'url'
             $params = $_GET ?? [];
             unset($params['url']);
 
@@ -311,7 +325,8 @@ class RentasController
             'assets/css/glightbox.min.css',
             'https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css',
             'assets/css/nouislider.min.css',
-            'assets/css/choices.min.css'
+            'assets/css/choices.min.css',
+            'assets/css/swiper-bundle.min.css'
         ];
 
         require 'src/views/rentas/detalleRentaView.php';

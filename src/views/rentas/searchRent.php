@@ -99,7 +99,7 @@ function renderServicesSkeleton(string $size = 'sm'): void
 ?>
 
 <form id="filterForm" class="contents" onsubmit="return false;">
-  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
+  <div class="relative mx-auto max-w-7xl px-1 py-4">
     <div class="relative">
       <div class="hidden mb-4 lg:flex items-center justify-between">
         <div class="flex items-center gap-2">

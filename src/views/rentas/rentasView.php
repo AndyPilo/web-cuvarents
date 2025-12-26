@@ -11,9 +11,6 @@
   $provinciaSlug  = $_GET['provincia_slug'] ?? null;
   $municipioSlug  = $_GET['municipio_slug'] ?? null;
 
-  // Si ya NO vas a usar /rents/zonas/*, puedes borrar esto.
-  // (Lo dejo fuera para no acumular "código basura".)
-
   $page = isset($page) ? (int)$page : (int)($_GET['page'] ?? 1);
   $page = max(1, $page);
 
@@ -68,9 +65,7 @@
 
     return [$start, $end];
   }
-  ?>
 
-  <?php
   // -----------------------------------------
   // BREADCRUMBS
   // -----------------------------------------
@@ -96,6 +91,20 @@
   }
 
   $lastIndex = count($crumbs) - 1;
+
+  // -----------------------------------------
+  // Helpers SEO (contenido y schemas)
+  // -----------------------------------------
+  $robotsMeta = (string)($seo['robots'] ?? '');
+  $isIndexable = (stripos($robotsMeta, 'noindex') === false) && ($page === 1);
+
+  // Zona SEO: compat + nuevos campos
+  $hasZonaSeo  = !empty($zonaSeo) && is_array($zonaSeo);
+  $introTop    = $hasZonaSeo ? (string)($zonaSeo['intro_top'] ?? $zonaSeo['intro'] ?? '') : '';
+  $introBottom = $hasZonaSeo ? (string)($zonaSeo['intro_bottom'] ?? '') : '';
+  $sections    = $hasZonaSeo && !empty($zonaSeo['sections']) && is_array($zonaSeo['sections']) ? $zonaSeo['sections'] : [];
+  $faq         = $hasZonaSeo && !empty($zonaSeo['faq']) && is_array($zonaSeo['faq']) ? $zonaSeo['faq'] : [];
+  $links       = $hasZonaSeo && !empty($zonaSeo['links']) && is_array($zonaSeo['links']) ? $zonaSeo['links'] : [];
   ?>
 
   <main class="min-h-screen">
@@ -140,11 +149,10 @@
       </ol>
     </nav>
 
-    <?php include_once __DIR__ . '/searchRent.php'; ?>
 
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
       <div class="mb-8">
-        <?php if (!empty($zonaSeo)): ?>
+        <?php if ($hasZonaSeo): ?>
           <div class="text-center lg:text-left">
             <div class="inline-flex items-center justify-center mb-4">
               <span class="inline-flex items-center rounded-full bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-cyan-900/30 dark:to-blue-900/30 px-4 py-2">
@@ -156,12 +164,36 @@
             </div>
 
             <h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl mb-4">
-              <?= htmlspecialchars($zonaSeo['h1']) ?>
+              <?= htmlspecialchars($zonaSeo['h1'] ?? $contextTitle) ?>
             </h1>
 
-            <p class="mx-auto max-w-3xl text-lg text-gray-600 dark:text-gray-300 lg:text-left">
-              <?= htmlspecialchars($zonaSeo['intro']) ?>
-            </p>
+            <?php if ($introTop !== ''): ?>
+              <p class="my-12 text-lg text-gray-600 dark:text-gray-300 lg:text-left">
+                <?= nl2br(htmlspecialchars($introTop)) ?>
+              </p>
+            <?php endif; ?>
+
+            <?php include_once __DIR__ . '/searchRent.php'; ?>
+
+
+            <?php if (!empty($links)): ?>
+              <div class="mt-6">
+                <h2 class="sr-only">Explorar también</h2>
+                <div class="flex flex-wrap gap-2 justify-center lg:justify-start">
+                  <?php foreach ($links as $l): ?>
+                    <?php
+                    $label = (string)($l['label'] ?? '');
+                    $url   = (string)($l['url'] ?? '');
+                    if ($label === '' || $url === '') continue;
+                    ?>
+                    <a href="<?= htmlspecialchars($url, ENT_QUOTES, 'UTF-8') ?>"
+                      class="inline-flex items-center rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:border-cyan-400 dark:hover:border-cyan-500 hover:text-cyan-700 dark:hover:text-cyan-400 transition-colors">
+                      <?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8') ?>
+                    </a>
+                  <?php endforeach; ?>
+                </div>
+              </div>
+            <?php endif; ?>
           </div>
         <?php else: ?>
           <div class="text-center lg:text-left">
@@ -223,11 +255,85 @@
 
         <?php else: ?>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            <?php
-            require_once 'utils/slugify.php';
+          <?php
+          // -----------------------------------------
+          // JSON-LD adicional (solo si indexable)
+          // - ItemList del listado
+          // - FAQPage (si aplica)
+          // -----------------------------------------
+          require_once 'utils/slugify.php';
 
-            foreach ($rents as $row):
+          if ($isIndexable) {
+            // ItemList
+            $itemList = [
+              '@context' => 'https://schema.org',
+              '@type' => 'ItemList',
+              'name' => (string)($zonaSeo['h1'] ?? $contextTitle),
+              'itemListElement' => []
+            ];
+
+            foreach ($rents as $idx => $row) {
+              $rentalTitle = (string)($row['rental_title'] ?? '');
+              $rentalId    = (int)($row['rental_id'] ?? 0);
+              $slug        = slugify($rentalTitle);
+              $url         = rtrim(BASE_URL, '/') . "/rents/" . $slug . "-" . $rentalId;
+
+              $images = !empty($row['images']) ? explode(',', (string)$row['images']) : [];
+              $img    = !empty($images[0]) ? (rtrim(BASE_URL, '/') . '/uploads/' . $images[0]) : (rtrim(BASE_URL, '/') . '/assets/img/og-image-cuvarents.jpg');
+
+              $itemList['itemListElement'][] = [
+                '@type' => 'ListItem',
+                'position' => $idx + 1,
+                'url' => $url,
+                'item' => [
+                  '@type' => 'LodgingBusiness',
+                  'name' => $rentalTitle,
+                  'url' => $url,
+                  'image' => $img,
+                  'address' => [
+                    '@type' => 'PostalAddress',
+                    'addressCountry' => 'CU',
+                    'addressRegion' => (string)($row['rental_provincia'] ?? ''),
+                    'addressLocality' => (string)($row['rental_municipio'] ?? ''),
+                  ],
+                ],
+              ];
+            }
+
+            echo '<script type="application/ld+json">' . json_encode($itemList, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>';
+
+            // FAQPage
+            if (!empty($faq)) {
+              $faqSchema = [
+                '@context' => 'https://schema.org',
+                '@type' => 'FAQPage',
+                'mainEntity' => []
+              ];
+
+              foreach ($faq as $f) {
+                $q = trim((string)($f['q'] ?? ''));
+                $a = trim((string)($f['a'] ?? ''));
+                if ($q === '' || $a === '') continue;
+
+                $faqSchema['mainEntity'][] = [
+                  '@type' => 'Question',
+                  'name' => $q,
+                  'acceptedAnswer' => [
+                    '@type' => 'Answer',
+                    'text' => $a
+                  ]
+                ];
+              }
+
+              if (!empty($faqSchema['mainEntity'])) {
+                echo '<script type="application/ld+json">' . json_encode($faqSchema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>';
+              }
+            }
+          }
+          ?>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <?php foreach ($rents as $row):
               $rentalId    = $row['rental_id'];
               $images      = !empty($row['images']) ? explode(',', $row['images']) : [];
               $rentalTitle = htmlspecialchars($row['rental_title'], ENT_QUOTES, 'UTF-8');
@@ -380,7 +486,6 @@
                 </div>
               </article>
 
-
             <?php endforeach; ?>
           </div>
 
@@ -452,6 +557,64 @@
                 </div>
               </div>
             </nav>
+          <?php endif; ?>
+
+          <?php if ($hasZonaSeo && ($introBottom !== '' || !empty($sections) || !empty($faq))): ?>
+            <section class="mt-14 pt-10 border-t border-gray-200 dark:border-gray-700">
+              <div class="max-w-4xl">
+                <?php if (!empty($sections)): ?>
+                  <?php foreach ($sections as $block): ?>
+                    <?php
+                    $h2 = trim((string)($block['h2'] ?? ''));
+                    $p  = trim((string)($block['p'] ?? ''));
+                    if ($h2 === '' || $p === '') continue;
+                    ?>
+                    <div class="mb-10">
+                      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                        <?= htmlspecialchars($h2, ENT_QUOTES, 'UTF-8') ?>
+                      </h2>
+                      <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <?= nl2br(htmlspecialchars($p, ENT_QUOTES, 'UTF-8')) ?>
+                      </p>
+                    </div>
+                  <?php endforeach; ?>
+                <?php endif; ?>
+
+                <?php if ($introBottom !== ''): ?>
+                  <div class="mb-10">
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      <?= nl2br(htmlspecialchars($introBottom, ENT_QUOTES, 'UTF-8')) ?>
+                    </p>
+                  </div>
+                <?php endif; ?>
+
+                <?php if (!empty($faq)): ?>
+                  <div class="mt-10">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                      Preguntas frecuentes
+                    </h2>
+
+                    <div class="space-y-4">
+                      <?php foreach ($faq as $f): ?>
+                        <?php
+                        $q = trim((string)($f['q'] ?? ''));
+                        $a = trim((string)($f['a'] ?? ''));
+                        if ($q === '' || $a === '') continue;
+                        ?>
+                        <details class="rounded-2xl bg-white dark:bg-gray-800 p-5 ring-1 ring-gray-200/60 dark:ring-gray-700/60 shadow-sm">
+                          <summary class="cursor-pointer font-semibold text-gray-900 dark:text-white">
+                            <?= htmlspecialchars($q, ENT_QUOTES, 'UTF-8') ?>
+                          </summary>
+                          <p class="mt-3 text-gray-600 dark:text-gray-300 leading-relaxed">
+                            <?= nl2br(htmlspecialchars($a, ENT_QUOTES, 'UTF-8')) ?>
+                          </p>
+                        </details>
+                      <?php endforeach; ?>
+                    </div>
+                  </div>
+                <?php endif; ?>
+              </div>
+            </section>
           <?php endif; ?>
 
         <?php endif; ?>

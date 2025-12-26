@@ -69,7 +69,7 @@
               itemprop="headline">
               <span class="block">Casas particulares</span>
               <span class="block bg-gradient-to-r from-cyan-600 via-blue-600 to-cyan-600 dark:from-cyan-400 dark:via-blue-400 dark:to-cyan-400 bg-clip-text text-transparent pb-2 animate-gradient bg-[length:200%_auto]">
-                en alquiler en Cuba
+                de alquiler en Cuba
               </span>
             </h1>
 
@@ -149,7 +149,7 @@
         <div class="grid gap-8 lg:grid-cols-12 lg:gap-12">
           <div class="lg:col-span-8">
             <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
-              Cómo elegir casas particulares en Cuba según tu viaje
+              Cómo elegir casas particulares para hospedarse en Cuba
             </h2>
             <p class="mt-4 text-gray-700 dark:text-gray-300 leading-relaxed">
               Las <strong class="text-gray-900 dark:text-white">casas particulares en alquiler en Cuba</strong> son una de las opciones más buscadas
@@ -442,9 +442,14 @@
     <section class="py-16 md:py-20 bg-white dark:bg-gray-900">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
-          <span class="inline-block rounded-full bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 px-4 py-1.5 text-sm font-semibold text-amber-700 dark:text-amber-300 mb-4">
-            ✅ Beneficios
-          </span>
+          <div class="flex flex-row justify-center items-center">
+            <span class="flex flex-row items-center rounded-full bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 px-4 py-1.5 text-sm font-semibold text-amber-700 dark:text-amber-300 mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+              Beneficios
+            </span>
+          </div>
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
             ¿Por qué elegir <span class="text-amber-600 dark:text-amber-400">CuVaRents</span>?
           </h2>
@@ -454,21 +459,36 @@
         </div>
 
         <div class="grid gap-8 md:grid-cols-3">
-          <div class="bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 rounded-2xl p-6">
+          <div class="relative bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 rounded-2xl px-6 py-12">
+            <div class="absolute -top-6 left-8 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-cyan-900/20 to-blue-900/20 dark:from-cyan-800/50 dark:to-blue-900/50 shadow-lg">
+              <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
             <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Búsqueda por filtros</h3>
             <p class="text-gray-600 dark:text-gray-300">
               Encuentra casas particulares, apartamentos y villas filtrando por destino, capacidad y servicios.
             </p>
           </div>
 
-          <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl p-6">
+          <div class=" relative bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl px-6 py-12">
+            <div class="absolute -top-6 left-8 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-cyan-800/20 to-blue-900/20 dark:from-cyan-800/50 dark:to-blue-900/50 shadow-lg">
+              <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+              </svg>
+            </div>
             <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Contacto por WhatsApp</h3>
             <p class="text-gray-600 dark:text-gray-300">
               Confirma disponibilidad y detalles directamente desde la ficha de cada propiedad.
             </p>
           </div>
 
-          <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-6">
+          <div class="relative bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-blue-900/10 rounded-2xl px-6 py-12">
+            <div class="absolute -top-6 left-8 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-cyan-800/20 to-blue-900/20 dark:from-cyan-800/50 dark:to-blue-900/50 shadow-lg">
+              <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+              </svg>
+            </div>
             <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Cobertura en Cuba</h3>
             <p class="text-gray-600 dark:text-gray-300">
               Explora destinos populares y descubre opciones de hospedaje en distintas zonas del país.
