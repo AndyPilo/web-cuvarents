@@ -633,8 +633,8 @@
         $quickCategories = [
           ['slug' => 'casas-de-lujo',            'label' => 'Casas de lujo',              'desc' => 'Opciones premium, espacios amplios y mejores comodidades.'],
           ['slug' => 'casas-en-la-playa',        'label' => 'Casas en la playa',          'desc' => 'Alojamientos cerca del mar para disfrutar la costa.'],
-          ['slug' => 'largas-y-cortas-estancias', 'label' => 'Largas y cortas estancias',  'desc' => 'Estancias flexibles: noches, semanas o más tiempo.'],
-          ['slug' => 'alojamientos-vacacionales', 'label' => 'Alojamientos vacacionales',  'desc' => 'Rentas para vacaciones: comodidad y buena ubicación.'],
+          ['slug' => 'casas-y-apartamentos-por-largas-y-cortas-estancias', 'label' => 'Largas y cortas estancias',  'desc' => 'Estancias flexibles: noches, semanas o más tiempo.'],
+          ['slug' => 'casas-y-alojamientos-vacacionales', 'label' => 'Alojamientos vacacionales',  'desc' => 'Rentas para vacaciones: comodidad y buena ubicación.'],
         ];
 
         // Provincias (en tu lista solo La Habana)
