@@ -151,7 +151,11 @@ class RentasController
         // ----------------------------
         $zonaSeo = [];
         $zonaKey = '';
-        if ($provinciaSlug !== '' || $municipioSlug !== '') {
+        if ($categoriaSlug !== '') {
+            $catsSeoConfig = require __DIR__ . '/../../config/categorias-seo.php';
+            $zonaKey = $categoriaSlug;
+            $zonaSeo = $catsSeoConfig[$zonaKey] ?? [];
+        } elseif ($provinciaSlug !== '' || $municipioSlug !== '') {
             $zonasSeoConfig = require __DIR__ . '/../../config/zonas-seo.php';
             $zonaKey = ($provinciaSlug !== '') ? $provinciaSlug : $municipioSlug;
             $zonaSeo = $zonasSeoConfig[$zonaKey] ?? [];
@@ -159,9 +163,23 @@ class RentasController
 
         // -------- SEO --------
         if ($categoriaNombre !== '') {
+
+            // 1) Cargar SEO de categorías
+            $categoriasSeoConfig = require __DIR__ . '/../../config/categorias-seo.php';
+            $categoriaSeo = $categoriasSeoConfig[$categoriaSlug] ?? [];
+
+            $zonaSeo = $categoriaSeo;
+
+            // 3) SEO meta: usa el config si existe, si no cae a default
             $seo = $this->mergeSeoDefaults([
-                'title'       => "Alojamientos $categoriaNombre en Cuba | CuVaRents",
-                'description' => "Descubre $categoriaNombre en Cuba. Compara opciones por destino, capacidad y servicios y reserva por WhatsApp con CuVaRents.",
+                'title'       => !empty($categoriaSeo['title'])
+                    ? $categoriaSeo['title']
+                    : "$categoriaNombre en Cuba | CuVaRents",
+
+                'description' => !empty($categoriaSeo['description'])
+                    ? $categoriaSeo['description']
+                    : "Descubre $categoriaNombre en Cuba. Compara opciones por destino, capacidad y servicios y reserva por WhatsApp con CuVaRents.",
+
                 'url'         => BASE_URL . "rents/$categoriaSlug",
                 'robots'      => $robotsForLists,
                 'breadcrumb'  => [

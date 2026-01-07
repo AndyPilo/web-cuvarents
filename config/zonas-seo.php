@@ -209,4 +209,67 @@ return [
 
         'intro_bottom' => 'Viñales se disfruta mejor con un alojamiento cómodo para descansar tras las actividades del día. Compara ubicación, servicios y capacidad para elegir tu mejor opción y reserva por WhatsApp.',
     ],
+    // -------------------------
+    // CIENFUEGOS (municipio)
+    // -------------------------
+    'cienfuegos' => [
+        'primary_keyword' => 'casas particulares en Cienfuegos',
+
+        'title' => 'Casas particulares en Cienfuegos: alojamiento en la Perla del Sur | CuVaRents',
+        'description' => 'Encuentra casas particulares en Cienfuegos (Cuba). Compara alojamientos por ubicación, capacidad y servicios, mira fotos y reserva por WhatsApp con CuVaRents.',
+
+        'subtitle' => 'Perla del Sur',
+        'h1' => 'Casas particulares en Cienfuegos (Cuba): alojamiento y rentas',
+        'intro' => 'Cienfuegos es una ciudad elegante y tranquila, famosa por su bahía, su arquitectura y su ambiente relajado. Aquí encontrarás casas particulares y apartamentos para hospedarte cerca del centro, el malecón o zonas más residenciales. Compara opciones por capacidad, número de habitaciones y servicios, y reserva por WhatsApp de forma rápida y segura.',
+
+        'sections' => [
+            [
+                'h2' => 'Dónde alojarse en Cienfuegos según tu plan',
+                'p'  => 'Si quieres recorrer a pie y estar cerca de la vida urbana, prioriza ubicaciones céntricas. Para un viaje más tranquilo, una zona residencial puede ofrecer mejor descanso. Si tu idea es disfrutar de la bahía y atardeceres, busca alojamientos con acceso cómodo al malecón o puntos cercanos.'
+            ],
+            [
+                'h2' => 'Qué revisar antes de reservar una casa particular',
+                'p'  => 'Antes de confirmar, revisa capacidad real, habitaciones, aire acondicionado, agua caliente y reglas de entrada/salida. También conviene preguntar por detalles prácticos: si hay cocina, parqueo (si lo necesitas), y cómo es la conectividad o comunicación con el anfitrión durante la estancia.'
+            ],
+            [
+                'h2' => 'Ideas para aprovechar tu estancia',
+                'p'  => 'Cienfuegos es ideal para combinar ciudad y descanso. Si planeas moverte hacia playas o excursiones cercanas, prioriza buena logística de transporte. Para estancias cortas, una ubicación céntrica te ahorra traslados y te permite disfrutar más del día.'
+            ],
+        ],
+
+        'faq' => [
+            [
+                'q' => '¿Qué es una casa particular en Cuba?',
+                'a' => 'Es un hospedaje gestionado por anfitriones locales. Puede ser una habitación o una vivienda completa y suele ofrecer una experiencia más flexible que un hotel.'
+            ],
+            [
+                'q' => '¿Dónde es mejor hospedarse en Cienfuegos?',
+                'a' => 'Depende de tu plan: para caminar y explorar la ciudad convienen ubicaciones céntricas; para descansar, una zona residencial; si buscas atardeceres y bahía, prioriza una ubicación con acceso cómodo al malecón.'
+            ],
+            [
+                'q' => '¿Cómo reservo una casa particular en Cienfuegos?',
+                'a' => 'Elige la propiedad, consulta disponibilidad y confirma la reserva por WhatsApp siguiendo las indicaciones del anuncio.'
+            ],
+            [
+                'q' => '¿Qué servicios son más importantes?',
+                'a' => 'Aire acondicionado suele ser clave por el clima. También agua caliente, fotos claras del espacio y una ubicación que se adapte a tu plan de viaje.'
+            ],
+            [
+                'q' => '¿Hay opciones para familias o grupos?',
+                'a' => 'Sí. Filtra por capacidad y número de habitaciones para encontrar opciones adecuadas.'
+            ],
+            [
+                'q' => '¿Conviene reservar con antelación?',
+                'a' => 'En temporadas altas o si buscas una zona específica, sí. Las mejores opciones se ocupan primero.'
+            ],
+        ],
+
+        'links' => [
+            ['label' => 'Ver todas las propiedades en Cuba', 'url' => rtrim(BASE_URL, '/') . '/rents'],
+            ['label' => 'Casas en la playa', 'url' => rtrim(BASE_URL, '/') . '/rents/casas-en-la-playa'],
+            ['label' => 'Alojamientos de lujo en Cuba', 'url' => rtrim(BASE_URL, '/') . '/rents/casas-de-lujo'],
+        ],
+
+        'intro_bottom' => 'Elegir bien tu alojamiento en Cienfuegos te permite disfrutar la ciudad con calma: caminar, descubrir lugares y descansar mejor. Compara ubicación, servicios y capacidad, y si tienes dudas, consulta por WhatsApp antes de confirmar tu reserva.',
+    ],
 ];

@@ -52,7 +52,7 @@
         <div class="mx-auto max-w-4xl">
           <div class="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-8">
             <div class="relative rounded-2xl bg-white dark:bg-gray-800 p-6 text-center shadow-lg ring-1 ring-gray-200 dark:ring-gray-700">
-              <div class="text-3xl font-bold text-cyan-700 dark:text-cyan-400 sm:text-4xl">500+</div>
+              <div class="text-3xl font-bold text-cyan-700 dark:text-cyan-400 sm:text-4xl">250+</div>
               <div class="mt-2 text-sm font-medium text-gray-600 dark:text-gray-400">Propiedades Listadas</div>
               <div class="absolute -top-2 left-1/2 -translate-x-1/2 rounded-full bg-cyan-100 dark:bg-cyan-900/30 p-2">
                 <svg class="h-5 w-5 text-cyan-600 dark:text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
@@ -62,7 +62,7 @@
             </div>
 
             <div class="relative rounded-2xl bg-white dark:bg-gray-800 p-6 text-center shadow-lg ring-1 ring-gray-200 dark:ring-gray-700">
-              <div class="text-3xl font-bold text-cyan-700 dark:text-cyan-400 sm:text-4xl">15</div>
+              <div class="text-3xl font-bold text-cyan-700 dark:text-cyan-400 sm:text-4xl">6</div>
               <div class="mt-2 text-sm font-medium text-gray-600 dark:text-gray-400">Provincias Cubiertas</div>
               <div class="absolute -top-2 left-1/2 -translate-x-1/2 rounded-full bg-cyan-100 dark:bg-cyan-900/30 p-2">
                 <svg class="h-5 w-5 text-cyan-600 dark:text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
@@ -103,7 +103,7 @@
           <div class="lg:col-span-6 xl:col-span-7">
             <div class="lg:pr-8 xl:pr-12">
               <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                Nuestra Misión: Transformar la búsqueda de hogar
+                Nuestra Misión: Ayudarte a encontrar el alquiler ideal
               </h2>
 
               <p class="mt-6 text-lg text-gray-600 dark:text-gray-300">
@@ -144,7 +144,7 @@
 
               <div class="mt-12 rounded-2xl bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-cyan-900/30 dark:to-blue-900/30 p-6 sm:p-8">
                 <p class="text-lg italic text-gray-700 dark:text-gray-300">
-                  "En Cuvarents, no solo te ayudamos a encontrar una propiedad; te acompañamos en el proceso de descubrir el lugar que llamarás hogar."
+                  "En Cuvarents, no solo te ayudamos a encontrar una propiedad; te acompañamos en el proceso de descubrir el lugar que visitarás."
                 </p>
                 <div class="mt-4 flex items-center">
                   <div class="ml-4">

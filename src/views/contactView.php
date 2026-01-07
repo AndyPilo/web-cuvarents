@@ -87,8 +87,8 @@
                 <span class="font-medium text-gray-900 dark:text-white">24:00 h</span>
               </div>
               <div class="flex justify-between">
-                <span class="text-gray-600 dark:text-gray-400">Sábado - Domingo</span>
-                <span class="font-medium text-gray-900 dark:text-white">9:00 - 18:00</span>
+                <span class="text-gray-600 dark:text-gray-400">Le atenderemos</span>
+                <span class="font-medium text-gray-900 dark:text-white">lo antes posible</span>
               </div>
             </div>
           </div>

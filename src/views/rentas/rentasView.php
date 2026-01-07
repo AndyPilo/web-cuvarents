@@ -158,7 +158,7 @@
               <span class="inline-flex items-center rounded-full bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-cyan-900/30 dark:to-blue-900/30 px-4 py-2">
                 <span class="mr-2 h-2 w-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500"></span>
                 <span class="text-sm font-medium text-cyan-800 dark:text-cyan-300">
-                  <?= htmlspecialchars($zonaSeo['subtitle'] ?? 'Destino') ?>
+                  <?= htmlspecialchars($zonaSeo['subtitle'] ?? 'Rentas') ?>
                 </span>
               </span>
             </div>
@@ -221,6 +221,8 @@
                 Encuentra la propiedad perfecta para tu estancia en Cuba
               </p>
             <?php endif; ?>
+
+            <?php include_once __DIR__ . '/searchRent.php'; ?>
           </div>
         <?php endif; ?>
       </div>
@@ -618,6 +620,145 @@
           <?php endif; ?>
 
         <?php endif; ?>
+
+        <?php
+        // =========================================
+        // QUICK LINKS + BUSCADOR en /rents principal
+        // =========================================
+        $isMainRents = empty($categoriaSlug) && empty($provinciaSlug) && empty($municipioSlug) && ((int)$page === 1);
+
+        $base = rtrim(BASE_URL, '/');
+
+        // Categorías (slug => label)
+        $quickCategories = [
+          ['slug' => 'casas-de-lujo',            'label' => 'Casas de lujo',              'desc' => 'Opciones premium, espacios amplios y mejores comodidades.'],
+          ['slug' => 'casas-en-la-playa',        'label' => 'Casas en la playa',          'desc' => 'Alojamientos cerca del mar para disfrutar la costa.'],
+          ['slug' => 'largas-y-cortas-estancias', 'label' => 'Largas y cortas estancias',  'desc' => 'Estancias flexibles: noches, semanas o más tiempo.'],
+          ['slug' => 'alojamientos-vacacionales', 'label' => 'Alojamientos vacacionales',  'desc' => 'Rentas para vacaciones: comodidad y buena ubicación.'],
+        ];
+
+        // Provincias (en tu lista solo La Habana)
+        $quickProvinces = [
+          ['slug' => 'la-habana', 'label' => 'La Habana', 'desc' => 'Capital de Cuba: zonas y alojamientos por ubicación.'],
+        ];
+
+        // Municipios
+        $quickMunicipios = [
+          ['slug' => 'varadero',        'label' => 'Varadero',         'desc' => 'Destino de playa muy buscado.'],
+          ['slug' => 'trinidad',        'label' => 'Trinidad',         'desc' => 'Ciudad colonial y ambiente histórico.'],
+          ['slug' => 'cienfuegos', 'label' => 'Cienfuegos', 'desc' => 'Ciudad elegante y bahía: arquitectura, malecón y tranquilidad.'],
+          ['slug' => 'vinales',         'label' => 'Viñales',          'desc' => 'Naturaleza y valle: descanso y excursiones.'],
+        ];
+
+        // Helper de escape
+        $h = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8');
+        ?>
+
+        <?php if ($isMainRents): ?>
+          <section class="mt-8">
+            <?php
+            // ✅ Asegura que el buscador aparezca también en /rents principal
+            // (en páginas de provincia/municipio/categoría ya se muestra arriba en tu diseño actual)
+            ?>
+            <div class="mb-10">
+              <?php include_once __DIR__ . '/searchRent.php'; ?>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <!-- Explora por categorías -->
+              <div class="rounded-2xl bg-white dark:bg-gray-800 ring-1 ring-gray-200/60 dark:ring-gray-700/60 shadow-sm p-6">
+                <div class="flex items-center justify-between gap-3 mb-4">
+                  <h2 class="text-lg font-bold text-gray-900 dark:text-white">
+                    Explora por categorías
+                  </h2>
+                  <a href="<?= $base ?>/rents"
+                    class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-cyan-700 dark:hover:text-cyan-400 transition-colors">
+                    Ver todo
+                  </a>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <?php foreach ($quickCategories as $c): ?>
+                    <?php $url = $base . '/rents/' . $c['slug']; ?>
+                    <a href="<?= $h($url) ?>"
+                      class="group rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50/70 dark:bg-gray-900/30
+                      p-4 hover:border-cyan-300 dark:hover:border-cyan-500 hover:bg-cyan-50/60 dark:hover:bg-cyan-900/20 transition-all">
+                      <div class="flex items-start justify-between gap-3">
+                        <div>
+                          <div class="font-semibold text-gray-900 dark:text-white group-hover:text-cyan-800 dark:group-hover:text-cyan-400 transition-colors">
+                            <?= $h($c['label']) ?>
+                          </div>
+                          <div class="text-sm text-gray-600 dark:text-gray-300 mt-1 leading-snug">
+                            <?= $h($c['desc']) ?>
+                          </div>
+                        </div>
+
+                        <svg class="h-5 w-5 text-gray-400 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors"
+                          fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    </a>
+                  <?php endforeach; ?>
+                </div>
+              </div>
+
+              <!-- Destinos populares (Provincias + Municipios) -->
+              <div class="rounded-2xl bg-white dark:bg-gray-800 ring-1 ring-gray-200/60 dark:ring-gray-700/60 shadow-sm p-6">
+                <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-4">
+                  Destinos populares
+                </h2>
+
+                <!-- Provincias -->
+                <div class="mb-6">
+                  <div class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-3">
+                    Provincias
+                  </div>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <?php foreach ($quickProvinces as $p): ?>
+                      <?php $url = $base . '/rents/provincias/' . $p['slug']; ?>
+                      <a href="<?= $h($url) ?>"
+                        class="group rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50/70 dark:bg-gray-900/30
+                        p-4 hover:border-cyan-300 dark:hover:border-cyan-500 hover:bg-cyan-50/60 dark:hover:bg-cyan-900/20 transition-all">
+                        <div class="font-semibold text-gray-900 dark:text-white group-hover:text-cyan-800 dark:group-hover:text-cyan-400 transition-colors">
+                          <?= $h($p['label']) ?>
+                        </div>
+                        <div class="text-sm text-gray-600 dark:text-gray-300 mt-1 leading-snug">
+                          <?= $h($p['desc']) ?>
+                        </div>
+                      </a>
+                    <?php endforeach; ?>
+                  </div>
+                </div>
+
+                <!-- Municipios -->
+                <div>
+                  <div class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-3">
+                    Municipios
+                  </div>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <?php foreach ($quickMunicipios as $m): ?>
+                      <?php $url = $base . '/rents/municipios/' . $m['slug']; ?>
+                      <a href="<?= $h($url) ?>"
+                        class="group rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50/70 dark:bg-gray-900/30
+                        p-4 hover:border-cyan-300 dark:hover:border-cyan-500 hover:bg-cyan-50/60 dark:hover:bg-cyan-900/20 transition-all">
+                        <div class="font-semibold text-gray-900 dark:text-white group-hover:text-cyan-800 dark:group-hover:text-cyan-400 transition-colors">
+                          <?= $h($m['label']) ?>
+                        </div>
+                        <div class="text-sm text-gray-600 dark:text-gray-300 mt-1 leading-snug">
+                          <?= $h($m['desc']) ?>
+                        </div>
+                      </a>
+                    <?php endforeach; ?>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+        <?php endif; ?>
+
+
       </div>
     </div>
   </main>
