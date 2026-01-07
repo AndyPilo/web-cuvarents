@@ -640,13 +640,13 @@
         // Provincias (en tu lista solo La Habana)
         $quickProvinces = [
           ['slug' => 'la-habana', 'label' => 'La Habana', 'desc' => 'Capital de Cuba: zonas y alojamientos por ubicación.'],
+          ['slug' => 'cienfuegos', 'label' => 'Cienfuegos', 'desc' => 'Ciudad elegante y bahía: arquitectura, malecón y tranquilidad.'],
         ];
 
         // Municipios
         $quickMunicipios = [
           ['slug' => 'varadero',        'label' => 'Varadero',         'desc' => 'Destino de playa muy buscado.'],
           ['slug' => 'trinidad',        'label' => 'Trinidad',         'desc' => 'Ciudad colonial y ambiente histórico.'],
-          ['slug' => 'cienfuegos', 'label' => 'Cienfuegos', 'desc' => 'Ciudad elegante y bahía: arquitectura, malecón y tranquilidad.'],
           ['slug' => 'vinales',         'label' => 'Viñales',          'desc' => 'Naturaleza y valle: descanso y excursiones.'],
         ];
 
